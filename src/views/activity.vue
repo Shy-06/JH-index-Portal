@@ -16,30 +16,30 @@ const application = () => {
 <template>
   <PageTop />
   <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的活动</JHLabel>
-  <JHCard title="ACM新生赛 (即将开启!)" type="large" :is-title="true">
+  <JHCard title="ACM新生赛" type="large" :is-title="true">
     <div class="base" :class="pageStore.pageType">
-      <!-- <img class="haibao" src="https://img.lonesome.cn/jhwl/home/photo/activity/ACM_Poster.webp" /> -->
+      <img class="haibao" src="/25img/acm/acmYingXin.webp" />
       <div class="detail-base" :class="pageStore.pageType">
         <div style="height: 50px"></div>
         <div class="btn">
-          <!-- <JHButton type="middle" v-on:click="application">立即报名</JHButton> -->
+          <JHButton type="middle" v-on:click="application">立即报名</JHButton>
         </div>
         <div class="introduce" :class="pageStore.pageType">
-          <!-- <JHLabel type="nano">活动介绍</JHLabel>
+          <JHLabel type="nano">活动介绍</JHLabel>
           <div class="content">
             无论你是熟稔各类算法与数据结构的编程大佬，还是从未接触过编程语言的萌新小白，在精弘ACM新生赛这个大舞台上，都能尽情地体验算法的魅力੭ ᐕ)੭*⁾⁾<br />
             除了比赛舞台之外，还有浙工大精弘网络B站号以及ACM校队学长学姐为萌新们精心准备的编程与算法基础课程，助力大家更快更好地入门~
           </div>
-          <JHLabel type="nano">竞赛群号</JHLabel> -->
-          <!-- <div class="content">965992603</div> -->
+          <JHLabel type="nano">竞赛群号</JHLabel>
+        <div class="content">1053493293</div>
         </div>
-        <!-- <div class="qr">
+        <div class="qr">
           <div class="qr-base" :class="pageStore.pageType">
             <div class="qr-code">
-              <img src="https://img.lonesome.cn/jhwl/home/photo/activity/ACM_Group_qrcode.webp"/>
+              <img src="/25img/acm/acmYingXinQun.webp"/>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </JHCard>
@@ -83,12 +83,9 @@ const application = () => {
 }
 
 .btn {
-  /* height: 450px; */
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  // width: 50%;
-  // min-width: 300px;
 }
 
 .introduce.normal {
@@ -126,24 +123,28 @@ const application = () => {
 
 .qr-base {
   display: grid;
-  grid-template-columns: 1fr;
-  width: auto;
-  margin-top: 20px;
+}
+
+.qr-base.mini {
+  img {
+    width: 120px;
+  }
+}
+
+.qr-base.middle {
+  img {
+    width: 180px;
+  }
 }
 
 .qr-base.normal {
-  grid-template-columns: 1fr 1fr;
-}
-
-.qr-base img {
-  width: 80px;
-  height: 80px;
+  img {
+    width: 200px;
+  }
 }
 
 .qr-code {
-  height: 100px;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  width: 100%;
   text-align: center;
   align-items: center;
   justify-content: center;
