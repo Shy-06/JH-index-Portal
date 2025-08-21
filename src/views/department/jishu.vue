@@ -13,13 +13,15 @@ onMounted(() => {
 const img1 = [
   "https://qiuniu.phlin.cn/bucket/20250714233532358.webp",
   "https://qiuniu.phlin.cn/bucket/20250714233532359.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233532360.webp"
-];
-const img2 = [
+  "https://qiuniu.phlin.cn/bucket/20250714233532360.webp",
+
   "https://qiuniu.phlin.cn/bucket/20250714233532361.webp",
   "https://qiuniu.phlin.cn/bucket/20250714233532362.webp",
   "https://qiuniu.phlin.cn/bucket/20250714233532363.webp"
-]
+];
+// const img2 = [
+
+// ]
 </script>
 <style scoped>
 img {
@@ -38,8 +40,9 @@ img {
   <div style="height: 100px"></div>
   <JHLabel type="big">技术研发中心</JHLabel>
   <JHCard type="large" title="产研部" :isTitle="true">
+        <CarouselPicturesBig :imgs="img1"></CarouselPicturesBig>
     <JHLabel type="big">产品</JHLabel>
-    <CarouselPicturesBig :imgs="img1"></CarouselPicturesBig>
+
     <JHLabel type="small">部门介绍</JHLabel>
     <div class="content">
       产研部的“产”是产品的意思，我们既不敲代码也不制作实体产品，而是在精弘网络这样一个微型的互联网产品组织中扮演产品经理的角色，我们调研用户需求，思考功能架构，设计页面交互，致力于做出能够满足用户需求，符合用户期待，带来更多方便的互联网产品。不论是从学习、生活方面服务了广大学生的微精弘小程序，还是你现在所在浏览的精弘首页，亦或是即将到来的精弘论坛，都是我们的产品。我们的目标是用产品改变世界！
@@ -49,7 +52,7 @@ img {
       产研部产品方向是包容万象的大家庭, 我们不限制专业, 不要求经验, 只需要你的热情、责任与一颗愿意学习的心,在这里,我们有部长团精心制作的课程, 为每一个对产品好奇的你提供学习的平台。如果你渴望参与一个互联网产品的设计，或是在校园里体验企业中产品经理这一职位,那产研部一定是你最好的选择！来到产品，你将收获到——欢快友爱的交流氛围，高效仔细的工作环境，志同道合的朋友伙伴,尽兴畅快的思维碰撞,或许还有命中注定的那个ta~心动不如行动,产品的大门向你敞开!
     </div>
     <JHLabel type="big" style="margin-top: 5%">技术</JHLabel>
-    <CarouselPicturesBig :imgs="img2"></CarouselPicturesBig>
+    <!-- <CarouselPicturesBig :imgs="img2"></CarouselPicturesBig> -->
     <JHLabel type="small">部门介绍</JHLabel>
     <div class="content">
       我们是微精弘及各精弘应用平台的开发者和维护者。作为承载精弘团队几代人技术传承的小程序，微精弘是全体工大学子触手可及的校园生活管家，在学习、生活等多个场景中扮演着重要的角色。
