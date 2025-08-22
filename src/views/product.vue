@@ -160,7 +160,7 @@ function toDepartment() {
         </div>
         <div>
           <img src="https://qiuniu.phlin.cn/bucket/20250714225620675.webp" />
-          <h3>浙工大微学工</h3>
+          <h3>精小弘在线</h3>
         </div>
       </div>
     </JHCard>
