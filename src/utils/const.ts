@@ -10,11 +10,11 @@ export const choices = [
   ["办公室", "活动部",
     "Touch产品部", "编辑工作室",
     "视觉影像部", "技术部",
-    "易班文化工作站", "小弘工作室",],
+    "小弘工作室",],
   ["办公室", "活动部",
     "Touch产品部", "小弘工作室",
     "编辑工作室", "视觉影像部",
-    "技术部", "易班文化工作站"],
+    "技术部"],
   ["秘书处", "小弘工作室", "编辑工作室", "视觉影像部", "技术部",],
 ]
 export const departments = [
@@ -27,7 +27,6 @@ export const departments = [
   '编辑工作室',
   '视觉影像部',
   '技术部',
-  '易班文化工作站',
 ]
 
 export const products = [
@@ -55,7 +54,7 @@ export const product_details = [
 ];
 
 //整的欢迎花活 点开首页F12控制台里查看
-export function welcome(){
+export function welcome() {
   console.log(`
               %ckkkkkkkkkkkkkkkkkkkkkkkk              
           dkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk          
@@ -78,7 +77,7 @@ bkbkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
       kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk      
         kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk        
            kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk           
-               kkkkkkkkkkkkkkkkkkkkkk       `,"color:red")
+               kkkkkkkkkkkkkkkkkkkkkk       `, "color:red")
 
-console.log("%c浙工大精弘网络欢迎您", "font-size: 20px; color: #fff; border-radius: 5px; padding: 10px 25px;background: linear-gradient(315deg, #cdb4db 0%, #ffafcc 50%, #a2d2ff 100%)");
+  console.log("%c浙工大精弘网络欢迎您", "font-size: 20px; color: #fff; border-radius: 5px; padding: 10px 25px;background: linear-gradient(315deg, #cdb4db 0%, #ffafcc 50%, #a2d2ff 100%)");
 }
