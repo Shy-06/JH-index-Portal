@@ -10,7 +10,7 @@ import PageTop from "../components/PageTop.vue";
 const pageStore = usePageStore();
 const router = useRouter();
 function toRecruit() {
-  window.open("https://qa.lonesome.cn/View?id=U2FsdGVkX19UEB+uRsNHAYqqAg8jDOpPsArMP9WR/sw=");
+  window.open("https://qa.phlin.cn/View?id=U2FsdGVkX18gIkyn6SaGQk4Eo3ZMSM/r6qI3ICpjTRo=");
   return false;
 }
 function toLong() {
@@ -29,6 +29,7 @@ function toLong() {
       <img class="haibao" src="/25img/haibao.jpg" />
       <div class="detail-base" :class="pageStore.pageType">
         <div class="introduce" :class="pageStore.pageType">
+          <JHButton type="middle" @click="toRecruit" style="position: relative;margin-bottom: 20px;">点我报名</JHButton>
           <JHLabel type="nano">线下摆摊</JHLabel>
           <div class="content">
             <div>朝晖: 2025年9月4日~9月5日</div>

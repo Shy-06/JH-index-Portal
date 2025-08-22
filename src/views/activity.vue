@@ -22,7 +22,7 @@ const application = () => {
       <div class="detail-base" :class="pageStore.pageType">
         <div style="height: 50px"></div>
         <div class="btn">
-          <JHButton type="middle" v-on:click="application">立即报名</JHButton>
+          <!-- <JHButton type="middle" v-on:click="application">立即报名</JHButton> -->
         </div>
         <div class="introduce" :class="pageStore.pageType">
           <JHLabel type="nano">活动介绍</JHLabel>
