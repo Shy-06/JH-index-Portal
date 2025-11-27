@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { usePageStore } from "~/stores/pages";
-import { indexStoryContent } from "~/constants/index";
+import { usePageStore } from '~/stores/pages';
+import { indexStoryContent } from '~/constants/index';
 
 const pageStore = usePageStore();
 const router = useRouter();
 
 function toStory() {
-  router.push("/story");
+  router.push('/story');
 }
 </script>
 
@@ -14,26 +14,23 @@ function toStory() {
 @use "~/assets/css/pages/index.scss";
 </style>
 <template>
-  <start />
-  <introduce />
-  <!-- 21届部长团没有拍客服视频 故取消 -->
-   <!-- <JHVideo /> -->
-  <history v-if="pageStore.pageType == 'normal'" />
-  <timeline
-    v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'"
-  />
+  <Start />
+  <Introduce />
+  <History v-if="pageStore.pageType === 'normal'" />
+  <Timeline v-if="pageStore.pageType === 'mini' || pageStore.pageType === 'middle'" />
   <JHCard
+    v-if="pageStore.pageType === 'mini' || pageStore.pageType === 'middle'"
     title="我们的故事"
     :is-title="true"
     type="large"
     class="story"
-    v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'"
   >
-    <img src="https://img.lonesome.cn/jhwl/home/photo/index/story.webp" />
+    <img src="https://img.lonesome.cn/jhwl/home/photo/index/story.webp" alt="Our Story" />
     <JHButton type="middle" @click="toStory">
       我们的故事
       <img
         src="https://img.lonesome.cn/jhwl/home/photo/svg/rightArrow.svg"
+        alt="Arrow"
         style="width: 20px; margin-left: 20px"
       />
     </JHButton>

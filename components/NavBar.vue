@@ -1,15 +1,14 @@
 <script lang="ts" setup>
-import { onMounted, ref, watch } from "vue";
-import { usePageStore } from "~/stores/pages";
-import { storeToRefs } from "pinia";
+import { storeToRefs } from 'pinia';
+import { usePageStore } from '~/stores/pages';
 
 const router = useRouter();
-const isAtTop = ref<boolean>(true);
+const isAtTop = ref(true);
 const pageStore = usePageStore();
-const btnOn = ref<boolean>(false);
-const listShow = ref<boolean>(false);
-const oldScrollPosition = ref<number>(0);
-const hide = ref<boolean>(false);
+const btnOn = ref(false);
+const listShow = ref(false);
+const oldScrollPosition = ref(0);
+const hide = ref(false);
 const { pageNow } = storeToRefs(pageStore);
 
 watch(pageNow, () => {
@@ -18,32 +17,32 @@ watch(pageNow, () => {
 
 function handleScroll() {
   const nowScrollPosition = window.pageYOffset;
-  if (nowScrollPosition < 300 && pageStore.pageNow === 0) {
-    isAtTop.value = true;
-  } else {
-    isAtTop.value = false;
-  }
+  isAtTop.value = nowScrollPosition < 300 && pageStore.pageNow === 0;
+  
   if (nowScrollPosition > oldScrollPosition.value) {
     hide.value = true;
-    oldScrollPosition.value = nowScrollPosition;
   } else {
     hide.value = false;
-    oldScrollPosition.value = nowScrollPosition;
   }
+  oldScrollPosition.value = nowScrollPosition;
 }
 
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener('scroll', handleScroll);
   oldScrollPosition.value = 0;
 });
 
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+
 const links = [
-  { name: "首页", link: "/" },
-  { name: "我们的故事", link: "/story" },
-  { name: "我们的产品", link: "/product" },
-  { name: "我们的部门", link: "/department" },
-  { name: "我们的活动", link: "/activity"},
-  { name: "加入我们", link: "/join" },
+  { name: '首页', link: '/' },
+  { name: '我们的故事', link: '/story' },
+  { name: '我们的产品', link: '/product' },
+  { name: '我们的部门', link: '/department' },
+  { name: '我们的活动', link: '/activity' },
+  { name: '加入我们', link: '/join' }
 ];
 
 function listBtnClicked() {
@@ -52,34 +51,51 @@ function listBtnClicked() {
 }
 
 function logoClicked() {
-  router.push("/");
+  router.push('/');
 }
 </script>
 <template>
-  <div :class="[
-    isAtTop && pageStore.pageNow == 0 && btnOn == false
-      ? 'atTop'
-      : 'notAtTop',
-    pageStore.pageType,
-    hide ? 'hide' : '',
-  ]" class="base" ref="base">
-    <img class="logo" :class="pageStore.pageType" src="https://img.lonesome.cn/jhwl/home/photo/top/logo.webp" @click="logoClicked" />
-    <div v-for="(l, index) in links" class="link" :class="index == pageStore.pageNow ? 'select' : 'notSelect'"
-      v-show="pageStore.pageType == 'normal'">
-      <div style="width: 100%;">
-        <router-link :to="l.link">{{ l.name }}</router-link>
-      </div>
+  <div 
+    :class="[
+      isAtTop && pageStore.pageNow === 0 && !btnOn ? 'atTop' : 'notAtTop',
+      pageStore.pageType,
+      hide ? 'hide' : ''
+    ]" 
+    class="base"
+  >
+    <img 
+      class="logo" 
+      :class="pageStore.pageType" 
+      src="https://img.lonesome.cn/jhwl/home/photo/top/logo.webp" 
+      alt="Logo"
+      @click="logoClicked" 
+    />
+    <div 
+      v-for="(l, index) in links" 
+      :key="l.link"
+      v-show="pageStore.pageType === 'normal'"
+      class="link" 
+      :class="index === pageStore.pageNow ? 'select' : 'notSelect'"
+    >
+      <router-link :to="l.link">{{ l.name }}</router-link>
     </div>
-    <div class="listButton" :class="btnOn ? 'btnOn' : 'btnOff'"
-      v-show="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'" @click="listBtnClicked"></div>
+    <div 
+      v-show="pageStore.pageType === 'mini' || pageStore.pageType === 'middle'"
+      class="listButton" 
+      :class="btnOn ? 'btnOn' : 'btnOff'"
+      @click="listBtnClicked"
+    />
 
-    <div class="list" :class="pageStore.pageType" v-show="listShow">
-      <div v-for="(l, index) in links" class="listItem" :class="index == pageStore.pageNow ? 'select' : 'notSelect'"
-        @click="listBtnClicked">
+    <div v-show="listShow" class="list" :class="pageStore.pageType">
+      <div 
+        v-for="(l, index) in links" 
+        :key="l.link"
+        class="listItem" 
+        :class="index === pageStore.pageNow ? 'select' : 'notSelect'"
+        @click="listBtnClicked"
+      >
         <router-link :to="l.link">
-          <div style="width: 100%;">
-            {{ l.name }}
-          </div>
+          {{ l.name }}
         </router-link>
       </div>
     </div>
@@ -88,8 +104,8 @@ function logoClicked() {
 
 <style scoped>
 @font-face {
-  font-family: "song";
-  src: url("https://img.lonesome.cn/jhwl/home/font/%E9%80%90%E6%B5%AA%E9%9B%85%E5%AE%8B%E4%BD%93.ttf");
+  font-family: 'song';
+  src: url('https://img.lonesome.cn/jhwl/home/font/%E9%80%90%E6%B5%AA%E9%9B%85%E5%AE%8B%E4%BD%93.ttf');
 }
 
 @keyframes showList {
@@ -104,7 +120,7 @@ function logoClicked() {
 }
 
 * {
-  font-family: "song";
+  font-family: 'song', sans-serif;
 }
 
 a {
@@ -152,7 +168,6 @@ a {
 .base.hide {
   top: -100px;
   transition: top linear 0.4s, background linear 0.2s;
-  /* transition: background linear 0.2s; */
 }
 
 .logo.normal {
@@ -200,15 +215,11 @@ a {
 }
 
 .listButton.btnOn {
-  background-image: url("https://img.lonesome.cn/jhwl/home/photo/svg/close.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url('https://img.lonesome.cn/jhwl/home/photo/svg/close.svg') no-repeat center;
 }
 
 .listButton.btnOff {
-  background-image: url("https://img.lonesome.cn/jhwl/home/photo/svg/list.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url('https://img.lonesome.cn/jhwl/home/photo/svg/list.svg') no-repeat center;
 }
 
 .list {

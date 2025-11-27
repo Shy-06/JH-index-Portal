@@ -1,12 +1,14 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
+
+export type PageType = 'normal' | 'middle' | 'mini';
 
 export const usePageStore = defineStore('page', {
   state: () => ({
     pageNow: 0,
     pageAdminNow: 0,
     oldScrollPosition: 0,
-    pageType: 'normal' as 'normal' | 'middle' | 'mini',
+    pageType: 'normal' as PageType,
     token: '',
-    admin: '',
-  }),
+    admin: ''
+  })
 });

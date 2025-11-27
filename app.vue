@@ -1,27 +1,34 @@
 <script setup lang="ts">
-import { usePageStore } from "~/stores/pages";
-import { welcome } from "~/utils/const";
+import { onMounted, onUnmounted } from 'vue';
+import { usePageStore } from '~/stores/pages';
+import { welcome } from '~/utils/const';
 
 const pageStore = usePageStore();
 
 function handleResize() {
   const width = document.documentElement.clientWidth;
+  const body = document.querySelector('body');
+  
   if (width >= 1024) {
-    pageStore.pageType = "normal";
-    document.querySelector("body")?.setAttribute("style", "min-width: 1440px");
+    pageStore.pageType = 'normal';
+    body?.setAttribute('style', 'min-width: 1440px');
   } else if (width >= 768) {
-    pageStore.pageType = "middle";
-    document.querySelector("body")?.setAttribute("style", "min-width: 420px");
+    pageStore.pageType = 'middle';
+    body?.setAttribute('style', 'min-width: 420px');
   } else {
-    pageStore.pageType = "mini";
-    document.querySelector("body")?.setAttribute("style", "min-width: 320px");
+    pageStore.pageType = 'mini';
+    body?.setAttribute('style', 'min-width: 320px');
   }
 }
 
 onMounted(() => {
   handleResize();
-  window.onresize = handleResize;
+  window.addEventListener('resize', handleResize);
   welcome();
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
 });
 </script>
 

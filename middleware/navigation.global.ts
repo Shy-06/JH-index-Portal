@@ -1,3 +1,13 @@
+const routeMap: Record<string, { pageNow: number; title: string }> = {
+  '/': { pageNow: 0, title: '精弘首页' },
+  '/story': { pageNow: 1, title: '我们的故事' },
+  '/product': { pageNow: 2, title: '我们的产品' },
+  '/department': { pageNow: 3, title: '我们的部门' },
+  '/activity': { pageNow: 4, title: '我们的活动' },
+  '/join': { pageNow: 5, title: '加入我们' },
+  '/admin': { pageNow: 6, title: '管理页面' }
+};
+
 export default defineNuxtRouteMiddleware((to) => {
   const pageStore = usePageStore();
   
@@ -10,28 +20,11 @@ export default defineNuxtRouteMiddleware((to) => {
   }
   
   const path = to.path;
-  const firstSegment = path.split('/')[1];
+  const firstSegment = `/${path.split('/')[1]}`;
   
-  if (path === '/' || path === '/index') {
-    pageStore.pageNow = 0;
-    useHead({ title: '精弘首页' });
-  } else if (path === '/story') {
-    pageStore.pageNow = 1;
-    useHead({ title: '我们的故事' });
-  } else if (path === '/product') {
-    pageStore.pageNow = 2;
-    useHead({ title: '我们的产品' });
-  } else if (firstSegment === 'join') {
-    pageStore.pageNow = 5;
-    useHead({ title: '加入我们' });
-  } else if (firstSegment === 'department') {
-    pageStore.pageNow = 3;
-    useHead({ title: '我们的部门' });
-  } else if (path === '/activity') {
-    pageStore.pageNow = 4;
-    useHead({ title: '我们的活动' });
-  } else if (path === '/admin') {
-    pageStore.pageNow = 6;
-    useHead({ title: '管理页面' });
+  const route = routeMap[path] || routeMap[firstSegment];
+  if (route) {
+    pageStore.pageNow = route.pageNow;
+    useHead({ title: route.title });
   }
 });
