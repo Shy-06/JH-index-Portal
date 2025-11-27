@@ -74,23 +74,28 @@
 
 .event-name {
   color: white;
-  font-size: 20px;
-  margin: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 15px 10px;
 }
 
 .time {
-  font-size: xx-large;
+  font-size: 24px;
+  font-weight: 600;
   justify-content: center;
   text-align: left;
-  padding-inline: 10px;
+  padding: 0 10px 10px;
   border-bottom: black solid 3px;
   width: fit-content;
+  margin-bottom: 20px;
 }
 
 .content {
   text-align: left;
-  font-size: x-large;
-  width: 40%;
+  font-size: 18px;
+  line-height: 1.8;
+  width: 50%;
+  color: #333;
 }
 
 .history-choice {

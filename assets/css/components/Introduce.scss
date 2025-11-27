@@ -31,7 +31,8 @@
     border-top-right-radius: 10px;
     font-size: xx-large;
     white-space: pre-line;
-    padding: 10px;
+    padding: 20px 30px;
+    font-weight: 500;
   }
 
   .content {
@@ -39,15 +40,19 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: 0 5px 10px #999;
-    font-size: x-large;
+    font-size: 20px;
+    line-height: 1.8;
     justify-content: start;
     text-align: left;
-    padding: 40px;
+    padding: 50px;
     height: fit-content;
     margin-bottom: 100px;
+    color: #333;
 
     &.mini {
-      font-size: small;
+      font-size: 16px;
+      padding: 30px 20px;
+      line-height: 1.6;
     }
   }
 }

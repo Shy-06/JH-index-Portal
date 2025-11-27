@@ -35,16 +35,20 @@
     flex-direction: row;
     text-align: start;
     font-size: 18px;
+    line-height: 1.8;
 
     .content {
       position: relative;
       left: 50px;
       margin-bottom: 20px;
+      color: #333;
+      line-height: 1.8;
 
       .row {
         display: grid;
         grid-template-columns: 110px 100px;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
+        line-height: 1.6;
       }
     }
   }
@@ -52,21 +56,24 @@
   &.middle,
   &.mini {
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 40px;
+    line-height: 1.6;
 
     .content {
       margin-bottom: 20px;
+      color: #333;
 
       .row {
         display: grid;
         grid-template-columns: 100px 100px;
-        margin: 0 10px 8px 30px;
+        margin: 0 10px 12px 30px;
+        line-height: 1.6;
       }
     }
 
     .small {
-      margin: auto;
+      width: 90%;
     }
   }
 }
