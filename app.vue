@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { usePageStore } from "~/stores/pages";
 import { welcome } from "~/utils/const";
-import NavBar from "~/components/NavBar.vue";
 
 const pageStore = usePageStore();
 
 function handleResize() {
-  let width = document.documentElement.clientWidth;
+  const width = document.documentElement.clientWidth;
   if (width >= 1024) {
     pageStore.pageType = "normal";
     document.querySelector("body")?.setAttribute("style", "min-width: 1440px");
@@ -21,10 +20,7 @@ function handleResize() {
 
 onMounted(() => {
   handleResize();
-  window.onresize = () => {
-    handleResize();
-  };
-  //字符画欢迎花活
+  window.onresize = handleResize;
   welcome();
 });
 </script>

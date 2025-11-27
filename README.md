@@ -12,13 +12,11 @@
 ## 前端代码
 
 - `src` 源代码目录
-    - `apis` 和后端的API， 封装了axios
     - `App.vue` 根组件
     - `assets` 静态文件目录
     - `components` 组件
     - `router` 路由管理
     - `stores` 状态管理
-    - `types` 类型管理
     - `utils` 工具/其他东西
     - `views` 页面
 - `dist` 构建目录

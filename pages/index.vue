@@ -1,21 +1,12 @@
 <script lang="ts" setup>
-import Start from "~/components/Start.vue";
-import Introduce from "~/components/Introduce.vue";
-import History from "~/components/History.vue";
-import Timeline from "~/components/Timeline.vue";
 import { usePageStore } from "~/stores/pages";
-import JHCard from "~/components/JHCard.vue";
-import JHButton from "~/components/JHButton.vue";
-import Footer from "~/components/Footer.vue";
-import Contact from "~/components/Contact.vue";
-import JHVideo from "~/components/Video.vue";
+
 const pageStore = usePageStore();
 const router = useRouter();
 
 function toStory() {
   router.push("/story");
 }
-var loaded = false;
 </script>
 <style scoped>
 .story img {

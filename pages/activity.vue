@@ -1,16 +1,12 @@
-<script lang="ts" setup xmlns="http://www.w3.org/1999/html">
-import JHLabel from "~/components/JHLabel.vue";
-import PageTop from "@/components/PageTop.vue";
-import JHCard from "@/components/JHCard.vue";
-import {usePageStore} from "@/stores/pages";
-import JHButton from "@/components/JHButton.vue";
-import Footer from "@/components/Footer.vue";
-import router from "@/router";
+<script lang="ts" setup>
+import { usePageStore } from "~/stores/pages";
+
 const pageStore = usePageStore();
+const router = useRouter();
 
 const application = () => {
-  window.open("https://qa.lonesome.cn/View?id=U2FsdGVkX18+lUY5ONeQ7YaHYXRFNChCdD0bL3hQfF0=")
-}
+  window.open("https://qa.lonesome.cn/View?id=U2FsdGVkX18+lUY5ONeQ7YaHYXRFNChCdD0bL3hQfF0=");
+};
 </script>
 
 <template>
