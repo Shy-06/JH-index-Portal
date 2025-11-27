@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { usePageStore } from "~/stores/pages";
+import { indexStoryContent } from "~/constants/index";
 
 const pageStore = usePageStore();
 const router = useRouter();
@@ -8,17 +9,9 @@ function toStory() {
   router.push("/story");
 }
 </script>
-<style scoped>
-.story img {
-  width: 60%;
-  height: 60%;
-  border-radius: 15px;
-}
 
-.story-content {
-  margin-top: 10px;
-  font-size: large;
-}
+<style scoped lang="scss">
+@use "~/assets/css/pages/index.scss";
 </style>
 <template>
   <start />
@@ -45,7 +38,7 @@ function toStory() {
       />
     </JHButton>
     <div class="story-content">
-      因梦想，我们齐聚一堂；因使命，我们同舟共济。
+      {{ indexStoryContent.text }}
     </div>
   </JHCard>
   <Contact />

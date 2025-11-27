@@ -1,20 +1,25 @@
 <script lang="ts" setup>
 import { usePageStore } from "~/stores/pages";
+import { acmCompetitionInfo } from "~/constants/activity";
 
 const pageStore = usePageStore();
 const router = useRouter();
 
 const application = () => {
-  window.open("https://qa.lonesome.cn/View?id=U2FsdGVkX18+lUY5ONeQ7YaHYXRFNChCdD0bL3hQfF0=");
+  window.open(acmCompetitionInfo.registrationUrl);
 };
 </script>
+
+<style scoped lang="scss">
+@use "~/assets/css/pages/activity.scss";
+</style>
 
 <template>
   <PageTop />
   <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的活动</JHLabel>
   <JHCard title="ACM新生赛" type="large" :is-title="true">
     <div class="base" :class="pageStore.pageType">
-      <img class="haibao" src="/25img/acm/acmYingXin.webp" />
+      <img class="haibao" :src="acmCompetitionInfo.posterImage" />
       <div class="detail-base" :class="pageStore.pageType">
         <div style="height: 50px"></div>
         <div class="btn">
@@ -23,16 +28,15 @@ const application = () => {
         <div class="introduce" :class="pageStore.pageType">
           <JHLabel type="nano">活动介绍</JHLabel>
           <div class="content">
-            无论你是熟稔各类算法与数据结构的编程大佬，还是从未接触过编程语言的萌新小白，在精弘ACM新生赛这个大舞台上，都能尽情地体验算法的魅力੭ ᐕ)੭*⁾⁾<br />
-            除了比赛舞台之外，还有浙工大精弘网络B站号以及ACM校队学长学姐为萌新们精心准备的编程与算法基础课程，助力大家更快更好地入门~
+            <pre style="white-space: pre-wrap; font-family: inherit;">{{ acmCompetitionInfo.introduction }}</pre>
           </div>
           <JHLabel type="nano">竞赛群号</JHLabel>
-        <div class="content">1053493293</div>
+        <div class="content">{{ acmCompetitionInfo.competitionGroup }}</div>
         </div>
         <div class="qr">
           <div class="qr-base" :class="pageStore.pageType">
             <div class="qr-code">
-              <img src="/25img/acm/acmYingXinQun.webp"/>
+              <img :src="acmCompetitionInfo.groupQrCode"/>
             </div>
           </div>
         </div>
@@ -49,100 +53,3 @@ const application = () => {
   </JHButton>
   <Footer />
 </template>
-
-<style scoped lang="scss">
-.base {
-  display: grid;
-}
-
-.base.normal {
-  grid-template-columns: 60% 40%;
-  grid-gap: 20px;
-}
-
-.base.middle {
-  height: 2000px;
-  grid-template-rows: 1100px 700px 100px;
-}
-
-.haibao {
-  max-height: 1000px;
-  max-width: 80%;
-  margin: auto;
-}
-
-.detail-base {
-  display: flex;
-  flex-direction: column;
-  column-gap: 5px;
-  max-width: 70%;
-}
-
-.btn {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
-
-.introduce.normal {
-  margin-top: 40px;
-  text-align: start;
-  font-size: 18px;
-
-  .content {
-    position: relative;
-    left: 50px;
-    margin-bottom: 20px;
-  }
-}
-
-.introduce.middle,
-.introduce.mini {
-  text-align: center;
-  font-size: 18px;
-  margin-top: 40px;
-
-  .content {
-    margin-bottom: 20px;
-  }
-}
-
-.introduce.middle .small,
-.introduce.mini .small {
-  margin: auto;
-}
-
-.detail-base.middle,
-.detail-base.mini {
-  margin: auto;
-}
-
-.qr-base {
-  display: grid;
-}
-
-.qr-base.mini {
-  img {
-    width: 120px;
-  }
-}
-
-.qr-base.middle {
-  img {
-    width: 180px;
-  }
-}
-
-.qr-base.normal {
-  img {
-    width: 200px;
-  }
-}
-
-.qr-code {
-  width: 100%;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-</style>

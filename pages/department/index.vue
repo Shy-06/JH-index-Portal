@@ -8,79 +8,9 @@ import PageTop from "~/components/PageTop.vue";
 const pageStore = usePageStore();
 const router = useRouter();
 </script>
+
 <style scoped lang="scss">
-.base {
-  display: grid;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  width: 80%;
-  margin: auto;
-  margin-top: 20px;
-  #img3 {
-    background-size: 65%;
-  }
-  #img4 {
-    background-size: 65%;
-  }
-  #img5 {
-    background-size: 90%;
-  }
-}
-.base.normal {
-  grid-template-rows: 1fr 1fr;
-  .line1 {
-    width: 80%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .line2 {
-    width: 80%;
-    margin: auto;
-    margin-top: 2%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.base.mini .item {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  align-items: center;
-}
-
-.base.mini .item .img {
-  width: 100px;
-  height: 100px;
-}
-.base .item .img {
-  width: 200px;
-  height: 200px;
-  margin: auto;
-  border-radius: 50%;
-  background-color: #fff;
-  background-size: 70%;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 5px 10px #999;
-}
-.base.middle,
-.base.mini {
-  .line1 {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-row-gap: 20px;
-  }
-  .line2 {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-row-gap: 20px;
-  }
-}
-
-.base.mini .button {
-  min-width: 80%;
-}
+@use "~/assets/css/pages/department-index.scss";
 </style>
 <template>
   <PageTop />
