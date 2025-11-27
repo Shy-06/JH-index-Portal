@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { CSSProperties, onMounted, onUnmounted, ref } from 'vue';
+import type { CSSProperties } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import JHCard from './JHCard.vue';
 const items = [
   {

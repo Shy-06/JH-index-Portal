@@ -102,10 +102,10 @@ function logoClicked() {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 @font-face {
   font-family: 'song';
-  src: url('#{$cubeBaseURL}font/ZoomlaYasong.ttf');
+  src: url('#{$cubeBaseURL}fonts/ZoomlaYasong.ttf');
 }
 
 @keyframes showList {
