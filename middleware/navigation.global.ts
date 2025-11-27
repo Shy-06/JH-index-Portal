@@ -5,7 +5,6 @@ const routeMap: Record<string, { pageNow: number; title: string }> = {
   '/department': { pageNow: 3, title: '我们的部门' },
   '/activity': { pageNow: 4, title: '我们的活动' },
   '/join': { pageNow: 5, title: '加入我们' },
-  '/admin': { pageNow: 6, title: '管理页面' }
 };
 
 export default defineNuxtRouteMiddleware((to) => {

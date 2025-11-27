@@ -63,10 +63,10 @@ function logoClicked() {
     ]" 
     class="base"
   >
-    <img 
+    <NuxtImg 
       class="logo" 
       :class="pageStore.pageType" 
-      src="https://img.lonesome.cn/jhwl/home/photo/top/logo.webp" 
+      :src="`${useRuntimeConfig().public.cubeBaseURL}common/logo.webp`" 
       alt="Logo"
       @click="logoClicked" 
     />

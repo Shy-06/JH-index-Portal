@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/image'],
 
   css: ['~/assets/css/main.scss'],
 
@@ -33,5 +33,15 @@ export default defineNuxtConfig({
         }
       }
     }
+  },
+
+  runtimeConfig: {
+    public: {
+      cubeBaseURL: 'https://cube.phlin.cn/api/file?bucket=homepage&object_key='
+    }
+  },
+
+  image: {
+    domains: ['cube.phlin.cn']
   }
-});
+} as any);
