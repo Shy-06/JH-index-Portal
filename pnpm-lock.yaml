@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      echarts:
-        specifier: ^5.4.2
-        version: https://registry.npmmirror.com/echarts/-/echarts-5.4.2.tgz
       pinia:
         specifier: ^3.0.3
         version: 3.0.3(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
@@ -20,9 +17,6 @@ importers:
       vue:
         specifier: ^3.5.0
         version: 3.5.22(typescript@5.9.3)
-      vue-echarts:
-        specifier: ^6.6.0
-        version: https://registry.npmmirror.com/vue-echarts/-/vue-echarts-6.6.0.tgz(echarts@https://registry.npmmirror.com/echarts/-/echarts-5.4.2.tgz)(vue@3.5.22(typescript@5.9.3))
     devDependencies:
       '@pinia/nuxt':
         specifier: ^0.11.2
@@ -1603,10 +1597,6 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  echarts@https://registry.npmmirror.com/echarts/-/echarts-5.4.2.tgz:
-    resolution: {integrity: sha512-2W3vw3oI2tWJdyAz+b8DuWS0nfXtSDqlDmqgin/lfzbkB01cuMEN66KWBlmur3YMp5nEDEEt5s23pllnAzB4EA==, tarball: https://registry.npmmirror.com/echarts/-/echarts-5.4.2.tgz}
-    version: 5.4.2
-
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
@@ -2588,10 +2578,6 @@ packages:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
 
-  resize-detector@https://registry.npmmirror.com/resize-detector/-/resize-detector-0.3.0.tgz:
-    resolution: {integrity: sha512-R/tCuvuOHQ8o2boRP6vgx8hXCCy87H1eY9V5imBYeVNyNVpuL9ciReSccLj2gDcax9+2weXy3bc8Vv+NRXeEvQ==, tarball: https://registry.npmmirror.com/resize-detector/-/resize-detector-0.3.0.tgz}
-    version: 0.3.0
-
   resolve-from@5.0.0:
     resolution: {integrity: sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==}
     engines: {node: '>=8'}
@@ -2864,10 +2850,6 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  tslib@https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz:
-    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==, tarball: https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz}
-    version: 2.3.0
-
   type-fest@5.1.0:
     resolution: {integrity: sha512-wQ531tuWvB6oK+pchHIu5lHe5f5wpSCqB8Kf4dWQRbOYc9HTge7JL0G4Qd44bh6QuJCccIzL3bugb8GI0MwHrg==}
     engines: {node: '>=20'}
@@ -3133,31 +3115,8 @@ packages:
   vue-bundle-renderer@2.2.0:
     resolution: {integrity: sha512-sz/0WEdYH1KfaOm0XaBmRZOWgYTEvUDt6yPYaUzl4E52qzgWLlknaPPTTZmp6benaPTlQAI/hN1x3tAzZygycg==}
 
-  vue-demi@https://registry.npmmirror.com/vue-demi/-/vue-demi-0.13.11.tgz:
-    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==, tarball: https://registry.npmmirror.com/vue-demi/-/vue-demi-0.13.11.tgz}
-    version: 0.13.11
-    engines: {node: '>=12'}
-    hasBin: true
-    peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      vue: ^3.0.0-0 || ^2.6.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-
   vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
-
-  vue-echarts@https://registry.npmmirror.com/vue-echarts/-/vue-echarts-6.6.0.tgz:
-    resolution: {integrity: sha512-PpXDe1wKKzOJTLM8RM4GJxpRi+9eiC0YUJR7i44/AAa0oDatvNctJcZlfq/bUV4KV+HDsCeQzaB6JocrXEy9LA==, tarball: https://registry.npmmirror.com/vue-echarts/-/vue-echarts-6.6.0.tgz}
-    version: 6.6.0
-    peerDependencies:
-      '@vue/composition-api': ^1.0.5
-      echarts: ^5.4.1
-      vue: ^2.6.12 || ^3.1.1
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
 
   vue-router@4.6.3:
     resolution: {integrity: sha512-ARBedLm9YlbvQomnmq91Os7ck6efydTSpRP3nuOKCvgJOHNrhRoJDSKtee8kcL1Vf7nz6U+PMBL+hTvR3bTVQg==}
@@ -3258,10 +3217,6 @@ packages:
   zip-stream@6.0.1:
     resolution: {integrity: sha512-zK7YHHz4ZXpW89AHXUPbQVGKI7uvkd3hzusTdotCg1UxyaVtg0zFJSTfW/Dq5f7OBBVnq6cZIaC8Ti4hb6dtCA==}
     engines: {node: '>= 14'}
-
-  zrender@https://registry.npmmirror.com/zrender/-/zrender-5.4.3.tgz:
-    resolution: {integrity: sha512-DRUM4ZLnoaT0PBVvGBDO9oWIDBKFdAVieNWxWwK0niYzJCMwGchRk21/hsE+RKkIveH3XHCyvXcJDkgLVvfizQ==, tarball: https://registry.npmmirror.com/zrender/-/zrender-5.4.3.tgz}
-    version: 5.4.3
 
 snapshots:
 
@@ -4907,11 +4862,6 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  echarts@https://registry.npmmirror.com/echarts/-/echarts-5.4.2.tgz:
-    dependencies:
-      tslib: https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz
-      zrender: https://registry.npmmirror.com/zrender/-/zrender-5.4.3.tgz
-
   ee-first@1.1.1: {}
 
   electron-to-chromium@1.5.240: {}
@@ -6088,8 +6038,6 @@ snapshots:
 
   require-directory@2.1.1: {}
 
-  resize-detector@https://registry.npmmirror.com/resize-detector/-/resize-detector-0.3.0.tgz: {}
-
   resolve-from@5.0.0: {}
 
   resolve@1.22.11:
@@ -6382,8 +6330,6 @@ snapshots:
   tslib@2.8.1:
     optional: true
 
-  tslib@https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz: {}
-
   type-fest@5.1.0:
     dependencies:
       tagged-tag: 1.0.0
@@ -6630,18 +6576,7 @@ snapshots:
     dependencies:
       ufo: 1.6.1
 
-  vue-demi@https://registry.npmmirror.com/vue-demi/-/vue-demi-0.13.11.tgz(vue@3.5.22(typescript@5.9.3)):
-    dependencies:
-      vue: 3.5.22(typescript@5.9.3)
-
   vue-devtools-stub@0.1.0: {}
-
-  vue-echarts@https://registry.npmmirror.com/vue-echarts/-/vue-echarts-6.6.0.tgz(echarts@https://registry.npmmirror.com/echarts/-/echarts-5.4.2.tgz)(vue@3.5.22(typescript@5.9.3)):
-    dependencies:
-      echarts: https://registry.npmmirror.com/echarts/-/echarts-5.4.2.tgz
-      resize-detector: https://registry.npmmirror.com/resize-detector/-/resize-detector-0.3.0.tgz
-      vue: 3.5.22(typescript@5.9.3)
-      vue-demi: https://registry.npmmirror.com/vue-demi/-/vue-demi-0.13.11.tgz(vue@3.5.22(typescript@5.9.3))
 
   vue-router@4.6.3(vue@3.5.22(typescript@5.9.3)):
     dependencies:
@@ -6739,7 +6674,3 @@ snapshots:
       archiver-utils: 5.0.2
       compress-commons: 6.0.2
       readable-stream: 4.7.0
-
-  zrender@https://registry.npmmirror.com/zrender/-/zrender-5.4.3.tgz:
-    dependencies:
-      tslib: https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz

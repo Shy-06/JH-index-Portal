@@ -6,7 +6,6 @@
 - **Vue.js 3** - 渐进式前端框架
 - **TypeScript** - 类型安全的 JavaScript 超集
 - **Pinia** - Vue 官方状态管理库
-- **Vue-Echarts** - 数据可视化组件
 - **Sass** - CSS 预处理器
 
 ## 项目结构
@@ -24,7 +23,7 @@
 ├── components/          # 组件目录
 ├── stores/              # Pinia 状态管理
 ├── assets/              # 静态资源（CSS、图片等）
-├── public/              # 公共资源（直接复制到根目录）
+├── public/              # 公共资源
 ├── middleware/          # 路由中间件
 └── utils/               # 工具函数
 ```
