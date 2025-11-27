@@ -104,6 +104,7 @@ onUnmounted(() => {
   width: 10rem;
   margin: auto;
 }
+
 .history-line-mask {
   position: absolute;
   width: 10rem;
@@ -116,11 +117,13 @@ onUnmounted(() => {
   border-radius: 0;
   z-index: 2;
 }
+
 .history-item {
   position: relative;
   width: 10rem;
   height: 5rem;
 }
+
 .history-item::before {
   content: "";
   position: absolute;
@@ -135,6 +138,7 @@ onUnmounted(() => {
   display: var(--line_seen);
   z-index: 1;
 }
+
 .history-img {
   position: relative;
   top: -2.2rem;
@@ -147,6 +151,7 @@ onUnmounted(() => {
   transition: opacity 2s;
   background-size: cover;
 }
+
 .history-img-hide {
   position: relative;
   top: -2.2rem;
@@ -159,24 +164,29 @@ onUnmounted(() => {
   transition: opacity 2s;
   background-size: cover;
 }
+
 .history-img1 {
   float: left;
   left: -2.2rem;
 }
+
 .history-img2 {
   float: right;
   right: -2.2rem;
 }
+
 .history-content {
   width: 200%;
   position: relative;
   top: 100%;
   left: -50%;
 }
+
 .history-content1 {
   font-size: xx-small;
   white-space: pre-line;
 }
+
 .history-content2 {
   font-size: xx-small;
   white-space: pre-line;
@@ -187,11 +197,9 @@ onUnmounted(() => {
     <div class="history" ref="history">
       <div class="history-line" ref="historyLine">
         <div class="history-item" v-for="item, index in items" :style="styleVal(index)">
-          <div
-            class="img"
+          <div class="img"
             :class="[index % 2 === 0 ? 'history-img1' : 'history-img2', top111 < 487 - (index - 2) * 80 - 60 ? 'history-img' : 'history-img-hide']"
-            :style="{ 'background-image': 'url(' + item.img + ')' }"
-          >
+            :style="{ 'background-image': 'url(' + item.img + ')' }">
             <div class="history-content">
               <div class="history-content1">{{ item.time }}</div>
               <div class="history-content2">{{ item.content }}</div>

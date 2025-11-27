@@ -2,13 +2,13 @@ import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-10-25',
-  
+
   devtools: { enabled: true },
-  
+
   modules: ['@pinia/nuxt'],
-  
-  css: ['~/assets/css/main.css'],
-  
+
+  css: ['~/assets/css/main.scss'],
+
   app: {
     head: {
       title: '精弘首页',
@@ -24,12 +24,12 @@ export default defineNuxtConfig({
       ]
     }
   },
-  
+
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: ''
+          additionalData: '$cubeBaseURL: "https://cube.phlin.cn/api/file?bucket=homepage&object_key=";'
         }
       }
     }

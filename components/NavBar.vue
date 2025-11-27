@@ -105,7 +105,7 @@ function logoClicked() {
 <style scoped>
 @font-face {
   font-family: 'song';
-  src: url('https://img.lonesome.cn/jhwl/home/font/%E9%80%90%E6%B5%AA%E9%9B%85%E5%AE%8B%E4%BD%93.ttf');
+  src: url('#{$cubeBaseURL}font/ZoomlaYasong.ttf');
 }
 
 @keyframes showList {

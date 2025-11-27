@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import JHLabel from './JHLabel.vue';
 const prop = defineProps<{
   title: string,
   type: string,
@@ -20,6 +19,7 @@ const prop = defineProps<{
   grid-template-columns: 20% 80%;
   align-items: center;
 }
+
 .label {
   /* background-color: #d20001; */
   height: 80px;
@@ -32,6 +32,7 @@ const prop = defineProps<{
   font-size: 1.5vw;
   padding-inline: 10px;
 }
+
 .number {
   color: red;
   font-size: xx-large;
@@ -44,6 +45,7 @@ const prop = defineProps<{
   display: grid;
   grid-template-columns: 20% 80%;
 }
+
 .label-m {
   background-color: #d20001;
   height: 30px;
@@ -56,6 +58,7 @@ const prop = defineProps<{
   font-size: 15px;
   padding-inline: 10px;
 }
+
 .number-m {
   color: red;
   font-size: x-large;
