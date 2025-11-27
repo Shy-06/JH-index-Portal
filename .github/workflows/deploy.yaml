@@ -15,11 +15,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -27,19 +27,20 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 9
+          version: 10
           run_install: false
-      - name: Install npm dependencies
+
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Set up back-end url
         env: 
           BACKEND_URL: ${{ secrets.BACKEND_URL }}
         run: |
-          sed -i "s|REPLACE_ME|$BACKEND_URL|g" src/utils/const.ts
+          sed -i "s|REPLACE_ME|$BACKEND_URL|g" utils/const.ts
 
-      - name: Build
-        run: pnpm run build
+      - name: Generate static site
+        run: pnpm run generate
 
       - name: Setup Deploy Private Key
         env:
@@ -57,6 +58,6 @@ jobs:
       - name: Deploy
         id: deployment
         run: |
-          rsync -avz -e "ssh -p 8022" --delete dist/ root@aliyunhk.cname.5435486.xyz:/var/www/myzjut.org/
+          rsync -avz -e "ssh -p 8022" --delete .output/public/ root@aliyunhk.cname.5435486.xyz:/var/www/myzjut.org/
 
           
