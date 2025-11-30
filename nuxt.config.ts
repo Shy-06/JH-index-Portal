@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '$cubeBaseURL: "https://cube.phlin.cn/api/file?bucket=homepage&object_key=";'
+          additionalData: '$cubeBaseURL: "https://img.phlin.cn/api/file?bucket=homepage&object_key=";'
         }
       }
     }
@@ -37,11 +37,11 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      cubeBaseURL: 'https://cube.phlin.cn/api/file?bucket=homepage&object_key='
+      cubeBaseURL: 'https://img.phlin.cn/api/file?bucket=homepage&object_key='
     }
   },
 
   image: {
-    domains: ['cube.phlin.cn']
+    domains: ['img.phlin.cn']
   }
 } as any);
