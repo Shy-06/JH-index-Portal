@@ -60,6 +60,7 @@ onMounted(() => {
 
 .carousel.normal {
   height: 1000px;
+
   .content {
     font-size: 18px;
   }
@@ -67,6 +68,7 @@ onMounted(() => {
 
 .carousel.middle {
   height: 800px;
+
   .content {
     font-size: 15px;
   }
@@ -74,6 +76,7 @@ onMounted(() => {
 
 .carousel.mini {
   height: 900px;
+
   .content {
     font-size: 12px;
   }
@@ -231,24 +234,12 @@ ul li {
 }
 </style>
 <template>
-  <div
-    class="carousel"
-    :class="type"
-    @touchstart="touchStart($event)"
-    @touchmove="touchMove($event)"
-    @touchend="touchEnd($event)"
-  >
+  <div class="carousel" :class="type" @touchstart="touchStart($event)" @touchmove="touchMove($event)"
+    @touchend="touchEnd($event)">
     <div class="whole">
       <ul type :class="type">
-        <li
-          class="card"
-          :class="[carouselClass[index], type]"
-          v-for="(item, index) in props.card"
-        >
-          <div
-            class="img"
-            v-bind:style="{ 'background-image': 'url(' + item.img + ')' }"
-          ></div>
+        <li class="card" :class="[carouselClass[index], type]" v-for="(item, index) in props.card">
+          <div class="img" v-bind:style="{ 'background-image': 'url(' + item.img + ')' }"></div>
           <div class="introduction">{{ item.introduction }}</div>
           <div class="content">
             <div>{{ item.content }}</div>

@@ -13,9 +13,7 @@ const eventNow = ref<number>(0);
 </style>
 
 <template>
-  <JHLabel type="title" v-if="pageStore.pageType == 'normal'"
-    >精弘大事记</JHLabel
-  >
+  <JHLabel type="title" v-if="pageStore.pageType == 'normal'">精弘大事记</JHLabel>
   <div class="base-pc" v-if="pageStore.pageType == 'normal'">
     <div class="history-left">
       <img :src="historyEvents[eventNow][2]" border="10" />
@@ -29,12 +27,7 @@ const eventNow = ref<number>(0);
   </div>
   <div class="history-choice">
     <div class="red-line"></div>
-    <div
-      class="item"
-      v-for="(item, index) in historyEvents"
-      :class="{ select: eventNow == index }"
-      v-bind:style="{ 'background-image': 'url(' + item[2] + ')' }"
-      @click="eventNow = index"
-    ></div>
+    <div class="item" v-for="(item, index) in historyEvents" :class="{ select: eventNow == index }"
+      v-bind:style="{ 'background-image': 'url(' + item[2] + ')' }" @click="eventNow = index"></div>
   </div>
 </template>
