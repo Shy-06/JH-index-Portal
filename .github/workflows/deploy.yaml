@@ -59,5 +59,3 @@ jobs:
         id: deployment
         run: |
           rsync -avz -e "ssh -p 8022" --delete .output/public/ root@aliyunhk.cname.5435486.xyz:/var/www/myzjut.org/
-
-          
