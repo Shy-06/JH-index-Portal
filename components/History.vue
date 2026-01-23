@@ -16,13 +16,13 @@ const eventNow = ref<number>(0);
   <JHLabel type="title" v-if="pageStore.pageType == 'normal'">精弘大事记</JHLabel>
   <div class="base-pc" v-if="pageStore.pageType == 'normal'">
     <div class="history-left">
-      <img :src="historyEvents[eventNow][2]" border="10" />
+      <NuxtImg :src="historyEvents[eventNow][2]" border="10" />
       <div class="event-name">{{ historyEvents[eventNow][3] }}</div>
     </div>
     <div class="history-right" :class="pageStore.pageType">
       <div class="time">{{ historyEvents[eventNow][0] }}</div>
       <div class="content">{{ historyEvents[eventNow][1] }}</div>
-      <img src="https://img.lonesome.cn/jhwl/home/photo/index/jingxiaohong.webp" border="2" />
+      <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/index/jingxiaohong.webp" border="2" />
     </div>
   </div>
   <div class="history-choice">

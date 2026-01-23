@@ -33,8 +33,6 @@
   - `recruitment.ts` 招新数据
 - `middleware/` 中间件
   - `navigation.global.ts` 全局导航中间件
-- `utils/` 工具函数
-  - `const.ts` 配置常量
 - `public/` 公共静态文件
 - `nuxt.config.ts` Nuxt 配置文件
 
@@ -107,6 +105,4 @@ server {
 
 ## 配置说明
 
-- 修改配置文件：`nuxt.config.ts`
-- 运行时配置：`utils/const.ts`
-- 图片资源配置在 `nuxt.config.ts` 中的 `runtimeConfig.public.cubeBaseURL`
+- 图片资源配置在 `nuxt.config.ts` 中的 `cubeBaseURL`

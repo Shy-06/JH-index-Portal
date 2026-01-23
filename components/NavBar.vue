@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
 import { usePageStore } from '~/stores/pages';
-import { useRuntimeConfig } from "#app";
 
 const router = useRouter();
 const isAtTop = ref(true);
@@ -61,7 +60,7 @@ function logoClicked() {
     pageStore.pageType,
     hide ? 'hide' : ''
   ]" class="base">
-    <NuxtImg class="logo" :class="pageStore.pageType" :src="`${useRuntimeConfig().public.cubeBaseURL}common/logo.webp`"
+    <NuxtImg class="logo" :class="pageStore.pageType" src="common/logo.webp"
       alt="Logo" @click="logoClicked" />
     <div v-for="(l, index) in links" :key="l.link" v-show="pageStore.pageType === 'normal'" class="link"
       :class="index === pageStore.pageNow ? 'select' : 'notSelect'">

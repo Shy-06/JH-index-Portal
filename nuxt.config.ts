@@ -1,5 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config';
 
+const cubeBaseURL = 'https://img.phlin.cn/api/file?bucket=homepage&object_key=';
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-10-25',
 
@@ -29,19 +31,23 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '$cubeBaseURL: "https://img.phlin.cn/api/file?bucket=homepage&object_key=";'
+          additionalData: `$cubeBaseURL: "${cubeBaseURL}";`
         }
       }
     }
   },
 
-  runtimeConfig: {
-    public: {
-      cubeBaseURL: 'https://img.phlin.cn/api/file?bucket=homepage&object_key='
-    }
-  },
-
   image: {
-    domains: ['img.phlin.cn']
+    domains: [new URL(cubeBaseURL).hostname],
+    provider: 'cubeImage',
+    providers: {
+      cubeImage: {
+        name: 'cubeImage',
+        provider: '~/providers/cubeImage.ts',
+        options: {
+          baseURL: cubeBaseURL
+        }
+      }
+    }
   }
 } as any);

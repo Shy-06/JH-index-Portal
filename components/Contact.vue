@@ -9,21 +9,21 @@
         <div style="color: #db3625; font-size: 24px;">Loading...</div>
       </div>
     </JHCard>
-    <img
+    <NuxtImg
       class="jh"
       :class="pageStore.pageType"
-      :src="`${useRuntimeConfig().public.cubeBaseURL}common/logo_red.webp`"
+      src="common/logo_red.webp"
       border="5"
     />
     <JHCard type="small" :is-title="false" title="no">
       <div class="contact-us" :class="pageStore.pageType">
-        <img
-            :src="`${useRuntimeConfig().public.cubeBaseURL}ui/svg/wechat.svg`"
+        <NuxtImg
+            src="ui/svg/wechat.svg"
             @mouseover="onMouseOver"
         />
-        <img
+        <NuxtImg
             v-if="isHovering"
-            :src="`${useRuntimeConfig().public.cubeBaseURL}common/wechat_jxhzx_qr.webp`"
+            src="common/wechat_jxhzx_qr.webp"
             class="qrcode"
             @mouseout="onMouseOut"
             style="width: auto; height: 20%;z-index:1; position: absolute;"
@@ -32,8 +32,8 @@
           <h1>联系我们 | 关注我们</h1>
             <h4><a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a></h4>
         </div>
-        <img
-          :src="`${useRuntimeConfig().public.cubeBaseURL}ui/svg/LogoGitHub.svg`"
+        <NuxtImg
+          src="ui/svg/LogoGitHub.svg"
           style="cursor: pointer"
           @click="toGithub"
         />
@@ -195,7 +195,6 @@
 <script setup lang="ts">
 import { usePageStore } from "~/stores/pages";
 import { onMounted, ref } from "vue";
-import { useRuntimeConfig } from "#app";
 import JHCard from "./JHCard.vue";
 import JHButton from "./JHButton.vue";
 const pageStore = usePageStore();

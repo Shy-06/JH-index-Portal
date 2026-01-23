@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue';
 import { usePageStore } from '~/stores/pages';
-import { welcome } from '~/utils/const';
 
 const pageStore = usePageStore();
 
@@ -24,7 +23,6 @@ function handleResize() {
 onMounted(() => {
   handleResize();
   window.addEventListener('resize', handleResize);
-  welcome();
 });
 
 onUnmounted(() => {

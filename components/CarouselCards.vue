@@ -22,11 +22,15 @@ function before() {
   carouselClass.unshift(last);
 }
 function touchStart(e: TouchEvent) {
-  touchStartPosition = e.touches[0].clientX;
-  touchEndPosition = e.touches[0].clientX;
+  if (e.touches[0]) {
+    touchStartPosition = e.touches[0].clientX;
+    touchEndPosition = e.touches[0].clientX;
+  }
 }
 function touchMove(e: TouchEvent) {
-  touchEndPosition = e.touches[0].clientX;
+  if (e.touches[0]) {
+    touchEndPosition = e.touches[0].clientX;
+  }
 }
 function touchEnd(e: TouchEvent) {
   if (

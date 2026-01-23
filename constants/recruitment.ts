@@ -29,11 +29,11 @@ export const recruitmentInfo = {
   qrCodes: [
     {
       name: "精弘网络",
-      image: `${useRuntimeConfig().public.cubeBaseURL}common/wechat_jhwl_qr.webp`
+      image: "common/wechat_jhwl_qr.webp"
     },
     {
       name: "精小弘在线",
-      image: `${useRuntimeConfig().public.cubeBaseURL}common/wechat_jxhzx_qr.webp`
+      image: "common/wechat_jxhzx_qr.webp"
     }
   ]
 };

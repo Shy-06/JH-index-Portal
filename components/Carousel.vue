@@ -13,7 +13,7 @@ const position = reactive(["center", "left", "right"]);
       class="card"
       :class="position[index]"
     >
-      <img :src="img" />
+      <NuxtImg :src="img" />
     </div>
   </div>
 </template>

@@ -104,34 +104,34 @@ export const departmentContent = {
 };
 
 export const technologyImages = [
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology0.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology1.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology2.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology3.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology4.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology5.webp`
+  "groupPhoto/technology0.webp",
+  "groupPhoto/technology1.webp",
+  "groupPhoto/technology2.webp",
+  "groupPhoto/technology3.webp",
+  "groupPhoto/technology4.webp",
+  "groupPhoto/technology5.webp"
 ];
 
 export const affairsImages = [
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/affairs0.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/affairs1.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/affairs2.webp`
+  "groupPhoto/affairs0.webp",
+  "groupPhoto/affairs1.webp",
+  "groupPhoto/affairs2.webp"
 ];
 
 export const designImages = [
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/design0.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/design1.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/design2.webp`
+  "groupPhoto/design0.webp",
+  "groupPhoto/design1.webp",
+  "groupPhoto/design2.webp"
 ];
 
 export const visualImages = [
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/visual0.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/visual1.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/visual2.webp`
+  "groupPhoto/visual0.webp",
+  "groupPhoto/visual1.webp",
+  "groupPhoto/visual2.webp"
 ];
 
 export const editorialImages = [
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/editorial0.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/editorial1.webp`,
-  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/editorial2.webp`
+  "groupPhoto/editorial0.webp",
+  "groupPhoto/editorial1.webp",
+  "groupPhoto/editorial2.webp"
 ];

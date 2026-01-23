@@ -2,7 +2,7 @@
 export const introduceContent = {
   title: {
     normal: "精弘网络⼁Jinghong Union",
-    mini: "精弘网络 \nJinghong Union"
+    mini: "精弘网络\nJinghong Union"
   },
   description: [
     "成立于2002年5月，",
@@ -29,13 +29,13 @@ export const historyEvents = [
   ],
   [
     "2004年10月",
-    "Feel电台创立\n radio.zjut.com",
+    "Feel电台创立\nradio.zjut.com",
     "https://img.lonesome.cn/jhwl/home/photo/index/story3.webp",
     "Feel电台",
   ],
   [
     "2005年5月",
-    "推出第一版学生邮箱\n mail.zjut.com",
+    "推出第一版学生邮箱\nmail.zjut.com",
     "https://img.lonesome.cn/jhwl/home/photo/index/story4.webp",
     "学生邮箱",
   ],
@@ -63,4 +63,3 @@ export const historyEvents = [
   ["2022年8月", "微精弘2.0发布", "https://img.lonesome.cn/jhwl/home/photo/index/story9.webp", "微精弘"],
   ["2023年4月", "成为校级组织数字化转型解决方案的提供者", "https://img.lonesome.cn/jhwl/home/photo/index/story10.webp", "技术定位转变"]
 ];
-
