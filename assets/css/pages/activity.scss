@@ -1,0 +1,101 @@
+.base {
+  display: grid;
+
+  &.normal {
+    grid-template-columns: 60% 40%;
+    grid-gap: 20px;
+  }
+
+  &.middle {
+    height: 2000px;
+    grid-template-rows: 1100px 700px 100px;
+  }
+}
+
+.haibao {
+  max-height: 1000px;
+  max-width: 80%;
+  margin: auto;
+}
+
+.detail-base {
+  display: flex;
+  flex-direction: column;
+  column-gap: 5px;
+  max-width: 70%;
+
+  &.middle,
+  &.mini {
+    margin: auto;
+  }
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.introduce {
+  &.normal {
+    margin-top: 40px;
+    text-align: start;
+    font-size: 18px;
+    line-height: 1.8;
+
+    .content {
+      position: relative;
+      left: 50px;
+      margin-bottom: 20px;
+      color: #333;
+      line-height: 1.8;
+      
+      pre {
+        font-family: inherit;
+        line-height: 1.8;
+      }
+    }
+  }
+
+  &.middle,
+  &.mini {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 40px;
+    line-height: 1.6;
+
+    .content {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .small {
+      margin: auto;
+    }
+  }
+}
+
+.qr {
+  .qr-base {
+    display: grid;
+
+    &.mini img {
+      width: 120px;
+    }
+
+    &.middle img {
+      width: 180px;
+    }
+
+    &.normal img {
+      width: 200px;
+    }
+  }
+
+  .qr-code {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}

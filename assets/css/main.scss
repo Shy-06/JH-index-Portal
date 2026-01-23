@@ -1,0 +1,19 @@
+body,
+html {
+  margin: 0;
+  background-color: #efefef;
+}
+
+@font-face {
+  font-family: "SC-VF";
+  src: url("#{$cubeBaseURL}fonts/SourceHanSansSC-VF.otf");
+}
+
+#__nuxt {
+  width: 100%;
+  font-family: "SC-VF";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
