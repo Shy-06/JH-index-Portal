@@ -17,7 +17,7 @@ export const productsContent = {
   
   wejh: {
     title: "微精弘",
-    description: "微精弘是专属于zjuter的微信小程序,集课表、成绩查询、考试安排、空教室查询、一卡通、借阅等功能于一身，是工大学子必不可少的一体化校园移动门户。",
+    description: "微精弘是专属于zjuter的微信小程序,集课表、成绩查询、考试安排、空教室查询、一卡通、借阅、校车查询等功能于一身，是工大学子必不可少的一体化校园移动门户。",
     icon: "https://img.lonesome.cn/jhwl/home/photo/product/1.webp"
   },
   
