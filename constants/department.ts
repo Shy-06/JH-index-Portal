@@ -1,4 +1,5 @@
 // 部门介绍内容 - 每年可能需要更新
+// 2026 尚未更新
 export const departmentContent = {
   product: {
     title: "产品",
@@ -103,34 +104,34 @@ export const departmentContent = {
 };
 
 export const technologyImages = [
-  "https://qiuniu.phlin.cn/bucket/20250714233532358.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233532359.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233532360.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233532361.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233532362.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233532363.webp"
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology0.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology1.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology2.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology3.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology4.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/technology5.webp`
 ];
 
 export const affairsImages = [
-  "https://qiuniu.phlin.cn/bucket/20250714233516860.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233516861.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233516862.webp"
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/affairs0.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/affairs1.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/affairs2.webp`
 ];
 
 export const designImages = [
-  "https://qiuniu.phlin.cn/bucket/20250714233605144.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233605145.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233605146.webp"
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/design0.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/design1.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/design2.webp`
 ];
 
 export const visualImages = [
-  "https://qiuniu.phlin.cn/bucket/20250714233550410.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233550409.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233550411.webp"
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/visual0.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/visual1.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/visual2.webp`
 ];
 
 export const editorialImages = [
-  "https://qiuniu.phlin.cn/bucket/20250714233458305.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233458304.webp",
-  "https://qiuniu.phlin.cn/bucket/20250714233458306.webp"
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/editorial0.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/editorial1.webp`,
+  `${useRuntimeConfig().public.cubeBaseURL}groupPhoto/editorial2.webp`
 ];

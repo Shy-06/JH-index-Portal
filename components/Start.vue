@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
 import { usePageStore } from "~/stores/pages";
+import { useRuntimeConfig } from "#app";
 const pageStore = usePageStore();
 const loaded = ref<boolean>(false);
 onMounted(() => {
@@ -8,12 +9,9 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div
-    class="start"
-    :class="[pageStore.pageType, loaded ? 'loaded' : 'unloaded']"
-  >
+  <div class="start" :class="[pageStore.pageType, loaded ? 'loaded' : 'unloaded']">
     <div class="title1" :class="pageStore.pageType">精弘网络,取精用弘</div>
-    <img class="downArrow" src="https://img.lonesome.cn/jhwl/home/photo/svg/downArrow.svg" />
+    <img class="downArrow" :src="`${useRuntimeConfig().public.cubeBaseURL}ui/svg/downArrow.svg`" />
   </div>
 </template>
 
@@ -22,6 +20,7 @@ onMounted(() => {
   font-family: "song";
   src: url("#{$cubeBaseURL}fonts/ZoomlaYasong.ttf");
 }
+
 .start {
   background-position: 0 0;
   max-width: 100%;
@@ -30,21 +29,24 @@ onMounted(() => {
   justify-content: center;
   align-items: center;
 }
+
 .start.normal {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(https://qiuniu.phlin.cn/bucket/20250714225558291.webp) no-repeat center;
+  url("#{$cubeBaseURL}groupPhoto/2024.webp") no-repeat center;
   background-size: cover;
   height: 100vh;
 }
+
 .start.middle {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(https://img.lonesome.cn/jhwl/home/photo/index/startPc.webp) no-repeat center;
+  url("#{$cubeBaseURL}common/startPc.webp") no-repeat center;
   background-size: cover;
   height: 100vh;
 }
+
 .start.mini {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(https://img.lonesome.cn/jhwl/home/photo/index/startMobile.webp) no-repeat center;
+  url("#{$cubeBaseURL}common/startMobile.webp") no-repeat center;
   background-size: cover;
   height: 100vh;
 }
@@ -55,6 +57,7 @@ onMounted(() => {
   margin: auto;
   display: block;
 }
+
 .title1.normal {
   font-size: 6vw;
   letter-spacing: 1vw;
@@ -66,10 +69,12 @@ onMounted(() => {
   letter-spacing: 1vw;
   padding: 10px;
 }
+
 .title1.mini {
   font-size: x-large;
   letter-spacing: 10px;
 }
+
 .downArrow {
   /* margin: auto; */
   position: absolute;

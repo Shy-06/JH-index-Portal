@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
 import { usePageStore } from '~/stores/pages';
+import { useRuntimeConfig } from "#app";
 
 const router = useRouter();
 const isAtTop = ref(true);
@@ -18,7 +19,7 @@ watch(pageNow, () => {
 function handleScroll() {
   const nowScrollPosition = window.pageYOffset;
   isAtTop.value = nowScrollPosition < 300 && pageStore.pageNow === 0;
-  
+
   if (nowScrollPosition > oldScrollPosition.value) {
     hide.value = true;
   } else {
@@ -55,45 +56,23 @@ function logoClicked() {
 }
 </script>
 <template>
-  <div 
-    :class="[
-      isAtTop && pageStore.pageNow === 0 && !btnOn ? 'atTop' : 'notAtTop',
-      pageStore.pageType,
-      hide ? 'hide' : ''
-    ]" 
-    class="base"
-  >
-    <NuxtImg 
-      class="logo" 
-      :class="pageStore.pageType" 
-      :src="`${useRuntimeConfig().public.cubeBaseURL}common/logo.webp`" 
-      alt="Logo"
-      @click="logoClicked" 
-    />
-    <div 
-      v-for="(l, index) in links" 
-      :key="l.link"
-      v-show="pageStore.pageType === 'normal'"
-      class="link" 
-      :class="index === pageStore.pageNow ? 'select' : 'notSelect'"
-    >
+  <div :class="[
+    isAtTop && pageStore.pageNow === 0 && !btnOn ? 'atTop' : 'notAtTop',
+    pageStore.pageType,
+    hide ? 'hide' : ''
+  ]" class="base">
+    <NuxtImg class="logo" :class="pageStore.pageType" :src="`${useRuntimeConfig().public.cubeBaseURL}common/logo.webp`"
+      alt="Logo" @click="logoClicked" />
+    <div v-for="(l, index) in links" :key="l.link" v-show="pageStore.pageType === 'normal'" class="link"
+      :class="index === pageStore.pageNow ? 'select' : 'notSelect'">
       <router-link :to="l.link">{{ l.name }}</router-link>
     </div>
-    <div 
-      v-show="pageStore.pageType === 'mini' || pageStore.pageType === 'middle'"
-      class="listButton" 
-      :class="btnOn ? 'btnOn' : 'btnOff'"
-      @click="listBtnClicked"
-    />
+    <div v-show="pageStore.pageType === 'mini' || pageStore.pageType === 'middle'" class="listButton"
+      :class="btnOn ? 'btnOn' : 'btnOff'" @click="listBtnClicked" />
 
     <div v-show="listShow" class="list" :class="pageStore.pageType">
-      <div 
-        v-for="(l, index) in links" 
-        :key="l.link"
-        class="listItem" 
-        :class="index === pageStore.pageNow ? 'select' : 'notSelect'"
-        @click="listBtnClicked"
-      >
+      <div v-for="(l, index) in links" :key="l.link" class="listItem"
+        :class="index === pageStore.pageNow ? 'select' : 'notSelect'" @click="listBtnClicked">
         <router-link :to="l.link">
           {{ l.name }}
         </router-link>

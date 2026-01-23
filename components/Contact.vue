@@ -2,38 +2,38 @@
   <div class="contact-base" :class="pageStore.pageType">
     <JHCard type="small" :is-title="false" title="no">
       <div class="loading" :class="pageStore.pageType">
-        <img src="https://qiuniu.phlin.cn/bucket/20250720215651909.svg" />
+        <div style="color: #db3625; font-size: 30px; font-weight: bold;">2026</div>
         <div class="loading-bar-border">
           <div class="loading-bar" :style="{ left: loadingWidth + '%' }"></div>
         </div>
-        <img src="https://img.lonesome.cn/jhwl/home/photo/index/loading.webp" />
+        <div style="color: #db3625; font-size: 24px;">Loading...</div>
       </div>
     </JHCard>
     <img
       class="jh"
       :class="pageStore.pageType"
-      src="https://img.lonesome.cn/jhwl/home/photo/index/story1.webp"
+      :src="`${useRuntimeConfig().public.cubeBaseURL}common/logo_red.webp`"
       border="5"
     />
     <JHCard type="small" :is-title="false" title="no">
       <div class="contact-us" :class="pageStore.pageType">
         <img
-            src="https://img.lonesome.cn/jhwl/home/photo/svg/wechat.svg"
+            :src="`${useRuntimeConfig().public.cubeBaseURL}ui/svg/wechat.svg`"
             @mouseover="onMouseOver"
         />
         <img
             v-if="isHovering"
-            src="https://qiuniu.phlin.cn/bucket/20250714225620675.webp"
+            :src="`${useRuntimeConfig().public.cubeBaseURL}common/wechat_jxhzx_qr.webp`"
             class="qrcode"
             @mouseout="onMouseOut"
             style="width: auto; height: 20%;z-index:1; position: absolute;"
         />
         <div style="width: 99%">
           <h1>联系我们 | 关注我们</h1>
-          <h4>jhwl@zjut.edu.cn</h4>
+            <h4><a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a></h4>
         </div>
         <img
-          src="https://img.lonesome.cn/jhwl/home/photo/svg/LogoGitHub.svg"
+          :src="`${useRuntimeConfig().public.cubeBaseURL}ui/svg/LogoGitHub.svg`"
           style="cursor: pointer"
           @click="toGithub"
         />
@@ -195,6 +195,7 @@
 <script setup lang="ts">
 import { usePageStore } from "~/stores/pages";
 import { onMounted, ref } from "vue";
+import { useRuntimeConfig } from "#app";
 import JHCard from "./JHCard.vue";
 import JHButton from "./JHButton.vue";
 const pageStore = usePageStore();

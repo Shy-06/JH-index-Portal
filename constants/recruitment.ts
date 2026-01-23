@@ -1,4 +1,5 @@
 // 招新信息 - 每年需要更新
+// 2026 尚未更改
 export const recruitmentInfo = {
   year: 2025,
   registrationUrl: "https://qa.phlin.cn/View?id=U2FsdGVkX18gIkyn6SaGQk4Eo3ZMSM/r6qI3ICpjTRo=",
@@ -28,11 +29,11 @@ export const recruitmentInfo = {
   qrCodes: [
     {
       name: "精弘网络",
-      image: "https://img.lonesome.cn/jhwl/home/photo/product/11.webp"
+      image: `${useRuntimeConfig().public.cubeBaseURL}common/wechat_jhwl_qr.webp`
     },
     {
       name: "精小弘在线",
-      image: "https://qiuniu.phlin.cn/bucket/20250714225620675.webp"
+      image: `${useRuntimeConfig().public.cubeBaseURL}common/wechat_jxhzx_qr.webp`
     }
   ]
 };
