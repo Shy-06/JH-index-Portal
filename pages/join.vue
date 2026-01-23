@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Footer from "~/components/Footer.vue";
 import JHCard from "~/components/JHCard.vue";
-import { ENV } from "~/utils/const";
 import { usePageStore } from "~/stores/pages";
 import JHButton from "~/components/JHButton.vue";
 import JHLabel from "~/components/JHLabel.vue";

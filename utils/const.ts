@@ -1,5 +1,3 @@
-export const ENV = 'dev';
-
 export const products = [
   {
     wh: ['1/2', '1/2'],
