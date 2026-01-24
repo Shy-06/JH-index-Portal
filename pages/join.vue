@@ -8,14 +8,9 @@ import PageTop from "~/components/PageTop.vue";
 import { recruitmentInfo, posterImage } from "~/constants/recruitment";
 
 const pageStore = usePageStore();
-const router = useRouter();
 
 function toRecruit() {
   window.open(recruitmentInfo.registrationUrl);
-  return false;
-}
-
-function toLong() {
   return false;
 }
 </script>
