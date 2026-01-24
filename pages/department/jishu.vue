@@ -17,7 +17,7 @@ onMounted(() => {
   <div style="height: 100px"></div>
   <JHLabel type="big">技术研发中心</JHLabel>
   <JHCard type="large" title="产研部" :isTitle="true">
-    <CarouselPicturesBig :imgs="technologyImages"></CarouselPicturesBig>
+    <CarouselPictures :imgs="technologyImages"></CarouselPictures>
     <JHLabel type="big">产品</JHLabel>
 
     <JHLabel type="small">部门介绍</JHLabel>

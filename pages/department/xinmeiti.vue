@@ -16,7 +16,7 @@ onMounted(() => {
   <div style="height: 100px"></div>
   <JHLabel type="big">新媒体中心</JHLabel>
   <JHCard type="large" :title="departmentContent.visual.title" :isTitle="true">
-    <CarouselPicturesBig :imgs="visualImages" />
+    <CarouselPictures :imgs="visualImages" />
     <JHLabel type="small">部门介绍</JHLabel>
     <div class="content" v-for="(para, index) in departmentContent.visual.introduction" :key="index">
       {{ para }}
@@ -29,7 +29,7 @@ onMounted(() => {
   </JHCard>
   
   <JHCard type="large" :title="departmentContent.editorial.title" :isTitle="true">
-    <CarouselPicturesBig :imgs="editorialImages" />
+    <CarouselPictures :imgs="editorialImages" />
     <JHLabel type="small">部门介绍</JHLabel>
     <div class="content" v-for="(para, index) in departmentContent.editorial.introduction" :key="index">
       {{ para }}

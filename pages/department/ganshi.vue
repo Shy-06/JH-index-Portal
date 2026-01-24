@@ -16,7 +16,7 @@ onMounted(() => {
   <div style="height: 100px"></div>
   <JHLabel type="big">干事培训中心</JHLabel>
   <JHCard type="large" :title="departmentContent.affairs.title" :isTitle="true">
-    <CarouselPicturesBig :imgs="affairsImages"></CarouselPicturesBig>
+    <CarouselPictures :imgs="affairsImages"></CarouselPictures>
     <JHLabel type="small">部门介绍</JHLabel>
     <div class="content" v-for="(para, index) in departmentContent.affairs.introduction" :key="index">
       {{ para }}
