@@ -126,7 +126,7 @@ onUnmounted(() => {
   <JHCard title="精弘成长史" type="large" :is-title="true">
     <div class="history" ref="history">
       <div class="history-line" ref="historyLine">
-        <div class="history-item" v-for="item, index in historyEvents" :style="styleVal(index)">
+        <div class="history-item" v-for="(item, index) in historyEvents" :style="styleVal(index)">
           <div class="img"
             :class="[index % 2 === 0 ? 'history-img1' : 'history-img2', top111 < 487 - (index - 2) * 80 - 60 ? 'history-img' : 'history-img-hide']"
             :style="{ 'background-image': 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')' }">
