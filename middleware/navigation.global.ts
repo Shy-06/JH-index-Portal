@@ -1,5 +1,3 @@
-import { usePageStore } from '~/stores/pages';
-
 const routeMap: Record<string, { pageNow: number; title: string }> = {
   '/': { pageNow: 0, title: '精弘首页' },
   '/story': { pageNow: 1, title: '我们的故事' },

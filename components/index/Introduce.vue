@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { usePageStore } from "~/stores/pages";
 import { introduceContent } from "~/constants/index";
 
 const pageStore = usePageStore();

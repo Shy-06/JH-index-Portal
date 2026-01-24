@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { usePageStore } from "~/stores/pages";
 import { ref, computed } from "vue";
 import { historyEvents } from "~/constants/index";
 

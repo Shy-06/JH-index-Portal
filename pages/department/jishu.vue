@@ -38,10 +38,7 @@ onMounted(() => {
       {{ para }}
     </div>
   </JHCard>
-  <NuxtImg
-    src="ui/fork.webp"
-    style="width: 80px; height: 80px; margin-top: 50px; cursor: pointer"
-    @click="router.push('/department')"
-  />
+  <NuxtImg src="ui/fork.webp" style="width: 80px; height: 80px; margin-top: 50px; cursor: pointer"
+    @click="router.push('/department')" />
   <Footer />
 </template>

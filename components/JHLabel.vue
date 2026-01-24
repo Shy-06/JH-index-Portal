@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { usePageStore } from "~/stores/pages";
-
 const prop = defineProps<{
   type: string;
 }>();

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { usePageStore } from "~/stores/pages";
 import { recruitmentInfo, posterImage } from "~/constants/recruitment";
 
 const pageStore = usePageStore();

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { usePageStore } from "~/stores/pages";
 const pageStore = usePageStore();
 const router = useRouter();
 const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;

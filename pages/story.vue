@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { usePageStore } from "~/stores/pages";
 import { 
   yixingImages, 
   yurenImages, 

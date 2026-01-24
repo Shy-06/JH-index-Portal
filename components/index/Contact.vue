@@ -177,7 +177,6 @@
 </style>
 
 <script setup lang="ts">
-import { usePageStore } from "~/stores/pages";
 import { onMounted, ref } from "vue";
 const pageStore = usePageStore();
 const router = useRouter();

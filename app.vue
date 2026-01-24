@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue';
-import { usePageStore } from '~/stores/pages';
 
 const pageStore = usePageStore();
 

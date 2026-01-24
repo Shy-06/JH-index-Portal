@@ -1,7 +1,6 @@
 <!--根据屏幕宽度调整顶部间距-->
 
 <script lang="ts" setup>
-import { usePageStore } from "~/stores/pages";
 const pageStore = usePageStore();
 </script>
 <style scoped lang="scss">
