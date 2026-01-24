@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import JHLabel from "./JHLabel.vue";
 import { usePageStore } from "~/stores/pages";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { historyEvents } from "~/constants/index";
 
 const pageStore = usePageStore();
 const eventNow = ref<number>(0);
+const currentEvent = computed(() => historyEvents[eventNow.value]!);
 </script>
 
 <style scoped lang="scss">
@@ -16,18 +17,18 @@ const eventNow = ref<number>(0);
   <JHLabel type="title" v-if="pageStore.pageType == 'normal'">精弘大事记</JHLabel>
   <div class="base-pc" v-if="pageStore.pageType == 'normal'">
     <div class="history-left">
-      <NuxtImg :src="historyEvents[eventNow][2]" border="10" />
-      <div class="event-name">{{ historyEvents[eventNow][3] }}</div>
+      <NuxtImg :src="currentEvent.img" border="10" />
+      <div class="event-name">{{ currentEvent.name }}</div>
     </div>
     <div class="history-right" :class="pageStore.pageType">
-      <div class="time">{{ historyEvents[eventNow][0] }}</div>
-      <div class="content">{{ historyEvents[eventNow][1] }}</div>
+      <div class="time">{{ currentEvent.time }}</div>
+      <div class="content">{{ currentEvent.content }}</div>
       <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/index/jingxiaohong.webp" border="2" />
     </div>
   </div>
   <div class="history-choice">
     <div class="red-line"></div>
     <div class="item" v-for="(item, index) in historyEvents" :class="{ select: eventNow == index }"
-      v-bind:style="{ 'background-image': 'url(' + item[2] + ')' }" @click="eventNow = index"></div>
+      v-bind:style="{ 'background-image': 'url(' + item.img + ')' }" @click="eventNow = index"></div>
   </div>
 </template>
