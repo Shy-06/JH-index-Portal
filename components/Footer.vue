@@ -1,7 +1,7 @@
 <script setup lang="ts">
 </script>
 <template>
-  <div class="footer">©2025 浙江工业大学-精弘网络</div>
+  <div class="footer">©2026 浙江工业大学-精弘网络</div>
 </template>
 
 <style scoped>

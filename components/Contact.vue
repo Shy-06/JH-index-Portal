@@ -9,45 +9,24 @@
         <div style="color: #db3625; font-size: 24px;">Loading...</div>
       </div>
     </JHCard>
-    <NuxtImg
-      class="jh"
-      :class="pageStore.pageType"
-      src="common/logo_red.webp"
-      border="5"
-    />
+    <NuxtImg class="jh" :class="pageStore.pageType" src="common/logo_red.webp" border="5" />
     <JHCard type="small" :is-title="false" title="no">
       <div class="contact-us" :class="pageStore.pageType">
-        <NuxtImg
-            src="ui/svg/wechat.svg"
-            @mouseover="onMouseOver"
-        />
-        <NuxtImg
-            v-if="isHovering"
-            src="external/wechatqr/jxhzx"
-            class="qrcode"
-            @mouseout="onMouseOut"
-            style="width: auto; height: 20%;z-index:1; position: absolute;"
-        />
+        <NuxtImg src="ui/svg/wechat.svg" @mouseover="onMouseOver" />
+        <NuxtImg v-if="isHovering" src="external/wechatqr/jxhzx" class="qrcode" @mouseout="onMouseOut"
+          style="width: auto; height: 20%;z-index:1; position: absolute;" />
         <div style="width: 99%">
           <h1>联系我们 | 关注我们</h1>
-            <h4><a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a></h4>
+          <h4><a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a></h4>
         </div>
-        <NuxtImg
-          src="ui/svg/LogoGitHub.svg"
-          style="cursor: pointer"
-          @click="toGithub"
-        />
+        <NuxtImg src="ui/svg/LogoGitHub.svg" style="cursor: pointer" @click="toGithub" />
       </div>
     </JHCard>
 
     <JHCard type="small" :is-title="false" title="no">
       <div class="join">
         <div class="join-content" :class="pageStore.pageType">精弘诚聘</div>
-        <JHButton
-          :type="pageStore.pageType == 'mini' ? 'mini' : 'middle'"
-          @click="toJoin"
-          >加入我们</JHButton
-        >
+        <JHButton :type="pageStore.pageType == 'mini' ? 'mini' : 'middle'" @click="toJoin">加入我们</JHButton>
       </div>
     </JHCard>
   </div>
@@ -125,9 +104,11 @@
   width: 80px;
   height: 80px;
 }
+
 .join {
   align-items: center;
 }
+
 .join-content.normal {
   font-size: x-large;
   border-bottom: 2px solid black;
@@ -146,6 +127,7 @@
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
+
 .loading {
   height: 180px;
   /* display: grid; */
@@ -153,9 +135,11 @@
   display: flex;
   flex-direction: column;
 }
+
 .loading.mini {
   height: 100px;
 }
+
 .loading .loading-bar-border {
   width: 80%;
   height: 30px;
