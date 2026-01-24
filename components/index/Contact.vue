@@ -2,7 +2,8 @@
   <div class="contact-base" :class="pageStore.pageType">
     <JHCard type="small" :is-title="false" title="no">
       <div class="loading" :class="pageStore.pageType">
-        <div style="color: #db3625; font-size: 30px; font-weight: bold;">2026</div>
+        <div style="color: #db3625; font-size: 30px; font-weight: bold;">{{ useRuntimeConfig().public.lastUpdateYear }}
+        </div>
         <div class="loading-bar-border">
           <div class="loading-bar" :style="{ left: loadingWidth + '%' }"></div>
         </div>

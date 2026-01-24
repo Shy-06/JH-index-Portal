@@ -10,7 +10,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      cubeBaseURL
+      cubeBaseURL,
+      lastUpdateYear: 2026
     }
   },
 

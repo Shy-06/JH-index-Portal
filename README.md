@@ -4,7 +4,7 @@
 
 [**浙江工业大学精弘网络主页代码仓库**](https://github.com/zjutjh/JingHong-Home-Vue)
 
-[![Version](https://img.shields.io/badge/version-3.0.2-blue.svg)](package.json)
+[![Version](https://img.shields.io/badge/version-3.0.3-blue.svg)](package.json)
 [![Nuxt](https://img.shields.io/badge/Nuxt-4.3.0-00DC82.svg)](https://nuxt.com)
 [![Vue](https://img.shields.io/badge/Vue-3.5-4FC08D.svg)](https://vuejs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6.svg)](https://www.typescriptlang.org)
