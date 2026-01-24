@@ -2,7 +2,7 @@
 
 # 精弘首页
 
-**浙江工业大学精弘网络主页**
+[**浙江工业大学精弘网络主页代码仓库**](https://github.com/zjutjh/JingHong-Home-Vue)
 
 [![Version](https://img.shields.io/badge/version-3.0.2-blue.svg)](package.json)
 [![Nuxt](https://img.shields.io/badge/Nuxt-4.3.0-00DC82.svg)](https://nuxt.com)
@@ -10,7 +10,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6.svg)](https://www.typescriptlang.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzjutjh%2FJingHong-Home-Vue)
 
 </div>
 
