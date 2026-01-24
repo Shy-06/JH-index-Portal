@@ -59,7 +59,7 @@ function toDepartment() {
             <br />{{ line }}
           </template>
         </div>
-        <NuxtImg :src="productsContent.visual.icon" />
+        <NuxtImg :src="productsContent.visual.icon" style="max-width: 100%; height: auto;" />
       </div>
     </JHCard>
     <JHCard type="large" :is-title="true" :title="productsContent.email.title">
@@ -68,7 +68,7 @@ function toDepartment() {
           {{ productsContent.email.description }}
         </div>
         <NuxtImg id="email-img" :src="productsContent.email.icon" />
-        <h3>邮箱网址：{{ productsContent.email.url }}</h3>
+        <h3>邮箱系统网址：<a :href="productsContent.email.url">{{ productsContent.email.url }}</a></h3>
       </div>
     </JHCard>
   </div>
@@ -123,8 +123,7 @@ function toDepartment() {
       <div class="content" style="font-size: 18px;">
         {{ productsContent.visual.description }}
         <template v-for="(line, index) in productsContent.visual.follow" :key="line">
-          <template v-if="index === 0">{{ line }}<br /></template>
-          <center v-else>{{ line }}</center>
+          <div style="text-align: center;">{{ line }}</div>
         </template>
       </div>
       <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/svg/return.svg" @click="isVisual = false" class="retbtn"/>

@@ -31,7 +31,7 @@ export const productsContent = {
   email: {
     title: "学生邮箱",
     description: "学校为每一位学生提供邮箱,由精弘网络提供运营服务,是你参与学校工作、学习、生活等各类活动的官方邮箱,伴随你的大学四年乃至一生,毕业后仍可享受校方的服务。",
-    url: "mail.zjut.edu.cn",
+    url: "https://mail.zjut.edu.cn",
     icon: "common/mailSystem.webp"
   }
 };
