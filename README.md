@@ -73,6 +73,14 @@ pnpm dev
 
 在 `nuxt.config.ts` 中配置 `cubeBaseURL`，图片服务基于 [精弘立方储存](https://github.com/zjutjh/Cube-Go) 实现。
 
+## 🔧 更新手册
+
+项目的年度维护和更新指南请参考 [更新手册](docs/UPDATE_GUIDE.md)，包括：
+
+- 📅 年度信息维护（首页、故事、部门、活动等）
+- 🔧 项目维护（依赖更新、版本同步、配置检查等）
+- ✅ 维护自检清单
+
 ## 📄 License
 
 本项目基于 [MIT License](LICENSE) 开源。
