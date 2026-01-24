@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-import JHLabel from "~/components/JHLabel.vue";
-import JHCard from "~/components/JHCard.vue";
-import Footer from "~/components/Footer.vue";
-import CarouselPicturesBig from "~/components/CarouselPicturesBig.vue";
 import { departmentContent, designImages } from "~/constants/department";
 
 const router = useRouter();

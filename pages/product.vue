@@ -1,11 +1,6 @@
 <script lang="ts" setup>
 import { usePageStore } from "~/stores/pages";
-import JHLabel from "~/components/JHLabel.vue";
-import JHCard from "~/components/JHCard.vue";
-import Footer from "~/components/Footer.vue";
-import JHButton from "~/components/JHButton.vue";
 import { ref } from "vue";
-import PageTop from "~/components/PageTop.vue";
 import { productsContent, productIcons } from "~/constants/product";
 
 const router = useRouter();

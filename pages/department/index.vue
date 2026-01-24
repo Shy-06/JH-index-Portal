@@ -1,10 +1,5 @@
 <script lang="ts" setup>
-import JHLabel from "~/components/JHLabel.vue";
 import { usePageStore } from "~/stores/pages";
-import JHCard from "~/components/JHCard.vue";
-import JHButton from "~/components/JHButton.vue";
-import Footer from "~/components/Footer.vue";
-import PageTop from "~/components/PageTop.vue";
 const pageStore = usePageStore();
 const router = useRouter();
 const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;

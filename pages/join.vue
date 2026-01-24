@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import Footer from "~/components/Footer.vue";
-import JHCard from "~/components/JHCard.vue";
 import { usePageStore } from "~/stores/pages";
-import JHButton from "~/components/JHButton.vue";
-import JHLabel from "~/components/JHLabel.vue";
-import PageTop from "~/components/PageTop.vue";
 import { recruitmentInfo, posterImage } from "~/constants/recruitment";
 
 const pageStore = usePageStore();

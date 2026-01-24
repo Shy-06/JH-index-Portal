@@ -1,12 +1,5 @@
 <script lang="ts" setup>
-import JHLabel from "~/components/JHLabel.vue";
-import JHCard from "~/components/JHCard.vue";
-import Footer from "~/components/Footer.vue";
 import { usePageStore } from "~/stores/pages";
-import CarouselPictures from "~/components/CarouselPicturesBig.vue";
-import CarouselCards from "~/components/story/CarouselCards.vue";
-import JHButton from "~/components/JHButton.vue";
-import PageTop from "~/components/PageTop.vue";
 import { 
   yixingImages, 
   yurenImages, 
