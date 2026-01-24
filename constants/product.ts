@@ -24,7 +24,7 @@ export const productsContent = {
   visual: {
     title: "视觉影像",
     description: "校园学习生活、学校各类大型活动的记录团队，专注于摄影、视频前期拍摄和后期剪辑,致力于用最优秀的制作呈现最美的工大人、工大景。视觉影像像期待用最用心的摄制给你带来最高级的视听盛宴!",
-    follow: "欢迎关注!\nb站:浙工大精弘网络\n微信视频号:精小弘在线",
+    follow: ["欢迎关注!","b站:浙工大精弘网络","微信视频号:精小弘在线"],
     icon: "common/bilibili_shipinhao.webp"
   },
 

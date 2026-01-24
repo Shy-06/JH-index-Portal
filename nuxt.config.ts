@@ -50,4 +50,4 @@ export default defineNuxtConfig({
       }
     }
   }
-} as any);
+});

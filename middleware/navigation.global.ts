@@ -1,3 +1,5 @@
+import { usePageStore } from '~/stores/pages';
+
 const routeMap: Record<string, { pageNow: number; title: string }> = {
   '/': { pageNow: 0, title: '精弘首页' },
   '/story': { pageNow: 1, title: '我们的故事' },
@@ -9,18 +11,19 @@ const routeMap: Record<string, { pageNow: number; title: string }> = {
 
 export default defineNuxtRouteMiddleware((to) => {
   const pageStore = usePageStore();
-  
-  if (process.client) {
+
+  if (typeof window !== 'undefined') {
     window.scrollTo({ top: 0 });
   }
-  
-  if (to.path === '/index') {
-    return navigateTo('/', { redirectCode: 301 });
+
+  if (to.path.startsWith('/index')) {
+    const newPath = to.path.replace(/^\/index/, '') || '/';
+    return navigateTo(newPath, { redirectCode: 301 });
   }
-  
+
   const path = to.path;
   const firstSegment = `/${path.split('/')[1]}`;
-  
+
   const route = routeMap[path] || routeMap[firstSegment];
   if (route) {
     pageStore.pageNow = route.pageNow;

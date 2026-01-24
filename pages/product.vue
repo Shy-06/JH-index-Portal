@@ -55,9 +55,9 @@ function toDepartment() {
       <div class="visual">
         <div class="introduction">
           {{ productsContent.visual.description }}
-          <br />{{ productsContent.visual.follow.split('\n')[0] }}
-          <br />{{ productsContent.visual.follow.split('\n')[1] }}
-          <br />{{ productsContent.visual.follow.split('\n')[2] }}
+          <template v-for="line in productsContent.visual.follow" :key="line">
+            <br />{{ line }}
+          </template>
         </div>
         <NuxtImg :src="productsContent.visual.icon" />
       </div>
@@ -122,9 +122,10 @@ function toDepartment() {
       </div>
       <div class="content" style="font-size: 18px;">
         {{ productsContent.visual.description }}
-        {{ productsContent.visual.follow.split('\n')[0] }}<br />
-        <center>{{ productsContent.visual.follow.split('\n')[1] }}</center>
-        <center>{{ productsContent.visual.follow.split('\n')[2] }}</center>
+        <template v-for="(line, index) in productsContent.visual.follow" :key="line">
+          <template v-if="index === 0">{{ line }}<br /></template>
+          <center v-else>{{ line }}</center>
+        </template>
       </div>
       <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/svg/return.svg" @click="isVisual = false" class="retbtn"/>
     </div>
