@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue';
 import { onMounted, onUnmounted, ref } from 'vue';
-import JHCard from './JHCard.vue';
 import { historyEvents } from '~/constants/index';
 
 const angle = (Math.atan(0.5) * 180) / Math.PI + "deg";

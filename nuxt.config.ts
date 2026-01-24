@@ -4,6 +4,9 @@ const cubeBaseURL = 'https://img.phlin.cn/api/file?bucket=homepage&object_key=';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-10-25',
+  devtools: { enabled: true },
+  modules: ['@pinia/nuxt', '@nuxt/image'],
+  css: ['~/assets/css/main.scss'],
 
   runtimeConfig: {
     public: {
@@ -11,11 +14,12 @@ export default defineNuxtConfig({
     }
   },
 
-  devtools: { enabled: true },
-
-  modules: ['@pinia/nuxt', '@nuxt/image'],
-
-  css: ['~/assets/css/main.scss'],
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
 
   app: {
     head: {

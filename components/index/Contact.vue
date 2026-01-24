@@ -179,8 +179,6 @@
 <script setup lang="ts">
 import { usePageStore } from "~/stores/pages";
 import { onMounted, ref } from "vue";
-import JHCard from "./JHCard.vue";
-import JHButton from "./JHButton.vue";
 const pageStore = usePageStore();
 const router = useRouter();
 const loadingBarTimer = ref(0);
