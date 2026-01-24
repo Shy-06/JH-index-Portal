@@ -16,7 +16,7 @@ export default defineNuxtRouteMiddleware((to) => {
     window.scrollTo({ top: 0 });
   }
 
-  if (to.path.startsWith('/index')) {
+  if (/^\/index(?:\/|$)/.test(to.path)) {
     const newPath = to.path.replace(/^\/index/, '') || '/';
     return navigateTo(newPath, { redirectCode: 301 });
   }
