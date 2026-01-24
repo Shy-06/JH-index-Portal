@@ -2,79 +2,8 @@
 import type { CSSProperties } from 'vue';
 import { onMounted, onUnmounted, ref } from 'vue';
 import JHCard from './JHCard.vue';
-const items = [
-  {
-    id: 0,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story1.webp",
-    content: "2002年5月\n精弘网络成立",
-  },
-  {
-    id: 1,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story2.webp",
-    time: "2003年5月",
-    content: "推出精弘论坛\nbbs.zjut.com",
-  },
-  {
-    id: 2,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story3.webp",
-    time: "2004年10月",
-    content: "Feel电台创立\nradio.zjut.com",
-  },
-  {
-    id: 3,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story4.webp",
-    time: "2006年5月",
-    content: "推出第一版学生邮箱\nmail.zjut.com",
-  },
-  {
-    id: 4,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story5.webp",
-    time: "2012年3月",
-    content: "第一届精弘毅行",
-  },
-  {
-    id: 5,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story6.webp",
-    time: "2012年12月",
-    content: '荣获第五届\n"全国高校百佳网站"\n荣誉称号',
-  },
-  {
-    id: 6,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story7.webp",
-    time: "2015年12月",
-    content: '承办浙江工业大学首届\n"网络安全宣传月"活动',
-  },
-  {
-    id: 7,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story8.webp",
-    time: "2016年8月",
-    content: '精弘网络微信服务号获\n"全国高校东部地区榜亚军"',
-  },
-  {
-    id: 8,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story9.webp",
-    time: "2017年2月",
-    content: "微精弘改版正式上线",
-  },
-  {
-    id: 9,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story5.webp",
-    time: "2020年2月",
-    content: "第十三届精弘毅行",
-  },
-  {
-    id: 10,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story9.webp",
-    time: "2022年8月",
-    content: "微精弘2.0发布",
-  },
-  {
-    id: 11,
-    img: "https://img.lonesome.cn/jhwl/home/photo/index/story10.webp",
-    time: "2023年4月",
-    content: "成为校级组织数字化转型解决方案的提供者",
-  },
-];
+import { historyEvents } from '~/constants/index';
+
 const angle = (Math.atan(0.5) * 180) / Math.PI + "deg";
 const angle2 = (-Math.atan(0.5) * 180) / Math.PI + "deg";
 const scale = 1 / Math.cos(Math.atan(0.5));
@@ -83,7 +12,7 @@ const styleVal = (function (index: number): CSSProperties {
     '--angle': index % 2 === 0 ? angle : angle2,
     '--scale': scale,
     '--border': index % 2 === 0 ? 'dashed' : 'solid',
-    '--line_seen': index === 11 ? 'none' : 'block',
+    '--line_seen': index === historyEvents.length - 1 ? 'none' : 'block',
   }
 });
 const top111 = ref(0);
@@ -197,10 +126,10 @@ onUnmounted(() => {
   <JHCard title="精弘成长史" type="large" :is-title="true">
     <div class="history" ref="history">
       <div class="history-line" ref="historyLine">
-        <div class="history-item" v-for="item, index in items" :style="styleVal(index)">
+        <div class="history-item" v-for="(item, index) in historyEvents" :style="styleVal(index)">
           <div class="img"
             :class="[index % 2 === 0 ? 'history-img1' : 'history-img2', top111 < 487 - (index - 2) * 80 - 60 ? 'history-img' : 'history-img-hide']"
-            :style="{ 'background-image': 'url(' + item.img + ')' }">
+            :style="{ 'background-image': 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')' }">
             <div class="history-content">
               <div class="history-content1">{{ item.time }}</div>
               <div class="history-content2">{{ item.content }}</div>

@@ -22,11 +22,15 @@ function before() {
   carouselClass.unshift(last);
 }
 function touchStart(e: TouchEvent) {
-  touchStartPosition = e.touches[0].clientX;
-  touchEndPosition = e.touches[0].clientX;
+  if (e.touches[0]) {
+    touchStartPosition = e.touches[0].clientX;
+    touchEndPosition = e.touches[0].clientX;
+  }
 }
 function touchMove(e: TouchEvent) {
-  touchEndPosition = e.touches[0].clientX;
+  if (e.touches[0]) {
+    touchEndPosition = e.touches[0].clientX;
+  }
 }
 function touchEnd(e: TouchEvent) {
   if (
@@ -181,7 +185,7 @@ ul li {
   right: 95%;
   margin: auto;
   margin: auto;
-  background: center/cover no-repeat url(https://img.lonesome.cn/jhwl/home/photo/svg/右箭头红.svg);
+  background: center/cover no-repeat url("#{$cubeBaseURL}ui/svg/rightArrow_red.svg");
   transform: rotate(180deg);
   cursor: pointer;
 }
@@ -193,7 +197,7 @@ ul li {
   top: 60%;
   left: 95%;
   margin: auto;
-  background: center/cover no-repeat url(https://img.lonesome.cn/jhwl/home/photo/svg/右箭头红.svg);
+  background: center/cover no-repeat url("#{$cubeBaseURL}ui/svg/rightArrow_red.svg");
   cursor: pointer;
 }
 
@@ -239,7 +243,8 @@ ul li {
     <div class="whole">
       <ul type :class="type">
         <li class="card" :class="[carouselClass[index], type]" v-for="(item, index) in props.card">
-          <div class="img" v-bind:style="{ 'background-image': 'url(' + item.img + ')' }"></div>
+          <div class="img"
+            v-bind:style="{ backgroundImage: 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')' }"></div>
           <div class="introduction">{{ item.introduction }}</div>
           <div class="content">
             <div>{{ item.content }}</div>

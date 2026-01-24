@@ -35,7 +35,7 @@ function toDepartment() {
           {{ productsContent.wechat.description }}
         </div>
         <div v-for="account in productsContent.wechat.accounts" :key="account.name">
-          <img :src="account.qrCode" />
+          <NuxtImg :src="account.qrCode" />
           <h3>{{ account.name }}</h3>
         </div>
       </div>
@@ -46,7 +46,7 @@ function toDepartment() {
           {{ productsContent.wejh.description }}
         </div>
         <div>
-          <img :src="productsContent.wejh.icon" />
+          <NuxtImg :src="productsContent.wejh.icon" />
           <h3>微精弘小程序</h3>
         </div>
       </div>
@@ -55,11 +55,11 @@ function toDepartment() {
       <div class="visual">
         <div class="introduction">
           {{ productsContent.visual.description }}
-          <br />{{ productsContent.visual.follow.split('\n')[0] }}
-          <br />{{ productsContent.visual.follow.split('\n')[1] }}
-          <br />{{ productsContent.visual.follow.split('\n')[2] }}
+          <template v-for="line in productsContent.visual.follow" :key="line">
+            <br />{{ line }}
+          </template>
         </div>
-        <img :src="productsContent.visual.icon" />
+        <NuxtImg :src="productsContent.visual.icon" style="max-width: 100%; height: auto;" />
       </div>
     </JHCard>
     <JHCard type="large" :is-title="true" :title="productsContent.email.title">
@@ -67,8 +67,8 @@ function toDepartment() {
         <div class="introduction">
           {{ productsContent.email.description }}
         </div>
-        <img id="email-img" :src="productsContent.email.icon" />
-        <h3>邮箱网址：{{ productsContent.email.url }}</h3>
+        <NuxtImg id="email-img" :src="productsContent.email.icon" />
+        <h3>邮箱系统网址：<a :href="productsContent.email.url">{{ productsContent.email.url }}</a></h3>
       </div>
     </JHCard>
   </div>
@@ -76,19 +76,19 @@ function toDepartment() {
     <JHCard type="large" :is-title="false" title="no">
       <div class="base" :class="pageStore.pageType">
         <div class="product-item">
-          <img :src="productIcons.wejh" />
+          <NuxtImg :src="productIcons.wejh" />
           <JHButton type="middle" @click="isWejh = true">微信小程序</JHButton>
         </div>
         <div class="product-item">
-          <img :src="productIcons.wechat" />
+          <NuxtImg :src="productIcons.wechat" />
           <JHButton type="middle" @click="isWechat = true">微信服务号</JHButton>
         </div>
         <div class="product-item">
-          <img :src="productIcons.visual" />
+          <NuxtImg :src="productIcons.visual" />
           <JHButton type="middle" @click="isVisual = true">视觉影像</JHButton>
         </div>
         <div class="product-item">
-          <img :src="productIcons.email" />
+          <NuxtImg :src="productIcons.email" />
           <JHButton type="middle" @click="isEmail = true">学生邮箱</JHButton>
         </div>
       </div>
@@ -96,53 +96,53 @@ function toDepartment() {
     <div class="detail" v-if="isWejh">
       <div class="title">
         {{ productsContent.wejh.title }}
-        <img class="icon" :src="productsContent.wejh.icon" />
+        <NuxtImg class="icon" :src="productsContent.wejh.icon" />
       </div>
 
       <div class="content">
         {{ productsContent.wejh.description }}
       </div>
-      <img src="https://img.lonesome.cn/jhwl/home/photo/svg/return.svg" @click="isWejh = false" class="retbtn"/>
+      <NuxtImg src="ui/svg/return.svg" @click="isWejh = false" class="retbtn"/>
     </div>
     <div class="detail" v-if="isWechat">
       <div class="title">
         {{ productsContent.wechat.title }}
-        <img class="icon" :src="productIcons.wechat" />
+        <NuxtImg class="icon" :src="productIcons.wechat" />
       </div>
 
       <div class="content">
         {{ productsContent.wechat.description }}
       </div>
-      <img src="https://img.lonesome.cn/jhwl/home/photo/svg/return.svg" @click="isWechat = false" class="retbtn"/>
+      <NuxtImg src="ui/svg/return.svg" @click="isWechat = false" class="retbtn"/>
     </div>
     <div class="detail" v-if="isVisual">
       <div class="title">
         {{ productsContent.visual.title }}
-        <img class="icon" :src="productIcons.visual" />
+        <NuxtImg class="icon" :src="productIcons.visual" />
       </div>
       <div class="content" style="font-size: 18px;">
         {{ productsContent.visual.description }}
-        {{ productsContent.visual.follow.split('\n')[0] }}<br />
-        <center>{{ productsContent.visual.follow.split('\n')[1] }}</center>
-        <center>{{ productsContent.visual.follow.split('\n')[2] }}</center>
+        <template v-for="(line, index) in productsContent.visual.follow" :key="line">
+          <div style="text-align: center;">{{ line }}</div>
+        </template>
       </div>
-      <img src="https://img.lonesome.cn/jhwl/home/photo/svg/return.svg" @click="isVisual = false" class="retbtn"/>
+      <NuxtImg src="ui/svg/return.svg" @click="isVisual = false" class="retbtn"/>
     </div>
     <div class="detail" v-if="isEmail">
       <div class="title">
         {{ productsContent.email.title }}
-        <img class="icon" :src="productIcons.email" />
+        <NuxtImg class="icon" :src="productIcons.email" />
       </div>
       <div class="content">
         {{ productsContent.email.description }}
       </div>
-      <img src="https://img.lonesome.cn/jhwl/home/photo/svg/return.svg" @click="isEmail = false" class="retbtn"/>
+      <NuxtImg src="ui/svg/return.svg" @click="isEmail = false" class="retbtn"/>
     </div>
   </div>
   <div style="height: 100px"></div>
   <JHButton type="middle" @click="toDepartment">
     我们的部门
-    <img src="https://img.lonesome.cn/jhwl/home/photo/svg/rightArrow.svg" style="width: 20px; margin-left: 20px" />
+    <NuxtImg src="ui/svg/rightArrow.svg" style="width: 20px; margin-left: 20px" />
   </JHButton>
   <Footer />
 </template>

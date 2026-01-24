@@ -11,8 +11,8 @@ const pageStore = usePageStore();
 
 <template>
   <div class="base" :class="pageStore.pageType">
-    <img
-      src="https://img.lonesome.cn/jhwl/home/photo/index/xiaohongLeft.webp"
+    <NuxtImg
+      src="jingxiaohong/xiaohongLeft.webp"
       v-if="!(pageStore.pageType == 'mini')"
     />
     <div class="introduce">
@@ -29,8 +29,8 @@ const pageStore = usePageStore();
         </span>
       </div>
     </div>
-    <img
-      src="https://img.lonesome.cn/jhwl/home/photo/index/xiaohongRight.webp"
+    <NuxtImg
+      src="jingxiaohong/xiaohongRight.webp"
       v-if="!(pageStore.pageType == 'mini')"
     />
   </div>

@@ -47,11 +47,15 @@ function changePicture(e: MouseEvent) {
 }
 
 function touchStart(e: TouchEvent) {
-  touchStartPosition = e.touches[0].clientX;
-  touchEndPosition = e.touches[0].clientX;
+  if (e.touches[0]) {
+    touchStartPosition = e.touches[0].clientX;
+    touchEndPosition = e.touches[0].clientX;
+  }
 }
 function touchMove(e: TouchEvent) {
-  touchEndPosition = e.touches[0].clientX;
+  if (e.touches[0]) {
+    touchEndPosition = e.touches[0].clientX;
+  }
 }
 function touchEnd(e: TouchEvent) {
   if (
@@ -178,21 +182,12 @@ ul li {
 </style>
 
 <template>
-  <div
-    class="carousel"
-    @touchstart="touchStart($event)"
-    @touchmove="touchMove($event)"
-    @touchend="touchEnd($event)"
-  >
+  <div class="carousel" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)">
     <div class="whole">
       <div class="roll-img">
         <ul type>
-          <li
-            @click="changePicture($event)"
-            v-for="(item, index) in props.imgs"
-            :class="carouselClass[index]"
-          >
-            <img :src="item" />
+          <li @click="changePicture($event)" v-for="(item, index) in props.imgs" :class="carouselClass[index]">
+            <NuxtImg :src="item" />
             <div></div>
           </li>
         </ul>

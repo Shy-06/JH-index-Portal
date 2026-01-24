@@ -8,14 +8,9 @@ import PageTop from "~/components/PageTop.vue";
 import { recruitmentInfo, posterImage } from "~/constants/recruitment";
 
 const pageStore = usePageStore();
-const router = useRouter();
 
 function toRecruit() {
   window.open(recruitmentInfo.registrationUrl);
-  return false;
-}
-
-function toLong() {
   return false;
 }
 </script>
@@ -28,7 +23,7 @@ function toLong() {
   <PageTop />
   <JHCard title="加入我们" type="large" :is-title="true">
     <div class="base" :class="pageStore.pageType">
-      <img class="haibao" :src="posterImage" />
+      <NuxtImg class="poster" :src="posterImage" />
       <div class="detail-base" :class="pageStore.pageType">
         <div class="introduce" :class="pageStore.pageType">
           <JHButton type="middle" @click="toRecruit" style="position: relative;margin-bottom: 20px;">点我报名</JHButton>
@@ -56,7 +51,7 @@ function toLong() {
           <JHLabel type="nano">最新动态</JHLabel>
           <div class="qr-base">
             <div class="qr-code" v-for="qr in recruitmentInfo.qrCodes" :key="qr.name">
-              <img :src="qr.image" />
+              <NuxtImg :src="qr.image" />
               {{ qr.name }}
             </div>
           </div>

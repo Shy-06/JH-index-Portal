@@ -34,19 +34,19 @@ function toProduct() {
   <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的故事</JHLabel>
   <JHCard type="large" title="我们的使命" :isTitle="true">
     <div class="shiming-base" :class="pageStore.pageType">
-      <img
+      <NuxtImg
         class="shiming-img"
-        src="https://img.lonesome.cn/jhwl/home/photo/index/shiming.webp"
+        src="temp/shiming.webp"
         v-if="pageStore.pageType == 'normal'"
       />
       <div
         class="shiming-imgs"
         v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'"
       >
-        <img class="shiming-imgs-img" src="https://img.lonesome.cn/jhwl/home/photo/index/shiming1.webp" />
-        <img class="shiming-imgs-img" src="https://img.lonesome.cn/jhwl/home/photo/index/shiming2.webp" />
-        <img class="shiming-imgs-img" src="https://img.lonesome.cn/jhwl/home/photo/index/shiming3.webp" />
-        <img class="shiming-imgs-img" src="https://img.lonesome.cn/jhwl/home/photo/index/shiming4.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming1.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming2.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming3.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming4.webp" />
       </div>
       <div class="shiming" :class="pageStore.pageType">
         <h2>{{ missionContent.title }}</h2>
@@ -71,18 +71,18 @@ function toProduct() {
   </JHCard>
   <JHCard type="large" title="生活社交" :isTitle="true">
     <div class="shenghuo" :class="pageStore.pageType">
-      <img src="https://img.lonesome.cn/jhwl/home/photo/story/shenghuo/shenghuo1.webp" id="img1" />
+      <NuxtImg src="groupPhoto/shenghuo0.webp" id="img1" />
       <div class="content">
         {{ socialLifeContent.text1 }}
       </div>
-      <img src="https://img.lonesome.cn/jhwl/home/photo/story/shenghuo/shenghuo2.webp" id="img2" />
+      <NuxtImg src="groupPhoto/shenghuo1.webp" id="img2" />
       <div class="content">
         {{ socialLifeContent.text2 }}
       </div>
-      <img src="https://img.lonesome.cn/jhwl/home/photo/story/shenghuo/shenghuo3.webp" id="img3" />
+      <NuxtImg src="groupPhoto/shenghuo2.webp" id="img3" />
       <div class="shenghuo-imgs">
-        <img src="https://img.lonesome.cn/jhwl/home/photo/story/shenghuo/shenghuo4.webp" id="img4" />
-        <img src="https://img.lonesome.cn/jhwl/home/photo/story/shenghuo/shenghuo5.webp" id="img5" />
+        <NuxtImg src="groupPhoto/shenghuo3.webp" id="img4" />
+        <NuxtImg src="groupPhoto/shenghuo4.webp" id="img5" />
       </div>
       <div class="content">
         {{ socialLifeContent.text3 }}
@@ -105,8 +105,8 @@ function toProduct() {
   <div style="height: 200px"></div>
   <JHButton type="middle" @click="toProduct">
     我们的产品
-    <img
-      src="https://img.lonesome.cn/jhwl/home/photo/svg/rightArrow.svg"
+    <NuxtImg
+      src="ui/svg/rightArrow.svg"
       style="width: 20px; margin-left: 20px"
     />
   </JHButton>

@@ -29,13 +29,13 @@ export const recruitmentInfo = {
   qrCodes: [
     {
       name: "精弘网络",
-      image: `${useRuntimeConfig().public.cubeBaseURL}common/wechat_jhwl_qr.webp`
+      image: "external/wechatqr/jhwl"
     },
     {
       name: "精小弘在线",
-      image: `${useRuntimeConfig().public.cubeBaseURL}common/wechat_jxhzx_qr.webp`
+      image: "external/wechatqr/jxhzx"
     }
   ]
 };
 
-export const posterImage = "/25img/haibao.jpg";
+export const posterImage = "common/poster.webp";

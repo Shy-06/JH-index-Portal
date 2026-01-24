@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { onMounted, ref } from "vue";
 import { usePageStore } from "~/stores/pages";
-import { useRuntimeConfig } from "#app";
 const pageStore = usePageStore();
 const loaded = ref<boolean>(false);
 onMounted(() => {
@@ -11,7 +10,7 @@ onMounted(() => {
 <template>
   <div class="start" :class="[pageStore.pageType, loaded ? 'loaded' : 'unloaded']">
     <div class="title1" :class="pageStore.pageType">精弘网络,取精用弘</div>
-    <img class="downArrow" :src="`${useRuntimeConfig().public.cubeBaseURL}ui/svg/downArrow.svg`" />
+    <NuxtImg class="downArrow" src="ui/svg/downArrow.svg" />
   </div>
 </template>
 
