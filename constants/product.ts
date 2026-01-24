@@ -37,7 +37,7 @@ export const productsContent = {
 };
 
 export const productIcons = {
-  wechat: "common/logo_red.webp",//?
+  wechat: "common/logo_red.webp",
   wejh: "common/wejh_icon.webp",
   visual: "common/visual.webp",
   email: "common/mailSystem.webp"

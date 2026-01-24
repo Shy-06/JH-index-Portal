@@ -36,17 +36,17 @@ function toProduct() {
     <div class="shiming-base" :class="pageStore.pageType">
       <NuxtImg
         class="shiming-img"
-        src="https://img.lonesome.cn/jhwl/home/photo/index/shiming.webp"
+        src="temp/shiming.webp"
         v-if="pageStore.pageType == 'normal'"
       />
       <div
         class="shiming-imgs"
         v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'"
       >
-        <NuxtImg class="shiming-imgs-img" src="https://img.lonesome.cn/jhwl/home/photo/index/shiming1.webp" />
-        <NuxtImg class="shiming-imgs-img" src="https://img.lonesome.cn/jhwl/home/photo/index/shiming2.webp" />
-        <NuxtImg class="shiming-imgs-img" src="https://img.lonesome.cn/jhwl/home/photo/index/shiming3.webp" />
-        <NuxtImg class="shiming-imgs-img" src="https://img.lonesome.cn/jhwl/home/photo/index/shiming4.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming1.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming2.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming3.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming4.webp" />
       </div>
       <div class="shiming" :class="pageStore.pageType">
         <h2>{{ missionContent.title }}</h2>
@@ -71,18 +71,18 @@ function toProduct() {
   </JHCard>
   <JHCard type="large" title="生活社交" :isTitle="true">
     <div class="shenghuo" :class="pageStore.pageType">
-      <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/story/shenghuo/shenghuo1.webp" id="img1" />
+      <NuxtImg src="groupPhoto/shenghuo0.webp" id="img1" />
       <div class="content">
         {{ socialLifeContent.text1 }}
       </div>
-      <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/story/shenghuo/shenghuo2.webp" id="img2" />
+      <NuxtImg src="groupPhoto/shenghuo1.webp" id="img2" />
       <div class="content">
         {{ socialLifeContent.text2 }}
       </div>
-      <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/story/shenghuo/shenghuo3.webp" id="img3" />
+      <NuxtImg src="groupPhoto/shenghuo2.webp" id="img3" />
       <div class="shenghuo-imgs">
-        <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/story/shenghuo/shenghuo4.webp" id="img4" />
-        <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/story/shenghuo/shenghuo5.webp" id="img5" />
+        <NuxtImg src="groupPhoto/shenghuo3.webp" id="img4" />
+        <NuxtImg src="groupPhoto/shenghuo4.webp" id="img5" />
       </div>
       <div class="content">
         {{ socialLifeContent.text3 }}
@@ -106,7 +106,7 @@ function toProduct() {
   <JHButton type="middle" @click="toProduct">
     我们的产品
     <NuxtImg
-      src="https://img.lonesome.cn/jhwl/home/photo/svg/rightArrow.svg"
+      src="ui/svg/rightArrow.svg"
       style="width: 20px; margin-left: 20px"
     />
   </JHButton>

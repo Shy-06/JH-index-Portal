@@ -1,15 +1,15 @@
 export const yixingImages = [
-  "https://img.lonesome.cn/jhwl/home/photo/yixing/1.webp",
-  "https://img.lonesome.cn/jhwl/home/photo/yixing/2.webp",
-  "https://img.lonesome.cn/jhwl/home/photo/yixing/3.webp",
+  "groupPhoto/yixing0.webp",
+  "groupPhoto/yixing1.webp",
+  "groupPhoto/yixing2.webp",
 ];
 
 export const yurenImages = [
-  "https://img.lonesome.cn/jhwl/home/photo/yuren/1.webp",
-  "https://img.lonesome.cn/jhwl/home/photo/yuren/2.webp",
-  "https://img.lonesome.cn/jhwl/home/photo/yuren/3.webp",
-  "https://img.lonesome.cn/jhwl/home/photo/yuren/4.webp",
-  "https://img.lonesome.cn/jhwl/home/photo/yuren/5.webp",
+  "groupPhoto/yuren0.webp",
+  "groupPhoto/yuren1.webp",
+  "groupPhoto/yuren2.webp",
+  "groupPhoto/yuren3.webp",
+  "groupPhoto/yuren4.webp",
 ];
 
 export interface Person {
@@ -62,28 +62,28 @@ export const persons: Person[] = [
       "我们不知道自己会去往何方，于是拼命地朝四面八方播撒种子。幸运的是，精弘的这颗种子不仅生根发芽，成为大学时代的绿荫，结出的果子也成了我继续奔赴远方的食粮。精弘诞生了许多改变我人生轨迹的契机，带来无数的机会和可能，也让我认识了很多很多重要的朋友。愿你也能在精弘找到自己真正想做的事，并以精弘为起点，踏出第一步。",
   },
   {
-    img: "https://img.lonesome.cn/jhwl/home/photo/story/jiyu/小树.webp",
+    img: "protrait/小树.webp",
     introduction:
       "小树\n\n前精弘设计总监\n2022年毕业于浙工大\n现就读于浙江工业大学",
     content:
       "大三的时候加入精弘，是我纠结了很久做的一个决定，现在想想倒觉得很庆幸。光是能够遇见你们，就已经很美好 了。\n       没有当客服的经验，从新生群同意每一个新生宝宝的入群验证到后来与他们的见面，对我来说都是新奇的体验。在很多新生的身上，我都能看到刚收到录取通知书时我的样子。不耐烦的回答一个个问题，也是希望她们能少走弯路。\n深入接触后，发现精弘网络其实是一个很温暖的组织，可以说很多人都是“为爱发电”，有着很强的责任心。\n        希望大家在精弘的日子里可以收获到属于自己的美好。",
   },
   {
-    img: "https://img.lonesome.cn/jhwl/home/photo/story/jiyu/小花仙.webp",
+    img: "protrait/小花仙.webp",
     introduction:
       "小花仙\n\n前精弘技术部副部\n2021年毕业于浙工大\n现工作于腾讯(深圳)IEG技术运营部",
     content:
       "在技术部，我认识了许多好朋友，和自己喜欢的男孩子在一起，并且找到了自己理想的工作。希望大家能记得自己进入精弘的初心，并且为之努力，每个人都有自己的理想，进入精弘可能是你实现理想中的某一个很小的步骤，但是也⼗分的重要，在精弘希望大家都可以好好提升自己，并且能够对精弘做出一些贡献~",
   },
   {
-    img: "https://img.lonesome.cn/jhwl/home/photo/story/jiyu/周依佳.webp",
+    img: "protrait/周依佳.webp",
     introduction:
       "大可爱\n\n前精弘屏峰校区副会长兼常务总监\n2020年毕业于浙工大\n现就读于中国人民大学",
     content:
       "在精弘的两年半时光里，是我大学里最珍贵和幸福的回忆。在这里，我提升了各方面的能力，并收获了美好的友谊，真的很值得怀念。这里有温暖的人，温暖的事，希望大家都能在这里有所成长，有所收获，和精弘一起越来越好！",
   },
   {
-    img: "https://img.lonesome.cn/jhwl/home/photo/product/3.webp",
+    img: "common/visual.webp",
     introduction:
       "寒假\n\n2017届新媒体总监\n2019年毕业于浙工大\n现工作于华安证券",
     content:

@@ -102,7 +102,7 @@ function toDepartment() {
       <div class="content">
         {{ productsContent.wejh.description }}
       </div>
-      <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/svg/return.svg" @click="isWejh = false" class="retbtn"/>
+      <NuxtImg src="ui/svg/return.svg" @click="isWejh = false" class="retbtn"/>
     </div>
     <div class="detail" v-if="isWechat">
       <div class="title">
@@ -113,7 +113,7 @@ function toDepartment() {
       <div class="content">
         {{ productsContent.wechat.description }}
       </div>
-      <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/svg/return.svg" @click="isWechat = false" class="retbtn"/>
+      <NuxtImg src="ui/svg/return.svg" @click="isWechat = false" class="retbtn"/>
     </div>
     <div class="detail" v-if="isVisual">
       <div class="title">
@@ -126,7 +126,7 @@ function toDepartment() {
           <div style="text-align: center;">{{ line }}</div>
         </template>
       </div>
-      <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/svg/return.svg" @click="isVisual = false" class="retbtn"/>
+      <NuxtImg src="ui/svg/return.svg" @click="isVisual = false" class="retbtn"/>
     </div>
     <div class="detail" v-if="isEmail">
       <div class="title">
@@ -136,13 +136,13 @@ function toDepartment() {
       <div class="content">
         {{ productsContent.email.description }}
       </div>
-      <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/svg/return.svg" @click="isEmail = false" class="retbtn"/>
+      <NuxtImg src="ui/svg/return.svg" @click="isEmail = false" class="retbtn"/>
     </div>
   </div>
   <div style="height: 100px"></div>
   <JHButton type="middle" @click="toDepartment">
     我们的部门
-    <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/svg/rightArrow.svg" style="width: 20px; margin-left: 20px" />
+    <NuxtImg src="ui/svg/rightArrow.svg" style="width: 20px; margin-left: 20px" />
   </JHButton>
   <Footer />
 </template>

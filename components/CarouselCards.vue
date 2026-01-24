@@ -185,7 +185,7 @@ ul li {
   right: 95%;
   margin: auto;
   margin: auto;
-  background: center/cover no-repeat url(https://img.lonesome.cn/jhwl/home/photo/svg/右箭头红.svg);
+  background: center/cover no-repeat url("#{$cubeBaseURL}ui/svg/rightArrow_red.svg");
   transform: rotate(180deg);
   cursor: pointer;
 }
@@ -197,7 +197,7 @@ ul li {
   top: 60%;
   left: 95%;
   margin: auto;
-  background: center/cover no-repeat url(https://img.lonesome.cn/jhwl/home/photo/svg/右箭头红.svg);
+  background: center/cover no-repeat url("#{$cubeBaseURL}ui/svg/rightArrow_red.svg");
   cursor: pointer;
 }
 

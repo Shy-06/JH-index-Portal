@@ -25,11 +25,11 @@ function toStory() {
     type="large"
     class="story"
   >
-    <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/index/story.webp" alt="Our Story" />
+    <NuxtImg src="common/story.webp" alt="Our Story" />
     <JHButton type="middle" @click="toStory">
       我们的故事
       <NuxtImg
-        src="https://img.lonesome.cn/jhwl/home/photo/svg/rightArrow.svg"
+        src="ui/svg/rightArrow.svg"
         alt="Arrow"
         style="width: 20px; margin-left: 20px"
       />

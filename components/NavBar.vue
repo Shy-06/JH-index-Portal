@@ -193,11 +193,11 @@ a {
 }
 
 .listButton.btnOn {
-  background: url('https://img.lonesome.cn/jhwl/home/photo/svg/close.svg') no-repeat center;
+  background: url('#{$cubeBaseURL}ui/svg/close.svg') no-repeat center;
 }
 
 .listButton.btnOff {
-  background: url('https://img.lonesome.cn/jhwl/home/photo/svg/list.svg') no-repeat center;
+  background: url('#{$cubeBaseURL}ui/svg/list.svg') no-repeat center;
 }
 
 .list {

@@ -129,7 +129,7 @@ onUnmounted(() => {
         <div class="history-item" v-for="item, index in historyEvents" :style="styleVal(index)">
           <div class="img"
             :class="[index % 2 === 0 ? 'history-img1' : 'history-img2', top111 < 487 - (index - 2) * 80 - 60 ? 'history-img' : 'history-img-hide']"
-            :style="{ 'background-image': 'url(' + item.img + ')' }">
+            :style="{ 'background-image': 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')' }">
             <div class="history-content">
               <div class="history-content1">{{ item.time }}</div>
               <div class="history-content2">{{ item.content }}</div>

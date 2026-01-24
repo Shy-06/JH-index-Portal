@@ -47,7 +47,7 @@ const application = () => {
   <JHButton type="middle" @click="router.push('/join')">
     加入我们
     <NuxtImg
-        src="https://img.lonesome.cn/jhwl/home/photo/svg/rightArrow.svg"
+        src="ui/svg/rightArrow.svg"
         style="width: 20px; margin-left: 20px"
     />
   </JHButton>

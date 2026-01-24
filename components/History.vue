@@ -23,12 +23,13 @@ const currentEvent = computed(() => historyEvents[eventNow.value]!);
     <div class="history-right" :class="pageStore.pageType">
       <div class="time">{{ currentEvent.time }}</div>
       <div class="content">{{ currentEvent.content }}</div>
-      <NuxtImg src="https://img.lonesome.cn/jhwl/home/photo/index/jingxiaohong.webp" border="2" />
+      <NuxtImg src="jingxiaohong/jingxiaohong.webp" border="2" />
     </div>
   </div>
   <div class="history-choice">
     <div class="red-line"></div>
     <div class="item" v-for="(item, index) in historyEvents" :class="{ select: eventNow == index }"
-      v-bind:style="{ 'background-image': 'url(' + item.img + ')' }" @click="eventNow = index"></div>
+      v-bind:style="{ 'background-image': 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')' }"
+      @click="eventNow = index"></div>
   </div>
 </template>
