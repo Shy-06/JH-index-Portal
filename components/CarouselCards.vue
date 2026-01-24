@@ -243,7 +243,8 @@ ul li {
     <div class="whole">
       <ul type :class="type">
         <li class="card" :class="[carouselClass[index], type]" v-for="(item, index) in props.card">
-          <div class="img" v-bind:style="{ 'background-image': 'url(' + item.img + ')' }"></div>
+          <div class="img"
+            v-bind:style="{ backgroundImage: 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')' }"></div>
           <div class="introduction">{{ item.introduction }}</div>
           <div class="content">
             <div>{{ item.content }}</div>

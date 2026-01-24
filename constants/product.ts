@@ -6,11 +6,11 @@ export const productsContent = {
     accounts: [
       {
         name: "浙江工业大学精弘网络",
-        qrCode: "common/wechat_jhwl_qr.webp"
+        qrCode: "external/wechatqr/jhwl"
       },
       {
         name: "精小弘在线",
-        qrCode: "common/wechat_jxhzx_qr.webp"
+        qrCode: "external/wechatqr/jxhzx"
       }
     ]
   },

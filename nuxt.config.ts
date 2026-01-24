@@ -5,6 +5,12 @@ const cubeBaseURL = 'https://img.phlin.cn/api/file?bucket=homepage&object_key=';
 export default defineNuxtConfig({
   compatibilityDate: '2025-10-25',
 
+  runtimeConfig: {
+    public: {
+      cubeBaseURL
+    }
+  },
+
   devtools: { enabled: true },
 
   modules: ['@pinia/nuxt', '@nuxt/image'],
@@ -38,7 +44,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: [new URL(cubeBaseURL).hostname],
+    domains: [new URL(cubeBaseURL).hostname, 'open.weixin.qq.com'],
     provider: 'cubeImage',
     providers: {
       cubeImage: {

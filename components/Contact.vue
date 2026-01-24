@@ -23,7 +23,7 @@
         />
         <NuxtImg
             v-if="isHovering"
-            src="common/wechat_jxhzx_qr.webp"
+            src="external/wechatqr/jxhzx"
             class="qrcode"
             @mouseout="onMouseOut"
             style="width: auto; height: 20%;z-index:1; position: absolute;"

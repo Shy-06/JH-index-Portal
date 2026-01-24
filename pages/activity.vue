@@ -19,7 +19,7 @@ const application = () => {
   <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的活动</JHLabel>
   <JHCard title="ACM新生赛" type="large" :is-title="true">
     <div class="base" :class="pageStore.pageType">
-      <NuxtImg class="haibao" :src="acmCompetitionInfo.posterImage" />
+      <NuxtImg class="poster" :src="acmCompetitionInfo.posterImage" />
       <div class="detail-base" :class="pageStore.pageType">
         <div style="height: 50px"></div>
         <div class="btn">
