@@ -45,7 +45,7 @@ export const historyEvents = [
     id: 3,
     img: "common/mailSystem.webp",
     time: "2006年5月",
-    content: "推出第一版学生邮箱\nmail.zjut.com",
+    content: "推出第一版学生邮箱\nmail.zjut.com\nPs. 目前已升级为 mail.zjut.edu.cn",
     name: "学生邮箱"
   },
   {

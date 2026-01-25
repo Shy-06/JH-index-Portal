@@ -11,7 +11,11 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       cubeBaseURL,
-      lastUpdateYear: 2026
+      lastUpdateYear: 2026,
+      contact:{
+        email: "jhwl@zjut.edu.cn",
+        github: "https://github.com/zjutjh"
+      }
     }
   },
 

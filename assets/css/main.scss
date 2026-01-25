@@ -9,6 +9,11 @@ html {
   src: url("#{$cubeBaseURL}fonts/SourceHanSansSC-VF.otf");
 }
 
+a {
+  color: #d20001;
+  text-decoration: none;
+}
+
 #__nuxt {
   width: 100%;
   font-family: "SC-VF";

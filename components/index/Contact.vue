@@ -2,12 +2,12 @@
   <div class="contact-base" :class="pageStore.pageType">
     <JHCard type="small" :is-title="false" title="no">
       <div class="loading" :class="pageStore.pageType">
-        <div style="color: #db3625; font-size: 30px; font-weight: bold;">{{ useRuntimeConfig().public.lastUpdateYear }}
+        <div style="color: #d20001; font-size: 30px; font-weight: bold;">{{ useRuntimeConfig().public.lastUpdateYear }}
         </div>
         <div class="loading-bar-border">
           <div class="loading-bar" :style="{ left: loadingWidth + '%' }"></div>
         </div>
-        <div style="color: #db3625; font-size: 24px;">Loading...</div>
+        <div style="color: #d20001; font-size: 24px;">Loading...</div>
       </div>
     </JHCard>
     <NuxtImg class="jh" :class="pageStore.pageType" src="common/logo_red.webp" border="5" />
@@ -27,7 +27,8 @@
     <JHCard type="small" :is-title="false" title="no">
       <div class="join">
         <div class="join-content" :class="pageStore.pageType">精弘诚聘</div>
-        <JHButton :type="pageStore.pageType == 'mini' ? 'mini' : 'middle'" @click="toJoin">加入我们</JHButton>
+        <JHButton :type="pageStore.pageType == 'mini' ? 'mini' : 'middle'" @click="() => useRouter().push('/join')">加入我们
+        </JHButton>
       </div>
     </JHCard>
   </div>
@@ -180,22 +181,17 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 const pageStore = usePageStore();
-const router = useRouter();
 const loadingBarTimer = ref(0);
 const loadingWidth = ref(0);
 const isHovering = ref(false);
 function onMouseOver() {
   isHovering.value = true;
 }
-
 function onMouseOut() {
   isHovering.value = false;
 }
 function toGithub() {
-  window.open("https://www.github.com/zjutjh", "_blank");
-}
-function toJoin() {
-  router.push("/join");
+  window.location.href = useRuntimeConfig().public.contact.github;
 }
 onMounted(() => {
   loadingBarTimer.value = window.setInterval(() => {
