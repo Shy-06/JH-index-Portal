@@ -60,12 +60,17 @@
 **文件**: `nuxt.config.ts`
 
 ```typescript
+// ⚠️ 检查图片服务配置
+const cubeBaseURL = "...";
+
 export default defineNuxtConfig({
-  // ⚠️ 检查图片服务配置
-  cubeBaseURL: "...",
-  // ✅ 更新最后更新年份
-  // 这会自动同步更新Footer和首页下方Loading组件的年份显示
-  lastUpdateYear: 2026,
+  runtimeConfig: {
+    public: {
+      // ✅ 更新最后更新年份
+      // 这会自动同步更新Footer和首页下方Loading组件的年份显示
+      lastUpdateYear: 2026,
+    },
+  },
 });
 ```
 
