@@ -5,7 +5,6 @@ const pageStore = usePageStore();
 
 function toRecruit() {
   window.open(recruitmentInfo.registrationUrl);
-  return false;
 }
 </script>
 
