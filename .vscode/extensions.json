@@ -1,8 +1,7 @@
 {
   "recommendations": [
-    "streetsidesoftware.code-spell-checker",
     "vue.volar",
-    "ms-ceintl.vscode-language-pack-zh-hans",
+    "streetsidesoftware.code-spell-checker",
     "ms-vsliveshare.vsliveshare",
     "esbenp.prettier-vscode"
   ]
