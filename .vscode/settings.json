@@ -1,20 +1,18 @@
 {
   "cSpell.words": [
     "bangongshi",
-    "CEINTL",
     "changwu",
-    "echarts",
-    "haibao",
-    "IACM",
+    "jinghong",
     "jishu",
     "jiyu",
     "mishuchu",
     "nuxt",
+    "open.weixin.qq.com",
+    "pinia",
     "sheji",
     "shenghuo",
     "shiming",
     "trixie",
-    "weixin",
     "wejh",
     "xinmeiti",
     "yiban",
@@ -22,7 +20,11 @@
     "yunying",
     "yuren",
     "zjut",
-    "zjuter"
+    "zjuter",
+    "ZoomlaYasong"
   ],
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
   "git.autofetch": "all"
 }

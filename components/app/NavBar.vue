@@ -1,41 +1,50 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
 
-const router = useRouter();
 const isAtTop = ref(true);
 const pageStore = usePageStore();
-const btnOn = ref(false);
-const listShow = ref(false);
-const oldScrollPosition = ref(0);
+const mobileColumnMenuDisplay = ref(false);
+const previousScrollPosition = ref(0);
 const hide = ref(false);
-const { pageNow } = storeToRefs(pageStore);
+const { currentPageNo } = storeToRefs(pageStore);
 
-watch(pageNow, () => {
-  handleScroll();
-});
+// MARK: 滚动相关参数
+const pageTopBufferSize = 300;
+const scrollReactThreshold = 25;
 
-function handleScroll() {
-  const nowScrollPosition = window.pageYOffset;
-  isAtTop.value = nowScrollPosition < 300 && pageStore.pageNow === 0;
-
-  if (nowScrollPosition > oldScrollPosition.value) {
-    hide.value = true;
-  } else {
-    hide.value = false;
-  }
-  oldScrollPosition.value = nowScrollPosition;
-}
+watch(currentPageNo, () => { updateScrollState(); });
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-  oldScrollPosition.value = 0;
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  updateScrollState();
 });
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
 
-const links = [
+// MARK: 页面滚动处理
+function updateScrollState() {
+  const currentScrollPosition = Math.max(0, window.scrollY || window.pageYOffset);
+  isAtTop.value = currentScrollPosition < pageTopBufferSize;
+}
+
+function handleScroll() {
+  const currentScrollPosition = Math.max(0, window.scrollY || window.pageYOffset);
+  updateScrollState();
+  const scrollDiff = Math.abs(currentScrollPosition - previousScrollPosition.value);
+  if (scrollDiff > scrollReactThreshold) {
+    hide.value = currentScrollPosition > previousScrollPosition.value;
+  }
+  previousScrollPosition.value = currentScrollPosition;
+}
+
+function listBtnClicked() {
+  mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value;
+}
+
+// MARK: 栏目配置项
+const menuColumns = [
   { name: '首页', link: '/' },
   { name: '我们的故事', link: '/story' },
   { name: '我们的产品', link: '/product' },
@@ -43,60 +52,86 @@ const links = [
   { name: '我们的活动', link: '/activity' },
   { name: '加入我们', link: '/join' }
 ];
-
-function listBtnClicked() {
-  btnOn.value = !btnOn.value;
-  listShow.value = !listShow.value;
-}
-
-function logoClicked() {
-  router.push('/');
-}
 </script>
+
 <template>
   <div :class="[
-    isAtTop && pageStore.pageNow === 0 && !btnOn ? 'atTop' : 'notAtTop',
+    'base',
     pageStore.pageType,
-    hide ? 'hide' : ''
-  ]" class="base">
-    <NuxtImg class="logo" :class="pageStore.pageType" src="common/logo.webp" alt="Logo" @click="logoClicked" />
-    <div v-for="(l, index) in links" :key="l.link" v-show="pageStore.pageType === 'normal'" class="link"
-      :class="index === pageStore.pageNow ? 'select' : 'notSelect'">
-      <router-link :to="l.link">{{ l.name }}</router-link>
-    </div>
-    <div v-show="pageStore.pageType === 'mini' || pageStore.pageType === 'middle'" class="listButton"
-      :class="btnOn ? 'btnOn' : 'btnOff'" @click="listBtnClicked" />
+    isAtTop && pageStore.currentPageNo === 0 && !mobileColumnMenuDisplay ? 'atCover' : 'notAtCover',
+    !isAtTop && hide && !mobileColumnMenuDisplay ? 'hide' : '',
+  ]">
+    <router-link to="/" class="logo" :class="pageStore.pageType">
+      <NuxtImg src="common/logo.webp" alt="Logo" style="width: 100%; object-fit: contain;" />
+    </router-link>
 
-    <div v-show="listShow" class="list" :class="pageStore.pageType">
-      <div v-for="(l, index) in links" :key="l.link" class="listItem"
-        :class="index === pageStore.pageNow ? 'select' : 'notSelect'" @click="listBtnClicked">
-        <router-link :to="l.link">
-          {{ l.name }}
-        </router-link>
+    <template v-if="pageStore.pageType === 'normal'">
+      <div v-for="(l, index) in menuColumns" :key="l.link" class="link"
+        :class="index === pageStore.currentPageNo ? 'select' : 'notSelect'">
+        <router-link :to="l.link">{{ l.name }}</router-link>
       </div>
-    </div>
+    </template>
+    <template v-else>
+      <div class="listButton" :class="mobileColumnMenuDisplay ? 'mobileColumnMenuDisplay' : 'mobileColumnMenuHidden'"
+        @click="listBtnClicked" />
+      <Teleport to="#__nuxt">
+        <Transition name="slide">
+          <div v-show="mobileColumnMenuDisplay" class="list" :class="pageStore.pageType">
+            <div v-for="(l, index) in menuColumns" :key="l.link" class="listItem"
+              :class="index === pageStore.currentPageNo ? 'select' : 'notSelect'" @click="listBtnClicked">
+              <router-link :to="l.link">
+                <div style="width: 100%;">
+                  {{ l.name }}
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </Transition>
+      </Teleport>
+    </template>
   </div>
 </template>
 
 <style lang="scss" scoped>
+// MARK: 字体和颜色
+$primary-color: #d20001;
+$font-family: 'song', sans-serif;
+
 @font-face {
   font-family: 'song';
   src: url('#{$cubeBaseURL}fonts/ZoomlaYasong.ttf');
 }
 
-@keyframes showList {
-  from {
-    top: -100%;
-    z-index: -1;
-  }
-
-  to {
-    top: 100%;
-  }
+// MARK: 动画
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease;
+  will-change: transform, opacity;
 }
 
+.slide-enter-from {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.slide-enter-to {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-leave-from {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+// MARK: 全局样式
 * {
-  font-family: 'song', sans-serif;
+  font-family: $font-family;
 }
 
 a {
@@ -105,18 +140,20 @@ a {
   font-size: large;
 }
 
-.atTop {
+// MARK: 背景状态
+.atCover {
   background: transparent;
   transition: background linear 0.2s;
 }
 
-.notAtTop {
-  background-color: #d20001;
+.notAtCover {
+  background-color: $primary-color;
   transition: background linear 0.2s;
 }
 
+// MARK: 导航栏基础样式
 .base {
-  z-index: 10;
+  z-index: 4;
   display: grid;
   width: 100%;
   color: white;
@@ -124,116 +161,129 @@ a {
   align-items: center;
   transition: top linear 0.4s, background linear 0.2s;
   top: 0;
+
+  &.normal {
+    height: 90px;
+    grid-template-columns: 30% repeat(6, 1fr);
+  }
+
+  &.middle {
+    height: 90px;
+    grid-template-columns: 1fr 60px;
+  }
+
+  &.mini {
+    height: 50px;
+    grid-template-columns: 1fr 60px;
+  }
+
+  // 隐藏状态
+  &.hide {
+    top: -100px;
+    transition: top linear 0.4s, background linear 0.2s;
+  }
 }
 
-.base.normal {
-  height: 90px;
-  grid-template-columns: 30% repeat(6, 1fr);
+// MARK: Logo样式
+.logo {
+  &.normal {
+    width: 200px;
+    transform: scale(0.8);
+  }
+
+  &.middle {
+    width: 200px;
+    transform: scale(0.8);
+  }
+
+  &.mini {
+    width: 120px;
+    transform: scale(0.8);
+  }
 }
 
-.base.middle {
-  height: 90px;
-  grid-template-columns: 1fr 60px;
+// MARK: 导航链接
+.link {
+  &.select {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    transition: background-color 0.5s;
+
+    a {
+      color: $primary-color;
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      width: 100%;
+      position: relative;
+      top: 20px;
+      border-bottom: 3px solid white;
+    }
+  }
+
+  &.notSelect a {
+    color: white;
+  }
 }
 
-.base.mini {
-  height: 50px;
-  grid-template-columns: 1fr 60px;
-}
-
-.base.hide {
-  top: -100px;
-  transition: top linear 0.4s, background linear 0.2s;
-}
-
-.logo.normal {
-  width: 200px;
-  transform: scale(0.8);
-}
-
-.logo.middle {
-  width: 200px;
-  transform: scale(0.8);
-}
-
-.logo.mini {
-  width: 120px;
-  transform: scale(0.8);
-}
-
-.link.select {
-  background-color: white;
-  border-radius: 20px;
-  padding: 5px;
-  transition: background-color 0.5s;
-}
-
-.link.select a {
-  color: #d20001;
-}
-
-.link.select::after {
-  display: block;
-  content: "";
-  width: 100%;
-  position: relative;
-  top: 20px;
-  border-bottom: 3px solid white;
-}
-
-.link.notSelect a {
-  color: white;
-}
-
+// MARK: 列表按钮
 .listButton {
   width: 40px;
   height: 40px;
+
+  &.mobileColumnMenuDisplay {
+    background: url('#{$cubeBaseURL}ui/svg/close.svg') no-repeat center;
+  }
+
+  &.mobileColumnMenuHidden {
+    background: url('#{$cubeBaseURL}ui/svg/list.svg') no-repeat center;
+  }
 }
 
-.listButton.btnOn {
-  background: url('#{$cubeBaseURL}ui/svg/close.svg') no-repeat center;
-}
-
-.listButton.btnOff {
-  background: url('#{$cubeBaseURL}ui/svg/list.svg') no-repeat center;
-}
-
+// MARK: 下拉列表
 .list {
   width: 100%;
   height: 100vh;
-  z-index: 5;
-  position: absolute;
-  top: 50px;
+  z-index: 3;
+  position: fixed;
   background-color: white;
   align-items: center;
   justify-items: center;
-  animation: showList 0.1s ease;
-}
 
-.list.middle {
-  top: 90px;
-}
+  &.mini {
+    top: 50px;
+    height: calc(100vh - 50px);
+  }
 
-.list .listItem {
-  width: 40%;
-  margin: auto;
-  margin-top: 20px;
-  padding: 5px;
-  border: 2px solid;
-  border-radius: 15px;
-  border-color: #d20001;
-}
+  &.middle {
+    top: 90px;
+    height: calc(100vh - 90px);
+  }
 
-.list .listItem.select {
-  background-color: #d20001;
-  color: white;
-}
+  .listItem {
+    width: 40%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 5px;
+    border: 2px solid;
+    border-radius: 15px;
+    border-color: $primary-color;
 
-.list .listItem.notSelect {
-  background-color: white;
-}
+    &.select {
+      background-color: $primary-color;
+      color: white;
+    }
 
-.list .listItem.notSelect a {
-  color: #d20001;
+    &.notSelect {
+      background-color: white;
+
+      a {
+        color: $primary-color;
+      }
+    }
+  }
 }
 </style>

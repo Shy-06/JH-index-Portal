@@ -1,10 +1,10 @@
-const routeMap: Record<string, { pageNow: number; title: string }> = {
-  '/': { pageNow: 0, title: '精弘首页' },
-  '/story': { pageNow: 1, title: '我们的故事' },
-  '/product': { pageNow: 2, title: '我们的产品' },
-  '/department': { pageNow: 3, title: '我们的部门' },
-  '/activity': { pageNow: 4, title: '我们的活动' },
-  '/join': { pageNow: 5, title: '加入我们' },
+const routeMap: Record<string, { currentPageNo: number; title: string }> = {
+  '/': { currentPageNo: 0, title: '精弘首页' },
+  '/story': { currentPageNo: 1, title: '我们的故事' },
+  '/product': { currentPageNo: 2, title: '我们的产品' },
+  '/department': { currentPageNo: 3, title: '我们的部门' },
+  '/activity': { currentPageNo: 4, title: '我们的活动' },
+  '/join': { currentPageNo: 5, title: '加入我们' },
 };
 
 export default defineNuxtRouteMiddleware((to) => {
@@ -24,7 +24,7 @@ export default defineNuxtRouteMiddleware((to) => {
 
   const route = routeMap[path] || routeMap[firstSegment];
   if (route) {
-    pageStore.pageNow = route.pageNow;
+    pageStore.currentPageNo = route.currentPageNo;
     useHead({ title: route.title });
   }
 });

@@ -1,8 +1,8 @@
-<!--根据屏幕宽度调整顶部间距-->
+<template>
+  <!--根据屏幕宽度调整顶部间距-->
+  <div class="top" :class="usePageStore().pageType"></div>
+</template>
 
-<script lang="ts" setup>
-const pageStore = usePageStore();
-</script>
 <style scoped lang="scss">
 .top {
 
@@ -16,6 +16,3 @@ const pageStore = usePageStore();
   }
 }
 </style>
-<template>
-  <div class="top" :class="pageStore.pageType"></div>
-</template>
