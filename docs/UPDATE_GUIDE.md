@@ -78,4 +78,4 @@ export default defineNuxtConfig({
 
 ---
 
-**最后更新**: 2026年1月24日
+**最后更新**: 2026.01.27

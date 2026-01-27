@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt/config';
 const cubeBaseURL = 'https://img.phlin.cn/api/file?bucket=homepage&object_key=';
 
 export default defineNuxtConfig({
-  compatibilityDate: '2025-10-25',
+  compatibilityDate: '2026-01-01',
   devtools: { enabled: true },
   modules: ['@pinia/nuxt', '@nuxt/image'],
   css: ['~/assets/css/main.scss'],
@@ -58,7 +58,7 @@ export default defineNuxtConfig({
     providers: {
       cubeImage: {
         name: 'cubeImage',
-        provider: '~/providers/cubeImage.ts',
+        provider: '~/providers/cubeImage',
         options: {
           baseURL: cubeBaseURL
         }

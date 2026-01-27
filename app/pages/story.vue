@@ -1,0 +1,105 @@
+<script lang="ts" setup>
+import { 
+  yixingImages, 
+  yurenImages, 
+  persons, 
+  missionContent,
+  yixingContent,
+  yurenContent,
+  socialLifeContent
+} from "~/constants/story";
+
+const pageStore = usePageStore();
+
+function toProduct() {
+  navigateTo("/product");
+}
+</script>
+
+<style scoped lang="scss">
+@use "~/assets/css/pages/story.scss";
+</style>
+
+<template>
+  <PageTop />
+  <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的故事</JHLabel>
+  <JHCard type="large" title="我们的使命" :isTitle="true">
+    <div class="shiming-base" :class="pageStore.pageType">
+      <NuxtImg
+        class="shiming-img"
+        src="temp/shiming.webp"
+        v-if="pageStore.pageType == 'normal'"
+      />
+      <div
+        class="shiming-imgs"
+        v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'"
+      >
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming1.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming2.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming3.webp" />
+        <NuxtImg class="shiming-imgs-img" src="temp/shiming4.webp" />
+      </div>
+      <div class="shiming" :class="pageStore.pageType">
+        <h2>{{ missionContent.title }}</h2>
+        <pre style="white-space: pre-wrap; font-family: inherit;">{{ missionContent.description }}</pre>
+      </div>
+    </div>
+  </JHCard>
+  <JHCard type="large" title="精弘毅行" :isTitle="true">
+    <CarouselPictures :imgs="yixingImages"></CarouselPictures>
+    <div class="yixing-content" :class="pageStore.pageType">
+      {{ yixingContent.paragraph1 }}
+    </div>
+    <div class="yixing-content" :class="pageStore.pageType">
+      {{ yixingContent.paragraph2 }}
+    </div>
+  </JHCard>
+  <JHCard type="large" title="网络育人" :isTitle="true">
+    <CarouselPictures :imgs="yurenImages"></CarouselPictures>
+    <div class="yixing-content" :class="pageStore.pageType">
+      {{ yurenContent }}
+    </div>
+  </JHCard>
+  <JHCard type="large" title="生活社交" :isTitle="true">
+    <div class="shenghuo" :class="pageStore.pageType">
+      <NuxtImg src="groupPhoto/shenghuo0.webp" id="img1" />
+      <div class="content">
+        {{ socialLifeContent.text1 }}
+      </div>
+      <NuxtImg src="groupPhoto/shenghuo1.webp" id="img2" />
+      <div class="content">
+        {{ socialLifeContent.text2 }}
+      </div>
+      <NuxtImg src="groupPhoto/shenghuo2.webp" id="img3" />
+      <div class="shenghuo-imgs">
+        <NuxtImg src="groupPhoto/shenghuo3.webp" id="img4" />
+        <NuxtImg src="groupPhoto/shenghuo4.webp" id="img5" />
+      </div>
+      <div class="content">
+        {{ socialLifeContent.text3 }}
+      </div>
+    </div>
+  </JHCard>
+
+  <div class="jiyu">
+    <JHLabel type="title">前辈寄语</JHLabel>
+    <div class="jiyu-base" :class="pageStore.pageType">
+      <CarouselCards :card="persons" :type="pageStore.pageType"></CarouselCards>
+    </div>
+    <div
+      class="jiyu-base"
+      :class="pageStore.pageType"
+      v-if="pageStore.pageType != 'normal'"
+    ></div>
+  </div>
+
+  <div style="height: 200px"></div>
+  <JHButton type="middle" @click="toProduct">
+    我们的产品
+    <NuxtImg
+      src="ui/rightArrow.svg"
+      style="width: 20px; margin-left: 20px"
+    />
+  </JHButton>
+  <Footer />
+</template>
