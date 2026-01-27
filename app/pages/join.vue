@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { recruitmentInfo, posterImage } from "~/constants/recruitment";
+import { recruitmentInfo, posterImage } from "~~/constants/recruitment";
 
 const pageStore = usePageStore();
 
@@ -9,11 +9,10 @@ function toRecruit() {
 </script>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/join.scss";
+@use "assets/css/pages/join.scss";
 </style>
 
 <template>
-  <PageTop />
   <JHCard title="加入我们" type="large" :is-title="true">
     <div class="base" :class="pageStore.pageType">
       <NuxtImg class="poster" :src="posterImage" />
@@ -52,5 +51,4 @@ function toRecruit() {
       </div>
     </div>
   </JHCard>
-  <Footer />
 </template>

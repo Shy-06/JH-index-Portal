@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import type { CSSProperties } from 'vue';
-import { onMounted, onUnmounted, ref } from 'vue';
-import { historyEvents } from '~/constants/index';
+import { historyEvents } from '~~/constants/index';
 
 const angle = (Math.atan(0.5) * 180) / Math.PI + "deg";
 const angle2 = (-Math.atan(0.5) * 180) / Math.PI + "deg";
 const scale = 1 / Math.cos(Math.atan(0.5));
-const styleVal = (index: number): CSSProperties => {
+const styleVal = (index: number) => {
   return {
     '--angle': index % 2 === 0 ? angle : angle2,
     '--scale': scale,

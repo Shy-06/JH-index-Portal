@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
 const pageStore = usePageStore();
 const loaded = ref<boolean>(false);
 onMounted(() => {

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted, reactive } from "vue";
 export interface Card {
   img: string;
   introduction: string;

@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { storeToRefs } from 'pinia';
-
 const isAtTop = ref(true);
 const pageStore = usePageStore();
 const mobileColumnMenuDisplay = ref(false);

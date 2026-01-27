@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue';
-
 const pageStore = usePageStore();
 
 function handleResize() {
@@ -31,5 +29,7 @@ onUnmounted(() => {
 
 <template>
   <NavBar />
-  <NuxtPage />
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

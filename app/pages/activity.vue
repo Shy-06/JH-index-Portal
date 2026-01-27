@@ -1,15 +1,14 @@
 <script lang="ts" setup>
-import { acmCompetitionInfo } from "~/constants/activity";
+import { acmCompetitionInfo } from "~~/constants/activity";
 
 const pageStore = usePageStore();
 </script>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/activity.scss";
+@use "assets/css/pages/activity.scss";
 </style>
 
 <template>
-  <PageTop />
   <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的活动</JHLabel>
   <JHCard title="ACM新生赛" type="large" :is-title="true">
     <div class="base" :class="pageStore.pageType">
@@ -38,5 +37,4 @@ const pageStore = usePageStore();
     加入我们
     <NuxtImg src="ui/rightArrow.svg" style="width: 20px; margin-left: 20px" />
   </JHButton>
-  <Footer />
 </template>

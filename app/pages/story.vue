@@ -7,7 +7,7 @@ import {
   yixingContent,
   yurenContent,
   socialLifeContent
-} from "~/constants/story";
+} from "~~/constants/story";
 
 const pageStore = usePageStore();
 
@@ -17,11 +17,10 @@ function toProduct() {
 </script>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/story.scss";
+@use "assets/css/pages/story.scss";
 </style>
 
 <template>
-  <PageTop />
   <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的故事</JHLabel>
   <JHCard type="large" title="我们的使命" :isTitle="true">
     <div class="shiming-base" :class="pageStore.pageType">
@@ -101,5 +100,4 @@ function toProduct() {
       style="width: 20px; margin-left: 20px"
     />
   </JHButton>
-  <Footer />
 </template>

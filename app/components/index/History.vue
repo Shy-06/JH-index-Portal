@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import { historyEvents } from "~/constants/index";
+import { historyEvents } from "~~/constants/index";
 
 const pageStore = usePageStore();
 const eventNow = ref<number>(0);
@@ -8,7 +7,7 @@ const currentEvent = computed(() => historyEvents[eventNow.value]!);
 </script>
 
 <style scoped lang="scss">
-@use "~/assets/css/components/History.scss";
+@use "assets/css/components/History.scss";
 </style>
 
 <template>

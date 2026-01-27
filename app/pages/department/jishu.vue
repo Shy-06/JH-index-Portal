@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { departmentContent, technologyImages } from "~/constants/department";
+import { departmentContent, technologyImages } from "~~/constants/department";
 
 onMounted(() => {
   document.title = "技术研发中心";
@@ -8,11 +7,10 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/department/jishu.scss";
+@use "assets/css/pages/department/jishu.scss";
 </style>
 
 <template>
-  <div style="height: 100px"></div>
   <JHLabel type="big">技术研发中心</JHLabel>
   <JHCard type="large" title="产研部" :isTitle="true">
     <CarouselPictures :imgs="technologyImages"></CarouselPictures>
@@ -38,5 +36,4 @@ onMounted(() => {
   </JHCard>
   <NuxtImg src="ui/fork.webp" style="width: 80px; height: 80px; margin-top: 50px; cursor: pointer"
     @click="navigateTo('/department')" />
-  <Footer />
 </template>

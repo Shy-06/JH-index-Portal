@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { ref } from "vue";
-import { productsContent, productIcons } from "~/constants/product";
+import { productsContent, productIcons } from "~~/constants/product";
 
 const pageStore = usePageStore();
 const isWechat = ref<boolean>(false);
@@ -14,14 +13,13 @@ function toDepartment() {
 </script>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/product.scss";
+@use "assets/css/pages/product.scss";
 </style>
 
 <template>
-  <PageTop />
   <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的产品</JHLabel>
   <div class="shadow" v-if="isWejh || isWechat || isVisual || isEmail"></div>
-  <div class="base" :class="pageStore.pageType" v-if="pageStore.pageType == 'normal'">
+  <div v-if="pageStore.pageType == 'normal'" class="base normal">
     <JHCard type="large" :is-title="true" :title="productsContent.wechat.title">
       <div class="wechat">
         <div class="introduction">
@@ -65,21 +63,24 @@ function toDepartment() {
       </div>
     </JHCard>
   </div>
-  <div v-if="pageStore.pageType == 'middle' || pageStore.pageType == 'mini'">
+  <div v-else>
     <JHCard type="large" :is-title="false" title="no">
       <div class="base" :class="pageStore.pageType">
         <div class="product-item">
           <NuxtImg :src="productIcons.wejh" />
           <JHButton type="middle" @click="isWejh = true">微信小程序</JHButton>
         </div>
+        <div class="product-separator"></div>
         <div class="product-item">
           <NuxtImg :src="productIcons.wechat" />
           <JHButton type="middle" @click="isWechat = true">微信服务号</JHButton>
         </div>
+        <div class="product-separator"></div>
         <div class="product-item">
           <NuxtImg :src="productIcons.visual" />
           <JHButton type="middle" @click="isVisual = true">视觉影像</JHButton>
         </div>
+        <div class="product-separator"></div>
         <div class="product-item">
           <NuxtImg :src="productIcons.email" />
           <JHButton type="middle" @click="isEmail = true">学生邮箱</JHButton>
@@ -137,5 +138,4 @@ function toDepartment() {
     我们的部门
     <NuxtImg src="ui/rightArrow.svg" style="width: 20px; margin-left: 20px" />
   </JHButton>
-  <Footer />
 </template>

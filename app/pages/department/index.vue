@@ -4,10 +4,9 @@ const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;
 </script>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/department-index.scss";
+@use "assets/css/pages/department-index.scss";
 </style>
 <template>
-  <PageTop />
   <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的部门</JHLabel>
   <JHCard title="部门结构" type="large" :is-title="true">
     <NuxtImg src="common/structPc.webp" style="width: 70%;position: relative;right: 2%;" />
@@ -43,5 +42,4 @@ const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;
     我们的活动
     <NuxtImg src="ui/rightArrow.svg" style="width: 20px; margin-left: 20px" />
   </JHButton>
-  <Footer />
 </template>

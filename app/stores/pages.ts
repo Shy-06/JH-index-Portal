@@ -1,5 +1,3 @@
-import { defineStore } from 'pinia';
-
 export type PageType = "normal" | "middle" | "mini";
 
 export const usePageStore = defineStore('page', {

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { introduceContent } from "~/constants/index";
+import { introduceContent } from "~~/constants/index";
 
 const pageStore = usePageStore();
 </script>
 
 <style scoped lang="scss">
-@use "~/assets/css/components/Introduce.scss";
+@use "assets/css/components/Introduce.scss";
 </style>
 
 <template>

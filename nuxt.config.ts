@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-01-01',
   devtools: { enabled: true },
   modules: ['@pinia/nuxt', '@nuxt/image'],
-  css: ['~/assets/css/main.scss'],
+  css: ['assets/css/main.scss'],
 
   runtimeConfig: {
     public: {

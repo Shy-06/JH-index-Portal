@@ -179,7 +179,6 @@
 </style>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
 const pageStore = usePageStore();
 const loadingBarTimer = ref(0);
 const loadingWidth = ref(0);
