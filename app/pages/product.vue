@@ -116,7 +116,7 @@ function toDepartment() {
       </div>
       <div class="content" style="font-size: 18px;">
         {{ productsContent.visual.description }}
-        <template v-for="line in productsContent.visual.follow" :key="line">
+        <template v-for="(line, index) in productsContent.visual.follow" :key="index">
           <div style="text-align: center;">{{ line }}</div>
         </template>
       </div>

@@ -6,7 +6,7 @@ const props = defineProps<Props>();
 const carouselClass = reactive(["left", "center", "right"]);
 const touchStartPosition = ref(0);
 const touchEndPosition = ref(0);
-const timer = ref<number | undefined>(undefined);
+const timer = ref<ReturnType<typeof setInterval> | undefined>(undefined);
 
 function _resetTimer() {
   if (timer.value !== undefined) {
