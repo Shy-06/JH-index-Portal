@@ -1,3 +1,4 @@
+// 我们的故事
 export const yixingImages = [
   "groupPhoto/yixing0.webp",
   "groupPhoto/yixing1.webp",

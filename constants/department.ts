@@ -1,4 +1,5 @@
-// 部门介绍内容 - 每年可能需要更新
+// 我们的部门
+// 每年需要更新
 // 2026 尚未更新
 export const departmentContent = {
   product: {

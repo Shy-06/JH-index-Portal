@@ -1,4 +1,4 @@
-// 产品介绍内容
+// 我们的产品
 export const productsContent = {
   wechat: {
     title: "微信公众号",

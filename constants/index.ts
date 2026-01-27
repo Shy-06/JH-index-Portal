@@ -1,4 +1,4 @@
-// 首页介绍内容 - 每年可能需要更新
+// 首页
 export const introduceContent = {
   title: {
     normal: "精弘网络⼁Jinghong Union",
