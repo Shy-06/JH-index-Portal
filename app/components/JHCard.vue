@@ -3,6 +3,7 @@ const prop = defineProps<{
   title?: string;
   type: string;
   isTitle: boolean;
+  noLabel?: boolean;
 }>();
 </script>
 
@@ -21,7 +22,7 @@ const prop = defineProps<{
     }" v-show="isTitle">
       {{ prop.title }}
     </div>
-    <div class="content">
+    <div :class="{ 'content': !prop.noLabel }">
       <slot></slot>
     </div>
   </div>
@@ -121,7 +122,6 @@ const prop = defineProps<{
   position: relative;
   top: 1rem;
   left: -2%;
-
   font-size: large;
   color: white;
   font-weight: bolder;

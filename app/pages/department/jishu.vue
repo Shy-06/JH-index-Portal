@@ -1,4 +1,5 @@
 <script setup lang="ts">
+definePageMeta({ title: "技术研发中心", pageNo: 3 });
 import { departmentContent, technologyImages } from "~~/constants/department";
 
 onMounted(() => {

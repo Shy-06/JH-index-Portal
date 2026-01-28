@@ -7,8 +7,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="start" :class="[pageStore.pageType, loaded ? 'loaded' : 'unloaded']">
-    <div class="title1" :class="pageStore.pageType">精弘网络,取精用弘</div>
+  <div class="start" :class="[pageStore.pageSize, loaded ? 'loaded' : 'unloaded']">
+    <div class="title1" :class="pageStore.pageSize">精弘网络,取精用弘</div>
     <NuxtImg class="downArrow" src="ui/downArrow.svg" />
   </div>
 </template>

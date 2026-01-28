@@ -1,7 +1,7 @@
 <template>
-  <div class="contact-base" :class="pageStore.pageType">
+  <div class="contact-base" :class="pageStore.pageSize">
     <JHCard type="small" :is-title="false" title="no">
-      <div class="loading" :class="pageStore.pageType">
+      <div class="loading" :class="pageStore.pageSize">
         <div style="color: #d20001; font-size: 30px; font-weight: bold;">{{ useRuntimeConfig().public.lastUpdateYear }}
         </div>
         <div class="loading-bar-border">
@@ -10,9 +10,9 @@
         <div style="color: #d20001; font-size: 24px;">Loading...</div>
       </div>
     </JHCard>
-    <NuxtImg class="jh" :class="pageStore.pageType" src="common/logo_red.webp" border="5" />
+    <NuxtImg class="jh" :class="pageStore.pageSize" src="common/logo_red.webp" border="5" />
     <JHCard type="small" :is-title="false" title="no">
-      <div class="contact-us" :class="pageStore.pageType">
+      <div class="contact-us" :class="pageStore.pageSize">
         <NuxtImg src="ui/wechat.svg" @mouseover="onMouseOver" />
         <NuxtImg v-if="isHovering" src="external/wechatqr/jxhzx" class="qrcode" @mouseout="onMouseOut"
           style="width: auto; height: 20%;z-index:1; position: absolute;" />
@@ -26,8 +26,8 @@
 
     <JHCard type="small" :is-title="false" title="no">
       <div class="join">
-        <div class="join-content" :class="pageStore.pageType">精弘诚聘</div>
-        <JHButton :type="pageStore.pageType == 'mini' ? 'mini' : 'middle'" @click="() => navigateTo('/join')">加入我们
+        <div class="join-content" :class="pageStore.pageSize">精弘诚聘</div>
+        <JHButton :type="pageStore.pageSize == 'mini' ? 'mini' : 'middle'" @click="() => navigateTo('/join')">加入我们
         </JHButton>
       </div>
     </JHCard>

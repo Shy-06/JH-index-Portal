@@ -11,13 +11,13 @@ const currentEvent = computed(() => historyEvents[eventNow.value]!);
 </style>
 
 <template>
-  <JHLabel type="title" v-if="pageStore.pageType == 'normal'">精弘大事记</JHLabel>
-  <div class="base-pc" v-if="pageStore.pageType == 'normal'">
+  <JHLabel type="title" v-if="pageStore.pageSize == 'normal'">精弘大事记</JHLabel>
+  <div class="base-pc" v-if="pageStore.pageSize == 'normal'">
     <div class="history-left">
       <NuxtImg :src="currentEvent.img" border="10" />
       <div class="event-name">{{ currentEvent.name }}</div>
     </div>
-    <div class="history-right" :class="pageStore.pageType">
+    <div class="history-right" :class="pageStore.pageSize">
       <div class="time">{{ currentEvent.time }}</div>
       <div class="content">{{ currentEvent.content }}</div>
       <NuxtImg src="jingxiaohong/jingxiaohong.webp" border="2" />

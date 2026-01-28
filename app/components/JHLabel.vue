@@ -3,7 +3,7 @@ const prop = defineProps<{ type: string; }>();
 </script>
 
 <template>
-  <div :class="[prop.type, usePageStore().pageType]">
+  <div :class="[prop.type, usePageStore().pageSize]">
     <div class="h">
       <slot></slot>
     </div>

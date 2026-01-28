@@ -1,8 +1,3 @@
-export type PageType = "normal" | "middle" | "mini";
+type PageSizeType = "normal" | "middle" | "mini";
 
-export const usePageStore = defineStore('page', {
-  state: () => ({
-    currentPageNo: 0,
-    pageType: 'normal' as PageType
-  })
-});
+export const usePageStore = defineStore('page', { state: () => ({ pageSize: 'normal' as PageSizeType }) });

@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-const isAtTop = ref(true);
+const route = useRoute();
 const pageStore = usePageStore();
+const hide = ref(false);
+const isAtTop = ref(true);
 const mobileColumnMenuDisplay = ref(false);
 const previousScrollPosition = ref(0);
-const hide = ref(false);
-const { currentPageNo } = storeToRefs(pageStore);
 
 // MARK: 滚动相关参数
 const pageTopBufferSize = 300;
 const scrollReactThreshold = 25;
 
-watch(currentPageNo, () => { updateScrollState(); });
+watch(() => route.meta.pageNo, () => { updateScrollState(); });
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true });
@@ -55,17 +55,17 @@ const menuColumns = [
 <template>
   <div :class="[
     'base',
-    pageStore.pageType,
-    isAtTop && pageStore.currentPageNo === 0 && !mobileColumnMenuDisplay ? 'atCover' : 'notAtCover',
-    !isAtTop && hide && !mobileColumnMenuDisplay ? 'hide' : '',
+    pageStore.pageSize,
+    !mobileColumnMenuDisplay && isAtTop && route.meta.pageNo === 0 ? 'atCover' : 'notAtCover',
+    !mobileColumnMenuDisplay && !isAtTop && hide ? 'hide' : '',
   ]">
-    <router-link to="/" class="logo" :class="pageStore.pageType">
+    <router-link to="/" class="logo" :class="pageStore.pageSize">
       <NuxtImg src="common/logo.webp" alt="Logo" style="width: 100%; object-fit: contain;" />
     </router-link>
 
-    <template v-if="pageStore.pageType === 'normal'">
+    <template v-if="pageStore.pageSize === 'normal'">
       <div v-for="(l, index) in menuColumns" :key="l.link" class="link"
-        :class="index === pageStore.currentPageNo ? 'select' : 'notSelect'">
+        :class="index === route.meta.pageNo ? 'select' : 'notSelect'">
         <router-link :to="l.link">{{ l.name }}</router-link>
       </div>
     </template>
@@ -74,9 +74,9 @@ const menuColumns = [
         @click="listBtnClicked" />
       <Teleport to="#__nuxt">
         <Transition name="slide">
-          <div v-show="mobileColumnMenuDisplay" class="list" :class="pageStore.pageType">
+          <div v-show="mobileColumnMenuDisplay" class="list" :class="pageStore.pageSize">
             <div v-for="(l, index) in menuColumns" :key="l.link" class="listItem"
-              :class="index === pageStore.currentPageNo ? 'select' : 'notSelect'" @click="listBtnClicked">
+              :class="index === route.meta.pageNo ? 'select' : 'notSelect'" @click="listBtnClicked">
               <router-link :to="l.link">
                 <div style="width: 100%;">
                   {{ l.name }}
