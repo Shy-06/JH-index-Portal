@@ -56,7 +56,7 @@ const menuColumns = [
   <div :class="[
     'base',
     pageStore.pageSize,
-    !mobileColumnMenuDisplay && isAtTop && route.meta.pageNo === 0 ? 'atCover' : 'notAtCover',
+    (!mobileColumnMenuDisplay || pageStore.pageSize === 'normal') && isAtTop && route.meta.pageNo === 0 ? 'atCover' : 'notAtCover',
     !mobileColumnMenuDisplay && !isAtTop && hide ? 'hide' : '',
   ]">
     <router-link to="/" class="logo" :class="pageStore.pageSize">
