@@ -68,6 +68,7 @@ const menuColumns = [
         :class="index === route.meta.pageNo ? 'select' : 'notSelect'">
         <router-link :to="l.link">{{ l.name }}</router-link>
       </div>
+      <div class="link notSelect"><a href="https://zjutjh.github.io/">我们的博客</a></div>
     </template>
     <template v-else>
       <div class="listButton" :class="mobileColumnMenuDisplay ? 'mobileColumnMenuDisplay' : 'mobileColumnMenuHidden'"
@@ -78,10 +79,13 @@ const menuColumns = [
             <div v-for="(l, index) in menuColumns" :key="l.link" class="listItem"
               :class="index === route.meta.pageNo ? 'select' : 'notSelect'" @click="listBtnClicked">
               <router-link :to="l.link">
-                <div style="width: 100%;">
-                  {{ l.name }}
-                </div>
+                <div style="width: 100%;"> {{ l.name }} </div>
               </router-link>
+            </div>
+            <div class="listItem notSelect" @click="listBtnClicked">
+              <a href="https://zjutjh.github.io/">
+                <div style="width: 100%;">我们的博客</div>
+              </a>
             </div>
           </div>
         </Transition>
@@ -163,7 +167,7 @@ a {
 
   &.normal {
     height: 90px;
-    grid-template-columns: 30% repeat(6, 1fr);
+    grid-template-columns: 30% repeat(7, 1fr);
   }
 
   &.middle {
