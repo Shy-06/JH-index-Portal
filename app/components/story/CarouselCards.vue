@@ -31,17 +31,10 @@ function touchMove(e: TouchEvent) {
     touchEndPosition = e.touches[0].clientX;
   }
 }
-function touchEnd(e: TouchEvent) {
-  if (
-    touchEndPosition - touchStartPosition > 0 &&
-    Math.abs(touchEndPosition - touchStartPosition) > 50
-  ) {
-    after();
-  } else if (
-    touchEndPosition - touchStartPosition < 0 &&
-    Math.abs(touchEndPosition - touchStartPosition) > 50
-  ) {
-    before();
+function touchEnd() {
+  if (Math.abs(touchEndPosition - touchStartPosition) > 50) {
+    if (touchEndPosition > touchStartPosition) after();
+    else before();
   }
 }
 onMounted(() => {
@@ -243,7 +236,7 @@ ul {
 
 <template>
   <div class="carousel" :class="type" @touchstart="touchStart($event)" @touchmove="touchMove($event)"
-    @touchend="touchEnd($event)">
+    @touchend="touchEnd()">
     <div class="whole">
       <ul type :class="type">
         <li class="card" :class="[carouselClass[index], type]" v-for="(item, index) in props.card">
