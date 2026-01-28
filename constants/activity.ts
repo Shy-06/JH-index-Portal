@@ -1,6 +1,6 @@
 // 我们的活动
 // 每年需要更新
-// 2026 尚未更新
+// 当前数据：2025 年
 export const acmCompetitionInfo = {
   registrationUrl: "https://qa.lonesome.cn/View?id=U2FsdGVkX18+lUY5ONeQ7YaHYXRFNChCdD0bL3hQfF0=",
   competitionGroup: "1053493293",

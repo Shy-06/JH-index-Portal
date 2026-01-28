@@ -32,6 +32,5 @@ import { departmentContent, technologyImages } from "~~/constants/department";
       {{ para }}
     </div>
   </JHCard>
-  <NuxtImg src="ui/fork.webp" style="width: 80px; height: 80px; margin-top: 50px; cursor: pointer"
-    @click="navigateTo('/department')" />
+  <CloseButton />
 </template>

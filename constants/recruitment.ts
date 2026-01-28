@@ -1,6 +1,6 @@
 // 加入我们
 // 每年需要更新
-// 2026 尚未更新
+// 当前数据：2025 年
 export const recruitmentInfo = {
   year: 2025,
   registrationUrl: "https://qa.phlin.cn/View?id=U2FsdGVkX18gIkyn6SaGQk4Eo3ZMSM/r6qI3ICpjTRo=",

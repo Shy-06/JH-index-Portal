@@ -52,9 +52,6 @@
   display: grid;
   grid-template-columns: 70% 30%;
   grid-template-rows: 1fr 1fr;
-  /* grid-template-areas:
-    "a b"
-    "c d"; */
   grid-column-gap: 10px;
   align-items: center;
 }
@@ -182,7 +179,6 @@
 
 <script setup lang="ts">
 const pageStore = usePageStore();
-const loadingBarTimer = ref(0);
 const loadingWidth = ref(0);
 const isHovering = ref(false);
 function onMouseOver() {
@@ -194,13 +190,18 @@ function onMouseOut() {
 function toGithub() {
   window.location.href = useRuntimeConfig().public.contact.github;
 }
+
+let loadingBarTimer: ReturnType<typeof setInterval>;
 onMounted(() => {
-  loadingBarTimer.value = window.setInterval(() => {
+  loadingBarTimer = window.setInterval(() => {
     if (loadingWidth.value >= 0) {
       loadingWidth.value = -100;
     } else {
       loadingWidth.value += 0.2;
     }
   }, 10);
+});
+onUnmounted(() => {
+  clearInterval(loadingBarTimer);
 });
 </script>

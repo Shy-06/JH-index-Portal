@@ -10,7 +10,7 @@
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare"
     },
-    "packageManager": "pnpm@10.28.1",
+    "packageManager": "pnpm@10.28.2",
     "dependencies": {
         "@nuxt/image": "^2.0.0",
         "pinia": "^3.0.4",
@@ -19,10 +19,10 @@
     },
     "devDependencies": {
         "@pinia/nuxt": "^0.11.3",
-        "cspell": "^9.6.0",
+        "cspell": "^9.6.2",
         "nuxt": "^4.3.0",
-        "pnpm": "^10.28.1",
+        "pnpm": "^10.28.2",
         "typescript": "^5.9.3",
-        "vue-tsc": "^3.2.3"
+        "vue-tsc": "^3.2.4"
     }
 }

@@ -71,7 +71,6 @@ const prop = defineProps<{ type: string; }>();
 
 .nano {
   background-color: #d20001;
-  /* height: 30px; */
   width: fit-content;
   border-radius: 5px;
   align-items: center;

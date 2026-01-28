@@ -59,7 +59,6 @@ const prop = defineProps<{
 
 .container-small {
   width: 100%;
-  /* min-height: 100px; */
   background-color: white;
   margin: 10px auto 0;
   padding-block: 20px;

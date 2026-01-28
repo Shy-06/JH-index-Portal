@@ -1,6 +1,6 @@
 // 我们的部门
 // 每年需要更新
-// 2026 尚未更新
+// 当前数据：2025 年
 export const departmentContent = {
   product: {
     title: "产品",

@@ -36,6 +36,5 @@ import { departmentContent, visualImages, editorialImages } from "~~/constants/d
     </div>
   </JHCard>
 
-  <NuxtImg src="ui/fork.webp" style="width: 80px; height: 80px; margin-top: 50px; cursor: pointer"
-    @click="navigateTo('/department')" />
+  <CloseButton />
 </template>
