@@ -10,10 +10,6 @@ const routeMap: Record<string, { currentPageNo: number; title: string }> = {
 export default defineNuxtRouteMiddleware((to) => {
   const pageStore = usePageStore();
 
-  if (typeof window !== 'undefined') {
-    window.scrollTo({ top: 0 });
-  }
-
   if (/^\/index(?:\/|$)/.test(to.path)) {
     const newPath = to.path.replace(/^\/index(?:\/|$)/, '/') || '/';
     return navigateTo(newPath, { redirectCode: 301 });
