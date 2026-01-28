@@ -5,7 +5,7 @@ import { departmentContent, technologyImages } from "~~/constants/department";
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/pages/department/jishu.scss";
+@use "assets/css/pages/department-detail.scss";
 </style>
 
 <template>

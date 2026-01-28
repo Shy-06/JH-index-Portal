@@ -60,39 +60,50 @@ onMounted(() => {
   position: relative;
   width: 85%;
   margin: auto;
-}
 
-.carousel.normal {
-  height: 1000px;
+  &.normal {
+    height: 1000px;
 
-  .content {
-    font-size: 18px;
+    .content {
+      font-size: 18px;
+    }
   }
-}
 
-.carousel.middle {
-  height: 800px;
+  &.middle {
+    height: 800px;
 
-  .content {
-    font-size: 15px;
+    .content {
+      font-size: 15px;
+    }
   }
-}
 
-.carousel.mini {
-  height: 900px;
+  &.mini {
+    height: 900px;
 
-  .content {
-    font-size: 12px;
+    .content {
+      font-size: 12px;
+    }
   }
-}
 
-.carousel .whole {
-  position: relative;
-  width: 80%;
-  height: 100%;
-  overflow: visible;
-  margin: auto;
-  margin-top: -80px;
+  .whole {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    overflow: visible;
+    margin: auto;
+    margin-top: -80px;
+  }
+
+  .img {
+    width: 100%;
+    height: 40%;
+    max-height: 300px;
+    border-radius: 0;
+    background-size: cover;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 
 ul {
@@ -104,38 +115,48 @@ ul {
   overflow: visible;
   margin: auto;
   list-style: none;
-}
 
-ul.mini,
-ul.middle {
-  width: 80%;
-  height: 100%;
-  overflow: visible;
-  margin: auto;
-  list-style: none;
-}
+  &.mini,
+  &.middle {
+    width: 80%;
+    height: 100%;
+    overflow: visible;
+    margin: auto;
+    list-style: none;
+  }
 
-ul li {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.carousel .img {
-  width: 100%;
-  height: 40%;
-  max-height: 300px;
-  border-radius: 0;
-  background-size: cover;
-  margin: auto;
-  background-repeat: no-repeat;
-  background-position: center;
+  li {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .left {
   left: -110%;
   z-index: 0;
   transition: all 0.5s ease;
+
+  &.mini,
+  &.middle {
+    z-index: 1;
+    left: 0;
+    top: 0;
+    bottom: 10%;
+    transition: none;
+  }
+
+  &-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 60%;
+    right: 95%;
+    margin: auto;
+    background: center/cover no-repeat url("#{$cubeBaseURL}ui/rightArrow_red.svg");
+    transform: rotate(180deg);
+    cursor: pointer;
+  }
 }
 
 .center {
@@ -144,29 +165,35 @@ ul li {
   top: 0;
   bottom: 10%;
   transition: all 0.5s ease;
+
+  &.mini,
+  &.middle {
+    display: none;
+    transition: none;
+  }
 }
 
 .right {
   left: 110%;
   z-index: 0;
   transition: all 0.5s ease;
-}
 
-.left.mini,
-.left.middle {
-  z-index: 1;
-  left: 0;
-  top: 0;
-  bottom: 10%;
-  transition: none;
-}
+  &.mini,
+  &.middle {
+    display: none;
+    transition: none;
+  }
 
-.right.mini,
-.right.middle,
-.center.mini,
-.center.middle {
-  display: none;
-  transition: none;
+  &-btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 60%;
+    left: 95%;
+    margin: auto;
+    background: center/cover no-repeat url("#{$cubeBaseURL}ui/rightArrow_red.svg");
+    cursor: pointer;
+  }
 }
 
 .after {
@@ -177,30 +204,6 @@ ul li {
   z-index: -1;
 }
 
-.left-btn {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 60%;
-  right: 95%;
-  margin: auto;
-
-  background: center/cover no-repeat url("#{$cubeBaseURL}ui/rightArrow_red.svg");
-  transform: rotate(180deg);
-  cursor: pointer;
-}
-
-.right-btn {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 60%;
-  left: 95%;
-  margin: auto;
-  background: center/cover no-repeat url("#{$cubeBaseURL}ui/rightArrow_red.svg");
-  cursor: pointer;
-}
-
 .card {
   display: inline-block;
   width: 100%;
@@ -208,33 +211,33 @@ ul li {
   background-color: white;
   overflow: hidden;
   box-shadow: 0 5px 10px #999999;
-}
 
-.card .introduction {
-  width: 90%;
-  text-align: left;
-  white-space: pre-line;
-  border-radius: 0;
-  margin: 20px;
-  font-size: 20px;
-  overflow: auto;
-  color: #d20001;
-}
+  .introduction {
+    width: 90%;
+    text-align: left;
+    white-space: pre-line;
+    border-radius: 0;
+    margin: 20px;
+    font-size: 20px;
+    overflow: auto;
+    color: #d20001;
 
-.card .introduction::first-line {
-  font-size: 30px;
-  font-weight: bolder;
-  color: black;
-}
+    &::first-line {
+      font-size: 30px;
+      font-weight: bolder;
+      color: black;
+    }
+  }
 
-.card .content {
-  text-align: left;
-  white-space: pre-wrap;
-  border-radius: 0;
-  margin: 20px;
-  text-indent: 2em;
-  word-wrap: break-word;
-  word-break: break-all;
+  .content {
+    text-align: left;
+    white-space: pre-wrap;
+    border-radius: 0;
+    margin: 20px;
+    text-indent: 2em;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
 }
 </style>
 

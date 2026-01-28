@@ -5,7 +5,12 @@ import { departmentContent, designImages } from "~~/constants/department";
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/pages/department/sheji.scss";
+@use "assets/css/pages/department-detail.scss";
+
+img {
+  width: 80%;
+  height: 300px;
+}
 </style>
 
 <template>

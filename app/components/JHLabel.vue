@@ -10,7 +10,7 @@ const prop = defineProps<{ type: string; }>();
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .title {
   width: fit-content;
   padding: 10px;
@@ -22,21 +22,21 @@ const prop = defineProps<{ type: string; }>();
   color: white;
   box-shadow: 0 5px 10px #999999;
   border-radius: 1rem;
-}
 
-.title .h {
-  display: block;
-  font-size: x-large;
-  margin-block-start: 0.67em;
-  margin-block-end: 0.67em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
+  .h {
+    display: block;
+    font-size: x-large;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
 
-.title.middle,
-.title.mini {
-  margin: auto;
+  &.middle,
+  &.mini {
+    margin: auto;
+  }
 }
 
 .big {
@@ -58,9 +58,7 @@ const prop = defineProps<{ type: string; }>();
   padding: 10px;
   margin: 15px auto;
   border-radius: 20px;
-
   background-color: #d20001;
-
   color: white;
   font-size: 20px;
   line-height: 30px;
@@ -78,15 +76,15 @@ const prop = defineProps<{ type: string; }>();
   color: white;
   padding: 5px;
   padding-inline: 20px;
-}
 
-.nano.mini,
-.nano.middle {
-  margin: auto;
-}
+  .h {
+    display: block;
+    font-size: 15px;
+  }
 
-.nano .h {
-  display: block;
-  font-size: 15px;
+  &.mini,
+  &.middle {
+    margin: auto;
+  }
 }
 </style>
