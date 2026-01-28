@@ -1,10 +1,7 @@
 <script setup lang="ts">
-definePageMeta({ title: "新媒体中心", pageNo: 3 });
+definePageMeta({ pageNo: 3 });
+useSeoMeta({ title: "新媒体中心-我们的部门-精弘网络" });
 import { departmentContent, visualImages, editorialImages } from "~~/constants/department";
-
-onMounted(() => {
-  document.title = "新媒体中心";
-});
 </script>
 
 <style scoped lang="scss">

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-definePageMeta({ title: "加入我们", pageNo: 5 });
-import { recruitmentInfo, posterImage } from "~~/constants/recruitment";
-
+definePageMeta({ pageNo: 5 });
+useSeoMeta({ title: "加入我们-精弘网络" });
 const pageStore = usePageStore();
+import { recruitmentInfo, posterImage } from "~~/constants/recruitment";
 
 function toRecruit() {
   window.open(recruitmentInfo.registrationUrl);

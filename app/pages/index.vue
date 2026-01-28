@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-definePageMeta({ layout: false, title: '精弘首页', pageNo: 0 });
-
-import { indexStoryContent } from '~~/constants/index';
-
+definePageMeta({ layout: false, pageNo: 0 });
+useSeoMeta({ title: '浙江工业大学精弘网络' });
 const pageStore = usePageStore();
+import { indexStoryContent } from '~~/constants/index';
 
 function toStory() {
   navigateTo('/story');

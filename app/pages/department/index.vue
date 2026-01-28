@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-definePageMeta({ title: "我们的部门", pageNo: 3 });
+definePageMeta({ pageNo: 3 });
+useSeoMeta({ title: "我们的部门-精弘网络" });
 const pageStore = usePageStore();
 const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;
 </script>

@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-definePageMeta({ title: "我们的故事", pageNo: 1 });
+definePageMeta({ pageNo: 1 });
+useSeoMeta({ title: "我们的故事-精弘网络" });
+const pageStore = usePageStore();
 import {
   yixingImages,
   yurenImages,
@@ -9,8 +11,6 @@ import {
   yurenContent,
   socialLifeContent
 } from "~~/constants/story";
-
-const pageStore = usePageStore();
 
 function toProduct() {
   navigateTo("/product");

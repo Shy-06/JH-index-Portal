@@ -28,7 +28,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: '精弘首页',
+      title: '浙江工业大学精弘网络',
       htmlAttrs: {
         lang: 'zh-CN'
       },
