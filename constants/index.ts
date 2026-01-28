@@ -18,7 +18,6 @@ export const indexStoryContent = {
   text: "因梦想，我们齐聚一堂；因使命，我们同舟共济。"
 };
 
-// 精弘大事记 - 每年可能需要更新
 export const historyEvents = [
   {
     id: 0,

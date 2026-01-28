@@ -9,22 +9,22 @@ const pageStore = usePageStore();
 </style>
 
 <template>
-  <div class="base" :class="pageStore.pageType">
-    <NuxtImg src="jingxiaohong/xiaohongLeft.webp" v-if="!(pageStore.pageType == 'mini')" />
+  <div class="base" :class="pageStore.pageSize">
+    <NuxtImg src="jingxiaohong/xiaohongLeft.webp" v-if="!(pageStore.pageSize == 'mini')" />
     <div class="introduce">
       <div class="title">
         {{
-          pageStore.pageType == "mini" || pageStore.pageType == "middle"
+          pageStore.pageSize == "mini" || pageStore.pageSize == "middle"
             ? introduceContent.title.mini
             : introduceContent.title.normal
         }}
       </div>
-      <div class="content" :class="pageStore.pageType">
+      <div class="content" :class="pageStore.pageSize">
         <span v-for="(line, index) in introduceContent.description" :key="index">
           {{ line }}<br v-if="index < introduceContent.description.length - 1" />
         </span>
       </div>
     </div>
-    <NuxtImg src="jingxiaohong/xiaohongRight.webp" v-if="!(pageStore.pageType == 'mini')" />
+    <NuxtImg src="jingxiaohong/xiaohongRight.webp" v-if="!(pageStore.pageSize == 'mini')" />
   </div>
 </template>

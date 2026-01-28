@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+definePageMeta({ pageNo: 2 });
+useSeoMeta({ title: "我们的产品-精弘网络" });
 import { productsContent, productIcons } from "~~/constants/product";
 
 const pageStore = usePageStore();
@@ -17,9 +19,9 @@ function toDepartment() {
 </style>
 
 <template>
-  <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的产品</JHLabel>
+  <JHLabel type="title" v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'">我们的产品</JHLabel>
   <div class="shadow" v-if="isWejh || isWechat || isVisual || isEmail"></div>
-  <div v-if="pageStore.pageType == 'normal'" class="base normal">
+  <div v-if="pageStore.pageSize == 'normal'" class="base normal">
     <JHCard type="large" :is-title="true" :title="productsContent.wechat.title">
       <div class="wechat">
         <div class="introduction">
@@ -64,8 +66,8 @@ function toDepartment() {
     </JHCard>
   </div>
   <div v-else>
-    <JHCard type="large" :is-title="false" title="no">
-      <div class="base" :class="pageStore.pageType">
+    <JHCard noLabel type="large" :is-title="false" title="no">
+      <div class="base" :class="pageStore.pageSize">
         <div class="product-item">
           <NuxtImg :src="productIcons.wejh" />
           <JHButton type="middle" @click="isWejh = true">微信小程序</JHButton>
@@ -92,7 +94,6 @@ function toDepartment() {
         {{ productsContent.wejh.title }}
         <NuxtImg class="icon" :src="productsContent.wejh.icon" />
       </div>
-
       <div class="content">
         {{ productsContent.wejh.description }}
       </div>
@@ -103,7 +104,6 @@ function toDepartment() {
         {{ productsContent.wechat.title }}
         <NuxtImg class="icon" :src="productIcons.wechat" />
       </div>
-
       <div class="content">
         {{ productsContent.wechat.description }}
       </div>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { recruitmentInfo, posterImage } from "~~/constants/recruitment";
-
+definePageMeta({ pageNo: 5 });
+useSeoMeta({ title: "加入我们-精弘网络" });
 const pageStore = usePageStore();
+import { recruitmentInfo, posterImage } from "~~/constants/recruitment";
 
 function toRecruit() {
   window.open(recruitmentInfo.registrationUrl);
@@ -14,10 +15,10 @@ function toRecruit() {
 
 <template>
   <JHCard title="加入我们" type="large" :is-title="true">
-    <div class="base" :class="pageStore.pageType">
+    <div class="base" :class="pageStore.pageSize">
       <NuxtImg class="poster" :src="posterImage" />
-      <div class="detail-base" :class="pageStore.pageType">
-        <div class="introduce" :class="pageStore.pageType">
+      <div class="detail-base" :class="pageStore.pageSize">
+        <div class="introduce" :class="pageStore.pageSize">
           <JHButton type="middle" @click="toRecruit" style="position: relative;margin-bottom: 20px;">点我报名</JHButton>
           <JHLabel type="nano">线下摆摊</JHLabel>
           <div class="content">

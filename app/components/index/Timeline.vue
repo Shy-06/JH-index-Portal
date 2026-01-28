@@ -28,45 +28,45 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .history-line {
   padding: 4rem 0 1rem;
   width: 10rem;
   margin: auto;
-}
 
-.history-line-mask {
-  position: absolute;
-  width: 10rem;
-  top: var(--top);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  background-color: white;
-  border-radius: 0;
-  z-index: 2;
+  &-mask {
+    position: absolute;
+    width: 10rem;
+    top: var(--top);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+    border-radius: 0;
+    z-index: 2;
+  }
 }
 
 .history-item {
   position: relative;
   width: 10rem;
   height: 5rem;
-}
 
-.history-item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 2.5rem;
-  box-sizing: border-box;
-  border-bottom: 1px var(--border) black;
-  transform-origin: bottom center;
-  transform: rotateZ(var(--angle)) scale(var(--scale));
-  display: var(--line_seen);
-  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2.5rem;
+    box-sizing: border-box;
+    border-bottom: 1px var(--border) black;
+    transform-origin: bottom center;
+    transform: rotateZ(var(--angle)) scale(var(--scale));
+    display: var(--line_seen);
+    z-index: 1;
+  }
 }
 
 .history-img {
@@ -80,29 +80,29 @@ onUnmounted(() => {
   opacity: 1;
   transition: opacity 2s;
   background-size: cover;
-}
 
-.history-img-hide {
-  position: relative;
-  top: -2.2rem;
-  width: 4.4rem;
-  height: 4.4rem;
-  background-color: white;
-  border-radius: 50%;
-  z-index: 3;
-  opacity: 0;
-  transition: opacity 2s;
-  background-size: cover;
-}
+  &-hide {
+    position: relative;
+    top: -2.2rem;
+    width: 4.4rem;
+    height: 4.4rem;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 2s;
+    background-size: cover;
+  }
 
-.history-img1 {
-  float: left;
-  left: -2.2rem;
-}
+  &1 {
+    float: left;
+    left: -2.2rem;
+  }
 
-.history-img2 {
-  float: right;
-  right: -2.2rem;
+  &2 {
+    float: right;
+    right: -2.2rem;
+  }
 }
 
 .history-content {
@@ -110,16 +110,16 @@ onUnmounted(() => {
   position: relative;
   top: 100%;
   left: -50%;
-}
 
-.history-content1 {
-  font-size: xx-small;
-  white-space: pre-line;
-}
+  &1 {
+    font-size: xx-small;
+    white-space: pre-line;
+  }
 
-.history-content2 {
-  font-size: xx-small;
-  white-space: pre-line;
+  &2 {
+    font-size: xx-small;
+    white-space: pre-line;
+  }
 }
 </style>
 

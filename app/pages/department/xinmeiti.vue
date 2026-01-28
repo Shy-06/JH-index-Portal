@@ -1,13 +1,15 @@
 <script setup lang="ts">
+definePageMeta({ pageNo: 3 });
+useSeoMeta({ title: "新媒体中心-我们的部门-精弘网络" });
 import { departmentContent, visualImages, editorialImages } from "~~/constants/department";
-
-onMounted(() => {
-  document.title = "新媒体中心";
-});
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/pages/department/xinmeiti.scss";
+@use "assets/css/pages/department-detail.scss";
+
+img {
+  width: 80%;
+}
 </style>
 
 <template>
@@ -38,6 +40,5 @@ onMounted(() => {
     </div>
   </JHCard>
 
-  <NuxtImg src="ui/fork.webp" style="width: 80px; height: 80px; margin-top: 50px; cursor: pointer"
-    @click="navigateTo('/department')" />
+  <CloseButton />
 </template>

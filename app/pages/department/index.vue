@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+definePageMeta({ pageNo: 3 });
+useSeoMeta({ title: "我们的部门-精弘网络" });
 const pageStore = usePageStore();
 const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;
 </script>
@@ -7,12 +9,12 @@ const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;
 @use "assets/css/pages/department-index.scss";
 </style>
 <template>
-  <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的部门</JHLabel>
+  <JHLabel type="title" v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'">我们的部门</JHLabel>
   <JHCard title="部门结构" type="large" :is-title="true">
     <NuxtImg src="common/structPc.webp" style="width: 70%;position: relative;right: 2%;" />
   </JHCard>
-  <div v-show="pageStore.pageType == 'normal'" style="height: 100px"></div>
-  <div class="base" :class="pageStore.pageType">
+  <div v-show="pageStore.pageSize == 'normal'" style="height: 100px"></div>
+  <div class="base" :class="pageStore.pageSize">
     <div class="line1">
       <div class="item">
         <div class="img" :style="{ backgroundImage: `url(${assetsBaseURL}ui/ganshi.svg)` }" id="img1"></div>

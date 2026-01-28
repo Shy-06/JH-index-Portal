@@ -7,8 +7,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="start" :class="[pageStore.pageType, loaded ? 'loaded' : 'unloaded']">
-    <div class="title1" :class="pageStore.pageType">精弘网络,取精用弘</div>
+  <div class="start" :class="[pageStore.pageSize, loaded ? 'loaded' : 'unloaded']">
+    <div class="title1" :class="pageStore.pageSize">精弘网络,取精用弘</div>
     <NuxtImg class="downArrow" src="ui/downArrow.svg" />
   </div>
 </template>
@@ -26,27 +26,27 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.start.normal {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url("#{$cubeBaseURL}groupPhoto/2024.webp") no-repeat center;
-  background-size: cover;
-  height: 100vh;
-}
+  &.normal {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("#{$cubeBaseURL}groupPhoto/2024.webp") no-repeat center;
+    background-size: cover;
+    height: 100vh;
+  }
 
-.start.middle {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url("#{$cubeBaseURL}common/startPc.webp") no-repeat center;
-  background-size: cover;
-  height: 100vh;
-}
+  &.middle {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("#{$cubeBaseURL}common/startPc.webp") no-repeat center;
+    background-size: cover;
+    height: 100vh;
+  }
 
-.start.mini {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url("#{$cubeBaseURL}common/startMobile.webp") no-repeat center;
-  background-size: cover;
-  height: 100vh;
+  &.mini {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("#{$cubeBaseURL}common/startMobile.webp") no-repeat center;
+    background-size: cover;
+    height: 100vh;
+  }
 }
 
 .title1 {
@@ -54,23 +54,18 @@ onMounted(() => {
   font-family: "song";
   margin: auto;
   display: block;
-}
 
-.title1.normal {
-  font-size: 6vw;
-  letter-spacing: 1vw;
-  padding: 10px;
-}
+  &.normal,
+  &.middle {
+    font-size: 6vw;
+    letter-spacing: 1vw;
+    padding: 10px;
+  }
 
-.title1.middle {
-  font-size: 6vw;
-  letter-spacing: 1vw;
-  padding: 10px;
-}
-
-.title1.mini {
-  font-size: x-large;
-  letter-spacing: 10px;
+  &.mini {
+    font-size: x-large;
+    letter-spacing: 10px;
+  }
 }
 
 .downArrow {

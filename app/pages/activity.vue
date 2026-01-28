@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import { acmCompetitionInfo } from "~~/constants/activity";
-
+definePageMeta({ pageNo: 4 });
+useSeoMeta({ title: "我们的活动-精弘网络" });
 const pageStore = usePageStore();
+import { acmCompetitionInfo } from "~~/constants/activity";
 </script>
 
 <style scoped lang="scss">
@@ -9,12 +10,12 @@ const pageStore = usePageStore();
 </style>
 
 <template>
-  <JHLabel type="title" v-if="pageStore.pageType == 'mini' || pageStore.pageType == 'middle'">我们的活动</JHLabel>
+  <JHLabel type="title" v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'">我们的活动</JHLabel>
   <JHCard title="ACM新生赛" type="large" :is-title="true">
-    <div class="base" :class="pageStore.pageType">
+    <div class="base" :class="pageStore.pageSize">
       <NuxtImg class="poster" :src="acmCompetitionInfo.posterImage" />
-      <div class="detail-base" :class="pageStore.pageType">
-        <div class="introduce" :class="pageStore.pageType">
+      <div class="detail-base" :class="pageStore.pageSize">
+        <div class="introduce" :class="pageStore.pageSize">
           <JHLabel type="nano">活动介绍</JHLabel>
           <div class="content">
             <pre style="white-space: pre-wrap; font-family: inherit;">{{ acmCompetitionInfo.introduction }}</pre>
@@ -23,7 +24,7 @@ const pageStore = usePageStore();
           <div class="content">{{ acmCompetitionInfo.competitionGroup }}</div>
         </div>
         <div class="qr">
-          <div class="qr-base" :class="pageStore.pageType">
+          <div class="qr-base" :class="pageStore.pageSize">
             <div class="qr-code">
               <NuxtImg :src="acmCompetitionInfo.groupQrCode" />
             </div>

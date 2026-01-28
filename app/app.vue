@@ -6,13 +6,13 @@ function handleResize() {
   const body = document.querySelector('body');
 
   if (width >= 1024) {
-    pageStore.pageType = 'normal';
+    pageStore.pageSize = 'normal';
     body?.setAttribute('style', 'min-width: 1440px');
   } else if (width >= 768) {
-    pageStore.pageType = 'middle';
+    pageStore.pageSize = 'middle';
     body?.setAttribute('style', 'min-width: 420px');
   } else {
-    pageStore.pageType = 'mini';
+    pageStore.pageSize = 'mini';
     body?.setAttribute('style', 'min-width: 320px');
   }
 }

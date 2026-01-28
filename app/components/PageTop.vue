@@ -1,6 +1,6 @@
 <template>
   <!--根据屏幕宽度调整顶部间距-->
-  <div class="top" :class="usePageStore().pageType"></div>
+  <div class="top" :class="usePageStore().pageSize"></div>
 </template>
 
 <style scoped lang="scss">

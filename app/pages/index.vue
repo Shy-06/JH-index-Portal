@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-definePageMeta({ layout: false })
-
-import { indexStoryContent } from '~~/constants/index';
-
+definePageMeta({ layout: false, pageNo: 0 });
+useSeoMeta({ title: '浙江工业大学精弘网络' });
 const pageStore = usePageStore();
+import { indexStoryContent } from '~~/constants/index';
 
 function toStory() {
   navigateTo('/story');
@@ -17,7 +16,7 @@ function toStory() {
 <template>
   <Cover />
   <Introduce />
-  <History v-if="pageStore.pageType === 'normal'" />
+  <History v-if="pageStore.pageSize === 'normal'" />
   <template v-else>
     <Timeline />
     <JHCard title="我们的故事" :is-title="true" type="large" class="story">
