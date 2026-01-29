@@ -29,17 +29,10 @@ function after() {
 }
 
 function changePicture(e: MouseEvent) {
-  if (
-    ((e.target as HTMLElement).parentNode as HTMLElement).classList.contains(
-      "left"
-    )
-  ) {
+  const targetClassList = ((e.target as HTMLElement).parentNode as HTMLElement).classList;
+  if (targetClassList.contains("left")) {
     before();
-  } else if (
-    ((e.target as HTMLElement).parentNode as HTMLElement).classList.contains(
-      "right"
-    )
-  ) {
+  } else if (targetClassList.contains("right")) {
     after();
   } else {
     return false;

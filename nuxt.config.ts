@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     public: {
       cubeBaseURL,
       lastUpdateYear: 2026,
-      contact:{
+      contact: {
         email: "jhwl@zjut.edu.cn",
         github: "https://github.com/zjutjh"
       }
@@ -34,7 +34,8 @@ export default defineNuxtConfig({
       },
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: "theme-color", content: "#d20001" }
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' }

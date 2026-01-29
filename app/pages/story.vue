@@ -11,10 +11,6 @@ import {
   yurenContent,
   socialLifeContent
 } from "~~/constants/story";
-
-function toProduct() {
-  navigateTo("/product");
-}
 </script>
 
 <style scoped lang="scss">
@@ -25,8 +21,8 @@ function toProduct() {
   <JHLabel type="title" v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'">我们的故事</JHLabel>
   <JHCard type="large" title="我们的使命" :isTitle="true">
     <div class="shiming-base" :class="pageStore.pageSize">
-      <NuxtImg class="shiming-img" src="temp/shiming.webp" v-if="pageStore.pageSize == 'normal'" />
-      <div class="shiming-imgs" v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'">
+      <NuxtImg v-if="pageStore.pageSize == 'normal'" class="shiming-img" src="temp/shiming.webp" />
+      <div v-else class="shiming-imgs" :class="pageStore.pageSize">
         <NuxtImg class="shiming-imgs-img" src="temp/shiming1.webp" />
         <NuxtImg class="shiming-imgs-img" src="temp/shiming2.webp" />
         <NuxtImg class="shiming-imgs-img" src="temp/shiming3.webp" />
@@ -76,14 +72,11 @@ function toProduct() {
 
   <div class="jiyu">
     <JHLabel type="title">前辈寄语</JHLabel>
-    <div class="jiyu-base" :class="pageStore.pageSize">
-      <CarouselCards :card="persons" :type="pageStore.pageSize"></CarouselCards>
-    </div>
-    <div class="jiyu-base" :class="pageStore.pageSize" v-if="pageStore.pageSize != 'normal'"></div>
+    <CarouselCards :card="persons" :type="pageStore.pageSize"></CarouselCards>
   </div>
 
   <div style="height: 200px"></div>
-  <JHButton type="middle" @click="toProduct">
+  <JHButton type="middle" @click="navigateTo('/product')">
     我们的产品
     <NuxtImg src="ui/rightArrow.svg" style="width: 20px; margin-left: 20px" />
   </JHButton>

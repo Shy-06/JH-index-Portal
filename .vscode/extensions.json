@@ -3,6 +3,7 @@
     "vue.volar",
     "streetsidesoftware.code-spell-checker",
     "ms-vsliveshare.vsliveshare",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "pkief.material-icon-theme"
   ]
 }
