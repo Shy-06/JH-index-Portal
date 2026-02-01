@@ -37,10 +37,10 @@ import {
   <JHCard type="large" title="精弘毅行" :isTitle="true">
     <CarouselPictures :imgs="yixingImages"></CarouselPictures>
     <div class="yixing-content" :class="pageStore.pageSize">
-      {{ yixingContent.paragraph1 }}
+      {{ yixingContent[0] }}
     </div>
     <div class="yixing-content" :class="pageStore.pageSize">
-      {{ yixingContent.paragraph2 }}
+      {{ yixingContent[1] }}
     </div>
   </JHCard>
   <JHCard type="large" title="网络育人" :isTitle="true">
@@ -53,11 +53,11 @@ import {
     <div class="shenghuo" :class="pageStore.pageSize">
       <NuxtImg src="groupPhoto/shenghuo0.webp" id="img1" />
       <div class="content">
-        {{ socialLifeContent.text1 }}
+        {{ socialLifeContent[0] }}
       </div>
       <NuxtImg src="groupPhoto/shenghuo1.webp" id="img2" />
       <div class="content">
-        {{ socialLifeContent.text2 }}
+        {{ socialLifeContent[1] }}
       </div>
       <NuxtImg src="groupPhoto/shenghuo2.webp" id="img3" />
       <div class="shenghuo-imgs">
@@ -65,7 +65,7 @@ import {
         <NuxtImg src="groupPhoto/shenghuo4.webp" id="img5" />
       </div>
       <div class="content">
-        {{ socialLifeContent.text3 }}
+        {{ socialLifeContent[2] }}
       </div>
     </div>
   </JHCard>
@@ -73,9 +73,9 @@ import {
   <div class="jiyu">
     <JHLabel type="title">前辈寄语</JHLabel>
     <CarouselCards :card="persons" :type="pageStore.pageSize"></CarouselCards>
+    <div style="height: 200px"></div>
   </div>
 
-  <div style="height: 200px"></div>
   <JHButton type="middle" @click="navigateTo('/product')">
     我们的产品
     <NuxtImg src="ui/rightArrow.svg" style="width: 20px; margin-left: 20px" />

@@ -13,16 +13,16 @@ function _resetTimer() {
     clearInterval(timer.value);
   }
   timer.value = window.setInterval(() => {
-    after();
+    toNext();
   }, 3000);
 }
 
-function before() {
+function toPrevious() {
   _resetTimer();
   let first = carouselClass.shift() as string;
   carouselClass.push(first);
 }
-function after() {
+function toNext() {
   _resetTimer();
   let last = carouselClass.pop() as string;
   carouselClass.unshift(last);
@@ -31,9 +31,9 @@ function after() {
 function changePicture(e: MouseEvent) {
   const targetClassList = ((e.target as HTMLElement).parentNode as HTMLElement).classList;
   if (targetClassList.contains("left")) {
-    before();
+    toPrevious();
   } else if (targetClassList.contains("right")) {
-    after();
+    toNext();
   } else {
     return false;
   }
@@ -50,13 +50,10 @@ function touchMove(e: TouchEvent) {
     touchEndPosition.value = e.touches[0].clientX;
   }
 }
-function touchEnd(e: TouchEvent) {
+function touchEnd() {
   if (Math.abs(touchEndPosition.value - touchStartPosition.value) > 50) {
-    if (touchEndPosition.value > touchStartPosition.value) {
-      before();
-    } else {
-      after();
-    }
+    if (touchEndPosition.value > touchStartPosition.value) toPrevious();
+    else toNext();
   }
 }
 onMounted(() => {
@@ -65,7 +62,7 @@ onMounted(() => {
   }
 
   timer.value = window.setInterval(() => {
-    after();
+    toNext();
   }, 3000);
 });
 
@@ -176,7 +173,7 @@ ul {
 </style>
 
 <template>
-  <div class="carousel" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)">
+  <div class="carousel" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd()">
     <div class="whole">
       <div class="roll-img">
         <ul type>

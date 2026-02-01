@@ -12,14 +12,16 @@ const props = defineProps<Props>();
 const carouselClass = reactive(["left", "center", "right"]);
 let touchStartPosition = 0;
 let touchEndPosition = 0;
-function after() {
+
+function toPrevious() {
   let first = carouselClass.shift() as string;
   carouselClass.push(first);
 }
-function before() {
+function toNext() {
   let last = carouselClass.pop() as string;
   carouselClass.unshift(last);
 }
+
 function touchStart(e: TouchEvent) {
   if (e.touches[0]) {
     touchStartPosition = e.touches[0].clientX;
@@ -33,8 +35,8 @@ function touchMove(e: TouchEvent) {
 }
 function touchEnd() {
   if (Math.abs(touchEndPosition - touchStartPosition) > 50) {
-    if (touchEndPosition > touchStartPosition) after();
-    else before();
+    if (touchEndPosition > touchStartPosition) toPrevious();
+    else toNext();
   }
 }
 onMounted(() => {
@@ -112,10 +114,6 @@ ul {
   &.mini,
   &.middle {
     width: 80%;
-    height: 100%;
-    overflow: visible;
-    margin: auto;
-    list-style: none;
   }
 
   li {
@@ -239,7 +237,7 @@ ul {
     @touchend="touchEnd()">
     <div class="whole">
       <ul type :class="type">
-        <li class="card" :class="[carouselClass[index], type]" v-for="(item, index) in props.card">
+        <li v-for="(item, index) in props.card" class="card" :class="[carouselClass[index], type]">
           <div class="img"
             v-bind:style="{ backgroundImage: 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')' }"></div>
           <div class="introduction">{{ item.introduction }}</div>
@@ -249,7 +247,7 @@ ul {
         </li>
       </ul>
     </div>
-    <div class="left-btn" :class="type" @click="after"></div>
-    <div class="right-btn" :class="type" @click="before"></div>
+    <div class="left-btn" :class="type" @click="toPrevious"></div>
+    <div class="right-btn" :class="type" @click="toNext"></div>
   </div>
 </template>

@@ -9,6 +9,10 @@ html {
   src: url("#{$cubeBaseURL}fonts/SourceHanSansSC-VF.otf");
 }
 
+* {
+  touch-action: manipulation;
+}
+
 a {
   color: #d20001;
   text-decoration: none;

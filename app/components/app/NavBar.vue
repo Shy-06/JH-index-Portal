@@ -19,6 +19,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
+  document.body.style.overflow = '';
 });
 
 // MARK: 页面滚动处理
@@ -39,6 +40,11 @@ function handleScroll() {
 
 function listBtnClicked() {
   mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value;
+  if (mobileColumnMenuDisplay.value) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
 }
 
 // MARK: 栏目配置项
@@ -53,7 +59,7 @@ const menuColumns = [
 </script>
 
 <template>
-  <div :class="[
+  <div @touchmove.prevent :class="[
     'base',
     pageStore.pageSize,
     (!mobileColumnMenuDisplay || pageStore.pageSize === 'normal') && isAtTop && route.meta.pageNo === 0 ? 'atCover' : 'notAtCover',
@@ -163,7 +169,7 @@ a {
 
   &.normal {
     height: 90px;
-    grid-template-columns: 30% repeat(6, 1fr);
+    grid-template-columns: 30% repeat(v-bind('menuColumns.length'), 1fr);
   }
 
   &.middle {
@@ -251,6 +257,9 @@ a {
   background-color: white;
   align-items: center;
   justify-items: center;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 
   &.mini {
     top: 50px;
