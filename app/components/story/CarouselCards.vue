@@ -83,7 +83,6 @@ onMounted(() => {
     padding-inline-start: 0;
     position: relative;
     height: 100%;
-    overflow: visible;
     margin: auto;
     list-style: none;
 
@@ -100,126 +99,179 @@ onMounted(() => {
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: white;
+      background-color: #ffffff;
       overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 5px 10px #999999;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+
+      @media (hover: hover) {
+        transition: box-shadow 0.3s ease;
+
+        &:hover {
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.1);
+
+          .img {
+            transform: scale(1.03);
+          }
+        }
+      }
 
       .img {
         width: 100%;
         height: 40%;
         max-height: 300px;
-        background-size: cover;
-        margin: auto;
-        background-repeat: no-repeat;
-        background-position: center;
+        background: center/cover no-repeat;
+        flex-shrink: 0;
+
+        @media (hover: hover) {
+          transition: transform 0.3s ease;
+        }
       }
 
       .introduction {
         width: 90%;
+        margin: 20px;
+        font-size: 18px;
+        color: #d20001;
         text-align: left;
         white-space: pre-line;
-        margin: 20px;
-        font-size: 20px;
-        overflow: auto;
-        color: #d20001;
+        flex-shrink: 0;
 
         &::first-line {
-          font-size: 30px;
-          font-weight: bolder;
-          color: black;
+          font-size: 28px;
+          font-weight: 700;
+          color: #1a1a1a;
         }
       }
 
       .content {
+        margin: 0 20px 20px;
+        font-size: 16px;
         text-align: left;
-        white-space: pre-wrap;
-        margin: 20px;
         text-indent: 2em;
-        word-wrap: break-word;
-        word-break: break-all;
+        white-space: pre-wrap;
+        overflow: auto;
+        flex-grow: 1;
 
-        .normal {
-          font-size: 18px;
+        &::-webkit-scrollbar {
+          width: 6px;
         }
 
-        .middle {
-          font-size: 15px;
+        &::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 3px;
         }
 
-        .mini {
-          font-size: 12px;
+        &::-webkit-scrollbar-thumb {
+          background: #d2000180;
+          border-radius: 3px;
+
+          &:hover {
+            background: #d20001;
+          }
         }
       }
     }
 
+    .left,
+    .right {
+      z-index: 0;
+      opacity: 0.7;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
     .left {
       left: -110%;
-      z-index: 0;
-      transition: all 0.5s ease;
 
       &.mini,
       &.middle {
-        z-index: 1;
         left: 0;
         top: 0;
         bottom: 10%;
+        z-index: 1;
+        opacity: 1;
         transition: none;
       }
     }
 
     .center {
-      z-index: 1;
       left: 0;
       top: 0;
       bottom: 10%;
-      transition: all 0.5s ease;
+      z-index: 1;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
       &.mini,
       &.middle {
         display: none;
-        transition: none;
       }
     }
 
     .right {
       left: 110%;
-      z-index: 0;
-      transition: all 0.5s ease;
 
       &.mini,
       &.middle {
         display: none;
-        transition: none;
       }
     }
 
     .after {
       left: 0;
       top: 0;
-      visibility: hidden;
-      transform: scale(0);
       z-index: -1;
+      visibility: hidden;
+      opacity: 0;
+      transform: scale(0);
     }
   }
 
   .btn {
-    width: 50px;
-    height: 50px;
     position: absolute;
     top: 50%;
-    margin: auto;
+    width: 50px;
+    height: 50px;
     background: center/cover no-repeat url("#{$cubeBaseURL}ui/rightArrow_red.svg");
     cursor: pointer;
+
+    @media (hover: hover) {
+      transition: transform 0.2s ease, opacity 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
 
     &.left {
       left: 0;
       transform: translateY(-50%) rotate(180deg);
+
+      @media (hover: hover) {
+        &:hover {
+          transform: translateY(-50%) rotate(180deg) scale(1.1);
+        }
+      }
+
+      &:active {
+        transform: translateY(-50%) rotate(180deg) scale(0.95);
+      }
     }
 
     &.right {
       right: 0;
       transform: translateY(-50%);
+
+      @media (hover: hover) {
+        &:hover {
+          transform: translateY(-50%) scale(1.1);
+        }
+      }
+
+      &:active {
+        transform: translateY(-50%) scale(0.95);
+      }
     }
   }
 }
