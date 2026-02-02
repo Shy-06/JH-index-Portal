@@ -73,7 +73,6 @@ import {
   <div class="jiyu">
     <JHLabel type="title">前辈寄语</JHLabel>
     <CarouselCards :card="persons" :type="pageStore.pageSize"></CarouselCards>
-    <div style="height: 200px"></div>
   </div>
 
   <JHButton type="middle" @click="navigateTo('/product')">
