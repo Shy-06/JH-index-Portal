@@ -10,7 +10,7 @@ function toStory() {
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/pages/index.scss";
+@use "~/assets/css/pages/index.scss";
 </style>
 
 <template>

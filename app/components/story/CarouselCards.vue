@@ -70,13 +70,16 @@ onMounted(() => {
   width: 90%;
   margin: 30px auto;
 
+  &.normal {
+    height: 750px;
+  }
+
   &.middle {
     height: 800px;
   }
 
-  &.normal,
   &.mini {
-    height: 750px;
+    height: 720px;
   }
 
   ul {
@@ -120,8 +123,7 @@ onMounted(() => {
 
       .img {
         width: 100%;
-        height: 40%;
-        max-height: 300px;
+        height: 30%;
         background: center/cover no-repeat;
         flex-shrink: 0;
 

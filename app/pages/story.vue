@@ -14,7 +14,7 @@ import {
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/pages/story.scss";
+@use "~/assets/css/pages/story.scss";
 </style>
 
 <template>

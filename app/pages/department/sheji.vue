@@ -5,7 +5,7 @@ import { departmentContent, designImages } from "~~/constants/department";
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/pages/department-detail.scss";
+@use "~/assets/css/pages/department-detail.scss";
 
 img {
   width: 80%;

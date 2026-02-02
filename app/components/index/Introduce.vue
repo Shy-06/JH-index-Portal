@@ -5,7 +5,7 @@ const pageStore = usePageStore();
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/components/Introduce.scss";
+@use "~/assets/css/components/Introduce.scss";
 </style>
 
 <template>

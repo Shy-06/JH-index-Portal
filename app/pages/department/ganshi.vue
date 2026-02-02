@@ -5,7 +5,7 @@ import { departmentContent, affairsImages } from "~~/constants/department";
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/pages/department-detail.scss";
+@use "~/assets/css/pages/department-detail.scss";
 </style>
 
 <template>

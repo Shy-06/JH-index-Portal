@@ -15,21 +15,26 @@ function toDepartment() {
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/pages/product.scss";
+@use "~/assets/css/pages/product.scss";
 </style>
 
 <template>
   <JHLabel type="title" v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'">我们的产品</JHLabel>
   <div class="shadow" v-if="isWejh || isWechat || isVisual || isEmail"></div>
+  <!-- MARK: 宽屏 -->
   <div v-if="pageStore.pageSize == 'normal'" class="base normal">
     <JHCard type="large" :is-title="true" :title="productsContent.wechat.title">
       <div class="wechat">
         <div class="introduction">
           {{ productsContent.wechat.description }}
         </div>
-        <div v-for="account in productsContent.wechat.accounts" :key="account.name">
-          <NuxtImg :src="account.qrCode" />
-          <h3>{{ account.name }}</h3>
+        <div>
+          <NuxtImg :src="productsContent.wechat.account1.qrCode" />
+          <h3>{{ productsContent.wechat.account1.name }}</h3>
+        </div>
+        <div>
+          <NuxtImg :src="productsContent.wechat.account2.qrCode" />
+          <h3>{{ productsContent.wechat.account2.name }}</h3>
         </div>
       </div>
     </JHCard>
@@ -39,7 +44,7 @@ function toDepartment() {
           {{ productsContent.wejh.description }}
         </div>
         <div>
-          <NuxtImg :src="productsContent.wejh.icon" />
+          <NuxtImg :src="productsContent.wejh.miniProgramCode" />
           <h3>微精弘小程序</h3>
         </div>
       </div>
@@ -48,10 +53,10 @@ function toDepartment() {
       <div class="visual">
         <div class="introduction">
           {{ productsContent.visual.description }}
-          <template v-for="line in productsContent.visual.follow" :key="line">
-            <br />{{ line }}
-          </template>
         </div>
+        <center>{{ productsContent.visual.follow[0] }}</center>
+        <center>{{ productsContent.visual.follow[1] }}</center>
+        <center>{{ productsContent.visual.follow[2] }}</center>
         <NuxtImg :src="productsContent.visual.icon" style="max-width: 100%; height: auto;" />
       </div>
     </JHCard>
@@ -65,6 +70,8 @@ function toDepartment() {
       </div>
     </JHCard>
   </div>
+
+  <!-- MARK: 窄屏 -->
   <div v-else>
     <JHCard noLabel type="large" :is-title="false" title="no">
       <div class="base" :class="pageStore.pageSize">
@@ -89,6 +96,7 @@ function toDepartment() {
         </div>
       </div>
     </JHCard>
+    <!-- MARK: 窄屏详情页 -->
     <div class="detail" v-if="isWejh">
       <div class="title">
         {{ productsContent.wejh.title }}
@@ -133,7 +141,7 @@ function toDepartment() {
       <NuxtImg src="ui/return.svg" @click="isEmail = false" class="return-button" />
     </div>
   </div>
-  <div style="height: 100px"></div>
+
   <JHButton type="middle" @click="toDepartment">
     我们的部门
     <NuxtImg src="ui/rightArrow.svg" style="width: 20px; margin-left: 20px" />

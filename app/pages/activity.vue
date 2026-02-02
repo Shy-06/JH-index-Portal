@@ -6,7 +6,7 @@ import { acmCompetitionInfo } from "~~/constants/activity";
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/pages/activity.scss";
+@use "~/assets/css/pages/activity.scss";
 </style>
 
 <template>

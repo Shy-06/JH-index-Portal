@@ -1,25 +1,22 @@
 .base {
-  width: 80%;
-  margin: auto;
+  margin: 30px auto;
+  display: grid;
 
   &.normal {
-    display: grid;
+    width: 95%;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-column-gap: 10%;
   }
 
   &.middle {
-    display: grid;
+    width: 75%;
     grid-template-rows: repeat(7, auto);
     grid-gap: 0;
   }
 
   &.mini {
-    display: grid;
+    width: 95%;
     grid-template-rows: repeat(7, auto);
     grid-gap: 0;
-    width: 95%;
   }
 }
 
@@ -33,17 +30,19 @@
   .introduction {
     grid-column-start: 1;
     grid-column-end: 3;
-    font-size: 20px;
-    line-height: 1.8;
-    text-indent: 2em;
-    text-align: start;
-    color: #333;
-    padding: 20px;
   }
 
   img {
-    width: 100px;
+    width: 125px;
   }
+}
+
+.introduction {
+  font-size: 20px;
+  line-height: 1.8;
+  text-indent: 2em;
+  text-align: start;
+  padding: 0 20px;
 }
 
 #email-img {

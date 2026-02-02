@@ -6,7 +6,7 @@ const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;
 </script>
 
 <style scoped lang="scss">
-@use "assets/css/pages/department-index.scss";
+@use "~/assets/css/pages/department-index.scss";
 </style>
 <template>
   <JHLabel type="title" v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'">我们的部门</JHLabel>
