@@ -24,18 +24,14 @@
             <h1>联系我们</h1>
             <h1>关注我们</h1>
           </template>
-          <h4><a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a></h4>
+          <h3><a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a></h3>
         </div>
         <NuxtImg src="ui/LogoGitHub.svg" style="cursor: pointer" @click="toGithub" />
       </div>
     </JHCard>
 
     <JHCard type="small" class="join">
-      <template v-if="pageStore.pageSize == 'mini'">
-        <h1 class="join-content">精弘</h1>
-        <h1 class="join-content">诚聘</h1>
-      </template>
-      <h1 v-else class="join-content">精弘诚聘</h1>
+      <h1 class="join-content">精弘诚聘</h1>
       <JHButton :type="pageStore.pageSize == 'mini' ? 'mini' : 'middle'" @click="() => navigateTo('/join')">加入我们
       </JHButton>
     </JHCard>
@@ -112,6 +108,10 @@
   &-content {
     margin: auto;
   }
+}
+
+.contact-base.mini .join-content {
+  max-width: 2em;
 }
 
 .loading {

@@ -12,13 +12,7 @@ const pageStore = usePageStore();
   <div class="base" :class="pageStore.pageSize">
     <NuxtImg src="jingxiaohong/xiaohongLeft.webp" v-if="!(pageStore.pageSize == 'mini')" />
     <div class="introduce">
-      <div class="title">
-        {{
-          pageStore.pageSize == "mini" || pageStore.pageSize == "middle"
-            ? introduceContent.title.mini
-            : introduceContent.title.normal
-        }}
-      </div>
+      <div class="title"> {{ introduceContent.title[pageStore.pageSize] }} </div>
       <div class="content" :class="pageStore.pageSize">
         <span v-for="(line, index) in introduceContent.description" :key="index">
           {{ line }}<br v-if="index < introduceContent.description.length - 1" />

@@ -1,14 +1,17 @@
 .base {
-  display: grid;
-  grid-template-columns: 20% 60% 20%;
   margin-top: 50px;
   margin-bottom: 100px;
   align-items: center;
-  width: 80%;
   margin: auto;
 
-  &.mini {
-    display: unset;
+  &.normal,
+  &.middle {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+  }
+
+  &.normal {
+    width: 80%;
   }
 
   img {
@@ -46,8 +49,11 @@
     text-align: left;
     padding: 50px;
     height: fit-content;
-    margin-bottom: 100px;
     color: #333;
+
+    &.normal {
+      margin-bottom: 100px;
+    }
 
     &.mini {
       font-size: 16px;

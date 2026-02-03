@@ -2,6 +2,7 @@
 export const introduceContent = {
   title: {
     normal: "精弘网络⼁Jinghong Union",
+    middle: "精弘网络\nJinghong Union",
     mini: "精弘网络\nJinghong Union"
   },
   description: [

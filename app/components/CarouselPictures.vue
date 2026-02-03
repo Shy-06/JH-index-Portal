@@ -79,6 +79,7 @@ onUnmounted(() => {
 }
 
 .carousel {
+  touch-action: pan-y;
   margin: 1.5rem auto;
   width: 100%;
   border-radius: 0;

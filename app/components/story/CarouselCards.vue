@@ -66,6 +66,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .carousel {
+  touch-action: pan-y;
   position: relative;
   width: 90%;
   margin: 30px auto;
