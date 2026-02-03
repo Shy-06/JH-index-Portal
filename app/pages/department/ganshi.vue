@@ -10,7 +10,7 @@ import { departmentContent, affairsImages } from "~~/constants/department";
 
 <template>
   <JHLabel type="big">干事培训中心</JHLabel>
-  <JHCard type="large" :title="departmentContent.affairs.title" :isTitle="true">
+  <JHCard type="large" :title="departmentContent.affairs.title">
     <CarouselPictures :imgs="affairsImages"></CarouselPictures>
     <JHLabel type="small">部门介绍</JHLabel>
     <div class="content" v-for="(para, index) in departmentContent.affairs.introduction" :key="index">

@@ -19,7 +19,7 @@ import {
 
 <template>
   <JHLabel type="title" v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'">我们的故事</JHLabel>
-  <JHCard type="large" title="我们的使命" :isTitle="true">
+  <JHCard type="large" title="我们的使命">
     <div class="shiming-base" :class="pageStore.pageSize">
       <NuxtImg v-if="pageStore.pageSize == 'normal'" class="shiming-img" src="temp/shiming.webp" />
       <div v-else class="shiming-imgs" :class="pageStore.pageSize">
@@ -34,7 +34,7 @@ import {
       </div>
     </div>
   </JHCard>
-  <JHCard type="large" title="精弘毅行" :isTitle="true">
+  <JHCard type="large" title="精弘毅行">
     <CarouselPictures :imgs="yixingImages"></CarouselPictures>
     <div class="yixing-content" :class="pageStore.pageSize">
       {{ yixingContent[0] }}
@@ -43,13 +43,13 @@ import {
       {{ yixingContent[1] }}
     </div>
   </JHCard>
-  <JHCard type="large" title="网络育人" :isTitle="true">
+  <JHCard type="large" title="网络育人">
     <CarouselPictures :imgs="yurenImages"></CarouselPictures>
     <div class="yixing-content" :class="pageStore.pageSize">
       {{ yurenContent }}
     </div>
   </JHCard>
-  <JHCard type="large" title="生活社交" :isTitle="true">
+  <JHCard type="large" title="生活社交">
     <div class="shenghuo" :class="pageStore.pageSize">
       <NuxtImg src="groupPhoto/shenghuo0.webp" id="img1" />
       <div class="content">

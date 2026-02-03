@@ -11,7 +11,7 @@ import { acmCompetitionInfo } from "~~/constants/activity";
 
 <template>
   <JHLabel type="title" v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'">我们的活动</JHLabel>
-  <JHCard title="ACM新生赛" type="large" :is-title="true">
+  <JHCard title="ACM新生赛" type="large">
     <div class="base" :class="pageStore.pageSize">
       <NuxtImg class="poster" :src="acmCompetitionInfo.posterImage" />
       <div class="detail-base" :class="pageStore.pageSize">

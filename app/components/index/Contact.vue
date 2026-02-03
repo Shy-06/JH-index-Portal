@@ -1,9 +1,9 @@
 <template>
   <div class="contact-base" :class="pageStore.pageSize">
-    <JHCard noLabel type="small" :is-title="false" title="no">
+    <JHCard type="small">
       <div class="loading" :class="pageStore.pageSize">
-        <div style="color: #d20001; font-size: 30px; font-weight: bold;">{{ useRuntimeConfig().public.lastUpdateYear }}
-        </div>
+        <h1 style="color: #d20001; margin: 0;">{{ useRuntimeConfig().public.lastUpdateYear }}
+        </h1>
         <div class="loading-bar-border">
           <div class="loading-bar" :style="{ left: loadingWidth + '%' }"></div>
         </div>
@@ -13,25 +13,31 @@
 
     <NuxtImg class="jh" :class="pageStore.pageSize" src="common/logo_red.webp" border="5" />
 
-    <JHCard noLabel type="small" :is-title="false" title="no">
+    <JHCard type="small">
       <div class="contact-us" :class="pageStore.pageSize">
         <NuxtImg src="ui/wechat.svg" @mouseover="onMouseOver" />
         <NuxtImg v-if="isHovering" src="external/wechatqr/jxhzx" class="qrcode" @mouseout="onMouseOut"
           style="width: auto; height: 20%;z-index:1; position: absolute;" />
         <div style="width: 99%">
-          <h1>联系我们 | 关注我们</h1>
+          <h1 v-if="pageStore.pageSize == 'middle'">联系我们 | 关注我们</h1>
+          <template v-else>
+            <h1>联系我们</h1>
+            <h1>关注我们</h1>
+          </template>
           <h4><a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a></h4>
         </div>
         <NuxtImg src="ui/LogoGitHub.svg" style="cursor: pointer" @click="toGithub" />
       </div>
     </JHCard>
 
-    <JHCard noLabel type="small" :is-title="false" title="no">
-      <div class="join">
-        <div class="join-content" :class="pageStore.pageSize">精弘诚聘</div>
-        <JHButton :type="pageStore.pageSize == 'mini' ? 'mini' : 'middle'" @click="() => navigateTo('/join')">加入我们
-        </JHButton>
-      </div>
+    <JHCard type="small" class="join">
+      <template v-if="pageStore.pageSize == 'mini'">
+        <h1 class="join-content">精弘</h1>
+        <h1 class="join-content">诚聘</h1>
+      </template>
+      <h1 v-else class="join-content">精弘诚聘</h1>
+      <JHButton :type="pageStore.pageSize == 'mini' ? 'mini' : 'middle'" @click="() => navigateTo('/join')">加入我们
+      </JHButton>
     </JHCard>
   </div>
 </template>
@@ -72,46 +78,24 @@
   grid-template-columns: 20% 60% 20%;
   align-items: center;
 
-  &.middle {
-    h1 {
-      font-size: large;
-    }
-
-    h4 {
-      font-size: small;
-    }
-
-    img {
-      width: 30px;
-      height: 30px;
-      margin: auto;
-      background-color: white;
-    }
+  h1 {
+    margin: 0;
   }
 
-  &.mini {
-    h1 {
-      font-size: 10px;
-    }
-
-    h4 {
-      font-size: 8px;
-    }
-
-    img {
-      width: 30px;
-      height: 30px;
-      margin: auto;
-      background-color: white;
-    }
+  img {
+    margin: auto;
   }
 
-  &.normal {
-    img {
-      width: 80px;
-      height: 80px;
-      margin: auto;
-    }
+  &.normal img {
+    width: 80px;
+    height: 80px;
+  }
+
+  &.middle img,
+  &.mini img {
+    width: 30px;
+    height: 30px;
+    background-color: white;
   }
 }
 
@@ -126,24 +110,7 @@
   align-items: center;
 
   &-content {
-    &.normal {
-      font-size: x-large;
-      border-bottom: 2px solid black;
-      width: 60%;
-      margin: auto;
-      padding-bottom: 30px;
-      margin-bottom: 30px;
-    }
-
-    &.middle,
-    &.mini {
-      font-size: 12px;
-      border-bottom: 1px solid black;
-      width: 60%;
-      margin: auto;
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-    }
+    margin: auto;
   }
 }
 
@@ -162,7 +129,7 @@
     border-radius: 100px;
     overflow: hidden;
     border: 5px solid #d20001;
-    margin: auto;
+    margin: 0 auto;
   }
 
   .loading-bar {

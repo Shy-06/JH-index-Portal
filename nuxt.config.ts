@@ -41,7 +41,9 @@ export default defineNuxtConfig({
         { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'dns-prefetch', href: `//${new URL(cubeBaseURL).hostname}` },
+        { rel: 'dns-prefetch', href: '//open.weixin.qq.com' }
       ]
     }
   },

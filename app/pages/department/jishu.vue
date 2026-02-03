@@ -10,7 +10,7 @@ import { departmentContent, technologyImages } from "~~/constants/department";
 
 <template>
   <JHLabel type="big">技术研发中心</JHLabel>
-  <JHCard type="large" title="产研部" :isTitle="true">
+  <JHCard type="large" title="产研部">
     <CarouselPictures :imgs="technologyImages"></CarouselPictures>
     <JHLabel type="big">产品</JHLabel>
 

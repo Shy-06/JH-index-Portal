@@ -19,7 +19,7 @@ function toStory() {
   <History v-if="pageStore.pageSize === 'normal'" />
   <template v-else>
     <Timeline />
-    <JHCard title="我们的故事" :is-title="true" type="large" class="story">
+    <JHCard title="我们的故事" type="large" class="story">
       <NuxtImg src="common/story.webp" alt="Our Story" />
       <JHButton type="middle" @click="toStory">
         我们的故事

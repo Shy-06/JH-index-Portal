@@ -15,7 +15,7 @@ img {
 
 <template>
   <JHLabel type="big">设计服务中心</JHLabel>
-  <JHCard type="large" :title="departmentContent.design.title" :isTitle="true">
+  <JHCard type="large" :title="departmentContent.design.title">
     <CarouselPictures :imgs="designImages"></CarouselPictures>
     <JHLabel type="small">部门介绍</JHLabel>
     <div class="content" v-for="(para, index) in departmentContent.design.introduction" :key="index">

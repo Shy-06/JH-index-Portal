@@ -23,7 +23,7 @@ function toDepartment() {
   <div class="shadow" v-if="isWejh || isWechat || isVisual || isEmail"></div>
   <!-- MARK: 宽屏 -->
   <div v-if="pageStore.pageSize == 'normal'" class="base normal">
-    <JHCard type="large" :is-title="true" :title="productsContent.wechat.title">
+    <JHCard type="large" :title="productsContent.wechat.title">
       <div class="wechat">
         <div class="introduction">
           {{ productsContent.wechat.description }}
@@ -38,7 +38,7 @@ function toDepartment() {
         </div>
       </div>
     </JHCard>
-    <JHCard type="large" :is-title="true" :title="productsContent.wejh.title">
+    <JHCard type="large" :title="productsContent.wejh.title">
       <div class="wejh">
         <div class="introduction">
           {{ productsContent.wejh.description }}
@@ -49,7 +49,7 @@ function toDepartment() {
         </div>
       </div>
     </JHCard>
-    <JHCard type="large" :is-title="true" :title="productsContent.visual.title">
+    <JHCard type="large" :title="productsContent.visual.title">
       <div class="visual">
         <div class="introduction">
           {{ productsContent.visual.description }}
@@ -60,7 +60,7 @@ function toDepartment() {
         <NuxtImg :src="productsContent.visual.icon" style="max-width: 100%; height: auto;" />
       </div>
     </JHCard>
-    <JHCard type="large" :is-title="true" :title="productsContent.email.title">
+    <JHCard type="large" :title="productsContent.email.title">
       <div class="email">
         <div class="introduction">
           {{ productsContent.email.description }}
@@ -73,7 +73,7 @@ function toDepartment() {
 
   <!-- MARK: 窄屏 -->
   <div v-else>
-    <JHCard noLabel type="large" :is-title="false" title="no">
+    <JHCard type="large">
       <div class="base" :class="pageStore.pageSize">
         <div class="product-item">
           <NuxtImg :src="productIcons.wejh" />

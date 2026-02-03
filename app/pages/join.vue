@@ -14,7 +14,7 @@ function toRecruit() {
 </style>
 
 <template>
-  <JHCard title="加入我们" type="large" :is-title="true">
+  <JHCard title="加入我们" type="large">
     <div class="base" :class="pageStore.pageSize">
       <NuxtImg class="poster" :src="posterImage" />
       <div class="detail-base" :class="pageStore.pageSize">

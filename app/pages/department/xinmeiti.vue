@@ -14,7 +14,7 @@ img {
 
 <template>
   <JHLabel type="big">新媒体中心</JHLabel>
-  <JHCard type="large" :title="departmentContent.visual.title" :isTitle="true">
+  <JHCard type="large" :title="departmentContent.visual.title">
     <CarouselPictures :imgs="visualImages" />
     <JHLabel type="small">部门介绍</JHLabel>
     <div class="content" v-for="(para, index) in departmentContent.visual.introduction" :key="index">
@@ -27,7 +27,7 @@ img {
     </div>
   </JHCard>
 
-  <JHCard type="large" :title="departmentContent.editorial.title" :isTitle="true">
+  <JHCard type="large" :title="departmentContent.editorial.title">
     <CarouselPictures :imgs="editorialImages" />
     <JHLabel type="small">部门介绍</JHLabel>
     <div class="content" v-for="(para, index) in departmentContent.editorial.introduction" :key="index">

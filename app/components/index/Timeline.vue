@@ -124,7 +124,7 @@ onUnmounted(() => {
 </style>
 
 <template>
-  <JHCard title="精弘成长史" type="large" :is-title="true">
+  <JHCard title="精弘成长史" type="large">
     <div class="history" ref="history">
       <div class="history-line" ref="historyLine">
         <div class="history-item" v-for="(item, index) in historyEvents" :style="styleVal(index)">

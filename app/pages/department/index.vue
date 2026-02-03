@@ -10,7 +10,7 @@ const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;
 </style>
 <template>
   <JHLabel type="title" v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'">我们的部门</JHLabel>
-  <JHCard title="部门结构" type="large" :is-title="true">
+  <JHCard title="部门结构" type="large">
     <NuxtImg src="common/structPc.webp" style="width: 70%;position: relative;right: 2%;" />
   </JHCard>
   <div v-show="pageStore.pageSize == 'normal'" style="height: 100px"></div>
