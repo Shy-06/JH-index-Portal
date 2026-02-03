@@ -2,8 +2,7 @@
   <div class="contact-base" :class="pageStore.pageSize">
     <JHCard type="small">
       <div class="loading" :class="pageStore.pageSize">
-        <h1 style="color: #d20001; margin: 0;">{{ useRuntimeConfig().public.lastUpdateYear }}
-        </h1>
+        <h1 style="color: #d20001; margin: 0;">{{ useRuntimeConfig().public.lastUpdateYear }}</h1>
         <div class="loading-bar-border">
           <div class="loading-bar" :style="{ left: loadingWidth + '%' }"></div>
         </div>

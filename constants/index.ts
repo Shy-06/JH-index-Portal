@@ -15,9 +15,7 @@ export const introduceContent = {
   ]
 };
 
-export const indexStoryContent = {
-  text: "因梦想，我们齐聚一堂；因使命，我们同舟共济。"
-};
+export const indexStoryContent = ["因梦想，我们齐聚一堂；", "因使命，我们同舟共济。"];
 
 export const historyEvents = [
   {
