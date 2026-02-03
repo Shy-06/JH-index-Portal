@@ -33,9 +33,5 @@ import { acmCompetitionInfo } from "~~/constants/activity";
       </div>
     </div>
   </JHCard>
-  <div style="height: 100px"></div>
-  <JHButton type="middle" @click="navigateTo('/join')">
-    加入我们
-    <NuxtImg src="ui/rightArrow.svg" style="width: 20px; margin-left: 20px" />
-  </JHButton>
+  <NextPage @click="navigateTo('/join')"> 加入我们 </NextPage>
 </template>

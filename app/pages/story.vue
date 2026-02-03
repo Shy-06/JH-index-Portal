@@ -75,8 +75,5 @@ import {
     <CarouselCards :card="persons" :type="pageStore.pageSize"></CarouselCards>
   </div>
 
-  <JHButton type="middle" @click="navigateTo('/product')">
-    我们的产品
-    <NuxtImg src="ui/rightArrow.svg" style="width: 20px; margin-left: 20px" />
-  </JHButton>
+  <NextPage @click="navigateTo('/product')"> 我们的产品 </NextPage>
 </template>

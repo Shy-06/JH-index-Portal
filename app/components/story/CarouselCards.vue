@@ -71,10 +71,7 @@ onMounted(() => {
   width: 90%;
   margin: 30px auto;
 
-  &.normal {
-    height: 750px;
-  }
-
+  &.normal,
   &.middle {
     height: 800px;
   }
@@ -157,24 +154,6 @@ onMounted(() => {
         white-space: pre-wrap;
         overflow: auto;
         flex-grow: 1;
-
-        &::-webkit-scrollbar {
-          width: 6px;
-        }
-
-        &::-webkit-scrollbar-track {
-          background: #f1f1f1;
-          border-radius: 3px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-          background: #d2000180;
-          border-radius: 3px;
-
-          &:hover {
-            background: #d20001;
-          }
-        }
       }
     }
 

@@ -30,12 +30,6 @@
   }
 }
 
-.btn {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
-
 .introduce {
   &.normal {
     margin-top: 40px;
@@ -49,7 +43,7 @@
       margin-bottom: 20px;
       color: #333;
       line-height: 1.8;
-      
+
       pre {
         font-family: inherit;
         line-height: 1.8;

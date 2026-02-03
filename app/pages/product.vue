@@ -8,10 +8,6 @@ const isWechat = ref<boolean>(false);
 const isWejh = ref<boolean>(false);
 const isVisual = ref<boolean>(false);
 const isEmail = ref<boolean>(false);
-
-function toDepartment() {
-  navigateTo("/department");
-}
 </script>
 
 <style scoped lang="scss">
@@ -54,9 +50,9 @@ function toDepartment() {
         <div class="introduction">
           {{ productsContent.visual.description }}
         </div>
-        <center>{{ productsContent.visual.follow[0] }}</center>
-        <center>{{ productsContent.visual.follow[1] }}</center>
-        <center>{{ productsContent.visual.follow[2] }}</center>
+        <div style="text-align: center;">{{ productsContent.visual.follow[0] }}</div>
+        <div style="text-align: center;">{{ productsContent.visual.follow[1] }}</div>
+        <div style="text-align: center;">{{ productsContent.visual.follow[2] }}</div>
         <NuxtImg :src="productsContent.visual.icon" style="max-width: 100%; height: auto;" />
       </div>
     </JHCard>
@@ -142,8 +138,5 @@ function toDepartment() {
     </div>
   </div>
 
-  <JHButton type="middle" @click="toDepartment">
-    我们的部门
-    <NuxtImg src="ui/rightArrow.svg" style="width: 20px; margin-left: 20px" />
-  </JHButton>
+  <NextPage @click="navigateTo('/department')"> 我们的部门 </NextPage>
 </template>
