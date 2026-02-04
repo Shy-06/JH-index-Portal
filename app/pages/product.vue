@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 definePageMeta({ pageNo: 2 });
-useSeoMeta({ title: "我们的产品-精弘网络" });
+useSeoMeta({ title: "我们的产品" });
 import { productsContent, productIcons } from "~~/constants/product";
 
 const pageStore = usePageStore();

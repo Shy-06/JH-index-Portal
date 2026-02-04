@@ -173,7 +173,7 @@ function toGithub() {
   window.location.href = useRuntimeConfig().public.contact.github;
 }
 
-let loadingBarTimer: ReturnType<typeof setInterval>;
+let loadingBarTimer: number;
 onMounted(() => {
   loadingBarTimer = window.setInterval(() => {
     if (loadingWidth.value >= 0) {

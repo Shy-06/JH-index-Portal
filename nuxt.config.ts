@@ -5,8 +5,22 @@ const cubeBaseURL = 'https://img.phlin.cn/api/file?bucket=homepage&object_key=';
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-01',
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt', '@nuxt/image'],
+  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/seo'],
   css: ['assets/css/main.scss'],
+
+  site: {
+    url: 'https://myzjut.org',
+    name: '浙江工业大学精弘网络',
+    defaultLocale: 'zh-CN'
+  },
+  schemaOrg: {
+    identity: {
+      type: 'Organization',
+      name: '浙江工业大学精弘网络',
+      logo: '/favicon.png',
+      sameAs: ['https://github.com/zjutjh']
+    }
+  },
 
   runtimeConfig: {
     public: {
@@ -28,10 +42,6 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: '浙江工业大学精弘网络',
-      htmlAttrs: {
-        lang: 'zh-CN'
-      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },

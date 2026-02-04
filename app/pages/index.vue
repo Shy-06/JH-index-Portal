@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 definePageMeta({ layout: false, pageNo: 0 });
-useSeoMeta({ title: '浙江工业大学精弘网络' });
 import { indexStoryContent } from '~~/constants/index';
 </script>
 

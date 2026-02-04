@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 definePageMeta({ pageNo: 4 });
-useSeoMeta({ title: "我们的活动-精弘网络" });
+useSeoMeta({ title: "我们的活动" });
 const pageStore = usePageStore();
 import { acmCompetitionInfo } from "~~/constants/activity";
 </script>

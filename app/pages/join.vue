@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({ pageNo: 5 });
-useSeoMeta({ title: "加入我们-精弘网络" });
+useSeoMeta({ title: "加入我们" });
 const pageStore = usePageStore();
 import { recruitmentInfo, posterImage } from "~~/constants/recruitment";
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 definePageMeta({ pageNo: 1 });
-useSeoMeta({ title: "我们的故事-精弘网络" });
+useSeoMeta({ title: "我们的故事" });
 const pageStore = usePageStore();
 import {
   yixingImages,

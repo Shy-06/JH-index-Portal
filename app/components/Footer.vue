@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">©{{ useRuntimeConfig().public.lastUpdateYear }} 浙江工业大学-精弘网络</div>
+  <div class="footer">©{{ useRuntimeConfig().public.lastUpdateYear }} 浙江工业大学精弘网络</div>
 </template>
 
 <style scoped>

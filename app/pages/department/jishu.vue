@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({ pageNo: 3 });
-useSeoMeta({ title: "技术研发中心-我们的部门-精弘网络" });
+useSeoMeta({ title: "技术研发中心 | 我们的部门" });
 import { departmentContent, technologyImages } from "~~/constants/department";
 </script>
 
