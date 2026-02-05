@@ -21,9 +21,7 @@ const isEmail = ref<boolean>(false);
   <div v-if="pageStore.pageSize == 'normal'" class="base normal">
     <JHCard type="large" :title="productsContent.wechat.title">
       <div class="wechat">
-        <div class="introduction">
-          {{ productsContent.wechat.description }}
-        </div>
+        <div class="introduction"> {{ productsContent.wechat.description }} </div>
         <div>
           <NuxtImg :src="productsContent.wechat.account1.qrCode" />
           <h3>{{ productsContent.wechat.account1.name }}</h3>
@@ -35,35 +33,22 @@ const isEmail = ref<boolean>(false);
       </div>
     </JHCard>
     <JHCard type="large" :title="productsContent.wejh.title">
-      <div class="wejh">
-        <div class="introduction">
-          {{ productsContent.wejh.description }}
-        </div>
-        <div>
-          <NuxtImg :src="productsContent.wejh.miniProgramCode" />
-          <h3>微精弘小程序</h3>
-        </div>
-      </div>
+      <div class="introduction"> {{ productsContent.wejh.description }} </div>
+      <NuxtImg :src="productsContent.wejh.miniProgramCode" id="wejh-code" />
+      <h3>微精弘小程序</h3>
     </JHCard>
     <JHCard type="large" :title="productsContent.visual.title">
-      <div class="visual">
-        <div class="introduction">
-          {{ productsContent.visual.description }}
-        </div>
-        <div style="text-align: center;">{{ productsContent.visual.follow[0] }}</div>
-        <div style="text-align: center;">{{ productsContent.visual.follow[1] }}</div>
-        <div style="text-align: center;">{{ productsContent.visual.follow[2] }}</div>
-        <NuxtImg :src="productsContent.visual.icon" style="max-width: 100%; height: auto;" />
-      </div>
+      <div class="introduction"> {{ productsContent.visual.description }} </div>
+      <div style="text-align: center;">{{ productsContent.visual.follow[0] }}</div>
+      <div style="text-align: center;">{{ productsContent.visual.follow[1] }}</div>
+      <a href="https://b23.tv/mkezb7b">
+        <NuxtImg :src="productsContent.visual.bilibili" style="max-width: 100%; height: auto;" />
+      </a>
     </JHCard>
     <JHCard type="large" :title="productsContent.email.title">
-      <div class="email">
-        <div class="introduction">
-          {{ productsContent.email.description }}
-        </div>
-        <NuxtImg id="email-img" :src="productsContent.email.icon" />
-        <h3>邮箱系统网址：<a :href="productsContent.email.url">{{ productsContent.email.url }}</a></h3>
-      </div>
+      <div class="introduction"> {{ productsContent.email.description }} </div>
+      <h3>邮箱系统网址：<a :href="productsContent.email.url"> {{ productsContent.email.url }} </a></h3>
+      <NuxtImg id="email-img" :src="productsContent.email.icon" />
     </JHCard>
   </div>
 

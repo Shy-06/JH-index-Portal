@@ -5,6 +5,38 @@
   &.normal {
     width: 95%;
     grid-template-columns: 1fr 1fr;
+
+    .introduction {
+      font-size: 20px;
+      line-height: 1.6;
+      text-indent: 2em;
+      text-align: start;
+      padding: 0 20px;
+    }
+
+    h3 {
+      margin: 6px auto;
+    }
+
+    .wechat {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      align-items: center;
+
+      .introduction {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+
+      img {
+        width: 125px;
+      }
+    }
+
+    #wejh-code {
+      width: 150px;
+    }
   }
 
   &.middle {
@@ -17,31 +49,6 @@
     grid-gap: 8px;
     background: rgb(239, 239, 239);
   }
-}
-
-.wechat {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-
-  .introduction {
-    grid-column-start: 1;
-    grid-column-end: 3;
-  }
-
-  img {
-    width: 125px;
-  }
-}
-
-.introduction {
-  font-size: 20px;
-  line-height: 1.8;
-  text-indent: 2em;
-  text-align: start;
-  padding: 0 20px;
 }
 
 #email-img {
