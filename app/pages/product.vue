@@ -75,17 +75,14 @@ const isEmail = ref<boolean>(false);
           <NuxtImg :src="productIcons.wejh" />
           <JHButton type="middle" @click="isWejh = true">微信小程序</JHButton>
         </div>
-        <div class="product-separator"></div>
         <div class="product-item">
           <NuxtImg :src="productIcons.wechat" />
           <JHButton type="middle" @click="isWechat = true">微信服务号</JHButton>
         </div>
-        <div class="product-separator"></div>
         <div class="product-item">
           <NuxtImg :src="productIcons.visual" />
           <JHButton type="middle" @click="isVisual = true">视觉影像</JHButton>
         </div>
-        <div class="product-separator"></div>
         <div class="product-item">
           <NuxtImg :src="productIcons.email" />
           <JHButton type="middle" @click="isEmail = true">学生邮箱</JHButton>
