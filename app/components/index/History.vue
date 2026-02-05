@@ -23,7 +23,7 @@ const currentEvent = computed(() => historyEvents[eventNow.value]!);
     <div class="history-right">
       <div class="time">{{ currentEvent.time }}</div>
       <div class="content">{{ currentEvent.content }}</div>
-      <NuxtImg src="jingxiaohong/jingxiaohong.webp" border="2" />
+      <NuxtImg src="jingxiaohong/jingxiaohong.webp" />
     </div>
   </div>
   <div class="choices-container">

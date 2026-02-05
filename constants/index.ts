@@ -99,7 +99,7 @@ export const historyEvents = [
     id: 11,
     img: "common/shake_hands.webp",
     time: "2023年4月",
-    content: "成为校级组织数字化转型解决方案的提供者",
+    content: "成为校级组织数字化\n转型解决方案的提供者",
     name: "技术定位转变"
   }
 ];

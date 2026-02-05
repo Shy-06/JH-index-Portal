@@ -1,9 +1,11 @@
 .base-pc {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-inline: 10vw;
+  width: 80%;
+  grid-template-columns: 40% 60%;
+  margin: auto;
   border-radius: 15px;
-  box-shadow: 0 5px 10px #999999;
+  box-shadow: 0 3px 8px #999999;
+  overflow: hidden;
 }
 
 .history-left {
@@ -13,8 +15,6 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
 
   img {
     height: 150px;
@@ -27,15 +27,21 @@
 }
 
 .history-right {
-  background-color: white;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  align-items: start;
-  padding: 30px;
-  display: block;
-  white-space: pre-wrap;
-  float: right;
   position: relative;
+  padding: 40px;
+  background-color: white;
+  white-space: pre-wrap;
+
+  img {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-color: #efefef;
+    border-radius: 50%;
+    transform: rotate(-15deg);
+    top: 30px;
+    right: 36px;
+  }
 
   &::before {
     content: "";
@@ -58,35 +64,22 @@
     border-left: black solid 3px;
     border-bottom: black solid 3px;
   }
-
-  img {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    border-color: #efefef;
-    background-color: #efefef;
-    border-radius: 50%;
-    transform: rotate(-15deg);
-    top: 30px;
-    bottom: 0;
-  }
 }
 
 .event-name {
   color: white;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 15px 10px;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px;
 }
 
 .time {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 600;
-  justify-content: center;
   text-align: left;
-  padding: 0 10px 10px;
+  padding: 0 10px;
   border-bottom: black solid 3px;
-  width: fit-content;
+  width: 175px;
   margin-bottom: 20px;
 }
 
