@@ -39,7 +39,9 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-
+  routeRules: {
+    '/': { prerender: true }
+  },
   app: {
     head: {
       meta: [
@@ -52,6 +54,9 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: "apple-touch-icon", href: "/favicon.png" },
+        { rel: "shortcut icon", href: "/favicon.png" },
+        { rel: "bookmark", href: "/favicon.png" },
         { rel: 'dns-prefetch', href: `//${new URL(cubeBaseURL).hostname}` },
         { rel: 'dns-prefetch', href: '//open.weixin.qq.com' }
       ]

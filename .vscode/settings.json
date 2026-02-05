@@ -29,7 +29,5 @@
   "[vue]": {
     "editor.defaultFormatter": "Vue.volar"
   },
-  "git.autofetch": true,
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true
+  "git.autofetch": true
 }
