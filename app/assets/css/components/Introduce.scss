@@ -1,6 +1,7 @@
 .base {
   margin: 30px auto;
   align-items: center;
+  max-width: 1024px;
 
   &.normal,
   &.middle {
@@ -8,12 +9,11 @@
     grid-template-columns: 20% 60% 20%;
   }
 
-  &.normal {
+  &.mini {
     width: 80%;
   }
 
   img {
-    position: relative;
     width: 100%;
   }
 }
@@ -21,7 +21,6 @@
 .introduce {
   display: grid;
   grid-template-rows: 25% 75%;
-  width: 100%;
   max-width: 500px;
   margin: auto;
   align-items: center;
