@@ -2,13 +2,15 @@
   <div class="contact-base" :class="pageStore.pageSize">
     <JHCard type="small">
       <div class="loading" :class="pageStore.pageSize">
-        <h1 style="color: #d20001; margin: 0">
+        <h1 style="color: var(--primary-color); margin: 0">
           {{ useRuntimeConfig().public.lastUpdateYear }}
         </h1>
         <div class="loading-bar-border">
           <div class="loading-bar" :style="{ left: loadingWidth + '%' }" />
         </div>
-        <div style="color: #d20001; font-size: 24px">Loading...</div>
+        <div style="color: var(--primary-color); font-size: 24px">
+          Loading...
+        </div>
       </div>
     </JHCard>
 
@@ -176,7 +178,7 @@ onUnmounted(() => {
     height: 30px;
     border-radius: 100px;
     overflow: hidden;
-    border: 5px solid #d20001;
+    border: 5px solid var(--primary-color);
     margin: 0 auto;
   }
 
@@ -184,7 +186,7 @@ onUnmounted(() => {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: #d20001;
+    background-color: var(--primary-color);
   }
 
   img {

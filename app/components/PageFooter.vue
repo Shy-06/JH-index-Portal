@@ -8,7 +8,7 @@
 .footer {
   margin-top: 5%;
   width: 100%;
-  color: #70757a;
+  color: var(--text-muted);
   height: 2.2rem;
   line-height: 39px;
   border-radius: 0;

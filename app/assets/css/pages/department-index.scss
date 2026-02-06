@@ -46,11 +46,11 @@
     .img {
       margin: auto;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: var(--card-bg);
       background-size: 70%;
       background-position: center;
       background-repeat: no-repeat;
-      box-shadow: 0 5px 10px #999;
+      box-shadow: 0 5px 10px var(--card-shadow);
     }
   }
 }

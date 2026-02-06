@@ -18,9 +18,9 @@ const prop = defineProps<{ type: string }>()
   align-items: center;
   font-family: 'SC-VF';
   margin: 0 7.5% 3%;
-  background-color: #d20001;
+  background-color: var(--primary-color);
   color: white;
-  box-shadow: 0 5px 10px #999999;
+  box-shadow: 0 5px 10px var(--card-shadow);
   border-radius: 1rem;
 
   .h {
@@ -46,9 +46,9 @@ const prop = defineProps<{ type: string }>()
   font-size: 30px;
   color: white;
   line-height: 5rem;
-  background-color: #d20001;
+  background-color: var(--primary-color);
   margin: 0 auto 3vw auto;
-  box-shadow: 0 5px 10px #999999;
+  box-shadow: 0 5px 10px var(--card-shadow);
 }
 
 .small {
@@ -58,7 +58,7 @@ const prop = defineProps<{ type: string }>()
   padding: 10px;
   margin: 15px auto;
   border-radius: 20px;
-  background-color: #d20001;
+  background-color: var(--primary-color);
   color: white;
   font-size: 20px;
   line-height: 30px;
@@ -68,7 +68,7 @@ const prop = defineProps<{ type: string }>()
 }
 
 .nano {
-  background-color: #d20001;
+  background-color: var(--primary-color);
   width: fit-content;
   border-radius: 5px;
   align-items: center;

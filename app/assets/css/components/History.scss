@@ -4,12 +4,12 @@
   grid-template-columns: 40% 60%;
   margin: auto;
   border-radius: 15px;
-  box-shadow: 0 3px 8px #999999;
+  box-shadow: 0 3px 8px var(--card-shadow);
   overflow: hidden;
 }
 
 .history-left {
-  background-color: #e25f54;
+  background-color: var(--history-accent);
   height: 300px;
   align-items: center;
   justify-content: center;
@@ -29,14 +29,14 @@
 .history-right {
   position: relative;
   padding: 40px;
-  background-color: white;
+  background-color: var(--card-bg);
   white-space: pre-wrap;
 
   img {
     position: absolute;
     width: 250px;
     height: 250px;
-    background-color: #efefef;
+    background-color: var(--bg-color);
     border-radius: 50%;
     transform: rotate(-15deg);
     top: 30px;
@@ -50,8 +50,8 @@
     top: 4%;
     width: 40%;
     height: 30%;
-    border-right: black solid 3px;
-    border-top: black solid 3px;
+    border-right: var(--border-color) solid 3px;
+    border-top: var(--border-color) solid 3px;
   }
 
   &::after {
@@ -61,8 +61,8 @@
     bottom: 4%;
     width: 40%;
     height: 30%;
-    border-left: black solid 3px;
-    border-bottom: black solid 3px;
+    border-left: var(--border-color) solid 3px;
+    border-bottom: var(--border-color) solid 3px;
   }
 }
 
@@ -78,7 +78,7 @@
   font-weight: 600;
   text-align: left;
   padding: 0 10px;
-  border-bottom: black solid 3px;
+  border-bottom: var(--border-color) solid 3px;
   width: 175px;
   margin-bottom: 20px;
 }
@@ -88,7 +88,7 @@
   font-size: 18px;
   line-height: 1.8;
   width: 50%;
-  color: #333;
+  color: var(--text-secondary);
 }
 
 img {
@@ -116,9 +116,9 @@ img {
       height: 6px;
       background: linear-gradient(
         to right,
-        #d20001 0%,
-        #ff6b6b 50%,
-        #d20001 100%
+        var(--primary-gradient-start) 0%,
+        var(--primary-gradient-end) 50%,
+        var(--primary-gradient-start) 100%
       );
       pointer-events: none;
       transform: translateY(-50%);
@@ -131,9 +131,9 @@ img {
       position: relative;
       cursor: pointer;
       user-select: none;
-      border: 5px solid #d20001;
+      border: 5px solid var(--primary-color);
       border-radius: 50%;
-      background-color: #fff;
+      background-color: var(--card-bg);
       background-size: cover;
       box-shadow: 0 2px 6px rgba(153, 153, 153, 0.6);
       transition:

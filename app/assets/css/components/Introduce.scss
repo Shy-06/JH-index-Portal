@@ -26,7 +26,7 @@
   align-items: center;
 
   .title {
-    background-color: #d6d6d6;
+    background-color: var(--card-bg-secondary);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     font-size: xx-large;
@@ -36,17 +36,17 @@
   }
 
   .content {
-    background-color: white;
+    background-color: var(--card-bg);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    box-shadow: 0 5px 10px #999;
+    box-shadow: 0 5px 10px var(--card-shadow);
     font-size: 20px;
     line-height: 1.8;
     justify-content: start;
     text-align: left;
     padding: 30px;
     height: fit-content;
-    color: #333;
+    color: var(--text-secondary);
 
     p {
       margin: 0;

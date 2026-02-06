@@ -114,7 +114,7 @@ onMounted(() => {
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: #ffffff;
+      background-color: var(--card-bg);
       overflow: hidden;
       border-radius: 20px;
       box-shadow:
@@ -152,7 +152,7 @@ onMounted(() => {
         width: 90%;
         margin: 20px;
         font-size: 18px;
-        color: #d20001;
+        color: var(--primary-color);
         text-align: left;
         white-space: pre-line;
         flex-shrink: 0;
@@ -160,7 +160,7 @@ onMounted(() => {
         &::first-line {
           font-size: 28px;
           font-weight: 700;
-          color: #1a1a1a;
+          color: var(--text-color);
         }
       }
 

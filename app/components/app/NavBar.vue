@@ -142,7 +142,7 @@ const menuColumns = [
 
 <style lang="scss" scoped>
 // MARK: 字体和颜色
-$primary-color: #d20001;
+$primary-color: var(--primary-color);
 $font-family: 'song', sans-serif;
 
 @font-face {
