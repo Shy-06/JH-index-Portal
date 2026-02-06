@@ -20,6 +20,7 @@ export default defineNuxtConfig({
           name: 'viewport',
           content: 'width=device-width, initial-scale=1, viewport-fit=cover',
         },
+        { name: 'theme-color', content: '#d20001' },
         {
           name: 'theme-color',
           content: '#d20001',
