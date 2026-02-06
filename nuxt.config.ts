@@ -5,7 +5,7 @@ const cubeBaseURL = 'https://img.phlin.cn/api/file?bucket=homepage&object_key=';
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-01',
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/seo'],
+  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/seo', '@nuxt/eslint'],
   css: ['assets/css/main.scss'],
 
   site: {
@@ -18,7 +18,7 @@ export default defineNuxtConfig({
       type: 'Organization',
       name: '浙江工业大学精弘网络',
       logo: '/favicon.png',
-      sameAs: ['https://github.com/zjutjh']
+      sameAs: ['https://github.com/zjutjh', 'https://space.bilibili.com/485566103']
     }
   },
 
@@ -47,7 +47,6 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
-        //, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0
         { name: "theme-color", content: "#d20001" },
         { name: "mobile-web-app-capable", content: "yes" },
         { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }

@@ -1,29 +1,33 @@
 {
-    "name": "jh-homepage",
-    "private": true,
-    "version": "3.1.1",
-    "scripts": {
-        "preinstall": "npx only-allow pnpm",
-        "dev": "nuxt dev",
-        "build": "nuxt build",
-        "generate": "nuxt generate",
-        "preview": "nuxt preview",
-        "postinstall": "nuxt prepare"
-    },
-    "packageManager": "pnpm@10.28.2",
-    "dependencies": {
-        "@nuxt/image": "^2.0.0",
-        "@nuxtjs/seo": "^3.4.0",
-        "pinia": "^3.0.4",
-        "sass": "^1.97.3",
-        "vue": "^3.5.27"
-    },
-    "devDependencies": {
-        "@pinia/nuxt": "^0.11.3",
-        "cspell": "^9.6.2",
-        "nuxt": "^4.3.0",
-        "pnpm": "^10.28.2",
-        "typescript": "^5.9.3",
-        "vue-tsc": "^3.2.4"
-    }
+  "name": "jh-homepage",
+  "private": true,
+  "version": "3.1.1",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "packageManager": "pnpm@10.28.2",
+  "dependencies": {
+    "@nuxt/image": "^2.0.0",
+    "@nuxtjs/seo": "^3.4.0",
+    "pinia": "^3.0.4",
+    "sass": "^1.97.3",
+    "vue": "^3.5.27"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "1.13.0",
+    "@pinia/nuxt": "^0.11.3",
+    "cspell": "^9.6.2",
+    "eslint": "^9.39.2",
+    "nuxt": "^4.3.0",
+    "pnpm": "^10.28.2",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.2.4"
+  }
 }
