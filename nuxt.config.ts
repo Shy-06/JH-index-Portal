@@ -34,6 +34,7 @@ export default defineNuxtConfig({
         { rel: 'bookmark', href: '/favicon.png' },
         { rel: 'dns-prefetch', href: `//${new URL(cubeBaseURL).hostname}` },
         { rel: 'dns-prefetch', href: '//open.weixin.qq.com' },
+        { rel: 'dns-prefetch', href: '//open-api.cli.im' },
       ],
     },
   },
@@ -52,6 +53,10 @@ export default defineNuxtConfig({
       contact: {
         email: 'jhwl@zjut.edu.cn',
         github: 'https://github.com/zjutjh',
+        wechat: {
+          jxhzx: 'gh_30765353fa78',
+          jhwl: 'zjutjh',
+        },
       },
     },
   },
@@ -71,7 +76,11 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: [new URL(cubeBaseURL).hostname, 'open.weixin.qq.com'],
+    domains: [
+      new URL(cubeBaseURL).hostname,
+      'open.weixin.qq.com',
+      'open-api.cli.im',
+    ],
     provider: 'cubeImage',
     providers: {
       cubeImage: {
@@ -80,6 +89,14 @@ export default defineNuxtConfig({
         options: {
           baseURL: cubeBaseURL,
         },
+      },
+      wechatOpen: {
+        name: 'wechatOpen',
+        provider: '~/providers/wechatOpen',
+      },
+      cliQR: {
+        name: 'cliQR',
+        provider: '~/providers/cliQR',
       },
     },
   },

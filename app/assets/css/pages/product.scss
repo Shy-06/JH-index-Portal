@@ -16,13 +16,16 @@
 
     h3 {
       margin: 6px auto;
+      color: rgb(44, 62, 80);
     }
 
-    .wechat {
+    .wechat,
+    .visual {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       align-items: center;
+      justify-items: center;
 
       .introduction {
         grid-column-start: 1;
@@ -52,8 +55,8 @@
 }
 
 #email-img {
-  margin-top: 20px;
-  width: 50%;
+  margin-top: 10px;
+  width: 60%;
 }
 
 .product-item {

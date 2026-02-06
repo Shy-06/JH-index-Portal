@@ -24,7 +24,8 @@
         <NuxtImg src="ui/wechat.svg" @mouseover="onMouseOver" />
         <NuxtImg
           v-if="isHovering"
-          src="external/wechatqr/jxhzx"
+          provider="wechatOpen"
+          :src="useRuntimeConfig().public.contact.wechat.jxhzx"
           class="qrcode"
           style="width: auto; height: 20%; z-index: 1; position: absolute"
           @mouseout="onMouseOut"

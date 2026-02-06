@@ -28,12 +28,18 @@ const isEmail = ref<boolean>(false)
             {{ productsContent.wechat.description }}
           </div>
           <div>
-            <NuxtImg :src="productsContent.wechat.account1.qrCode" />
-            <h3>{{ productsContent.wechat.account1.name }}</h3>
+            <NuxtImg
+              provider="wechatOpen"
+              :src="useRuntimeConfig().public.contact.wechat.jhwl"
+            />
+            <h3>浙江工业大学精弘网络</h3>
           </div>
           <div>
-            <NuxtImg :src="productsContent.wechat.account2.qrCode" />
-            <h3>{{ productsContent.wechat.account2.name }}</h3>
+            <NuxtImg
+              provider="wechatOpen"
+              :src="useRuntimeConfig().public.contact.wechat.jxhzx"
+            />
+            <h3>精小弘在线</h3>
           </div>
         </div>
       </JHCard>
@@ -43,19 +49,26 @@ const isEmail = ref<boolean>(false)
         <h3>微精弘小程序</h3>
       </JHCard>
       <JHCard type="large" :title="productsContent.visual.title">
-        <div class="introduction">{{ productsContent.visual.description }}</div>
-        <div style="text-align: center">
-          {{ productsContent.visual.follow[0] }}
+        <div class="visual">
+          <div class="introduction">
+            {{ productsContent.visual.description }}
+          </div>
+          <a href="https://space.bilibili.com/485566103">
+            <NuxtImg
+              provider="cliQR"
+              src="https://space.bilibili.com/485566103"
+              style="max-width: 100%; height: auto"
+            />
+            <h3>哔哩哔哩</h3>
+          </a>
+          <div>
+            <NuxtImg
+              :src="productsContent.visual.shipinhao"
+              style="max-width: 100%; height: auto"
+            />
+            <h3>微信视频号</h3>
+          </div>
         </div>
-        <div style="text-align: center">
-          {{ productsContent.visual.follow[1] }}
-        </div>
-        <a href="https://b23.tv/mkezb7b">
-          <NuxtImg
-            :src="productsContent.visual.bilibili"
-            style="max-width: 100%; height: auto"
-          />
-        </a>
       </JHCard>
       <JHCard type="large" :title="productsContent.email.title">
         <div class="introduction">{{ productsContent.email.description }}</div>
@@ -128,12 +141,6 @@ const isEmail = ref<boolean>(false)
         </div>
         <div class="content" style="font-size: 18px">
           {{ productsContent.visual.description }}
-          <template
-            v-for="(line, index) in productsContent.visual.follow"
-            :key="index"
-          >
-            <div style="text-align: center">{{ line }}</div>
-          </template>
         </div>
         <NuxtImg
           src="ui/return.svg"

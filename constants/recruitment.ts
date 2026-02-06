@@ -27,17 +27,6 @@ export const recruitmentInfo = {
     { name: '编辑工作室', number: '1056431987' },
     { name: '视觉影像部', number: '1056574464' },
   ],
-
-  qrCodes: [
-    {
-      name: '精弘网络',
-      image: 'external/wechatqr/jhwl',
-    },
-    {
-      name: '精小弘在线',
-      image: 'external/wechatqr/jxhzx',
-    },
-  ],
 }
 
 export const posterImage = 'common/poster.webp'

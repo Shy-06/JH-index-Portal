@@ -20,8 +20,8 @@ function toRecruit() {
             type="middle"
             style="position: relative; margin-bottom: 20px"
             @click="toRecruit"
-            >点我报名</JHButton
-          >
+            >点我报名
+          </JHButton>
           <JHLabel type="nano">线下摆摊</JHLabel>
           <div class="content">
             <div>朝晖: {{ recruitmentInfo.offline.chaohuiDate }}</div>
@@ -52,13 +52,19 @@ function toRecruit() {
         <div class="qr">
           <JHLabel type="nano">最新动态</JHLabel>
           <div class="qr-base">
-            <div
-              v-for="qr in recruitmentInfo.qrCodes"
-              :key="qr.name"
-              class="qr-code"
-            >
-              <NuxtImg :src="qr.image" />
-              {{ qr.name }}
+            <div class="qr-code">
+              <NuxtImg
+                provider="wechatOpen"
+                :src="useRuntimeConfig().public.contact.wechat.jhwl"
+              />
+              精弘网络
+            </div>
+            <div class="qr-code">
+              <NuxtImg
+                provider="wechatOpen"
+                :src="useRuntimeConfig().public.contact.wechat.jxhzx"
+              />
+              精小弘在线
             </div>
           </div>
         </div>
