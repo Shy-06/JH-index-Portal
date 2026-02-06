@@ -171,6 +171,7 @@ onMounted(() => {
         text-indent: 2em;
         white-space: pre-wrap;
         overflow: auto;
+        -webkit-overflow-scrolling: touch;
         flex-grow: 1;
       }
     }

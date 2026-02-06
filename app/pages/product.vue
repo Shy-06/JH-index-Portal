@@ -9,6 +9,24 @@ const isWechat = ref<boolean>(false)
 const isWejh = ref<boolean>(false)
 const isVisual = ref<boolean>(false)
 const isEmail = ref<boolean>(false)
+
+function closeDetail() {
+  isWejh.value = isWechat.value = isVisual.value = isEmail.value = false
+  document.body.style.overflow = ''
+}
+
+function openDetail(part: string) {
+  closeDetail()
+  if (part === 'wejh') isWejh.value = true
+  else if (part === 'wechat') isWechat.value = true
+  else if (part === 'visual') isVisual.value = true
+  else if (part === 'email') isEmail.value = true
+  document.body.style.overflow = 'hidden'
+}
+
+onUnmounted(() => {
+  document.body.style.overflow = ''
+})
 </script>
 
 <template>
@@ -19,7 +37,6 @@ const isEmail = ref<boolean>(false)
     >
       我们的产品
     </JHLabel>
-    <div v-if="isWejh || isWechat || isVisual || isEmail" class="shadow" />
     <!-- MARK: 宽屏 -->
     <div v-if="pageStore.pageSize == 'normal'" class="base normal">
       <JHCard type="large" :title="productsContent.wechat.title">
@@ -85,28 +102,32 @@ const isEmail = ref<boolean>(false)
     <div v-else>
       <JHCard type="large">
         <div class="base" :class="pageStore.pageSize">
-          <div class="product-item">
+          <div class="product-item" @click="openDetail('wejh')">
             <NuxtImg :src="productIcons.wejh" />
-            <JHButton type="middle" @click="isWejh = true">微信小程序</JHButton>
+            <JHButton type="middle"> 微信小程序 </JHButton>
           </div>
-          <div class="product-item">
+          <div class="product-item" @click="openDetail('wechat')">
             <NuxtImg :src="productIcons.wechat" />
-            <JHButton type="middle" @click="isWechat = true"
-              >微信服务号</JHButton
-            >
+            <JHButton type="middle"> 微信服务号 </JHButton>
           </div>
-          <div class="product-item">
+          <div class="product-item" @click="openDetail('visual')">
             <NuxtImg :src="productIcons.visual" />
-            <JHButton type="middle" @click="isVisual = true">视觉影像</JHButton>
+            <JHButton type="middle"> 视觉影像 </JHButton>
           </div>
-          <div class="product-item">
+          <div class="product-item" @click="openDetail('email')">
             <NuxtImg :src="productIcons.email" />
-            <JHButton type="middle" @click="isEmail = true">学生邮箱</JHButton>
+            <JHButton type="middle"> 学生邮箱 </JHButton>
           </div>
         </div>
       </JHCard>
-      <!-- MARK: 窄屏详情页 -->
-      <div v-if="isWejh" class="detail">
+
+      <!-- MARK: 窄屏详情 -->
+      <div
+        v-show="isWejh || isWechat || isVisual || isEmail"
+        class="shadow"
+        @click="closeDetail()"
+      />
+      <div v-show="isWejh" class="detail">
         <div class="title">
           {{ productsContent.wejh.title }}
           <NuxtImg class="icon" :src="productsContent.wejh.icon" />
@@ -117,10 +138,10 @@ const isEmail = ref<boolean>(false)
         <NuxtImg
           src="ui/return.svg"
           class="return-button"
-          @click="isWejh = false"
+          @click="closeDetail()"
         />
       </div>
-      <div v-if="isWechat" class="detail">
+      <div v-show="isWechat" class="detail">
         <div class="title">
           {{ productsContent.wechat.title }}
           <NuxtImg class="icon" :src="productIcons.wechat" />
@@ -131,10 +152,10 @@ const isEmail = ref<boolean>(false)
         <NuxtImg
           src="ui/return.svg"
           class="return-button"
-          @click="isWechat = false"
+          @click="closeDetail()"
         />
       </div>
-      <div v-if="isVisual" class="detail">
+      <div v-show="isVisual" class="detail">
         <div class="title">
           {{ productsContent.visual.title }}
           <NuxtImg class="icon" :src="productIcons.visual" />
@@ -145,10 +166,10 @@ const isEmail = ref<boolean>(false)
         <NuxtImg
           src="ui/return.svg"
           class="return-button"
-          @click="isVisual = false"
+          @click="closeDetail()"
         />
       </div>
-      <div v-if="isEmail" class="detail">
+      <div v-show="isEmail" class="detail">
         <div class="title">
           {{ productsContent.email.title }}
           <NuxtImg class="icon" :src="productIcons.email" />
@@ -159,7 +180,7 @@ const isEmail = ref<boolean>(false)
         <NuxtImg
           src="ui/return.svg"
           class="return-button"
-          @click="isEmail = false"
+          @click="closeDetail()"
         />
       </div>
     </div>

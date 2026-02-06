@@ -114,7 +114,12 @@ img {
       position: absolute;
       top: 50%;
       height: 6px;
-      background-color: #d20001;
+      background: linear-gradient(
+        to right,
+        #d20001 0%,
+        #ff6b6b 50%,
+        #d20001 100%
+      );
       pointer-events: none;
       transform: translateY(-50%);
       left: 40px;
