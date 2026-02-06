@@ -1,17 +1,13 @@
 <script setup lang="ts">
+import { departmentContent, technologyImages } from "~~/constants/department";
 definePageMeta({ pageNo: 3 });
 useSeoMeta({ title: "技术研发中心 | 我们的部门" });
-import { departmentContent, technologyImages } from "~~/constants/department";
 </script>
-
-<style scoped lang="scss">
-@use "~/assets/css/pages/department-detail.scss";
-</style>
 
 <template>
   <JHLabel type="big">技术研发中心</JHLabel>
   <JHCard type="large" title="产研部">
-    <CarouselPictures :imgs="technologyImages"></CarouselPictures>
+    <CarouselPictures :imgs="technologyImages" />
     <JHLabel type="big">产品</JHLabel>
 
     <JHLabel type="small">部门介绍</JHLabel>
@@ -24,13 +20,25 @@ import { departmentContent, technologyImages } from "~~/constants/department";
     </div>
     <JHLabel type="big" style="margin-top: 5%">技术</JHLabel>
     <JHLabel type="small">部门介绍</JHLabel>
-    <div class="content" v-for="(para, index) in departmentContent.technology.introduction" :key="index">
+    <div
+      v-for="(para, index) in departmentContent.technology.introduction"
+      :key="index"
+      class="content"
+    >
       {{ para }}
     </div>
     <JHLabel type="small">招新宣言</JHLabel>
-    <div class="content" v-for="(para, index) in departmentContent.technology.recruitment" :key="index">
+    <div
+      v-for="(para, index) in departmentContent.technology.recruitment"
+      :key="index"
+      class="content"
+    >
       {{ para }}
     </div>
   </JHCard>
   <CloseButton />
 </template>
+
+<style scoped lang="scss">
+@use "~/assets/css/pages/department-detail.scss";
+</style>

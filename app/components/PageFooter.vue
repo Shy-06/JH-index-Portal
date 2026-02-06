@@ -1,12 +1,14 @@
 <template>
-  <div class="footer">©{{ useRuntimeConfig().public.lastUpdateYear }} 浙江工业大学精弘网络</div>
+  <div class="footer">
+    ©{{ useRuntimeConfig().public.lastUpdateYear }} 浙江工业大学精弘网络
+  </div>
 </template>
 
 <style scoped>
 .footer {
   margin-top: 5%;
   width: 100%;
-  color: #70757A;
+  color: #70757a;
   height: 2.2rem;
   line-height: 39px;
   border-radius: 0;

@@ -6,7 +6,7 @@ const WECHAT_QR_CODE_MAP: Record<string, string> = {
 }
 
 export default defineProvider<{ baseURL?: string }>({
-  getImage(src, { modifiers, baseURL }) {
+  getImage(src, { baseURL }) {
     if (src.startsWith('/external/')) {
       if (src.startsWith('/external/wechatqr/')) {
         return {

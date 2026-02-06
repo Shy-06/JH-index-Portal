@@ -10,7 +10,7 @@ const prop = defineProps<{
     <div v-if="prop.title" class='title' :class="prop.type">
       {{ prop.title }}
     </div>
-    <slot></slot>
+    <slot/>
   </div>
 </template>
 

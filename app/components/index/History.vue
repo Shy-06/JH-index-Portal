@@ -5,14 +5,6 @@ const eventNow = ref<number>(0);
 const currentEvent = computed(() => historyEvents[eventNow.value]!);
 </script>
 
-<style scoped lang="scss">
-@use "~/assets/css/components/History.scss";
-
-.choices {
-  grid-template-columns: repeat(v-bind('historyEvents.length'), minmax(75px, 90px));
-}
-</style>
-
 <template>
   <JHLabel type="title">精弘大事记</JHLabel>
   <div class="base-pc">
@@ -28,9 +20,28 @@ const currentEvent = computed(() => historyEvents[eventNow.value]!);
   </div>
   <div class="choices-container">
     <div class="choices">
-      <div class="item" v-for="(item, index) in historyEvents" :class="{ select: eventNow == index }"
-        v-bind:style="{ 'background-image': 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')' }"
-        @click="eventNow = index"></div>
+      <div
+        v-for="(item, index) in historyEvents"
+        :key="index"
+        class="item"
+        :class="{ select: eventNow == index }"
+        :style="{
+          'background-image':
+            'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')',
+        }"
+        @click="eventNow = index"
+      />
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+@use "~/assets/css/components/History.scss";
+
+.choices {
+  grid-template-columns: repeat(
+    v-bind("historyEvents.length"),
+    minmax(75px, 90px)
+  );
+}
+</style>

@@ -6,7 +6,7 @@ const props = defineProps<Props>();
 const carouselClass = reactive(["left", "center", "right"]);
 const touchStartPosition = ref(0);
 const touchEndPosition = ref(0);
-const timer = ref<ReturnType<typeof setInterval> | undefined>(undefined);
+const timer = ref<number | undefined>(undefined);
 
 function _resetTimer() {
   if (timer.value !== undefined) {
@@ -19,17 +19,18 @@ function _resetTimer() {
 
 function toPrevious() {
   _resetTimer();
-  let first = carouselClass.shift() as string;
+  const first = carouselClass.shift() as string;
   carouselClass.push(first);
 }
 function toNext() {
   _resetTimer();
-  let last = carouselClass.pop() as string;
+  const last = carouselClass.pop() as string;
   carouselClass.unshift(last);
 }
 
 function changePicture(e: MouseEvent) {
-  const targetClassList = ((e.target as HTMLElement).parentNode as HTMLElement).classList;
+  const targetClassList = ((e.target as HTMLElement).parentNode as HTMLElement)
+    .classList;
   if (targetClassList.contains("left")) {
     toPrevious();
   } else if (targetClassList.contains("right")) {
@@ -72,6 +73,31 @@ onUnmounted(() => {
   }
 });
 </script>
+
+<template>
+  <div
+    class="carousel"
+    @touchstart="touchStart($event)"
+    @touchmove="touchMove($event)"
+    @touchend="touchEnd()"
+  >
+    <div class="whole">
+      <div class="roll-img">
+        <ul type>
+          <li
+            v-for="(item, index) in props.imgs"
+            :key="item"
+            :class="carouselClass[index]"
+            @click="changePicture($event)"
+          >
+            <NuxtImg :src="item" />
+            <div />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped lang="scss">
 * {
@@ -172,18 +198,3 @@ ul {
   transition: all 0.3s ease;
 }
 </style>
-
-<template>
-  <div class="carousel" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd()">
-    <div class="whole">
-      <div class="roll-img">
-        <ul type>
-          <li @click="changePicture($event)" v-for="(item, index) in props.imgs" :class="carouselClass[index]">
-            <NuxtImg :src="item" />
-            <div></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</template>

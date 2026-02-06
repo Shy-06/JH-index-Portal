@@ -14,11 +14,11 @@ let touchStartPosition = 0;
 let touchEndPosition = 0;
 
 function toPrevious() {
-  let first = carouselClass.shift() as string;
+  const first = carouselClass.shift() as string;
   carouselClass.push(first);
 }
 function toNext() {
-  let last = carouselClass.pop() as string;
+  const last = carouselClass.pop() as string;
   carouselClass.unshift(last);
 }
 
@@ -47,20 +47,34 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="carousel" :class="type" @touchstart="touchStart($event)" @touchmove="touchMove($event)"
-    @touchend="touchEnd()">
-    <div class="left btn" :class="type" @click="toPrevious"></div>
+  <div
+    class="carousel"
+    :class="type"
+    @touchstart="touchStart($event)"
+    @touchmove="touchMove($event)"
+    @touchend="touchEnd()"
+  >
+    <div class="left btn" :class="type" @click="toPrevious" />
     <ul :class="type">
-      <li v-for="(item, index) in props.card" :class="[carouselClass[index], type]">
-        <div class="img"
-          v-bind:style="{ backgroundImage: 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')' }"></div>
+      <li
+        v-for="(item, index) in props.card"
+        :key="index"
+        :class="[carouselClass[index], type]"
+      >
+        <div
+          class="img"
+          :style="{
+            backgroundImage:
+              'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')',
+          }"
+        />
         <div class="introduction">{{ item.introduction }}</div>
         <div class="content">
           <div>{{ item.content }}</div>
         </div>
       </li>
     </ul>
-    <div class="right btn" :class="type" @click="toNext"></div>
+    <div class="right btn" :class="type" @click="toNext" />
   </div>
 </template>
 
@@ -103,7 +117,9 @@ onMounted(() => {
       background-color: #ffffff;
       overflow: hidden;
       border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
 
@@ -111,7 +127,9 @@ onMounted(() => {
         transition: box-shadow 0.3s ease;
 
         &:hover {
-          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.1);
+          box-shadow:
+            0 12px 32px rgba(0, 0, 0, 0.16),
+            0 4px 12px rgba(0, 0, 0, 0.1);
 
           .img {
             transform: scale(1.03);
@@ -215,11 +233,14 @@ onMounted(() => {
     top: 50%;
     width: 50px;
     height: 50px;
-    background: center/cover no-repeat url("#{$cubeBaseURL}ui/rightArrow_red.svg");
+    background: center/cover no-repeat
+      url("#{$cubeBaseURL}ui/rightArrow_red.svg");
     cursor: pointer;
 
     @media (hover: hover) {
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 
       &:hover {
         opacity: 1;

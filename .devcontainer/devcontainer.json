@@ -9,7 +9,8 @@
 			"extensions": [
 				"Vue.volar",
 				"streetsidesoftware.code-spell-checker",
-				"EditorConfig.EditorConfig"
+				"EditorConfig.EditorConfig",
+				"esbenp.prettier-vscode"
 			]
 		}
 	},

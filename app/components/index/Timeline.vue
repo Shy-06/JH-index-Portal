@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { historyEvents } from '~~/constants/index';
+import { historyEvents } from "~~/constants/index";
 
 const angle = (Math.atan(0.5) * 180) / Math.PI + "deg";
 const angle2 = (-Math.atan(0.5) * 180) / Math.PI + "deg";
 const scale = 1 / Math.cos(Math.atan(0.5));
 const styleVal = (index: number) => {
   return {
-    '--angle': index % 2 === 0 ? angle : angle2,
-    '--scale': scale,
-    '--border': index % 2 === 0 ? 'dashed' : 'solid',
-    '--line_seen': index === historyEvents.length - 1 ? 'none' : 'block',
+    "--angle": index % 2 === 0 ? angle : angle2,
+    "--scale": scale,
+    "--border": index % 2 === 0 ? "dashed" : "solid",
+    "--line_seen": index === historyEvents.length - 1 ? "none" : "block",
   };
 };
 const top111 = ref(0);
@@ -21,12 +21,46 @@ function handleScrollX() {
 }
 onMounted(() => {
   window.addEventListener("scroll", handleScrollX, true);
-})
+});
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScrollX, true);
-})
+});
 </script>
+
+<template>
+  <JHCard title="精弘成长史" type="large">
+    <div ref="history" class="history">
+      <div ref="historyLine" class="history-line">
+        <div
+          v-for="(item, index) in historyEvents"
+          :key="index"
+          class="history-item"
+          :style="styleVal(index)"
+        >
+          <div
+            class="img"
+            :class="[
+              index % 2 === 0 ? 'history-img1' : 'history-img2',
+              top111 < 487 - (index - 2) * 80 - 60
+                ? 'history-img'
+                : 'history-img-hide',
+            ]"
+            :style="{
+              'background-image':
+                'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')',
+            }"
+          >
+            <div class="history-content">
+              <div class="history-content1">{{ item.time }}</div>
+              <div class="history-content2">{{ item.content }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </JHCard>
+</template>
 
 <style scoped lang="scss">
 .history-line {
@@ -122,22 +156,3 @@ onUnmounted(() => {
   }
 }
 </style>
-
-<template>
-  <JHCard title="精弘成长史" type="large">
-    <div class="history" ref="history">
-      <div class="history-line" ref="historyLine">
-        <div class="history-item" v-for="(item, index) in historyEvents" :style="styleVal(index)">
-          <div class="img"
-            :class="[index % 2 === 0 ? 'history-img1' : 'history-img2', top111 < 487 - (index - 2) * 80 - 60 ? 'history-img' : 'history-img-hide']"
-            :style="{ 'background-image': 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')' }">
-            <div class="history-content">
-              <div class="history-content1">{{ item.time }}</div>
-              <div class="history-content2">{{ item.content }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </JHCard>
-</template>

@@ -2,21 +2,33 @@
   <div class="contact-base" :class="pageStore.pageSize">
     <JHCard type="small">
       <div class="loading" :class="pageStore.pageSize">
-        <h1 style="color: #d20001; margin: 0;">{{ useRuntimeConfig().public.lastUpdateYear }}</h1>
+        <h1 style="color: #d20001; margin: 0">
+          {{ useRuntimeConfig().public.lastUpdateYear }}
+        </h1>
         <div class="loading-bar-border">
-          <div class="loading-bar" :style="{ left: loadingWidth + '%' }"></div>
+          <div class="loading-bar" :style="{ left: loadingWidth + '%' }" />
         </div>
-        <div style="color: #d20001; font-size: 24px;">Loading...</div>
+        <div style="color: #d20001; font-size: 24px">Loading...</div>
       </div>
     </JHCard>
 
-    <NuxtImg class="jh" :class="pageStore.pageSize" src="common/logo_red.webp" border="5" />
+    <NuxtImg
+      class="jh"
+      :class="pageStore.pageSize"
+      src="common/logo_red.webp"
+      border="5"
+    />
 
     <JHCard type="small">
       <div class="contact-us" :class="pageStore.pageSize">
         <NuxtImg src="ui/wechat.svg" @mouseover="onMouseOver" />
-        <NuxtImg v-if="isHovering" src="external/wechatqr/jxhzx" class="qrcode" @mouseout="onMouseOut"
-          style="width: auto; height: 20%;z-index:1; position: absolute;" />
+        <NuxtImg
+          v-if="isHovering"
+          src="external/wechatqr/jxhzx"
+          class="qrcode"
+          style="width: auto; height: 20%; z-index: 1; position: absolute"
+          @mouseout="onMouseOut"
+        />
         <div style="width: 99%">
           <h1 v-if="pageStore.pageSize == 'middle'">联系我们 | 关注我们</h1>
           <template v-else>
@@ -25,17 +37,53 @@
           </template>
           <h3><a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a></h3>
         </div>
-        <NuxtImg src="ui/LogoGitHub.svg" style="cursor: pointer" @click="toGithub" />
+        <NuxtImg
+          src="ui/LogoGitHub.svg"
+          style="cursor: pointer"
+          @click="toGithub"
+        />
       </div>
     </JHCard>
 
     <JHCard type="small" class="join">
       <h1 class="join-content">精弘诚聘</h1>
-      <JHButton :type="pageStore.pageSize == 'mini' ? 'mini' : 'middle'" @click="() => navigateTo('/join')">加入我们
+      <JHButton
+        :type="pageStore.pageSize == 'mini' ? 'mini' : 'middle'"
+        @click="() => navigateTo('/join')"
+        >加入我们
       </JHButton>
     </JHCard>
   </div>
 </template>
+
+<script setup lang="ts">
+const pageStore = usePageStore();
+const loadingWidth = ref(0);
+const isHovering = ref(false);
+function onMouseOver() {
+  isHovering.value = true;
+}
+function onMouseOut() {
+  isHovering.value = false;
+}
+function toGithub() {
+  window.location.href = useRuntimeConfig().public.contact.github;
+}
+
+let loadingBarTimer: number;
+onMounted(() => {
+  loadingBarTimer = window.setInterval(() => {
+    if (loadingWidth.value >= 0) {
+      loadingWidth.value = -100;
+    } else {
+      loadingWidth.value += 0.2;
+    }
+  }, 10);
+});
+onUnmounted(() => {
+  clearInterval(loadingBarTimer);
+});
+</script>
 
 <style scoped lang="scss">
 .contact-base {
@@ -158,32 +206,3 @@
   transition: all 0.1s ease-in 0s;
 }
 </style>
-
-<script setup lang="ts">
-const pageStore = usePageStore();
-const loadingWidth = ref(0);
-const isHovering = ref(false);
-function onMouseOver() {
-  isHovering.value = true;
-}
-function onMouseOut() {
-  isHovering.value = false;
-}
-function toGithub() {
-  window.location.href = useRuntimeConfig().public.contact.github;
-}
-
-let loadingBarTimer: number;
-onMounted(() => {
-  loadingBarTimer = window.setInterval(() => {
-    if (loadingWidth.value >= 0) {
-      loadingWidth.value = -100;
-    } else {
-      loadingWidth.value += 0.2;
-    }
-  }, 10);
-});
-onUnmounted(() => {
-  clearInterval(loadingBarTimer);
-});
-</script>

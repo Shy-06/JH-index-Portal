@@ -5,7 +5,7 @@ const prop = defineProps<{ type: string; }>();
 <template>
   <div :class="[prop.type, usePageStore().pageSize]">
     <div class="h">
-      <slot></slot>
+      <slot/>
     </div>
   </div>
 </template>

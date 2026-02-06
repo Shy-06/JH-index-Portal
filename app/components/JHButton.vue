@@ -5,14 +5,16 @@ const prop = defineProps<{
 </script>
 
 <template>
-  <button :class="{
-    'button-mini': type == 'mini',
-    'button-small': type == 'small',
-    'button-middle': type == 'middle',
-    'button-middle-disabled': type == 'middle-disabled',
-    'button-small-disabled': type == 'small-disabled',
-  }">
-    <slot></slot>
+  <button
+    :class="{
+      'button-mini': prop.type == 'mini',
+      'button-small': prop.type == 'small',
+      'button-middle': prop.type == 'middle',
+      'button-middle-disabled': prop.type == 'middle-disabled',
+      'button-small-disabled': prop.type == 'small-disabled',
+    }"
+  >
+    <slot />
   </button>
 </template>
 
