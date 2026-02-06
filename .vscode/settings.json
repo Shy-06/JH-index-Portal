@@ -27,9 +27,7 @@
     "zjuter",
     "ZoomlaYasong"
   ],
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "eslint.useFlatConfig": true,
+  "eslint.lintTask.enable": true,
   "git.autofetch": true
 }

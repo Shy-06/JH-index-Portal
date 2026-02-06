@@ -5,8 +5,8 @@ html {
 }
 
 @font-face {
-  font-family: "SC-VF";
-  src: url("#{$cubeBaseURL}fonts/SourceHanSansSC-VF.otf");
+  font-family: 'SC-VF';
+  src: url('#{$cubeBaseURL}fonts/SourceHanSansSC-VF.otf');
 }
 
 * {
@@ -21,7 +21,7 @@ a {
 
 #__nuxt {
   width: 100%;
-  font-family: "SC-VF";
+  font-family: 'SC-VF';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

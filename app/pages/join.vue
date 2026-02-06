@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { recruitmentInfo, posterImage } from "~~/constants/recruitment";
-definePageMeta({ pageNo: 5 });
-useSeoMeta({ title: "加入我们" });
-const pageStore = usePageStore();
+import { recruitmentInfo, posterImage } from '~~/constants/recruitment'
+
+definePageMeta({ pageNo: 5 })
+useSeoMeta({ title: '加入我们' })
+const pageStore = usePageStore()
 
 function toRecruit() {
-  window.open(recruitmentInfo.registrationUrl);
+  window.open(recruitmentInfo.registrationUrl)
 }
 </script>
 
@@ -67,5 +68,5 @@ function toRecruit() {
 </template>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/join.scss";
+@use '~/assets/css/pages/join.scss';
 </style>

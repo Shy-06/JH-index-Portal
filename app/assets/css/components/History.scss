@@ -44,7 +44,7 @@
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     right: 4%;
     top: 4%;
@@ -55,7 +55,7 @@
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 4%;
     bottom: 4%;
@@ -110,7 +110,7 @@ img {
     padding: 20px;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 50%;
       height: 6px;
@@ -131,7 +131,9 @@ img {
       background-color: #fff;
       background-size: cover;
       box-shadow: 0 2px 6px rgba(153, 153, 153, 0.6);
-      transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+      transition:
+        transform 200ms ease-in-out,
+        box-shadow 200ms ease-in-out;
 
       &.select {
         transform: scale(1.25);

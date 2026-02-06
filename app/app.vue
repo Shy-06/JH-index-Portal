@@ -1,25 +1,25 @@
 <script setup lang="ts">
-const pageStore = usePageStore();
+const pageStore = usePageStore()
 
 function handleResize() {
-  const width = document.documentElement.clientWidth;
+  const width = document.documentElement.clientWidth
   if (width >= 1024) {
-    pageStore.pageSize = 'normal';
+    pageStore.pageSize = 'normal'
   } else if (width >= 768) {
-    pageStore.pageSize = 'middle';
+    pageStore.pageSize = 'middle'
   } else {
-    pageStore.pageSize = 'mini';
+    pageStore.pageSize = 'mini'
   }
 }
 
 onMounted(() => {
-  handleResize();
-  window.addEventListener('resize', handleResize);
-});
+  handleResize()
+  window.addEventListener('resize', handleResize)
+})
 
 onUnmounted(() => {
-  window.removeEventListener('resize', handleResize);
-});
+  window.removeEventListener('resize', handleResize)
+})
 </script>
 
 <template>

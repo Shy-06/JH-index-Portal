@@ -1,5 +1,7 @@
 <template>
-  <PageTop />
-  <slot />
-  <PageFooter />
+  <div>
+    <PageTop />
+    <slot />
+    <PageFooter />
+  </div>
 </template>

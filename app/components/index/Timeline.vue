@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { historyEvents } from "~~/constants/index";
+import { historyEvents } from '~~/constants/index'
 
-const angle = (Math.atan(0.5) * 180) / Math.PI + "deg";
-const angle2 = (-Math.atan(0.5) * 180) / Math.PI + "deg";
-const scale = 1 / Math.cos(Math.atan(0.5));
+const angle = (Math.atan(0.5) * 180) / Math.PI + 'deg'
+const angle2 = (-Math.atan(0.5) * 180) / Math.PI + 'deg'
+const scale = 1 / Math.cos(Math.atan(0.5))
 const styleVal = (index: number) => {
   return {
-    "--angle": index % 2 === 0 ? angle : angle2,
-    "--scale": scale,
-    "--border": index % 2 === 0 ? "dashed" : "solid",
-    "--line_seen": index === historyEvents.length - 1 ? "none" : "block",
-  };
-};
-const top111 = ref(0);
-const historyLine = ref<HTMLElement | null>(null);
+    '--angle': index % 2 === 0 ? angle : angle2,
+    '--scale': scale,
+    '--border': index % 2 === 0 ? 'dashed' : 'solid',
+    '--line_seen': index === historyEvents.length - 1 ? 'none' : 'block',
+  }
+}
+const top111 = ref(0)
+const historyLine = ref<HTMLElement | null>(null)
 function handleScrollX() {
   if (historyLine.value) {
-    top111.value = historyLine.value.getBoundingClientRect().top;
+    top111.value = historyLine.value.getBoundingClientRect().top
   }
 }
 onMounted(() => {
-  window.addEventListener("scroll", handleScrollX, true);
-});
+  window.addEventListener('scroll', handleScrollX, true)
+})
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScrollX, true);
-});
+  window.removeEventListener('scroll', handleScrollX, true)
+})
 </script>
 
 <template>
@@ -88,7 +88,7 @@ onUnmounted(() => {
   height: 5rem;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;

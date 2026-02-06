@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const pageStore = usePageStore();
+const pageStore = usePageStore()
 </script>
 
 <template>
@@ -11,8 +11,8 @@ const pageStore = usePageStore();
 
 <style lang="scss" scoped>
 @font-face {
-  font-family: "song";
-  src: url("#{$cubeBaseURL}fonts/ZoomlaYasong.ttf");
+  font-family: 'song';
+  src: url('#{$cubeBaseURL}fonts/ZoomlaYasong.ttf');
 }
 
 .start {
@@ -24,26 +24,29 @@ const pageStore = usePageStore();
   height: 100vh;
 
   &.normal {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("#{$cubeBaseURL}groupPhoto/2024.webp") no-repeat center;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('#{$cubeBaseURL}groupPhoto/2024.webp') no-repeat center;
     background-size: cover;
   }
 
   &.middle {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("#{$cubeBaseURL}common/startPc.webp") no-repeat center;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('#{$cubeBaseURL}common/startPc.webp') no-repeat center;
     background-size: cover;
   }
 
   &.mini {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("#{$cubeBaseURL}common/startMobile.webp") no-repeat center;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('#{$cubeBaseURL}common/startMobile.webp') no-repeat center;
     background-size: cover;
   }
 
   .title {
     color: white;
-    font-family: "song";
+    font-family: 'song';
 
     &.normal,
     &.middle {

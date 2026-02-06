@@ -1,5 +1,9 @@
 <template>
-  <NuxtImg src="ui/fork.webp" class="fork-button" @click="navigateTo('/department')" />
+  <NuxtImg
+    src="ui/fork.webp"
+    class="fork-button"
+    @click="navigateTo('/department')"
+  />
 </template>
 
 <style scoped>

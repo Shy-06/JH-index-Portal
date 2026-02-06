@@ -1,74 +1,74 @@
 <script lang="ts" setup>
-const route = useRoute();
-const pageStore = usePageStore();
-const hide = ref(false);
-const isAtTop = ref(true);
-const mobileColumnMenuDisplay = ref(false);
-const previousScrollPosition = ref(0);
+const route = useRoute()
+const pageStore = usePageStore()
+const hide = ref(false)
+const isAtTop = ref(true)
+const mobileColumnMenuDisplay = ref(false)
+const previousScrollPosition = ref(0)
 
 // MARK: 滚动相关参数
-const pageTopBufferSize = 300;
-const scrollReactThreshold = 25;
+const pageTopBufferSize = 300
+const scrollReactThreshold = 25
 
 watch(
   () => route.meta.pageNo,
   () => {
-    updateScrollState();
+    updateScrollState()
   },
-);
+)
 
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll, { passive: true });
-  updateScrollState();
-});
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  updateScrollState()
+})
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-  document.body.style.overflow = "";
-});
+  window.removeEventListener('scroll', handleScroll)
+  document.body.style.overflow = ''
+})
 
 // MARK: 页面滚动处理
 function updateScrollState() {
   const currentScrollPosition = Math.max(
     0,
     window.scrollY || window.pageYOffset,
-  );
-  isAtTop.value = currentScrollPosition < pageTopBufferSize;
+  )
+  isAtTop.value = currentScrollPosition < pageTopBufferSize
 }
 
 function handleScroll() {
   const currentScrollPosition = Math.max(
     0,
     window.scrollY || window.pageYOffset,
-  );
-  updateScrollState();
+  )
+  updateScrollState()
   const scrollDiff = Math.abs(
     currentScrollPosition - previousScrollPosition.value,
-  );
+  )
   if (scrollDiff > scrollReactThreshold) {
-    hide.value = currentScrollPosition > previousScrollPosition.value;
+    hide.value = currentScrollPosition > previousScrollPosition.value
   }
-  previousScrollPosition.value = currentScrollPosition;
+  previousScrollPosition.value = currentScrollPosition
 }
 
 function listBtnClicked() {
-  mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value;
+  mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value
   if (mobileColumnMenuDisplay.value) {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden'
   } else {
-    document.body.style.overflow = "";
+    document.body.style.overflow = ''
   }
 }
 
 // MARK: 栏目配置项
 const menuColumns = [
-  { name: "首页", link: "/" },
-  { name: "我们的故事", link: "/story" },
-  { name: "我们的产品", link: "/product" },
-  { name: "我们的部门", link: "/department" },
-  { name: "我们的活动", link: "/activity" },
-  { name: "加入我们", link: "/join" },
-];
+  { name: '首页', link: '/' },
+  { name: '我们的故事', link: '/story' },
+  { name: '我们的产品', link: '/product' },
+  { name: '我们的部门', link: '/department' },
+  { name: '我们的活动', link: '/activity' },
+  { name: '加入我们', link: '/join' },
+]
 </script>
 
 <template>
@@ -143,11 +143,11 @@ const menuColumns = [
 <style lang="scss" scoped>
 // MARK: 字体和颜色
 $primary-color: #d20001;
-$font-family: "song", sans-serif;
+$font-family: 'song', sans-serif;
 
 @font-face {
-  font-family: "song";
-  src: url("#{$cubeBaseURL}fonts/ZoomlaYasong.ttf");
+  font-family: 'song';
+  src: url('#{$cubeBaseURL}fonts/ZoomlaYasong.ttf');
 }
 
 // MARK: 动画
@@ -217,7 +217,7 @@ a {
 
   &.normal {
     height: 90px;
-    grid-template-columns: 30% repeat(v-bind("menuColumns.length"), 1fr);
+    grid-template-columns: 30% repeat(v-bind('menuColumns.length'), 1fr);
   }
 
   &.middle {
@@ -271,7 +271,7 @@ a {
 
     &::after {
       display: block;
-      content: "";
+      content: '';
       width: 100%;
       position: relative;
       top: 20px;
@@ -290,11 +290,11 @@ a {
   height: 40px;
 
   &.mobileColumnMenuDisplay {
-    background: url("#{$cubeBaseURL}ui/close.svg") no-repeat center;
+    background: url('#{$cubeBaseURL}ui/close.svg') no-repeat center;
   }
 
   &.mobileColumnMenuHidden {
-    background: url("#{$cubeBaseURL}ui/list.svg") no-repeat center;
+    background: url('#{$cubeBaseURL}ui/list.svg') no-repeat center;
   }
 }
 

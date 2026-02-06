@@ -1,16 +1,16 @@
 <script setup lang="ts">
 const prop = defineProps<{
-  title?: string;
-  type: string;
-}>();
+  title?: string
+  type: string
+}>()
 </script>
 
 <template>
-  <div class='container' :class="prop.type">
-    <div v-if="prop.title" class='title' :class="prop.type">
+  <div class="container" :class="prop.type">
+    <div v-if="prop.title" class="title" :class="prop.type">
       {{ prop.title }}
     </div>
-    <slot/>
+    <slot />
   </div>
 </template>
 

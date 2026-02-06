@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { historyEvents } from "~~/constants/index";
+import { historyEvents } from '~~/constants/index'
 
-const eventNow = ref<number>(0);
-const currentEvent = computed(() => historyEvents[eventNow.value]!);
+const eventNow = ref<number>(0)
+const currentEvent = computed(() => historyEvents[eventNow.value]!)
 </script>
 
 <template>
@@ -36,11 +36,11 @@ const currentEvent = computed(() => historyEvents[eventNow.value]!);
 </template>
 
 <style scoped lang="scss">
-@use "~/assets/css/components/History.scss";
+@use '~/assets/css/components/History.scss';
 
 .choices {
   grid-template-columns: repeat(
-    v-bind("historyEvents.length"),
+    v-bind('historyEvents.length'),
     minmax(75px, 90px)
   );
 }

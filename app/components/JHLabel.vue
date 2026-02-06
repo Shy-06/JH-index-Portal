@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const prop = defineProps<{ type: string; }>();
+const prop = defineProps<{ type: string }>()
 </script>
 
 <template>
   <div :class="[prop.type, usePageStore().pageSize]">
     <div class="h">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ const prop = defineProps<{ type: string; }>();
   padding: 10px;
   padding-inline: 80px;
   align-items: center;
-  font-family: "SC-VF";
+  font-family: 'SC-VF';
   margin: 0 7.5% 3%;
   background-color: #d20001;
   color: white;

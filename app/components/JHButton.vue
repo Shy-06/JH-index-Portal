@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const prop = defineProps<{
-  type: string | [string];
-}>();
+  type: 'mini' | 'small' | 'middle' | 'middle-disabled' | 'small-disabled'
+}>()
 </script>
 
 <template>
@@ -19,7 +19,7 @@ const prop = defineProps<{
 </template>
 
 <style scoped lang="scss">
-[class^="button-"] {
+[class^='button-'] {
   width: fit-content;
   margin: auto;
   border: none;

@@ -1,77 +1,77 @@
 <script lang="ts" setup>
 interface Props {
-  imgs: string[];
+  imgs: string[]
 }
-const props = defineProps<Props>();
-const carouselClass = reactive(["left", "center", "right"]);
-const touchStartPosition = ref(0);
-const touchEndPosition = ref(0);
-const timer = ref<number | undefined>(undefined);
+const props = defineProps<Props>()
+const carouselClass = reactive(['left', 'center', 'right'])
+const touchStartPosition = ref(0)
+const touchEndPosition = ref(0)
+const timer = ref<number | undefined>(undefined)
 
 function _resetTimer() {
   if (timer.value !== undefined) {
-    clearInterval(timer.value);
+    clearInterval(timer.value)
   }
   timer.value = window.setInterval(() => {
-    toNext();
-  }, 3000);
+    toNext()
+  }, 3000)
 }
 
 function toPrevious() {
-  _resetTimer();
-  const first = carouselClass.shift() as string;
-  carouselClass.push(first);
+  _resetTimer()
+  const first = carouselClass.shift() as string
+  carouselClass.push(first)
 }
 function toNext() {
-  _resetTimer();
-  const last = carouselClass.pop() as string;
-  carouselClass.unshift(last);
+  _resetTimer()
+  const last = carouselClass.pop() as string
+  carouselClass.unshift(last)
 }
 
 function changePicture(e: MouseEvent) {
   const targetClassList = ((e.target as HTMLElement).parentNode as HTMLElement)
-    .classList;
-  if (targetClassList.contains("left")) {
-    toPrevious();
-  } else if (targetClassList.contains("right")) {
-    toNext();
+    .classList
+  if (targetClassList.contains('left')) {
+    toPrevious()
+  } else if (targetClassList.contains('right')) {
+    toNext()
   } else {
-    return false;
+    return false
   }
 }
 
 function touchStart(e: TouchEvent) {
   if (e.touches[0]) {
-    touchStartPosition.value = e.touches[0].clientX;
-    touchEndPosition.value = e.touches[0].clientX;
+    touchStartPosition.value = e.touches[0].clientX
+    touchEndPosition.value = e.touches[0].clientX
   }
 }
 function touchMove(e: TouchEvent) {
   if (e.touches[0]) {
-    touchEndPosition.value = e.touches[0].clientX;
+    touchEndPosition.value = e.touches[0].clientX
   }
 }
 function touchEnd() {
   if (Math.abs(touchEndPosition.value - touchStartPosition.value) > 50) {
-    if (touchEndPosition.value > touchStartPosition.value) toPrevious();
-    else toNext();
+    if (touchEndPosition.value > touchStartPosition.value) toPrevious()
+    else toNext()
   }
 }
 onMounted(() => {
   for (let i = 0; i < props.imgs.length - 3; i++) {
-    carouselClass.push("after");
+    carouselClass.push('after')
   }
 
   timer.value = window.setInterval(() => {
-    toNext();
-  }, 3000);
-});
+    toNext()
+  }, 3000)
+})
 
 onUnmounted(() => {
   if (timer.value !== undefined) {
-    clearInterval(timer.value);
+    clearInterval(timer.value)
   }
-});
+})
 </script>
 
 <template>
@@ -113,7 +113,7 @@ onUnmounted(() => {
 
   &::after {
     display: block;
-    content: "";
+    content: '';
     width: 90%;
     margin: 0 auto;
     border-bottom: 0.2rem solid #efefef;

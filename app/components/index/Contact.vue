@@ -57,32 +57,32 @@
 </template>
 
 <script setup lang="ts">
-const pageStore = usePageStore();
-const loadingWidth = ref(0);
-const isHovering = ref(false);
+const pageStore = usePageStore()
+const loadingWidth = ref(0)
+const isHovering = ref(false)
 function onMouseOver() {
-  isHovering.value = true;
+  isHovering.value = true
 }
 function onMouseOut() {
-  isHovering.value = false;
+  isHovering.value = false
 }
 function toGithub() {
-  window.location.href = useRuntimeConfig().public.contact.github;
+  window.location.href = useRuntimeConfig().public.contact.github
 }
 
-let loadingBarTimer: number;
+let loadingBarTimer: number
 onMounted(() => {
   loadingBarTimer = window.setInterval(() => {
     if (loadingWidth.value >= 0) {
-      loadingWidth.value = -100;
+      loadingWidth.value = -100
     } else {
-      loadingWidth.value += 0.2;
+      loadingWidth.value += 0.2
     }
-  }, 10);
-});
+  }, 10)
+})
 onUnmounted(() => {
-  clearInterval(loadingBarTimer);
-});
+  clearInterval(loadingBarTimer)
+})
 </script>
 
 <style scoped lang="scss">

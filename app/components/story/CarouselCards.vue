@@ -1,49 +1,49 @@
 <script setup lang="ts">
 export interface Card {
-  img: string;
-  introduction: string;
-  content: string;
+  img: string
+  introduction: string
+  content: string
 }
 interface Props {
-  card: Card[];
-  type: string;
+  card: Card[]
+  type: string
 }
-const props = defineProps<Props>();
-const carouselClass = reactive(["left", "center", "right"]);
-let touchStartPosition = 0;
-let touchEndPosition = 0;
+const props = defineProps<Props>()
+const carouselClass = reactive(['left', 'center', 'right'])
+let touchStartPosition = 0
+let touchEndPosition = 0
 
 function toPrevious() {
-  const first = carouselClass.shift() as string;
-  carouselClass.push(first);
+  const first = carouselClass.shift() as string
+  carouselClass.push(first)
 }
 function toNext() {
-  const last = carouselClass.pop() as string;
-  carouselClass.unshift(last);
+  const last = carouselClass.pop() as string
+  carouselClass.unshift(last)
 }
 
 function touchStart(e: TouchEvent) {
   if (e.touches[0]) {
-    touchStartPosition = e.touches[0].clientX;
-    touchEndPosition = e.touches[0].clientX;
+    touchStartPosition = e.touches[0].clientX
+    touchEndPosition = e.touches[0].clientX
   }
 }
 function touchMove(e: TouchEvent) {
   if (e.touches[0]) {
-    touchEndPosition = e.touches[0].clientX;
+    touchEndPosition = e.touches[0].clientX
   }
 }
 function touchEnd() {
   if (Math.abs(touchEndPosition - touchStartPosition) > 50) {
-    if (touchEndPosition > touchStartPosition) toPrevious();
-    else toNext();
+    if (touchEndPosition > touchStartPosition) toPrevious()
+    else toNext()
   }
 }
 onMounted(() => {
   for (let i = 0; i < props.card.length - 3; i++) {
-    carouselClass.push("after");
+    carouselClass.push('after')
   }
-});
+})
 </script>
 
 <template>
@@ -234,7 +234,7 @@ onMounted(() => {
     width: 50px;
     height: 50px;
     background: center/cover no-repeat
-      url("#{$cubeBaseURL}ui/rightArrow_red.svg");
+      url('#{$cubeBaseURL}ui/rightArrow_red.svg');
     cursor: pointer;
 
     @media (hover: hover) {
