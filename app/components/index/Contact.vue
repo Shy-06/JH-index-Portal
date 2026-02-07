@@ -115,7 +115,9 @@ onUnmounted(() => {
     margin: auto;
     border-radius: 50%;
     border-color: white;
-    box-shadow: 0 1px 5px #999;
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.15),
+      0 2px 4px rgba(0, 0, 0, 0.1);
   }
 }
 

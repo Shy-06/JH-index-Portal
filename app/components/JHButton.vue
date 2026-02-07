@@ -35,7 +35,9 @@ const prop = defineProps<{
   background-color: #d20001;
   color: white;
   font-size: 20px;
-  box-shadow: 0 2px 5px #999999;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   white-space: nowrap;
 

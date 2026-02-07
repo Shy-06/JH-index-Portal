@@ -135,18 +135,24 @@ img {
       border-radius: 50%;
       background-color: var(--card-bg);
       background-size: cover;
-      box-shadow: 0 2px 6px rgba(153, 153, 153, 0.6);
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        0 2px 4px rgba(0, 0, 0, 0.1);
       transition:
         transform 200ms ease-in-out,
         box-shadow 200ms ease-in-out;
 
       &.select {
         transform: scale(1.25);
-        box-shadow: 0 3px 8px rgba(210, 0, 1, 0.4);
+        box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.2),
+          0 4px 8px rgba(0, 0, 0, 0.15);
       }
 
       &:hover:not(.select) {
-        box-shadow: 0 3px 8px rgba(153, 153, 153, 0.8);
+        box-shadow:
+          0 6px 16px rgba(0, 0, 0, 0.18),
+          0 3px 6px rgba(0, 0, 0, 0.12);
       }
     }
   }
