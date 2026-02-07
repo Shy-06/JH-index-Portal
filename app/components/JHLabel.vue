@@ -20,7 +20,9 @@ const prop = defineProps<{ type: string }>()
   margin: 0 7.5% 3%;
   background-color: var(--primary-color);
   color: white;
-  box-shadow: 0 5px 10px var(--card-shadow);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
 
   .h {
@@ -48,7 +50,9 @@ const prop = defineProps<{ type: string }>()
   line-height: 5rem;
   background-color: var(--primary-color);
   margin: 0 auto 3vw auto;
-  box-shadow: 0 5px 10px var(--card-shadow);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .small {
