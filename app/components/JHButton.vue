@@ -1,80 +1,44 @@
 <script setup lang="ts">
-const prop = defineProps<{
-  type: 'mini' | 'small' | 'middle' | 'middle-disabled' | 'small-disabled'
-}>()
+const prop = defineProps<{ type: 'mini' | 'small' | 'middle' }>()
 </script>
 
 <template>
-  <button
-    :class="{
-      'button-mini': prop.type == 'mini',
-      'button-small': prop.type == 'small',
-      'button-middle': prop.type == 'middle',
-      'button-middle-disabled': prop.type == 'middle-disabled',
-      'button-small-disabled': prop.type == 'small-disabled',
-    }"
-  >
+  <button type="button" class="btn" :class="prop.type">
     <slot />
   </button>
 </template>
 
 <style scoped lang="scss">
-[class^='button-'] {
+.btn {
   width: fit-content;
   margin: auto;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  background-color: var(--primary-color);
+  cursor: pointer;
 }
 
-.button-small {
+.small {
   padding-inline: 24px;
   height: 30px;
-  border-radius: 20px;
-  background-color: #d20001;
-  color: white;
+  border-radius: var(--radius-xl);
   font-size: 20px;
-  box-shadow: 0 2px 5px #999999;
-  cursor: pointer;
+  box-shadow: var(--shadow-md);
   white-space: nowrap;
-
-  &-disabled {
-    padding-inline: 24px;
-    height: 30px;
-    border-radius: 20px;
-    background-color: #999999;
-    color: white;
-    font-size: 20px;
-    cursor: not-allowed;
-    white-space: nowrap;
-  }
 }
 
-.button-middle {
+.middle {
   padding: 10px;
   padding-inline: 20px;
-  background-color: #d20001;
-  border-radius: 30px;
+  border-radius: var(--radius-2xl);
   font-size: large;
-  color: white;
-  cursor: pointer;
-
-  &-disabled {
-    padding: 10px;
-    padding-inline: 20px;
-    background-color: #999999;
-    border-radius: 30px;
-    font-size: large;
-    color: white;
-    cursor: not-allowed;
-  }
 }
 
-.button-mini {
-  border-radius: 30px;
+.mini {
+  border-radius: var(--radius-2xl);
   font-size: small;
-  background-color: #d20001;
-  color: white;
 }
 </style>

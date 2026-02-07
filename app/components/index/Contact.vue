@@ -2,13 +2,15 @@
   <div class="contact-base" :class="pageStore.pageSize">
     <JHCard type="small">
       <div class="loading" :class="pageStore.pageSize">
-        <h1 style="color: #d20001; margin: 0">
+        <h1 style="color: var(--primary-color); margin: 0">
           {{ useRuntimeConfig().public.lastUpdateYear }}
         </h1>
         <div class="loading-bar-border">
           <div class="loading-bar" :style="{ left: loadingWidth + '%' }" />
         </div>
-        <div style="color: #d20001; font-size: 24px">Loading...</div>
+        <div style="color: var(--primary-color); font-size: 24px">
+          Loading...
+        </div>
       </div>
     </JHCard>
 
@@ -21,13 +23,16 @@
 
     <JHCard type="small">
       <div class="contact-us" :class="pageStore.pageSize">
-        <NuxtImg src="ui/wechat.svg" @mouseover="onMouseOver" />
         <NuxtImg
-          v-if="isHovering"
+          class="platform"
+          src="ui/wechat.svg"
+          @mouseover="onMouseOver"
+        />
+        <NuxtImg
+          v-show="isHovering"
           provider="wechatOpen"
           :src="useRuntimeConfig().public.contact.wechat.jxhzx"
           class="qrcode"
-          style="width: auto; height: 20%; z-index: 1; position: absolute"
           @mouseout="onMouseOut"
         />
         <div style="width: 99%">
@@ -39,6 +44,7 @@
           <h3><a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a></h3>
         </div>
         <NuxtImg
+          class="platform"
           src="ui/LogoGitHub.svg"
           style="cursor: pointer"
           @click="toGithub"
@@ -113,7 +119,7 @@ onUnmounted(() => {
     margin: auto;
     border-radius: 50%;
     border-color: white;
-    box-shadow: 0 1px 5px #999;
+    box-shadow: var(--shadow-md);
   }
 }
 
@@ -128,18 +134,25 @@ onUnmounted(() => {
 
   img {
     margin: auto;
+    background-color: white;
+
+    &.qrcode {
+      width: auto;
+      height: 20%;
+      position: absolute;
+      z-index: 1;
+    }
   }
 
-  &.normal img {
+  &.normal .platform {
     width: 80px;
     height: 80px;
   }
 
-  &.middle img,
-  &.mini img {
+  &.middle .platform,
+  &.mini .platform {
     width: 30px;
     height: 30px;
-    background-color: white;
   }
 }
 
@@ -174,9 +187,9 @@ onUnmounted(() => {
   .loading-bar-border {
     width: 80%;
     height: 30px;
-    border-radius: 100px;
+    border-radius: var(--radius-pill);
     overflow: hidden;
-    border: 5px solid #d20001;
+    border: 5px solid var(--primary-color);
     margin: 0 auto;
   }
 
@@ -184,7 +197,7 @@ onUnmounted(() => {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: #d20001;
+    background-color: var(--primary-color);
   }
 
   img {
@@ -192,18 +205,5 @@ onUnmounted(() => {
     width: 30%;
     margin: auto;
   }
-}
-
-.qrcode {
-  width: auto;
-  height: 20%;
-  position: absolute;
-  z-index: 99;
-  border: 3px solid #fff;
-  border-radius: 3px;
-  background-color: #fff;
-  padding: 0.5rem;
-  opacity: 1;
-  transition: all 0.1s ease-in 0s;
 }
 </style>

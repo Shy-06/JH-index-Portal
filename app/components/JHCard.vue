@@ -16,9 +16,9 @@ const prop = defineProps<{
 
 <style scoped lang="scss">
 .container {
-  background-color: white;
-  box-shadow: 0 5px 10px #999999;
-  border-radius: 10px;
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md);
 
   &.large {
     width: 80%;
@@ -35,7 +35,7 @@ const prop = defineProps<{
 }
 
 .title {
-  background-color: #d20001;
+  background-color: var(--primary-color);
   border-radius: 0;
   position: relative;
   display: flex;

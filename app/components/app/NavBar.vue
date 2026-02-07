@@ -19,13 +19,21 @@ watch(
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
+  window.addEventListener('resize', handleResize)
   updateScrollState()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('resize', handleResize)
   document.body.style.overflow = ''
 })
+
+function handleResize() {
+  if (mobileColumnMenuDisplay.value) {
+    listBtnClicked()
+  }
+}
 
 // MARK: 页面滚动处理
 function updateScrollState() {
@@ -76,9 +84,7 @@ const menuColumns = [
     :class="[
       'base',
       pageStore.pageSize,
-      (!mobileColumnMenuDisplay || pageStore.pageSize === 'normal') &&
-      isAtTop &&
-      route.meta.pageNo === 0
+      !mobileColumnMenuDisplay && isAtTop && route.meta.pageNo === 0
         ? 'atCover'
         : 'notAtCover',
       !mobileColumnMenuDisplay && !isAtTop && hide ? 'hide' : '',
@@ -141,15 +147,6 @@ const menuColumns = [
 </template>
 
 <style lang="scss" scoped>
-// MARK: 字体和颜色
-$primary-color: #d20001;
-$font-family: 'song', sans-serif;
-
-@font-face {
-  font-family: 'song';
-  src: url('#{$cubeBaseURL}fonts/ZoomlaYasong.ttf');
-}
-
 // MARK: 动画
 .slide-enter-active,
 .slide-leave-active {
@@ -181,7 +178,7 @@ $font-family: 'song', sans-serif;
 
 // MARK: 全局样式
 * {
-  font-family: $font-family;
+  font-family: 'song', sans-serif;
 }
 
 a {
@@ -197,9 +194,9 @@ a {
 }
 
 .notAtCover {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   transition: background linear 0.2s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-sm);
 }
 
 // MARK: 导航栏基础样式
@@ -241,11 +238,7 @@ a {
 
 // MARK: Logo样式
 .logo {
-  &.normal {
-    width: 200px;
-    transform: scale(0.8);
-  }
-
+  &.normal,
   &.middle {
     width: 200px;
     transform: scale(0.8);
@@ -261,12 +254,12 @@ a {
 .link {
   &.select {
     background-color: white;
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     padding: 5px;
     transition: background-color 0.5s;
 
     a {
-      color: $primary-color;
+      color: var(--primary-color);
     }
 
     &::after {
@@ -304,7 +297,7 @@ a {
   height: 100vh;
   z-index: 3;
   position: fixed;
-  background-color: white;
+  background-color: var(--card-bg);
   align-items: center;
   justify-items: center;
   overflow-y: auto;
@@ -327,19 +320,19 @@ a {
     margin-top: 20px;
     padding: 5px;
     border: 2px solid;
-    border-radius: 15px;
-    border-color: $primary-color;
+    border-radius: var(--radius-lg);
+    border-color: var(--primary-color);
 
     &.select {
-      background-color: $primary-color;
+      background-color: var(--primary-color);
       color: white;
     }
 
     &.notSelect {
-      background-color: white;
+      background-color: var(--card-bg);
 
       a {
-        color: $primary-color;
+        color: var(--primary-color);
       }
     }
   }

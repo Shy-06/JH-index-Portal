@@ -10,11 +10,6 @@ const pageStore = usePageStore()
 </template>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: 'song';
-  src: url('#{$cubeBaseURL}fonts/ZoomlaYasong.ttf');
-}
-
 .start {
   max-width: 100%;
   max-height: 100%;

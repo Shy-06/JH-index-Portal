@@ -114,12 +114,10 @@ onMounted(() => {
       position: absolute;
       width: 100%;
       height: 100%;
-      background-color: #ffffff;
+      background-color: var(--card-bg);
       overflow: hidden;
-      border-radius: 20px;
-      box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.12),
-        0 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
       display: flex;
       flex-direction: column;
 
@@ -127,9 +125,7 @@ onMounted(() => {
         transition: box-shadow 0.3s ease;
 
         &:hover {
-          box-shadow:
-            0 12px 32px rgba(0, 0, 0, 0.16),
-            0 4px 12px rgba(0, 0, 0, 0.1);
+          box-shadow: var(--shadow-2xl);
 
           .img {
             transform: scale(1.03);
@@ -152,7 +148,7 @@ onMounted(() => {
         width: 90%;
         margin: 20px;
         font-size: 18px;
-        color: #d20001;
+        color: var(--primary-color);
         text-align: left;
         white-space: pre-line;
         flex-shrink: 0;
@@ -160,7 +156,7 @@ onMounted(() => {
         &::first-line {
           font-size: 28px;
           font-weight: 700;
-          color: #1a1a1a;
+          color: var(--text-title);
         }
       }
 
