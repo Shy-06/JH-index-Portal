@@ -304,7 +304,7 @@ a {
   height: 100vh;
   z-index: 3;
   position: fixed;
-  background-color: white;
+  background-color: var(--bg-color);
   align-items: center;
   justify-items: center;
   overflow-y: auto;
@@ -336,7 +336,7 @@ a {
     }
 
     &.notSelect {
-      background-color: white;
+      background-color: var(--card-bg);
 
       a {
         color: $primary-color;
