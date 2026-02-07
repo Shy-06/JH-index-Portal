@@ -45,6 +45,11 @@ html {
   src: url('#{$cubeBaseURL}fonts/SourceHanSansSC-VF.otf');
 }
 
+@font-face {
+  font-family: 'song';
+  src: url('#{$cubeBaseURL}fonts/ZoomlaYasong.ttf');
+}
+
 * {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;

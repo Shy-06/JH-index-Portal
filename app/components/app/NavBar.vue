@@ -141,15 +141,6 @@ const menuColumns = [
 </template>
 
 <style lang="scss" scoped>
-// MARK: 字体和颜色
-$primary-color: var(--primary-color);
-$font-family: 'song', sans-serif;
-
-@font-face {
-  font-family: 'song';
-  src: url('#{$cubeBaseURL}fonts/ZoomlaYasong.ttf');
-}
-
 // MARK: 动画
 .slide-enter-active,
 .slide-leave-active {
@@ -181,7 +172,7 @@ $font-family: 'song', sans-serif;
 
 // MARK: 全局样式
 * {
-  font-family: $font-family;
+  font-family: 'song', sans-serif;
 }
 
 a {
@@ -197,7 +188,7 @@ a {
 }
 
 .notAtCover {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   transition: background linear 0.2s;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
@@ -266,7 +257,7 @@ a {
     transition: background-color 0.5s;
 
     a {
-      color: $primary-color;
+      color: var(--primary-color);
     }
 
     &::after {
@@ -304,7 +295,7 @@ a {
   height: 100vh;
   z-index: 3;
   position: fixed;
-  background-color: var(--bg-color);
+  background-color: var(--card-bg);
   align-items: center;
   justify-items: center;
   overflow-y: auto;
@@ -328,10 +319,10 @@ a {
     padding: 5px;
     border: 2px solid;
     border-radius: 15px;
-    border-color: $primary-color;
+    border-color: var(--primary-color);
 
     &.select {
-      background-color: $primary-color;
+      background-color: var(--primary-color);
       color: white;
     }
 
@@ -339,7 +330,7 @@ a {
       background-color: var(--card-bg);
 
       a {
-        color: $primary-color;
+        color: var(--primary-color);
       }
     }
   }
