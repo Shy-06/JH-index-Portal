@@ -20,10 +20,8 @@ const prop = defineProps<{ type: string }>()
   margin: 0 7.5% 3%;
   background-color: var(--primary-color);
   color: white;
-  box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.15),
-    0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-lg);
 
   .h {
     display: block;
@@ -44,15 +42,13 @@ const prop = defineProps<{ type: string }>()
 .big {
   width: 15rem;
   height: 5rem;
-  border-radius: 5rem;
+  border-radius: var(--radius-pill);
   font-size: 30px;
   color: white;
   line-height: 5rem;
   background-color: var(--primary-color);
   margin: 0 auto 3vw auto;
-  box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.15),
-    0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
 }
 
 .small {
@@ -61,7 +57,7 @@ const prop = defineProps<{ type: string }>()
   height: 5vh;
   padding: 10px;
   margin: 15px auto;
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   background-color: var(--primary-color);
   color: white;
   font-size: 20px;
@@ -74,7 +70,7 @@ const prop = defineProps<{ type: string }>()
 .nano {
   background-color: var(--primary-color);
   width: fit-content;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   align-items: center;
   justify-content: center;
   color: white;

@@ -196,7 +196,7 @@ a {
 .notAtCover {
   background-color: var(--primary-color);
   transition: background linear 0.2s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-sm);
 }
 
 // MARK: 导航栏基础样式
@@ -254,7 +254,7 @@ a {
 .link {
   &.select {
     background-color: white;
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     padding: 5px;
     transition: background-color 0.5s;
 
@@ -320,7 +320,7 @@ a {
     margin-top: 20px;
     padding: 5px;
     border: 2px solid;
-    border-radius: 15px;
+    border-radius: var(--radius-lg);
     border-color: var(--primary-color);
 
     &.select {

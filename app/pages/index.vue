@@ -16,7 +16,7 @@ definePageMeta({ layout: false, pageNo: 0 })
         <div class="story-content">{{ indexStoryContent[1] }}</div>
         <NuxtImg
           src="common/story.webp"
-          style="width: 60%; height: 60%; border-radius: 15px"
+          style="width: 60%; height: 60%; border-radius: var(--radius-lg)"
         />
         <NextPage @click="navigateTo('/story')"> 我们的故事 </NextPage>
       </JHCard>

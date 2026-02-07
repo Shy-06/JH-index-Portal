@@ -101,7 +101,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 * {
-  border-radius: 15px;
+  border-radius: var(--radius-lg);
 }
 
 .carousel {

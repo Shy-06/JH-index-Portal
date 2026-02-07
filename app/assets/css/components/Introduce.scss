@@ -27,8 +27,7 @@
 
   .title {
     background-color: var(--card-bg-secondary);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
     font-size: xx-large;
     white-space: pre-line;
     padding: 20px 30px;
@@ -37,18 +36,15 @@
 
   .content {
     background-color: var(--card-bg);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow:
-      0 8px 16px rgba(0, 0, 0, 0.12),
-      0 4px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: var(--shadow-lg);
     font-size: 20px;
     line-height: 1.8;
     justify-content: start;
     text-align: left;
     padding: 30px;
     height: fit-content;
-    color: var(--text-secondary);
+    color: var(--text-content);
 
     p {
       margin: 0;

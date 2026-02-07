@@ -115,9 +115,7 @@ onUnmounted(() => {
     margin: auto;
     border-radius: 50%;
     border-color: white;
-    box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.15),
-      0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
   }
 }
 
@@ -178,7 +176,7 @@ onUnmounted(() => {
   .loading-bar-border {
     width: 80%;
     height: 30px;
-    border-radius: 100px;
+    border-radius: var(--radius-pill);
     overflow: hidden;
     border: 5px solid var(--primary-color);
     margin: 0 auto;
@@ -203,7 +201,7 @@ onUnmounted(() => {
   height: 20%;
   position: absolute;
   z-index: 99;
-  border-radius: 3px;
+  border-radius: var(--radius-xs);
   padding: 0.5rem;
   opacity: 1;
   transition: all 0.1s ease-in 0s;
