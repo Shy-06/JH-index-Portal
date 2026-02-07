@@ -17,7 +17,7 @@
 
     h3 {
       margin: 6px auto;
-      color: rgb(44, 62, 80);
+      color: var(--text-color);
     }
 
     .wechat,
@@ -51,7 +51,7 @@
   &.mini {
     grid-template-rows: repeat(4, auto);
     grid-gap: 8px;
-    background: rgb(239, 239, 239);
+    background: var(--bg-color);
   }
 }
 
@@ -64,7 +64,7 @@
   display: grid;
   grid-template-columns: 40% 1fr;
   padding: 10px 0;
-  background: white;
+  background: var(--card-bg);
 
   img {
     width: 100px;
