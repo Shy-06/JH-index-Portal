@@ -19,13 +19,21 @@ watch(
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
+  window.addEventListener('resize', handleResize)
   updateScrollState()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('resize', handleResize)
   document.body.style.overflow = ''
 })
+
+function handleResize() {
+  if (mobileColumnMenuDisplay.value) {
+    listBtnClicked()
+  }
+}
 
 // MARK: 页面滚动处理
 function updateScrollState() {
@@ -76,9 +84,7 @@ const menuColumns = [
     :class="[
       'base',
       pageStore.pageSize,
-      (!mobileColumnMenuDisplay || pageStore.pageSize === 'normal') &&
-      isAtTop &&
-      route.meta.pageNo === 0
+      !mobileColumnMenuDisplay && isAtTop && route.meta.pageNo === 0
         ? 'atCover'
         : 'notAtCover',
       !mobileColumnMenuDisplay && !isAtTop && hide ? 'hide' : '',
@@ -232,11 +238,7 @@ a {
 
 // MARK: Logo样式
 .logo {
-  &.normal {
-    width: 200px;
-    transform: scale(0.8);
-  }
-
+  &.normal,
   &.middle {
     width: 200px;
     transform: scale(0.8);

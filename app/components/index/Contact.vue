@@ -203,9 +203,7 @@ onUnmounted(() => {
   height: 20%;
   position: absolute;
   z-index: 99;
-  border: 3px solid #fff;
   border-radius: 3px;
-  background-color: #fff;
   padding: 0.5rem;
   opacity: 1;
   transition: all 0.1s ease-in 0s;

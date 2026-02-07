@@ -67,19 +67,6 @@ onUnmounted(() => {
   padding: 4rem 0 1rem;
   width: 10rem;
   margin: auto;
-
-  &-mask {
-    position: absolute;
-    width: 10rem;
-    top: var(--top);
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background-color: white;
-    border-radius: 0;
-    z-index: 2;
-  }
 }
 
 .history-item {
@@ -120,7 +107,6 @@ onUnmounted(() => {
     top: -2.2rem;
     width: 4.4rem;
     height: 4.4rem;
-    background-color: white;
     border-radius: 50%;
     z-index: 3;
     opacity: 0;
