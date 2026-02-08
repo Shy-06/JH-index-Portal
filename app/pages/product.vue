@@ -34,7 +34,7 @@ watch(
 )
 
 onUnmounted(() => {
-  document.body.style.overflow = ''
+  closeDetail()
 })
 </script>
 
