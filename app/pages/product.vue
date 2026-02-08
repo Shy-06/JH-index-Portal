@@ -25,9 +25,10 @@ function openDetail(part: string) {
 }
 
 function handleResize() {
-  // When switching from middle/mini to normal mode with detail open, close it
+  // When switching to normal mode (width >= 1024) with detail open, close it
+  const width = document.documentElement.clientWidth
   if (
-    pageStore.pageSize === 'normal' &&
+    width >= 1024 &&
     (isWejh.value || isWechat.value || isVisual.value || isEmail.value)
   ) {
     closeDetail()

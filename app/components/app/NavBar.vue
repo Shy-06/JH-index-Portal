@@ -30,7 +30,9 @@ onUnmounted(() => {
 })
 
 function handleResize() {
-  if (mobileColumnMenuDisplay.value) {
+  // Close mobile menu when switching to normal mode (width >= 1024)
+  const width = document.documentElement.clientWidth
+  if (mobileColumnMenuDisplay.value && width >= 1024) {
     listBtnClicked()
   }
 }
