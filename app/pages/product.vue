@@ -16,15 +16,11 @@ const isAnyDetailOpen = computed(
 )
 
 function closeDetail() {
-  const wasOpen = isAnyDetailOpen.value
+  if (isAnyDetailOpen.value) unlockScroll()
   isWejh.value = isWechat.value = isVisual.value = isEmail.value = false
-  if (wasOpen) {
-    unlockScroll()
-  }
 }
 
 function openDetail(part: string) {
-  const wasOpen = isAnyDetailOpen.value
   isWejh.value = isWechat.value = isVisual.value = isEmail.value = false
 
   if (part === 'wejh') isWejh.value = true
@@ -32,9 +28,7 @@ function openDetail(part: string) {
   else if (part === 'visual') isVisual.value = true
   else if (part === 'email') isEmail.value = true
 
-  if (!wasOpen) {
-    lockScroll()
-  }
+  lockScroll()
 }
 
 watch(
@@ -47,7 +41,7 @@ watch(
 )
 
 onUnmounted(() => {
-  closeDetail()
+  if (isAnyDetailOpen.value) closeDetail()
 })
 </script>
 
@@ -144,11 +138,7 @@ onUnmounted(() => {
       </JHCard>
 
       <!-- MARK: 窄屏详情 -->
-      <div
-        v-show="isWejh || isWechat || isVisual || isEmail"
-        class="shadow"
-        @click="closeDetail()"
-      />
+      <div v-show="isAnyDetailOpen" class="shadow" @click="closeDetail()" />
       <div v-show="isWejh" class="detail">
         <div class="title">
           {{ productsContent.wejh.title }}

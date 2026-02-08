@@ -14,10 +14,7 @@ const scrollReactThreshold = 25
 watch(
   () => route.meta.pageNo,
   () => {
-    // Close mobile menu when switching pages
-    if (mobileColumnMenuDisplay.value) {
-      listBtnClicked()
-    }
+    if (mobileColumnMenuDisplay.value) listBtnClicked()
     updateScrollState()
   },
 )
@@ -25,9 +22,7 @@ watch(
 watch(
   () => pageStore.pageSize,
   (newSize) => {
-    if (mobileColumnMenuDisplay.value && newSize === 'normal') {
-      listBtnClicked()
-    }
+    if (mobileColumnMenuDisplay.value && newSize === 'normal') listBtnClicked()
   },
 )
 
@@ -38,18 +33,14 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
-  if (mobileColumnMenuDisplay.value) {
-    unlockScroll()
-  }
+  if (mobileColumnMenuDisplay.value) listBtnClicked()
+  updateScrollState()
 })
 
 // MARK: 页面滚动处理
 function updateScrollState() {
-  const currentScrollPosition = Math.max(
-    0,
-    window.scrollY || window.pageYOffset,
-  )
-  isAtTop.value = currentScrollPosition < pageTopBufferSize
+  isAtTop.value =
+    Math.max(0, window.scrollY || window.pageYOffset) < pageTopBufferSize
 }
 
 function handleScroll() {
@@ -69,11 +60,8 @@ function handleScroll() {
 
 function listBtnClicked() {
   mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value
-  if (mobileColumnMenuDisplay.value) {
-    lockScroll()
-  } else {
-    unlockScroll()
-  }
+  if (mobileColumnMenuDisplay.value) lockScroll()
+  else unlockScroll()
 }
 
 // MARK: 栏目配置项
