@@ -5,27 +5,43 @@ definePageMeta({ pageNo: 2 })
 useSeoMeta({ title: '我们的产品' })
 
 const pageStore = usePageStore()
+const { lock: lockScroll, unlock: unlockScroll } = useScrollLock()
 const isWechat = ref<boolean>(false)
 const isWejh = ref<boolean>(false)
 const isVisual = ref<boolean>(false)
 const isEmail = ref<boolean>(false)
 
+const isAnyDetailOpen = computed(
+  () => isWejh.value || isWechat.value || isVisual.value || isEmail.value,
+)
+
 function closeDetail() {
+  if (isAnyDetailOpen.value) unlockScroll()
   isWejh.value = isWechat.value = isVisual.value = isEmail.value = false
-  document.body.style.overflow = ''
 }
 
 function openDetail(part: string) {
-  closeDetail()
+  isWejh.value = isWechat.value = isVisual.value = isEmail.value = false
+
   if (part === 'wejh') isWejh.value = true
   else if (part === 'wechat') isWechat.value = true
   else if (part === 'visual') isVisual.value = true
   else if (part === 'email') isEmail.value = true
-  document.body.style.overflow = 'hidden'
+
+  lockScroll()
 }
 
+watch(
+  () => pageStore.pageSize,
+  (newSize) => {
+    if (newSize === 'normal') {
+      closeDetail()
+    }
+  },
+)
+
 onUnmounted(() => {
-  document.body.style.overflow = ''
+  if (isAnyDetailOpen.value) closeDetail()
 })
 </script>
 
@@ -122,11 +138,7 @@ onUnmounted(() => {
       </JHCard>
 
       <!-- MARK: 窄屏详情 -->
-      <div
-        v-show="isWejh || isWechat || isVisual || isEmail"
-        class="shadow"
-        @click="closeDetail()"
-      />
+      <div v-show="isAnyDetailOpen" class="shadow" @click="closeDetail()" />
       <div v-show="isWejh" class="detail">
         <div class="title">
           {{ productsContent.wejh.title }}

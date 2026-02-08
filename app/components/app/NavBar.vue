@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 const route = useRoute()
 const pageStore = usePageStore()
+const { lock: lockScroll, unlock: unlockScroll } = useScrollLock()
 const hide = ref(false)
 const isAtTop = ref(true)
 const mobileColumnMenuDisplay = ref(false)
@@ -13,35 +14,33 @@ const scrollReactThreshold = 25
 watch(
   () => route.meta.pageNo,
   () => {
+    if (mobileColumnMenuDisplay.value) listBtnClicked()
     updateScrollState()
+  },
+)
+
+watch(
+  () => pageStore.pageSize,
+  (newSize) => {
+    if (mobileColumnMenuDisplay.value && newSize === 'normal') listBtnClicked()
   },
 )
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
-  window.addEventListener('resize', handleResize)
   updateScrollState()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
-  window.removeEventListener('resize', handleResize)
-  document.body.style.overflow = ''
+  if (mobileColumnMenuDisplay.value) listBtnClicked()
+  updateScrollState()
 })
-
-function handleResize() {
-  if (mobileColumnMenuDisplay.value) {
-    listBtnClicked()
-  }
-}
 
 // MARK: 页面滚动处理
 function updateScrollState() {
-  const currentScrollPosition = Math.max(
-    0,
-    window.scrollY || window.pageYOffset,
-  )
-  isAtTop.value = currentScrollPosition < pageTopBufferSize
+  isAtTop.value =
+    Math.max(0, window.scrollY || window.pageYOffset) < pageTopBufferSize
 }
 
 function handleScroll() {
@@ -61,11 +60,8 @@ function handleScroll() {
 
 function listBtnClicked() {
   mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value
-  if (mobileColumnMenuDisplay.value) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = ''
-  }
+  if (mobileColumnMenuDisplay.value) lockScroll()
+  else unlockScroll()
 }
 
 // MARK: 栏目配置项
