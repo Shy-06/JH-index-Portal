@@ -33,7 +33,7 @@ export function useScrollLock() {
     }
   }
 
-  const isLocked = () => hasLock
+  const isLocked = () => lockCount > 0
 
   return {
     lock,
