@@ -24,7 +24,22 @@ function openDetail(part: string) {
   document.body.style.overflow = 'hidden'
 }
 
+function handleResize() {
+  // When switching from middle/mini to normal mode with detail open, close it
+  if (
+    pageStore.pageSize === 'normal' &&
+    (isWejh.value || isWechat.value || isVisual.value || isEmail.value)
+  ) {
+    closeDetail()
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+
 onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
   document.body.style.overflow = ''
 })
 </script>
