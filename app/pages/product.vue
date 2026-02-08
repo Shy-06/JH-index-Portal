@@ -11,18 +11,30 @@ const isWejh = ref<boolean>(false)
 const isVisual = ref<boolean>(false)
 const isEmail = ref<boolean>(false)
 
+const isAnyDetailOpen = computed(
+  () => isWejh.value || isWechat.value || isVisual.value || isEmail.value,
+)
+
 function closeDetail() {
+  const wasOpen = isAnyDetailOpen.value
   isWejh.value = isWechat.value = isVisual.value = isEmail.value = false
-  unlockScroll()
+  if (wasOpen) {
+    unlockScroll()
+  }
 }
 
 function openDetail(part: string) {
-  closeDetail()
+  const wasOpen = isAnyDetailOpen.value
+  isWejh.value = isWechat.value = isVisual.value = isEmail.value = false
+
   if (part === 'wejh') isWejh.value = true
   else if (part === 'wechat') isWechat.value = true
   else if (part === 'visual') isVisual.value = true
   else if (part === 'email') isEmail.value = true
-  lockScroll()
+
+  if (!wasOpen) {
+    lockScroll()
+  }
 }
 
 watch(
