@@ -7,6 +7,7 @@ let lockCount = 0
 
 export function useScrollLock() {
   const lock = () => {
+    if (typeof document === 'undefined') return
     lockCount++
     if (lockCount === 1) {
       document.body.style.overflow = 'hidden'
@@ -14,6 +15,7 @@ export function useScrollLock() {
   }
 
   const unlock = () => {
+    if (typeof document === 'undefined') return
     if (lockCount > 0) {
       lockCount--
     }
