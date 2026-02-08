@@ -5,6 +5,7 @@ definePageMeta({ pageNo: 2 })
 useSeoMeta({ title: '我们的产品' })
 
 const pageStore = usePageStore()
+const { lock: lockScroll, unlock: unlockScroll } = useScrollLock()
 const isWechat = ref<boolean>(false)
 const isWejh = ref<boolean>(false)
 const isVisual = ref<boolean>(false)
@@ -12,7 +13,7 @@ const isEmail = ref<boolean>(false)
 
 function closeDetail() {
   isWejh.value = isWechat.value = isVisual.value = isEmail.value = false
-  document.body.style.overflow = ''
+  unlockScroll()
 }
 
 function openDetail(part: string) {
@@ -21,7 +22,7 @@ function openDetail(part: string) {
   else if (part === 'wechat') isWechat.value = true
   else if (part === 'visual') isVisual.value = true
   else if (part === 'email') isEmail.value = true
-  document.body.style.overflow = 'hidden'
+  lockScroll()
 }
 
 watch(

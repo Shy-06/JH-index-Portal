@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 const route = useRoute()
 const pageStore = usePageStore()
+const { lock: lockScroll, unlock: unlockScroll } = useScrollLock()
 const hide = ref(false)
 const isAtTop = ref(true)
 const mobileColumnMenuDisplay = ref(false)
@@ -33,7 +34,9 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
-  document.body.style.overflow = ''
+  if (mobileColumnMenuDisplay.value) {
+    unlockScroll()
+  }
 })
 
 // MARK: 页面滚动处理
@@ -63,9 +66,9 @@ function handleScroll() {
 function listBtnClicked() {
   mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value
   if (mobileColumnMenuDisplay.value) {
-    document.body.style.overflow = 'hidden'
+    lockScroll()
   } else {
-    document.body.style.overflow = ''
+    unlockScroll()
   }
 }
 
