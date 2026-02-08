@@ -14,6 +14,10 @@ const scrollReactThreshold = 25
 watch(
   () => route.meta.pageNo,
   () => {
+    // Close mobile menu when switching pages
+    if (mobileColumnMenuDisplay.value) {
+      listBtnClicked()
+    }
     updateScrollState()
   },
 )
