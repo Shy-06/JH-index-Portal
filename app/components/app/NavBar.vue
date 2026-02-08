@@ -17,25 +17,24 @@ watch(
   },
 )
 
+watch(
+  () => pageStore.pageSize,
+  (newSize) => {
+    if (mobileColumnMenuDisplay.value && newSize === 'normal') {
+      listBtnClicked()
+    }
+  },
+)
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
-  window.addEventListener('resize', handleResize)
   updateScrollState()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
-  window.removeEventListener('resize', handleResize)
   document.body.style.overflow = ''
 })
-
-function handleResize() {
-  // Close mobile menu when switching to normal mode (width >= 1024)
-  const width = document.documentElement.clientWidth
-  if (mobileColumnMenuDisplay.value && width >= 1024) {
-    listBtnClicked()
-  }
-}
 
 // MARK: 页面滚动处理
 function updateScrollState() {

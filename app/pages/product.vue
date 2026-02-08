@@ -24,23 +24,16 @@ function openDetail(part: string) {
   document.body.style.overflow = 'hidden'
 }
 
-function handleResize() {
-  // When switching to normal mode (width >= 1024) with detail open, close it
-  const width = document.documentElement.clientWidth
-  if (
-    width >= 1024 &&
-    (isWejh.value || isWechat.value || isVisual.value || isEmail.value)
-  ) {
-    closeDetail()
-  }
-}
-
-onMounted(() => {
-  window.addEventListener('resize', handleResize)
-})
+watch(
+  () => pageStore.pageSize,
+  (newSize) => {
+    if (newSize === 'normal') {
+      closeDetail()
+    }
+  },
+)
 
 onUnmounted(() => {
-  window.removeEventListener('resize', handleResize)
   document.body.style.overflow = ''
 })
 </script>
