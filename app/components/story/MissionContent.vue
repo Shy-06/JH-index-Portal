@@ -1,245 +1,235 @@
 <script setup lang="ts">
-interface Platform {
-  name: string
-  icon: string
-  description: string
-  id: string
-}
+const pageStore = usePageStore()
 
-const platforms: Platform[] = [
-  {
-    id: 'wechat-official',
-    name: '精弘网络服务号',
-    icon: '📱',
-    description: '浙江工业大学精弘网络微信服务号',
-  },
-  {
-    id: 'wechat-jxh',
-    name: '精小弘服务号',
-    icon: '💬',
-    description: '精小弘在线微信服务号',
-  },
-  {
-    id: 'wechat-miniprogram',
-    name: '小程序',
-    icon: '📲',
-    description: '微精弘微信小程序',
-  },
-  {
-    id: 'email',
-    name: '邮件系统',
-    icon: '📧',
-    description: 'https://mail.zjut.edu.cn/',
-  },
-  {
-    id: 'bilibili',
-    name: 'B站账号',
-    icon: '📺',
-    description: '浙工大精弘网络b站账号',
-  },
-  {
-    id: 'live',
-    name: '精弘直播',
-    icon: '🎬',
-    description: '精弘直播平台',
-  },
+const platforms = [
+  { icon: '📱', name: '微信服务号' },
+  { icon: '💬', name: '精小弘在线' },
+  { icon: '📲', name: '小程序' },
+  { icon: '📧', name: '邮件系统' },
+  { icon: '📺', name: 'B站' },
+  { icon: '🎬', name: '直播' },
 ]
 
-const campuses = ['朝晖', '屏峰', '莫干山']
-
-const pageStore = usePageStore()
+const campuses = [
+  { name: '朝晖', icon: '🏫' },
+  { name: '屏峰', icon: '🏫' },
+  { name: '莫干山', icon: '🏫' },
+]
 </script>
 
 <template>
-  <div class="mission-content" :class="pageStore.pageSize">
-    <div class="campus-section">
-      <h3>三校区共同建制</h3>
-      <div class="campus-list">
-        <div v-for="campus in campuses" :key="campus" class="campus-item">
-          <div class="campus-icon">🏫</div>
-          <div class="campus-name">{{ campus }}</div>
-        </div>
+  <!-- For normal (desktop) view: single panel showing all info -->
+  <div v-if="pageStore.pageSize == 'normal'" class="mission-visual">
+    <div class="visual-header">
+      <div class="header-title">三校区共同建制</div>
+    </div>
+    <div class="campus-display">
+      <div v-for="campus in campuses" :key="campus.name" class="campus-badge">
+        <span class="campus-icon">{{ campus.icon }}</span>
+        <span class="campus-text">{{ campus.name }}</span>
       </div>
     </div>
+    <div class="divider"></div>
+    <div class="visual-header">
+      <div class="header-title">运营维护平台</div>
+    </div>
+    <div class="platform-display">
+      <div
+        v-for="(platform, idx) in platforms"
+        :key="idx"
+        class="platform-badge"
+      >
+        <span class="platform-icon">{{ platform.icon }}</span>
+        <span class="platform-text">{{ platform.name }}</span>
+      </div>
+    </div>
+  </div>
 
-    <div class="platform-section">
-      <h3>运营和维护平台</h3>
-      <div class="platform-grid" :class="pageStore.pageSize">
-        <div
-          v-for="platform in platforms"
-          :key="platform.id"
-          class="platform-card"
-          :class="pageStore.pageSize"
-        >
-          <div class="platform-icon">{{ platform.icon }}</div>
-          <div class="platform-info">
-            <div class="platform-name">{{ platform.name }}</div>
-            <div class="platform-description">{{ platform.description }}</div>
-          </div>
-        </div>
+  <!-- For middle/mini view: 4 compact cards -->
+  <div v-else class="mission-cards" :class="pageStore.pageSize">
+    <div class="mission-card">
+      <div class="card-title">三校区</div>
+      <div class="card-icons">
+        <span v-for="campus in campuses" :key="campus.name">{{
+          campus.icon
+        }}</span>
+      </div>
+    </div>
+    <div class="mission-card">
+      <div class="card-title">微信平台</div>
+      <div class="card-icons">
+        <span>📱</span>
+        <span>💬</span>
+        <span>📲</span>
+      </div>
+    </div>
+    <div class="mission-card">
+      <div class="card-title">网络服务</div>
+      <div class="card-icons">
+        <span>📧</span>
+      </div>
+    </div>
+    <div class="mission-card">
+      <div class="card-title">媒体平台</div>
+      <div class="card-icons">
+        <span>📺</span>
+        <span>🎬</span>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.mission-content {
+// Desktop view - single large visual panel
+.mission-visual {
   width: 100%;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 30px 25px;
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  padding: 20px 0;
-
-  &.mini {
-    gap: 30px;
-    padding: 10px 0;
-  }
+  gap: 20px;
 }
 
-.campus-section {
+.visual-header {
   text-align: center;
 
-  h3 {
-    font-size: 24px;
+  .header-title {
+    font-size: 18px;
     font-weight: 600;
-    color: var(--text-title);
-    margin-bottom: 20px;
-    border-bottom: 3px solid var(--secondary-color);
-    padding-bottom: 10px;
+    color: var(--primary-color);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--secondary-color);
     display: inline-block;
-    min-width: 300px;
   }
 }
 
-.campus-list {
+.campus-display {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  padding: 15px 0;
 }
 
-.campus-item {
+.campus-badge {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 20px;
-  background: var(--card-bg);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
-  min-width: 120px;
-
-  @media (hover: hover) {
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-xl);
-    }
-  }
+  gap: 8px;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 
   .campus-icon {
-    font-size: 36px;
+    font-size: 32px;
   }
 
-  .campus-name {
-    font-size: 20px;
+  .campus-text {
+    font-size: 15px;
     font-weight: 500;
     color: var(--text-title);
   }
 }
 
-.platform-section {
-  text-align: center;
-
-  h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--text-title);
-    margin-bottom: 30px;
-    border-bottom: 3px solid var(--secondary-color);
-    padding-bottom: 10px;
-    display: inline-block;
-    min-width: 300px;
-  }
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--secondary-color),
+    transparent
+  );
+  margin: 10px 0;
 }
 
-.platform-grid {
+.platform-display {
   display: grid;
-  gap: 20px;
-  margin-top: 20px;
-
-  &.normal {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  &.middle {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  &.mini {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 10px 0;
 }
 
-.platform-card {
+.platform-badge {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 15px;
-  padding: 20px;
-  background: var(--card-bg);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
-  text-align: left;
-
-  @media (hover: hover) {
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-  }
-
-  &.mini {
-    padding: 15px;
-    gap: 12px;
-  }
+  gap: 6px;
+  padding: 12px 10px;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 
   .platform-icon {
-    font-size: 32px;
-    flex-shrink: 0;
-  }
-
-  .platform-info {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .platform-name {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 5px;
-  }
-
-  .platform-description {
-    font-size: 14px;
-    color: var(--text-content);
-    word-break: break-word;
-    line-height: 1.4;
-  }
-
-  &.mini .platform-icon {
     font-size: 28px;
   }
 
-  &.mini .platform-name {
-    font-size: 14px;
+  .platform-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-title);
+    text-align: center;
+  }
+}
+
+// Mobile/Tablet view - 4 compact cards matching original layout
+.mission-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+
+  &.middle {
+    gap: 15px;
   }
 
-  &.mini .platform-description {
+  &.mini {
+    gap: 8px;
+  }
+}
+
+.mission-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 15px 10px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+
+  .card-title {
     font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-color);
+    line-height: 1.2;
+  }
+
+  .card-icons {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  .mission-cards.mini & {
+    padding: 12px 8px;
+    gap: 8px;
+
+    .card-title {
+      font-size: 11px;
+    }
+
+    .card-icons span {
+      font-size: 18px;
+    }
   }
 }
 </style>

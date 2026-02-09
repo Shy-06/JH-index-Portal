@@ -3,6 +3,7 @@ import {
   yixingImages,
   yurenImages,
   persons,
+  missionContent,
   yixingContent,
   yurenContent,
   socialLifeContent,
@@ -22,7 +23,18 @@ const pageStore = usePageStore()
       我们的故事
     </JHLabel>
     <JHCard type="large" title="我们的使命">
-      <MissionContent />
+      <div class="shiming-base" :class="pageStore.pageSize">
+        <MissionContent v-if="pageStore.pageSize == 'normal'" />
+        <div v-else class="shiming-imgs" :class="pageStore.pageSize">
+          <MissionContent />
+        </div>
+        <div class="shiming" :class="pageStore.pageSize">
+          <h2>{{ missionContent.title }}</h2>
+          <pre style="white-space: pre-wrap; font-family: inherit">{{
+            missionContent.description
+          }}</pre>
+        </div>
+      </div>
     </JHCard>
     <JHCard type="large" title="精弘毅行">
       <CarouselPictures :imgs="yixingImages" />
