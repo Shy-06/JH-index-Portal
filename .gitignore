@@ -9,7 +9,7 @@ dist
 # Node dependencies
 node_modules
 
-# Lock files (project uses pnpm)
+# Lock files
 package-lock.json
 
 # Logs
@@ -19,6 +19,7 @@ logs
 # Misc
 .DS_Store
 .vercel
+.env.local
 
 # Local env files
 .env
