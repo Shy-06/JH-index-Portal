@@ -1,9 +1,10 @@
 <script lang="ts" setup>
+import { useScroll } from '@vueuse/core'
+
 const route = useRoute()
 const pageStore = usePageStore()
 const { lock: lockScroll, unlock: unlockScroll } = useScrollLock()
 const hide = ref(false)
-const isAtTop = ref(true)
 const mobileColumnMenuDisplay = ref(false)
 const previousScrollPosition = ref(0)
 
@@ -11,11 +12,16 @@ const previousScrollPosition = ref(0)
 const pageTopBufferSize = 300
 const scrollReactThreshold = 25
 
+const { y: scrollY } = useScroll(
+  typeof window !== 'undefined' ? window : null,
+  { throttle: 100 },
+)
+const isAtTop = computed(() => Math.max(0, scrollY.value) < pageTopBufferSize)
+
 watch(
   () => route.meta.pageNo,
   () => {
     if (mobileColumnMenuDisplay.value) listBtnClicked()
-    updateScrollState()
   },
 )
 
@@ -26,29 +32,13 @@ watch(
   },
 )
 
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll, { passive: true })
-  updateScrollState()
-})
-
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
   if (mobileColumnMenuDisplay.value) listBtnClicked()
-  updateScrollState()
 })
 
 // MARK: 页面滚动处理
-function updateScrollState() {
-  isAtTop.value =
-    Math.max(0, window.scrollY || window.pageYOffset) < pageTopBufferSize
-}
-
-function handleScroll() {
-  const currentScrollPosition = Math.max(
-    0,
-    window.scrollY || window.pageYOffset,
-  )
-  updateScrollState()
+watch(scrollY, () => {
+  const currentScrollPosition = Math.max(0, scrollY.value)
   const scrollDiff = Math.abs(
     currentScrollPosition - previousScrollPosition.value,
   )
@@ -56,7 +46,7 @@ function handleScroll() {
     hide.value = currentScrollPosition > previousScrollPosition.value
   }
   previousScrollPosition.value = currentScrollPosition
-}
+})
 
 function listBtnClicked() {
   mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value

@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { useWindowSize } from '@vueuse/core'
+
 const pageStore = usePageStore()
+const { width } = useWindowSize()
 
 function handleResize() {
-  const width = document.documentElement.clientWidth
-  if (width >= 1024) {
+  if (width.value >= 1024) {
     pageStore.pageSize = 'normal'
-  } else if (width >= 768) {
+  } else if (width.value >= 768) {
     pageStore.pageSize = 'middle'
   } else {
     pageStore.pageSize = 'mini'
@@ -13,12 +15,7 @@ function handleResize() {
 }
 
 onMounted(() => {
-  handleResize()
-  window.addEventListener('resize', handleResize)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', handleResize)
+  watch(width, handleResize, { immediate: true })
 })
 </script>
 

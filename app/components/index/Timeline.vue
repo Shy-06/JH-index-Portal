@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { historyEvents } from '~~/constants/index'
+import { useElementBounding } from '@vueuse/core'
 
 const angle = (Math.atan(0.5) * 180) / Math.PI + 'deg'
 const angle2 = (-Math.atan(0.5) * 180) / Math.PI + 'deg'
@@ -12,20 +13,11 @@ const styleVal = (index: number) => {
     '--line_seen': index === historyEvents.length - 1 ? 'none' : 'block',
   }
 }
-const top111 = ref(0)
 const historyLine = ref<HTMLElement | null>(null)
-function handleScrollX() {
-  if (historyLine.value) {
-    top111.value = historyLine.value.getBoundingClientRect().top
-  }
-}
-onMounted(() => {
-  window.addEventListener('scroll', handleScrollX, true)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScrollX, true)
-})
+const { top: historyLineTop } = useElementBounding(historyLine)
+const hasMeasured = computed(
+  () => historyLine.value !== null && Number.isFinite(historyLineTop.value),
+)
 </script>
 
 <template>
@@ -42,7 +34,7 @@ onUnmounted(() => {
             class="img"
             :class="[
               index % 2 === 0 ? 'history-img1' : 'history-img2',
-              top111 < 487 - (index - 2) * 80 - 60
+              hasMeasured && historyLineTop < 487 - (index - 2) * 80 - 60
                 ? 'history-img'
                 : 'history-img-hide',
             ]"

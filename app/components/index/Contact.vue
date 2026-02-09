@@ -134,7 +134,6 @@ onUnmounted(() => {
 
   img {
     margin: auto;
-    background-color: white;
 
     &.qrcode {
       width: auto;
