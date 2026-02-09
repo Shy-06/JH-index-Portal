@@ -1,44 +1,38 @@
 <script setup lang="ts">
-const prop = defineProps<{ type: 'mini' | 'small' | 'middle' }>()
+const props = defineProps<{ type: 'mini' | 'small' | 'middle' }>()
 </script>
 
 <template>
-  <button type="button" class="btn" :class="prop.type">
+  <button type="button" class="jh-button" :class="props.type">
     <slot />
   </button>
 </template>
 
 <style scoped lang="scss">
-.btn {
-  width: fit-content;
-  margin: auto;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: var(--primary-color);
-  cursor: pointer;
-}
+@use '~/assets/css/mixins' as *;
 
-.small {
-  padding-inline: 24px;
-  height: 30px;
-  border-radius: var(--radius-xl);
-  font-size: 20px;
-  box-shadow: var(--shadow-md);
-  white-space: nowrap;
-}
+.jh-button {
+  @include button-base;
 
-.middle {
-  padding: 10px;
-  padding-inline: 20px;
-  border-radius: var(--radius-2xl);
-  font-size: large;
-}
+  &.small {
+    padding-inline: 24px;
+    height: 30px;
+    border-radius: var(--radius-xl);
+    font-size: 20px;
+    box-shadow: var(--shadow-md);
+    white-space: nowrap;
+  }
 
-.mini {
-  border-radius: var(--radius-2xl);
-  font-size: small;
+  &.middle {
+    padding: 10px;
+    padding-inline: 20px;
+    border-radius: var(--radius-2xl);
+    font-size: large;
+  }
+
+  &.mini {
+    border-radius: var(--radius-2xl);
+    font-size: small;
+  }
 }
 </style>
