@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useScroll } from '@vueuse/core'
+import { useScroll, watchThrottled } from '@vueuse/core'
 
 const route = useRoute()
 const pageStore = usePageStore()
@@ -12,10 +12,7 @@ const previousScrollPosition = ref(0)
 const pageTopBufferSize = 300
 const scrollReactThreshold = 25
 
-const { y: scrollY } = useScroll(
-  typeof window !== 'undefined' ? window : null,
-  { throttle: 100 },
-)
+const { y: scrollY } = useScroll(window)
 const isAtTop = computed(() => Math.max(0, scrollY.value) < pageTopBufferSize)
 
 watch(
@@ -37,16 +34,20 @@ onUnmounted(() => {
 })
 
 // MARK: 页面滚动处理
-watch(scrollY, () => {
-  const currentScrollPosition = Math.max(0, scrollY.value)
-  const scrollDiff = Math.abs(
-    currentScrollPosition - previousScrollPosition.value,
-  )
-  if (scrollDiff > scrollReactThreshold) {
-    hide.value = currentScrollPosition > previousScrollPosition.value
-  }
-  previousScrollPosition.value = currentScrollPosition
-})
+watchThrottled(
+  scrollY,
+  () => {
+    const currentScrollPosition = Math.max(0, scrollY.value)
+    const scrollDiff = Math.abs(
+      currentScrollPosition - previousScrollPosition.value,
+    )
+    if (scrollDiff > scrollReactThreshold) {
+      hide.value = currentScrollPosition > previousScrollPosition.value
+    }
+    previousScrollPosition.value = currentScrollPosition
+  },
+  { throttle: 100 },
+)
 
 function listBtnClicked() {
   mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value
