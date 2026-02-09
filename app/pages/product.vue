@@ -6,42 +6,30 @@ useSeoMeta({ title: '我们的产品' })
 
 const pageStore = usePageStore()
 const { lock: lockScroll, unlock: unlockScroll } = useScrollLock()
-const isWechat = ref<boolean>(false)
-const isWejh = ref<boolean>(false)
-const isVisual = ref<boolean>(false)
-const isEmail = ref<boolean>(false)
+type DetailPart = 'wejh' | 'wechat' | 'visual' | 'email'
+const currentDetail = ref<DetailPart | null>(null)
 
-const isAnyDetailOpen = computed(
-  () => isWejh.value || isWechat.value || isVisual.value || isEmail.value,
-)
-
-function closeDetail() {
-  if (isAnyDetailOpen.value) unlockScroll()
-  isWejh.value = isWechat.value = isVisual.value = isEmail.value = false
-}
-
-function openDetail(part: string) {
-  isWejh.value = isWechat.value = isVisual.value = isEmail.value = false
-
-  if (part === 'wejh') isWejh.value = true
-  else if (part === 'wechat') isWechat.value = true
-  else if (part === 'visual') isVisual.value = true
-  else if (part === 'email') isEmail.value = true
-
-  lockScroll()
+function setDetail(part: DetailPart | null) {
+  if (part) {
+    currentDetail.value = part
+    lockScroll()
+    return
+  }
+  if (currentDetail.value !== null) unlockScroll()
+  currentDetail.value = null
 }
 
 watch(
   () => pageStore.pageSize,
   (newSize) => {
     if (newSize === 'normal') {
-      closeDetail()
+      setDetail(null)
     }
   },
 )
 
 onUnmounted(() => {
-  if (isAnyDetailOpen.value) closeDetail()
+  if (currentDetail.value !== null) setDetail(null)
 })
 </script>
 
@@ -118,19 +106,19 @@ onUnmounted(() => {
     <div v-else>
       <JHCard type="large">
         <div class="base" :class="pageStore.pageSize">
-          <div class="product-item" @click="openDetail('wejh')">
+          <div class="product-item" @click="setDetail('wejh')">
             <NuxtImg :src="productIcons.wejh" />
             <JHButton type="middle"> 微信小程序 </JHButton>
           </div>
-          <div class="product-item" @click="openDetail('wechat')">
+          <div class="product-item" @click="setDetail('wechat')">
             <NuxtImg :src="productIcons.wechat" />
             <JHButton type="middle"> 微信服务号 </JHButton>
           </div>
-          <div class="product-item" @click="openDetail('visual')">
+          <div class="product-item" @click="setDetail('visual')">
             <NuxtImg :src="productIcons.visual" />
             <JHButton type="middle"> 视觉影像 </JHButton>
           </div>
-          <div class="product-item" @click="openDetail('email')">
+          <div class="product-item" @click="setDetail('email')">
             <NuxtImg :src="productIcons.email" />
             <JHButton type="middle"> 学生邮箱 </JHButton>
           </div>
@@ -138,63 +126,71 @@ onUnmounted(() => {
       </JHCard>
 
       <!-- MARK: 窄屏详情 -->
-      <div v-show="isAnyDetailOpen" class="shadow" @click="closeDetail()" />
-      <div v-show="isWejh" class="detail">
-        <div class="title">
-          {{ productsContent.wejh.title }}
-          <NuxtImg class="icon" :src="productsContent.wejh.icon" />
-        </div>
-        <div class="content">
-          {{ productsContent.wejh.description }}
-        </div>
-        <NuxtImg
-          src="ui/return.svg"
-          class="return-button"
-          @click="closeDetail()"
+      <Transition name="fade">
+        <div
+          v-if="currentDetail !== null"
+          class="shadow"
+          @click="setDetail(null)"
         />
-      </div>
-      <div v-show="isWechat" class="detail">
-        <div class="title">
-          {{ productsContent.wechat.title }}
-          <NuxtImg class="icon" :src="productIcons.wechat" />
+      </Transition>
+      <Transition name="sheet" mode="out-in">
+        <div v-if="currentDetail === 'wejh'" key="wejh" class="detail">
+          <div class="title">
+            {{ productsContent.wejh.title }}
+            <NuxtImg class="icon" :src="productsContent.wejh.icon" />
+          </div>
+          <div class="content">
+            {{ productsContent.wejh.description }}
+          </div>
+          <NuxtImg
+            src="ui/return.svg"
+            class="return-button"
+            @click="setDetail(null)"
+          />
         </div>
-        <div class="content">
-          {{ productsContent.wechat.description }}
+        <div v-else-if="currentDetail === 'wechat'" key="wechat" class="detail">
+          <div class="title">
+            {{ productsContent.wechat.title }}
+            <NuxtImg class="icon" :src="productIcons.wechat" />
+          </div>
+          <div class="content">
+            {{ productsContent.wechat.description }}
+          </div>
+          <NuxtImg
+            src="ui/return.svg"
+            class="return-button"
+            @click="setDetail(null)"
+          />
         </div>
-        <NuxtImg
-          src="ui/return.svg"
-          class="return-button"
-          @click="closeDetail()"
-        />
-      </div>
-      <div v-show="isVisual" class="detail">
-        <div class="title">
-          {{ productsContent.visual.title }}
-          <NuxtImg class="icon" :src="productIcons.visual" />
+        <div v-else-if="currentDetail === 'visual'" key="visual" class="detail">
+          <div class="title">
+            {{ productsContent.visual.title }}
+            <NuxtImg class="icon" :src="productIcons.visual" />
+          </div>
+          <div class="content">
+            {{ productsContent.visual.description }}
+          </div>
+          <NuxtImg
+            src="ui/return.svg"
+            class="return-button"
+            @click="setDetail(null)"
+          />
         </div>
-        <div class="content" style="font-size: 18px">
-          {{ productsContent.visual.description }}
+        <div v-else-if="currentDetail === 'email'" key="email" class="detail">
+          <div class="title">
+            {{ productsContent.email.title }}
+            <NuxtImg class="icon" :src="productIcons.email" />
+          </div>
+          <div class="content">
+            {{ productsContent.email.description }}
+          </div>
+          <NuxtImg
+            src="ui/return.svg"
+            class="return-button"
+            @click="setDetail(null)"
+          />
         </div>
-        <NuxtImg
-          src="ui/return.svg"
-          class="return-button"
-          @click="closeDetail()"
-        />
-      </div>
-      <div v-show="isEmail" class="detail">
-        <div class="title">
-          {{ productsContent.email.title }}
-          <NuxtImg class="icon" :src="productIcons.email" />
-        </div>
-        <div class="content">
-          {{ productsContent.email.description }}
-        </div>
-        <NuxtImg
-          src="ui/return.svg"
-          class="return-button"
-          @click="closeDetail()"
-        />
-      </div>
+      </Transition>
     </div>
 
     <NextPage @click="navigateTo('/department')"> 我们的部门 </NextPage>

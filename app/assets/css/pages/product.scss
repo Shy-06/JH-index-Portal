@@ -136,3 +136,35 @@
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 200ms ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.sheet-enter-active,
+.sheet-leave-active {
+  transition:
+    transform 260ms ease,
+    opacity 260ms ease;
+}
+
+.sheet-enter-from,
+.sheet-leave-to {
+  transform: translateY(24px);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-enter-active,
+  .fade-leave-active,
+  .sheet-enter-active,
+  .sheet-leave-active {
+    transition: none;
+  }
+}
