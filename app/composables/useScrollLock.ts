@@ -14,15 +14,15 @@ export function useScrollLock() {
     if (typeof document === 'undefined') return // SSR/非浏览器环境直接跳过
     if (hasLock) return
     hasLock = true
+    if (lockCount === 0) document.body.style.overflow = 'hidden'
     lockCount++
-    if (lockCount) document.body.style.overflow = 'hidden' // 任意锁生效即禁滚
   }
 
   const unlock = () => {
     if (typeof document === 'undefined') return // SSR/非浏览器环境直接跳过
     if (!hasLock) return
     hasLock = false
-    if (lockCount > 0) lockCount--
+    lockCount = Math.max(0, lockCount - 1)
     if (lockCount === 0) document.body.style.overflow = '' // 归零后恢复滚动
   }
 

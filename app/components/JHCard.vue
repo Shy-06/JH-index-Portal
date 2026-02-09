@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const prop = defineProps<{
   title?: string
-  type: string
+  type: 'large' | 'small'
 }>()
 </script>
 
@@ -22,7 +22,6 @@ const prop = defineProps<{
 
   &.large {
     width: 80%;
-    height: fit-content + 10px;
     margin: 20px auto;
     padding: 20px;
   }
