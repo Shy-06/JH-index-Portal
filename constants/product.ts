@@ -4,6 +4,7 @@ export const productsContent = {
     title: '微信公众号',
     description:
       '浙江工业大学精弘网络微信公众号,提供结合精弘网络产品的实用功能,推出微精弘板块等系列服务,是工大学子学习生活的好帮手。',
+    icon: 'common/logo_red.webp',
   },
 
   wejh: {
@@ -18,6 +19,7 @@ export const productsContent = {
     title: '视觉影像',
     description:
       '校园学习生活、学校各类大型活动的记录团队，专注于摄影、视频前期拍摄和后期剪辑,致力于用最优秀的制作呈现最美的工大人、工大景。视觉影像像期待用最用心的摄制给你带来最高级的视听盛宴!',
+    icon: 'common/visual.webp',
     bilibili: 'common/bilibili.webp',
     shipinhao: 'common/shipinhao.webp',
   },
@@ -29,11 +31,4 @@ export const productsContent = {
     url: 'https://mail.zjut.edu.cn',
     icon: 'common/mailSystem.webp',
   },
-}
-
-export const productIcons = {
-  wechat: 'common/logo_red.webp',
-  wejh: 'common/wejh_icon.webp',
-  visual: 'common/visual.webp',
-  email: 'common/mailSystem.webp',
 }

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { productsContent, productIcons } from '~~/constants/product'
+import { productsContent } from '~~/constants/product'
 
 definePageMeta({ pageNo: 2 })
 useSeoMeta({ title: '我们的产品' })
@@ -13,10 +13,10 @@ function setDetail(part: DetailPart | null) {
   if (part) {
     currentDetail.value = part
     lockScroll()
-    return
+  } else {
+    if (currentDetail.value) unlockScroll()
+    currentDetail.value = null
   }
-  if (currentDetail.value !== null) unlockScroll()
-  currentDetail.value = null
 }
 
 watch(
@@ -29,7 +29,7 @@ watch(
 )
 
 onUnmounted(() => {
-  if (currentDetail.value !== null) setDetail(null)
+  if (currentDetail.value) setDetail(null)
 })
 </script>
 
@@ -107,19 +107,19 @@ onUnmounted(() => {
       <JHCard type="large">
         <div class="base" :class="pageStore.pageSize">
           <div class="product-item" @click="setDetail('wejh')">
-            <NuxtImg :src="productIcons.wejh" />
+            <NuxtImg :src="productsContent.wejh.icon" />
             <JHButton type="middle"> 微信小程序 </JHButton>
           </div>
           <div class="product-item" @click="setDetail('wechat')">
-            <NuxtImg :src="productIcons.wechat" />
+            <NuxtImg :src="productsContent.wechat.icon" />
             <JHButton type="middle"> 微信服务号 </JHButton>
           </div>
           <div class="product-item" @click="setDetail('visual')">
-            <NuxtImg :src="productIcons.visual" />
+            <NuxtImg :src="productsContent.visual.icon" />
             <JHButton type="middle"> 视觉影像 </JHButton>
           </div>
           <div class="product-item" @click="setDetail('email')">
-            <NuxtImg :src="productIcons.email" />
+            <NuxtImg :src="productsContent.email.icon" />
             <JHButton type="middle"> 学生邮箱 </JHButton>
           </div>
         </div>
@@ -127,68 +127,18 @@ onUnmounted(() => {
 
       <!-- MARK: 窄屏详情 -->
       <Transition name="fade">
-        <div
-          v-if="currentDetail !== null"
-          class="shadow"
-          @click="setDetail(null)"
-        />
+        <div v-show="currentDetail" class="shadow" @click="setDetail(null)" />
       </Transition>
       <Transition name="sheet" mode="out-in">
-        <div v-if="currentDetail === 'wejh'" key="wejh" class="detail">
+        <div v-if="currentDetail" :key="currentDetail" class="detail">
           <div class="title">
-            {{ productsContent.wejh.title }}
-            <NuxtImg class="icon" :src="productsContent.wejh.icon" />
+            {{ productsContent[currentDetail].title }}
+            <NuxtImg class="icon" :src="productsContent[currentDetail].icon" />
           </div>
           <div class="content">
-            {{ productsContent.wejh.description }}
+            {{ productsContent[currentDetail].description }}
           </div>
-          <NuxtImg
-            src="ui/return.svg"
-            class="return-button"
-            @click="setDetail(null)"
-          />
-        </div>
-        <div v-else-if="currentDetail === 'wechat'" key="wechat" class="detail">
-          <div class="title">
-            {{ productsContent.wechat.title }}
-            <NuxtImg class="icon" :src="productIcons.wechat" />
-          </div>
-          <div class="content">
-            {{ productsContent.wechat.description }}
-          </div>
-          <NuxtImg
-            src="ui/return.svg"
-            class="return-button"
-            @click="setDetail(null)"
-          />
-        </div>
-        <div v-else-if="currentDetail === 'visual'" key="visual" class="detail">
-          <div class="title">
-            {{ productsContent.visual.title }}
-            <NuxtImg class="icon" :src="productIcons.visual" />
-          </div>
-          <div class="content">
-            {{ productsContent.visual.description }}
-          </div>
-          <NuxtImg
-            src="ui/return.svg"
-            class="return-button"
-            @click="setDetail(null)"
-          />
-        </div>
-        <div v-else-if="currentDetail === 'email'" key="email" class="detail">
-          <div class="title">
-            {{ productsContent.email.title }}
-            <NuxtImg class="icon" :src="productIcons.email" />
-          </div>
-          <div class="content">
-            {{ productsContent.email.description }}
-          </div>
-          <NuxtImg
-            src="ui/return.svg"
-            class="return-button"
-            @click="setDetail(null)"
-          />
+          <NuxtImg src="ui/back.svg" class="back" @click="setDetail(null)" />
         </div>
       </Transition>
     </div>
