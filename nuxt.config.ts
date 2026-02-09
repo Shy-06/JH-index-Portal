@@ -3,48 +3,25 @@ import { defineNuxtConfig } from 'nuxt/config'
 const cubeBaseURL = 'https://img.phlin.cn/api/file?bucket=homepage&object_key='
 
 export default defineNuxtConfig({
-  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/seo', '@nuxt/eslint'],
-  components: [
-    {
-      path: '~/components',
-      pathPrefix: false,
-    },
-  ],
+  compatibilityDate: '2026-01-01',
   devtools: { enabled: true },
-  sitemap: { zeroRuntime: true },
-  app: {
-    head: {
-      meta: [
-        { charset: 'utf-8' },
-        {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1, viewport-fit=cover',
-        },
-        { name: 'theme-color', content: '#d20001' },
-        { name: 'mobile-web-app-capable', content: 'yes' },
-        {
-          name: 'apple-mobile-web-app-status-bar-style',
-          content: 'black-translucent',
-        },
-      ],
-      link: [
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-        { rel: 'apple-touch-icon', href: '/favicon.png' },
-        { rel: 'shortcut icon', href: '/favicon.png' },
-        { rel: 'bookmark', href: '/favicon.png' },
-        { rel: 'dns-prefetch', href: `//${new URL(cubeBaseURL).hostname}` },
-        { rel: 'dns-prefetch', href: '//open.weixin.qq.com' },
-        { rel: 'dns-prefetch', href: '//open-api.cli.im' },
-      ],
-    },
-  },
+  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/seo', '@nuxt/eslint'],
+  routeRules: { '/': { prerender: true } },
   css: ['assets/css/main.scss'],
+  sitemap: { zeroRuntime: true },
 
   site: {
     url: 'https://myzjut.org',
     name: '浙江工业大学精弘网络',
     defaultLocale: 'zh-CN',
   },
+
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
 
   runtimeConfig: {
     public: {
@@ -60,10 +37,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  routeRules: {
-    '/': { prerender: true },
-  },
-  compatibilityDate: '2026-01-01',
 
   vite: {
     css: {
@@ -100,6 +73,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   schemaOrg: {
     identity: {
       type: 'Organization',
@@ -108,6 +82,33 @@ export default defineNuxtConfig({
       sameAs: [
         'https://github.com/zjutjh',
         'https://space.bilibili.com/485566103',
+      ],
+    },
+  },
+
+  app: {
+    head: {
+      meta: [
+        { charset: 'utf-8' },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1, viewport-fit=cover',
+        },
+        { name: 'theme-color', content: '#d20001' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        {
+          name: 'apple-mobile-web-app-status-bar-style',
+          content: 'black-translucent',
+        },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'apple-touch-icon', href: '/favicon.png' },
+        { rel: 'shortcut icon', href: '/favicon.png' },
+        { rel: 'bookmark', href: '/favicon.png' },
+        { rel: 'dns-prefetch', href: `//${new URL(cubeBaseURL).hostname}` },
+        { rel: 'dns-prefetch', href: '//open.weixin.qq.com' },
+        { rel: 'dns-prefetch', href: '//open-api.cli.im' },
       ],
     },
   },

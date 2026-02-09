@@ -1,16 +1,8 @@
-import { onScopeDispose } from 'vue'
-
-const noop = () => {}
-const falseFn = () => false
 const SSR_FALLBACK = Object.freeze({
-  lock: noop,
-  unlock: noop,
-  isLocked: falseFn,
-}) as {
-  lock: () => void
-  unlock: () => void
-  isLocked: () => boolean
-}
+  lock: () => {},
+  unlock: () => {},
+  isLocked: () => false,
+})
 
 /** 全局滚动锁计数器，支持多处叠加锁定 */
 let lockCount = 0
@@ -29,17 +21,29 @@ export function useScrollLock() {
   let hasLock = false
 
   const lock = () => {
-    if (hasLock) return
-    hasLock = true
-    lockCount++
-    if (lockCount === 1) document.body.style.overflow = 'hidden'
+    try {
+      if (hasLock) return
+      hasLock = true
+      lockCount++
+      if (lockCount === 1 && document?.body) {
+        document.body.style.overflow = 'hidden'
+      }
+    } catch (error) {
+      console.error('[useScrollLock] Error locking scroll:', error)
+    }
   }
 
   const unlock = () => {
-    if (!hasLock) return
-    hasLock = false
-    lockCount = Math.max(0, lockCount - 1)
-    if (lockCount === 0) document.body.style.overflow = ''
+    try {
+      if (!hasLock) return
+      hasLock = false
+      lockCount = Math.max(0, lockCount - 1)
+      if (lockCount === 0 && document?.body) {
+        document.body.style.overflow = ''
+      }
+    } catch (error) {
+      console.error('[useScrollLock] Error unlocking scroll:', error)
+    }
   }
 
   const isLocked = () => lockCount > 0
