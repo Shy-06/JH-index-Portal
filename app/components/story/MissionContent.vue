@@ -3,35 +3,42 @@ interface Platform {
   name: string
   icon: string
   description: string
+  id: string
 }
 
 const platforms: Platform[] = [
   {
-    name: '微信服务号',
+    id: 'wechat-official',
+    name: '精弘网络服务号',
     icon: '📱',
     description: '浙江工业大学精弘网络微信服务号',
   },
   {
-    name: '微信服务号',
+    id: 'wechat-jxh',
+    name: '精小弘服务号',
     icon: '💬',
     description: '精小弘在线微信服务号',
   },
   {
+    id: 'wechat-miniprogram',
     name: '小程序',
     icon: '📲',
     description: '微精弘微信小程序',
   },
   {
+    id: 'email',
     name: '邮件系统',
     icon: '📧',
     description: 'https://mail.zjut.edu.cn/',
   },
   {
+    id: 'bilibili',
     name: 'B站账号',
     icon: '📺',
     description: '浙工大精弘网络b站账号',
   },
   {
+    id: 'live',
     name: '精弘直播',
     icon: '🎬',
     description: '精弘直播平台',
@@ -60,7 +67,7 @@ const pageStore = usePageStore()
       <div class="platform-grid" :class="pageStore.pageSize">
         <div
           v-for="platform in platforms"
-          :key="platform.name + platform.description"
+          :key="platform.id"
           class="platform-card"
           :class="pageStore.pageSize"
         >
