@@ -3,7 +3,6 @@ import {
   yixingImages,
   yurenImages,
   persons,
-  missionContent,
   yixingContent,
   yurenContent,
   socialLifeContent,
@@ -23,25 +22,7 @@ const pageStore = usePageStore()
       我们的故事
     </JHLabel>
     <JHCard type="large" title="我们的使命">
-      <div class="shiming-base" :class="pageStore.pageSize">
-        <NuxtImg
-          v-if="pageStore.pageSize == 'normal'"
-          class="shiming-img"
-          src="temp/shiming.webp"
-        />
-        <div v-else class="shiming-imgs" :class="pageStore.pageSize">
-          <NuxtImg class="shiming-imgs-img" src="temp/shiming1.webp" />
-          <NuxtImg class="shiming-imgs-img" src="temp/shiming2.webp" />
-          <NuxtImg class="shiming-imgs-img" src="temp/shiming3.webp" />
-          <NuxtImg class="shiming-imgs-img" src="temp/shiming4.webp" />
-        </div>
-        <div class="shiming" :class="pageStore.pageSize">
-          <h2>{{ missionContent.title }}</h2>
-          <pre style="white-space: pre-wrap; font-family: inherit">{{
-            missionContent.description
-          }}</pre>
-        </div>
-      </div>
+      <MissionContent />
     </JHCard>
     <JHCard type="large" title="精弘毅行">
       <CarouselPictures :imgs="yixingImages" />
