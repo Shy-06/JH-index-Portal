@@ -37,7 +37,7 @@ const pageStore = usePageStore()
           <NuxtImg class="shiming-imgs-img" src="temp/shiming4.webp" alt="" />
         </div>
         <div class="shiming" :class="pageStore.pageSize">
-          <h2>{{ missionContent.title }}</h2>
+          <h3>{{ missionContent.title }}</h3>
           <pre style="white-space: pre-wrap; font-family: inherit">{{
             missionContent.description
           }}</pre>

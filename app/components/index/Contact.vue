@@ -2,9 +2,16 @@
   <div class="contact-base" :class="pageStore.pageSize">
     <JHCard type="small">
       <div class="loading" :class="pageStore.pageSize">
-        <h1 style="color: var(--primary-color); margin: 0">
+        <div
+          style="
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+          "
+        >
           {{ useRuntimeConfig().public.lastUpdateYear }}
-        </h1>
+        </div>
         <div class="loading-bar-border">
           <div class="loading-bar" :style="{ left: loadingWidth + '%' }" />
         </div>
@@ -39,12 +46,12 @@
           @mouseout="onMouseOut"
         />
         <div style="width: 99%">
-          <h1 v-if="pageStore.pageSize == 'middle'">联系我们 | 关注我们</h1>
+          <h2 v-if="pageStore.pageSize == 'middle'">联系我们 | 关注我们</h2>
           <template v-else>
-            <h1>联系我们</h1>
-            <h1>关注我们</h1>
+            <h2>联系我们</h2>
+            <h2>关注我们</h2>
           </template>
-          <h3><a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a></h3>
+          <a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a>
         </div>
         <NuxtImg
           class="platform"
@@ -57,7 +64,7 @@
     </JHCard>
 
     <JHCard type="small" class="join">
-      <h1 class="join-content">精弘诚聘</h1>
+      <h2 class="join-content">精弘诚聘</h2>
       <JHButton
         :type="pageStore.pageSize == 'mini' ? 'mini' : 'middle'"
         @click="() => navigateTo('/join')"
@@ -132,7 +139,7 @@ onUnmounted(() => {
   grid-template-columns: 20% 60% 20%;
   align-items: center;
 
-  h1 {
+  h2 {
     margin: 0;
   }
 

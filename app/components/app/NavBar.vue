@@ -179,12 +179,10 @@ a {
 // MARK: 背景状态
 .atCover {
   background: transparent;
-  transition: background linear 0.2s;
 }
 
 .notAtCover {
   background-color: var(--primary-color);
-  transition: background linear 0.2s;
   box-shadow: var(--shadow-sm);
 }
 
@@ -219,9 +217,6 @@ nav {
   // 隐藏状态
   &.hide {
     top: -100px;
-    transition:
-      top linear 0.4s,
-      background linear 0.2s;
   }
 }
 

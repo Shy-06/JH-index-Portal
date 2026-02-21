@@ -7,9 +7,9 @@ const props = defineProps<{
 
 <template>
   <div class="jh-card" :class="props.type">
-    <div v-if="props.title" class="title" :class="props.type">
+    <h2 v-if="props.title" class="title" :class="props.type">
       {{ props.title }}
-    </div>
+    </h2>
     <slot />
   </div>
 </template>
@@ -34,26 +34,11 @@ const props = defineProps<{
 
   .title {
     @include title-styled;
-    margin-bottom: 20px;
-
-    &.large {
-      width: fit-content;
-      padding: 10px;
-      padding-inline: 80px;
-      height: 50px;
-      top: 10px;
-      left: -6vw;
-      font-size: x-large;
-    }
-
-    &.small {
-      width: fit-content;
-      height: fit-content;
-      padding: 10px;
-      top: 2vh;
-      left: -2%;
-      font-size: large;
-    }
+    width: fit-content;
+    padding: 10px;
+    padding-inline: 80px;
+    height: 50px;
+    left: -6vw;
   }
 }
 </style>
