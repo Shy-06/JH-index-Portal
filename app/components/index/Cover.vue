@@ -41,7 +41,7 @@ const pageStore = usePageStore()
 
   .title {
     color: white;
-    font-family: 'song';
+    font-family: 'ZLY-song';
 
     &.normal,
     &.middle {

@@ -165,7 +165,7 @@ const menuColumns = [
 
 // MARK: 全局样式
 * {
-  font-family: 'song', sans-serif;
+  font-family: 'ZLY-song', sans-serif;
 }
 
 a {

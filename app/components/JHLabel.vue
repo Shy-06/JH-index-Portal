@@ -19,7 +19,7 @@ const props = defineProps<{ type: 'title' | 'big' | 'small' | 'nano' }>()
   padding: 10px;
   padding-inline: 80px;
   align-items: center;
-  font-family: 'SC-VF';
+  font-family: 'AliSans-EN';
   margin: 0 7.5% 3%;
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-lg);
