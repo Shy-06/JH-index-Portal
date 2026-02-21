@@ -89,7 +89,6 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      htmlAttrs: { lang: 'zh-CN' },
       meta: [
         { charset: 'utf-8' },
         {
@@ -111,7 +110,21 @@ export default defineNuxtConfig({
         {
           rel: 'preconnect',
           href: `//${new URL(cubeBaseURL).hostname}`,
-          crossorigin: '',
+          crossorigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          href: `${cubeBaseURL}fonts/AlibabaSans-Regular.woff2`,
+          as: 'font',
+          type: 'font/woff2',
+          crossorigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          href: `${cubeBaseURL}fonts/subset-ZoomlaYasong.woff2`,
+          as: 'font',
+          type: 'font/woff2',
+          crossorigin: 'anonymous',
         },
         { rel: 'dns-prefetch', href: '//open.weixin.qq.com' },
         { rel: 'dns-prefetch', href: '//open-api.cli.im' },

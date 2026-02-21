@@ -1,11 +1,11 @@
 <template>
-  <div class="footer">
+  <footer role="contentinfo">
     ©{{ useRuntimeConfig().public.lastUpdateYear }} 浙江工业大学精弘网络
-  </div>
+  </footer>
 </template>
 
 <style scoped>
-.footer {
+footer {
   margin-top: 5%;
   width: 100%;
   color: var(--muted);

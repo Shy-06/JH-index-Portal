@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { indexStoryContent } from '~~/constants/index'
 
-definePageMeta({ layout: false, pageNo: 0 })
+definePageMeta({ pageNo: 0 })
 </script>
 
 <template>

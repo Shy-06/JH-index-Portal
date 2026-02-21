@@ -67,9 +67,9 @@ const menuColumns = [
 </script>
 
 <template>
-  <div
+  <nav
+    role="navigation"
     :class="[
-      'base',
       pageStore.pageSize,
       !mobileColumnMenuDisplay && isAtTop && route.meta.pageNo === 0
         ? 'atCover'
@@ -132,7 +132,7 @@ const menuColumns = [
         </Transition>
       </Teleport>
     </template>
-  </div>
+  </nav>
 </template>
 
 <style lang="scss" scoped>
@@ -189,7 +189,7 @@ a {
 }
 
 // MARK: 导航栏基础样式
-.base {
+nav {
   z-index: 4;
   display: grid;
   width: 100%;
