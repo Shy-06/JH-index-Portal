@@ -19,6 +19,7 @@
       :class="pageStore.pageSize"
       src="common/logo_red.webp"
       border="5"
+      alt="精弘网络"
     />
 
     <JHCard type="small">
@@ -26,6 +27,7 @@
         <NuxtImg
           class="platform"
           src="ui/wechat.svg"
+          alt="微信公众号"
           @mouseover="onMouseOver"
         />
         <NuxtImg
@@ -33,6 +35,7 @@
           provider="wechatOpen"
           :src="useRuntimeConfig().public.contact.wechat.jxhzx"
           class="qrcode"
+          alt="精小弘在线 微信二维码"
           @mouseout="onMouseOut"
         />
         <div style="width: 99%">
@@ -47,6 +50,7 @@
           class="platform"
           src="ui/LogoGitHub.svg"
           style="cursor: pointer"
+          alt="GitHub"
           @click="toGithub"
         />
       </div>

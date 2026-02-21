@@ -9,6 +9,7 @@ const pageStore = usePageStore()
     <NuxtImg
       v-if="!(pageStore.pageSize == 'mini')"
       src="jingxiaohong/xiaohongLeft.webp"
+      alt=""
     />
     <div class="introduce">
       <div class="title">{{ introduceContent.title[pageStore.pageSize] }}</div>
@@ -21,6 +22,7 @@ const pageStore = usePageStore()
     <NuxtImg
       v-if="!(pageStore.pageSize == 'mini')"
       src="jingxiaohong/xiaohongRight.webp"
+      alt=""
     />
   </div>
 </template>

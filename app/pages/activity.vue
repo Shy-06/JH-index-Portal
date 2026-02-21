@@ -16,7 +16,11 @@ const pageStore = usePageStore()
     </JHLabel>
     <JHCard title="ACM新生赛" type="large">
       <div class="base" :class="pageStore.pageSize">
-        <NuxtImg class="poster" :src="acmCompetitionInfo.posterImage" />
+        <NuxtImg
+          class="poster"
+          :src="acmCompetitionInfo.posterImage"
+          alt="海报"
+        />
         <div class="detail-base" :class="pageStore.pageSize">
           <div class="introduce" :class="pageStore.pageSize">
             <JHLabel type="nano">活动介绍</JHLabel>
@@ -31,7 +35,10 @@ const pageStore = usePageStore()
           <div class="qr">
             <div class="qr-base" :class="pageStore.pageSize">
               <div class="qr-code">
-                <NuxtImg :src="acmCompetitionInfo.groupQrCode" />
+                <NuxtImg
+                  :src="acmCompetitionInfo.groupQrCode"
+                  alt="竞赛群二维码"
+                />
               </div>
             </div>
           </div>

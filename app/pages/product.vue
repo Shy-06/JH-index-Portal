@@ -52,6 +52,7 @@ onUnmounted(() => {
             <NuxtImg
               provider="wechatOpen"
               :src="useRuntimeConfig().public.contact.wechat.jhwl"
+              alt="精弘网络 微信二维码"
             />
             <h3>浙江工业大学精弘网络</h3>
           </div>
@@ -59,6 +60,7 @@ onUnmounted(() => {
             <NuxtImg
               provider="wechatOpen"
               :src="useRuntimeConfig().public.contact.wechat.jxhzx"
+              alt="精小弘在线 微信二维码"
             />
             <h3>精小弘在线</h3>
           </div>
@@ -66,7 +68,11 @@ onUnmounted(() => {
       </JHCard>
       <JHCard type="large" :title="productsContent.wejh.title">
         <div class="introduction">{{ productsContent.wejh.description }}</div>
-        <NuxtImg id="wejh-code" :src="productsContent.wejh.miniProgramCode" />
+        <NuxtImg
+          id="wejh-code"
+          :src="productsContent.wejh.miniProgramCode"
+          :alt="productsContent.wejh.title + ' 小程序二维码'"
+        />
         <h3>微精弘小程序</h3>
       </JHCard>
       <JHCard type="large" :title="productsContent.visual.title">
@@ -79,6 +85,7 @@ onUnmounted(() => {
               provider="cliQR"
               src="https://space.bilibili.com/485566103"
               style="max-width: 100%; height: auto"
+              alt="哔哩哔哩 二维码"
             />
             <h3>哔哩哔哩</h3>
           </a>
@@ -86,6 +93,7 @@ onUnmounted(() => {
             <NuxtImg
               :src="productsContent.visual.shipinhao"
               style="max-width: 100%; height: auto"
+              alt=""
             />
             <h3>微信视频号</h3>
           </div>
@@ -98,7 +106,7 @@ onUnmounted(() => {
             {{ productsContent.email.url }}
           </a>
         </h3>
-        <NuxtImg id="email-img" :src="productsContent.email.icon" />
+        <NuxtImg id="email-img" :src="productsContent.email.icon" alt="" />
       </JHCard>
     </div>
 
@@ -107,19 +115,19 @@ onUnmounted(() => {
       <JHCard type="large">
         <div class="base" :class="pageStore.pageSize">
           <div class="product-item" @click="setDetail('wejh')">
-            <NuxtImg :src="productsContent.wejh.icon" />
+            <NuxtImg :src="productsContent.wejh.icon" alt="" />
             <JHButton type="middle"> 微信小程序 </JHButton>
           </div>
           <div class="product-item" @click="setDetail('wechat')">
-            <NuxtImg :src="productsContent.wechat.icon" />
+            <NuxtImg :src="productsContent.wechat.icon" alt="" />
             <JHButton type="middle"> 微信服务号 </JHButton>
           </div>
           <div class="product-item" @click="setDetail('visual')">
-            <NuxtImg :src="productsContent.visual.icon" />
+            <NuxtImg :src="productsContent.visual.icon" alt="" />
             <JHButton type="middle"> 视觉影像 </JHButton>
           </div>
           <div class="product-item" @click="setDetail('email')">
-            <NuxtImg :src="productsContent.email.icon" />
+            <NuxtImg :src="productsContent.email.icon" alt="" />
             <JHButton type="middle"> 学生邮箱 </JHButton>
           </div>
         </div>
@@ -133,12 +141,21 @@ onUnmounted(() => {
         <div v-if="currentDetail" :key="currentDetail" class="detail">
           <div class="title">
             {{ productsContent[currentDetail].title }}
-            <NuxtImg class="icon" :src="productsContent[currentDetail].icon" />
+            <NuxtImg
+              class="icon"
+              :src="productsContent[currentDetail].icon"
+              alt=""
+            />
           </div>
           <div class="content">
             {{ productsContent[currentDetail].description }}
           </div>
-          <NuxtImg src="ui/back.svg" class="back" @click="setDetail(null)" />
+          <NuxtImg
+            src="ui/back.svg"
+            class="back"
+            alt="返回"
+            @click="setDetail(null)"
+          />
         </div>
       </Transition>
     </div>

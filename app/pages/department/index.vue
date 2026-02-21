@@ -14,7 +14,11 @@ const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL
       我们的部门
     </JHLabel>
     <JHCard title="部门结构" type="large">
-      <NuxtImg src="common/structPc.webp" style="width: 100%" />
+      <NuxtImg
+        src="common/structPc.webp"
+        style="width: 100%"
+        alt="部门结构图"
+      />
     </JHCard>
     <div class="base" :class="pageStore.pageSize">
       <div class="item" @click="navigateTo('/department/ganshi')">

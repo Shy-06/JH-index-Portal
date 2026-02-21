@@ -9,13 +9,13 @@ const currentEvent = computed(() => historyEvents[eventNow.value]!)
   <JHLabel type="title">精弘大事记</JHLabel>
   <div class="base-pc">
     <div class="history-left">
-      <NuxtImg :src="currentEvent.img" border="10" />
+      <NuxtImg :src="currentEvent.img" border="10" :alt="currentEvent.name" />
       <div class="event-name">{{ currentEvent.name }}</div>
     </div>
     <div class="history-right">
       <div class="time">{{ currentEvent.time }}</div>
       <div class="content">{{ currentEvent.content }}</div>
-      <NuxtImg src="jingxiaohong/jingxiaohong.webp" />
+      <NuxtImg src="jingxiaohong/jingxiaohong.webp" alt="精小弘" />
     </div>
   </div>
   <div class="choices-container">

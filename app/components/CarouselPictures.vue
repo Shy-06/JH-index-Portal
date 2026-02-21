@@ -90,7 +90,7 @@ onUnmounted(() => {
             :class="carouselClass[index]"
             @click="changePicture($event)"
           >
-            <NuxtImg :src="item" />
+            <NuxtImg :src="item" :alt="'轮播图 ' + (index + 1)" />
             <div />
           </li>
         </ul>

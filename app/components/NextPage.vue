@@ -1,7 +1,7 @@
 <template>
   <JHButton type="middle" class="btn">
     <slot />
-    <NuxtImg src="ui/rightArrow.svg" class="right-arrow" />
+    <NuxtImg src="ui/rightArrow.svg" class="right-arrow" alt="" />
   </JHButton>
 </template>
 

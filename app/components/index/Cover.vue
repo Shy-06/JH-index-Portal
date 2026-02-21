@@ -5,7 +5,7 @@ const pageStore = usePageStore()
 <template>
   <div class="start" :class="pageStore.pageSize">
     <div class="title" :class="pageStore.pageSize">精弘网络,取精用弘</div>
-    <NuxtImg class="downArrow" src="ui/downArrow.svg" />
+    <NuxtImg class="downArrow" src="ui/downArrow.svg" alt="" />
   </div>
 </template>
 

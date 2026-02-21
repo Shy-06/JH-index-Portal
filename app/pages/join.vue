@@ -13,7 +13,7 @@ function toRecruit() {
 <template>
   <JHCard title="加入我们" type="large">
     <div class="base" :class="pageStore.pageSize">
-      <NuxtImg class="poster" :src="posterImage" />
+      <NuxtImg class="poster" :src="posterImage" alt="招新海报" />
       <div class="detail-base" :class="pageStore.pageSize">
         <div class="introduce" :class="pageStore.pageSize">
           <JHButton
@@ -56,6 +56,7 @@ function toRecruit() {
               <NuxtImg
                 provider="wechatOpen"
                 :src="useRuntimeConfig().public.contact.wechat.jhwl"
+                alt="精弘网络 微信二维码"
               />
               精弘网络
             </div>
@@ -63,6 +64,7 @@ function toRecruit() {
               <NuxtImg
                 provider="wechatOpen"
                 :src="useRuntimeConfig().public.contact.wechat.jxhzx"
+                alt="精小弘在线 微信二维码"
               />
               精小弘在线
             </div>

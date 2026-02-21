@@ -28,12 +28,13 @@ const pageStore = usePageStore()
           v-if="pageStore.pageSize == 'normal'"
           class="shiming-img"
           src="temp/shiming.webp"
+          alt=""
         />
         <div v-else class="shiming-imgs" :class="pageStore.pageSize">
-          <NuxtImg class="shiming-imgs-img" src="temp/shiming1.webp" />
-          <NuxtImg class="shiming-imgs-img" src="temp/shiming2.webp" />
-          <NuxtImg class="shiming-imgs-img" src="temp/shiming3.webp" />
-          <NuxtImg class="shiming-imgs-img" src="temp/shiming4.webp" />
+          <NuxtImg class="shiming-imgs-img" src="temp/shiming1.webp" alt="" />
+          <NuxtImg class="shiming-imgs-img" src="temp/shiming2.webp" alt="" />
+          <NuxtImg class="shiming-imgs-img" src="temp/shiming3.webp" alt="" />
+          <NuxtImg class="shiming-imgs-img" src="temp/shiming4.webp" alt="" />
         </div>
         <div class="shiming" :class="pageStore.pageSize">
           <h2>{{ missionContent.title }}</h2>
@@ -60,18 +61,38 @@ const pageStore = usePageStore()
     </JHCard>
     <JHCard type="large" title="生活社交">
       <div class="shenghuo" :class="pageStore.pageSize">
-        <NuxtImg id="img1" src="groupPhoto/shenghuo0.webp" />
+        <NuxtImg
+          id="img1"
+          src="groupPhoto/shenghuo0.webp"
+          alt="生活社交照片 1"
+        />
         <div class="content">
           {{ socialLifeContent[0] }}
         </div>
-        <NuxtImg id="img2" src="groupPhoto/shenghuo1.webp" />
+        <NuxtImg
+          id="img2"
+          src="groupPhoto/shenghuo1.webp"
+          alt="生活社交照片 2"
+        />
         <div class="content">
           {{ socialLifeContent[1] }}
         </div>
-        <NuxtImg id="img3" src="groupPhoto/shenghuo2.webp" />
+        <NuxtImg
+          id="img3"
+          src="groupPhoto/shenghuo2.webp"
+          alt="生活社交照片 3"
+        />
         <div class="shenghuo-imgs">
-          <NuxtImg id="img4" src="groupPhoto/shenghuo3.webp" />
-          <NuxtImg id="img5" src="groupPhoto/shenghuo4.webp" />
+          <NuxtImg
+            id="img4"
+            src="groupPhoto/shenghuo3.webp"
+            alt="生活社交照片 4"
+          />
+          <NuxtImg
+            id="img5"
+            src="groupPhoto/shenghuo4.webp"
+            alt="生活社交照片 5"
+          />
         </div>
         <div class="content">
           {{ socialLifeContent[2] }}
