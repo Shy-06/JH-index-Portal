@@ -1,11 +1,18 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
-const cubeBaseURL = 'https://img.phlin.cn/api/file?bucket=homepage&object_key='
+const cubeBaseURL =
+  'https://img.phlin.cn/api/file?update=1&bucket=homepage&object_key='
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-01',
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/seo', '@nuxt/eslint'],
+  modules: [
+    '@pinia/nuxt',
+    '@nuxt/image',
+    '@nuxtjs/seo',
+    '@nuxt/eslint',
+    '@nuxt/fonts',
+  ],
   routeRules: { '/': { prerender: true } },
   css: ['assets/css/main.scss'],
   sitemap: { zeroRuntime: true },
@@ -74,6 +81,33 @@ export default defineNuxtConfig({
     },
   },
 
+  fonts: {
+    families: [
+      {
+        name: 'AliSans-EN',
+        display: 'swap',
+        src: [
+          { name: 'Alibaba Sans' },
+          {
+            url: `${cubeBaseURL}fonts/AlibabaSans-Regular.woff2`,
+            format: 'woff2',
+          },
+        ],
+      },
+      {
+        name: 'ZLY-song',
+        display: 'swap',
+        src: [
+          { name: 'A19' },
+          {
+            url: `${cubeBaseURL}fonts/subset-ZoomlaYasong.woff2`,
+            format: 'woff2',
+          },
+        ],
+      },
+    ],
+  },
+
   schemaOrg: {
     identity: {
       type: 'Organization',
@@ -88,6 +122,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: { lang: 'zh-CN' },
       meta: [
         { charset: 'utf-8' },
         {
@@ -106,7 +141,11 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', href: '/favicon.png' },
         { rel: 'shortcut icon', href: '/favicon.png' },
         { rel: 'bookmark', href: '/favicon.png' },
-        { rel: 'dns-prefetch', href: `//${new URL(cubeBaseURL).hostname}` },
+        {
+          rel: 'preconnect',
+          href: `//${new URL(cubeBaseURL).hostname}`,
+          crossorigin: '',
+        },
         { rel: 'dns-prefetch', href: '//open.weixin.qq.com' },
         { rel: 'dns-prefetch', href: '//open-api.cli.im' },
       ],
