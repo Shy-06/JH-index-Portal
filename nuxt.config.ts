@@ -6,13 +6,7 @@ const cubeBaseURL =
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-01',
   devtools: { enabled: true },
-  modules: [
-    '@pinia/nuxt',
-    '@nuxt/image',
-    '@nuxtjs/seo',
-    '@nuxt/eslint',
-    '@nuxt/fonts',
-  ],
+  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/seo', '@nuxt/eslint'],
   routeRules: { '/': { prerender: true } },
   css: ['assets/css/main.scss'],
   sitemap: { zeroRuntime: true },
@@ -79,33 +73,6 @@ export default defineNuxtConfig({
         provider: '~/providers/cliQR',
       },
     },
-  },
-
-  fonts: {
-    families: [
-      {
-        name: 'AliSans-EN',
-        display: 'swap',
-        src: [
-          { name: 'Alibaba Sans' },
-          {
-            url: `${cubeBaseURL}fonts/AlibabaSans-Regular.woff2`,
-            format: 'woff2',
-          },
-        ],
-      },
-      {
-        name: 'ZLY-song',
-        display: 'swap',
-        src: [
-          { name: 'A19' },
-          {
-            url: `${cubeBaseURL}fonts/subset-ZoomlaYasong.woff2`,
-            format: 'woff2',
-          },
-        ],
-      },
-    ],
   },
 
   schemaOrg: {

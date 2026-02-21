@@ -7,10 +7,6 @@
     "nuxt-seo": {
       "url": "https://nuxtseo.com/mcp",
       "type": "http"
-    },
-    "nuxt-fonts": {
-      "url": "https://fonts.nuxt.com/mcp",
-      "type": "http"
     }
   },
   "inputs": []

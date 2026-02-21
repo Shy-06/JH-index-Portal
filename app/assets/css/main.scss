@@ -49,6 +49,20 @@ html {
   background-color: var(--bg-color);
 }
 
+@font-face {
+  font-family: 'AliSans-EN';
+  src:
+    local('Alibaba Sans'),
+    url('#{$cubeBaseURL}fonts/AlibabaSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ZLY-song';
+  src:
+    local('A19'),
+    url('#{$cubeBaseURL}fonts/subset-ZoomlaYasong.woff2') format('woff2');
+}
+
 * {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
