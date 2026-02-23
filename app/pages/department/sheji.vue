@@ -7,10 +7,10 @@ useSeoMeta({ title: "设计服务中心 | 我们的部门" });
 
 <template>
   <div>
-    <JHLabel type="big">设计服务中心</JHLabel>
-    <JHCard type="large" :title="departmentContent.design.title">
+    <JhLabel type="big">设计服务中心</JhLabel>
+    <JhCard type="large" :title="departmentContent.design.title">
       <CarouselPictures :imgs="designImages" />
-      <JHLabel type="small">部门介绍</JHLabel>
+      <JhLabel type="small">部门介绍</JhLabel>
       <div
         v-for="(para, index) in departmentContent.design.introduction"
         :key="index"
@@ -19,7 +19,7 @@ useSeoMeta({ title: "设计服务中心 | 我们的部门" });
         {{ para }}
       </div>
 
-      <JHLabel type="small">招新宣言</JHLabel>
+      <JhLabel type="small">招新宣言</JhLabel>
       <div
         v-for="(para, index) in departmentContent.design.recruitment"
         :key="index"
@@ -27,7 +27,7 @@ useSeoMeta({ title: "设计服务中心 | 我们的部门" });
       >
         {{ para }}
       </div>
-    </JHCard>
+    </JhCard>
     <CloseButton />
   </div>
 </template>

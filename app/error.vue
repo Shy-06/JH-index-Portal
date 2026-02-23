@@ -18,7 +18,7 @@ const handleClearError = () => {
 <template>
   <div>
     <PageTop />
-    <JHCard title="页面出错了" type="large">
+    <JhCard title="页面出错了" type="large">
       <h1 class="error-code">{{ error.status || 500 }}</h1>
       <p class="error-message">
         {{ error.message || "发生了一个错误" }}
@@ -32,10 +32,10 @@ const handleClearError = () => {
       </DevOnly>
 
       <div class="actions">
-        <JHButton type="middle" @click="handleClearError">返回首页</JHButton>
-        <JHButton type="middle" @click="useRouter().back()"> 返回上一页 </JHButton>
+        <JhButton type="middle" @click="handleClearError">返回首页</JhButton>
+        <JhButton type="middle" @click="useRouter().back()"> 返回上一页 </JhButton>
       </div>
-    </JHCard>
+    </JhCard>
     <PageFooter />
   </div>
 </template>

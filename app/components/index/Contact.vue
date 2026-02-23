@@ -1,6 +1,6 @@
 <template>
   <div class="contact-base" :class="pageStore.pageSize">
-    <JHCard type="small">
+    <JhCard type="small">
       <div class="loading" :class="pageStore.pageSize">
         <div style="color: var(--primary-color); margin: 0; font-size: 2em; font-weight: bold">
           {{ useRuntimeConfig().public.lastUpdateYear }}
@@ -10,7 +10,7 @@
         </div>
         <div style="color: var(--primary-color); font-size: 24px">Loading...</div>
       </div>
-    </JHCard>
+    </JhCard>
 
     <NuxtImg
       class="jh"
@@ -20,7 +20,7 @@
       alt="精弘网络"
     />
 
-    <JHCard type="small">
+    <JhCard type="small">
       <div class="contact-us" :class="pageStore.pageSize">
         <NuxtImg class="platform" src="ui/wechat.svg" alt="微信公众号" @mouseover="onMouseOver" />
         <NuxtImg
@@ -47,16 +47,16 @@
           @click="toGithub"
         />
       </div>
-    </JHCard>
+    </JhCard>
 
-    <JHCard type="small" class="join">
+    <JhCard type="small" class="join">
       <h2 class="join-content">精弘诚聘</h2>
-      <JHButton
+      <JhButton
         :type="pageStore.pageSize == 'mini' ? 'mini' : 'middle'"
         @click="() => navigateTo('/join')"
         >加入我们
-      </JHButton>
-    </JHCard>
+      </JhButton>
+    </JhCard>
   </div>
 </template>
 

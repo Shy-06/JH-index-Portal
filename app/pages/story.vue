@@ -16,10 +16,10 @@ const pageStore = usePageStore();
 
 <template>
   <div>
-    <JHLabel v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'" type="title">
+    <JhLabel v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'" type="title">
       我们的故事
-    </JHLabel>
-    <JHCard type="large" title="我们的使命">
+    </JhLabel>
+    <JhCard type="large" title="我们的使命">
       <div class="shiming-base" :class="pageStore.pageSize">
         <NuxtImg
           v-if="pageStore.pageSize == 'normal'"
@@ -40,8 +40,8 @@ const pageStore = usePageStore();
           }}</pre>
         </div>
       </div>
-    </JHCard>
-    <JHCard type="large" title="精弘毅行">
+    </JhCard>
+    <JhCard type="large" title="精弘毅行">
       <CarouselPictures :imgs="yixingImages" />
       <div class="yixing-content" :class="pageStore.pageSize">
         {{ yixingContent[0] }}
@@ -49,14 +49,14 @@ const pageStore = usePageStore();
       <div class="yixing-content" :class="pageStore.pageSize">
         {{ yixingContent[1] }}
       </div>
-    </JHCard>
-    <JHCard type="large" title="网络育人">
+    </JhCard>
+    <JhCard type="large" title="网络育人">
       <CarouselPictures :imgs="yurenImages" />
       <div class="yixing-content" :class="pageStore.pageSize">
         {{ yurenContent }}
       </div>
-    </JHCard>
-    <JHCard type="large" title="生活社交">
+    </JhCard>
+    <JhCard type="large" title="生活社交">
       <div class="shenghuo" :class="pageStore.pageSize">
         <NuxtImg id="img1" src="groupPhoto/shenghuo0.webp" alt="生活社交照片 1" />
         <div class="content">
@@ -75,10 +75,10 @@ const pageStore = usePageStore();
           {{ socialLifeContent[2] }}
         </div>
       </div>
-    </JHCard>
+    </JhCard>
 
     <div class="jiyu">
-      <JHLabel type="title">前辈寄语</JHLabel>
+      <JhLabel type="title">前辈寄语</JhLabel>
       <CarouselCards :card="persons" :type="pageStore.pageSize" />
     </div>
 

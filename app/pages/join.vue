@@ -11,15 +11,15 @@ function toRecruit() {
 </script>
 
 <template>
-  <JHCard title="加入我们" type="large">
+  <JhCard title="加入我们" type="large">
     <div class="base" :class="pageStore.pageSize">
       <NuxtImg class="poster" :src="posterImage" alt="招新海报" />
       <div class="detail-base" :class="pageStore.pageSize">
         <div class="introduce" :class="pageStore.pageSize">
-          <JHButton type="middle" style="position: relative; margin-bottom: 20px" @click="toRecruit"
+          <JhButton type="middle" style="position: relative; margin-bottom: 20px" @click="toRecruit"
             >点我报名
-          </JHButton>
-          <JHLabel type="nano">线下摆摊</JHLabel>
+          </JhButton>
+          <JhLabel type="nano">线下摆摊</JhLabel>
           <div class="content">
             <div>朝晖: {{ recruitmentInfo.offline.chaohuiDate }}</div>
             <div>地址：{{ recruitmentInfo.offline.chaohuiLocation }}</div>
@@ -27,12 +27,12 @@ function toRecruit() {
             <div>地址：{{ recruitmentInfo.offline.pingfengLocation }}</div>
           </div>
 
-          <JHLabel type="nano">招新宣讲</JHLabel>
+          <JhLabel type="nano">招新宣讲</JhLabel>
           <div class="content">
             <div>朝晖: {{ recruitmentInfo.presentation.chaohuiDate }}</div>
             <div>地址: {{ recruitmentInfo.presentation.chaohuiLocation }}</div>
           </div>
-          <JHLabel type="nano">招新群号</JHLabel>
+          <JhLabel type="nano">招新群号</JhLabel>
           <div class="content">
             <div v-for="group in recruitmentInfo.recruitmentGroups" :key="group.number" class="row">
               <span>{{ group.name }}</span
@@ -41,7 +41,7 @@ function toRecruit() {
           </div>
         </div>
         <div class="qr">
-          <JHLabel type="nano">最新动态</JHLabel>
+          <JhLabel type="nano">最新动态</JhLabel>
           <div class="qr-base">
             <div class="qr-code">
               <NuxtImg
@@ -63,7 +63,7 @@ function toRecruit() {
         </div>
       </div>
     </div>
-  </JHCard>
+  </JhCard>
 </template>
 
 <style scoped lang="scss">

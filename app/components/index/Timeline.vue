@@ -22,7 +22,7 @@ const hasMeasured = computed(
 </script>
 
 <template>
-  <JHCard title="精弘成长史" type="large">
+  <JhCard title="精弘成长史" type="large">
     <div ref="history" class="history">
       <div ref="historyLine" class="history-line">
         <div
@@ -51,7 +51,7 @@ const hasMeasured = computed(
         </div>
       </div>
     </div>
-  </JHCard>
+  </JhCard>
 </template>
 
 <style scoped lang="scss">

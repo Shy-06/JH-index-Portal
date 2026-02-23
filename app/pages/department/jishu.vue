@@ -7,21 +7,21 @@ useSeoMeta({ title: "技术研发中心 | 我们的部门" });
 
 <template>
   <div>
-    <JHLabel type="big">技术研发中心</JHLabel>
-    <JHCard type="large" title="产研部">
+    <JhLabel type="big">技术研发中心</JhLabel>
+    <JhCard type="large" title="产研部">
       <CarouselPictures :imgs="technologyImages" />
-      <JHLabel type="big">产品</JHLabel>
+      <JhLabel type="big">产品</JhLabel>
 
-      <JHLabel type="small">部门介绍</JHLabel>
+      <JhLabel type="small">部门介绍</JhLabel>
       <div class="content">
         {{ departmentContent.product.introduction }}
       </div>
-      <JHLabel type="small">招新宣言</JHLabel>
+      <JhLabel type="small">招新宣言</JhLabel>
       <div class="content">
         {{ departmentContent.product.recruitment }}
       </div>
-      <JHLabel type="big" style="margin-top: 5%">技术</JHLabel>
-      <JHLabel type="small">部门介绍</JHLabel>
+      <JhLabel type="big" style="margin-top: 5%">技术</JhLabel>
+      <JhLabel type="small">部门介绍</JhLabel>
       <div
         v-for="(para, index) in departmentContent.technology.introduction"
         :key="index"
@@ -29,7 +29,7 @@ useSeoMeta({ title: "技术研发中心 | 我们的部门" });
       >
         {{ para }}
       </div>
-      <JHLabel type="small">招新宣言</JHLabel>
+      <JhLabel type="small">招新宣言</JhLabel>
       <div
         v-for="(para, index) in departmentContent.technology.recruitment"
         :key="index"
@@ -37,7 +37,7 @@ useSeoMeta({ title: "技术研发中心 | 我们的部门" });
       >
         {{ para }}
       </div>
-    </JHCard>
+    </JhCard>
     <CloseButton />
   </div>
 </template>

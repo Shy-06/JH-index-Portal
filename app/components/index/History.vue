@@ -6,7 +6,7 @@ const currentEvent = computed(() => historyEvents[eventNow.value]);
 </script>
 
 <template>
-  <JHLabel type="title">精弘大事记</JHLabel>
+  <JhLabel type="title">精弘大事记</JhLabel>
   <div class="base-pc">
     <div class="history-left">
       <NuxtImg :src="currentEvent.img" border="10" :alt="currentEvent.name" />

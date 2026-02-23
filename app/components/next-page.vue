@@ -1,8 +1,8 @@
 <template>
-  <JHButton type="middle" class="btn">
+  <JhButton type="middle" class="btn">
     <slot />
     <NuxtImg src="ui/rightArrow.svg" class="right-arrow" alt="" />
-  </JHButton>
+  </JhButton>
 </template>
 
 <style scoped lang="scss">

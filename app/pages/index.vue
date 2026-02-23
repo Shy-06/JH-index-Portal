@@ -15,7 +15,7 @@ useSeoMeta({
     <History v-if="usePageStore().pageSize === 'normal'" />
     <template v-else>
       <Timeline />
-      <JHCard title="我们的故事" type="large">
+      <JhCard title="我们的故事" type="large">
         <div class="story-content">{{ indexStoryContent[0] }}</div>
         <div class="story-content">{{ indexStoryContent[1] }}</div>
         <NuxtImg
@@ -24,7 +24,7 @@ useSeoMeta({
           alt="我们的故事"
         />
         <NextPage @click="navigateTo('/story')"> 我们的故事 </NextPage>
-      </JHCard>
+      </JhCard>
     </template>
     <Contact />
   </div>

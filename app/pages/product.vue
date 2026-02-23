@@ -35,12 +35,12 @@ onUnmounted(() => {
 
 <template>
   <div>
-    <JHLabel v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'" type="title">
+    <JhLabel v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'" type="title">
       我们的产品
-    </JHLabel>
+    </JhLabel>
     <!-- MARK: 宽屏 -->
     <div v-if="pageStore.pageSize == 'normal'" class="base normal">
-      <JHCard type="large" :title="productsContent.wechat.title">
+      <JhCard type="large" :title="productsContent.wechat.title">
         <div class="wechat">
           <div class="introduction">
             {{ productsContent.wechat.description }}
@@ -62,8 +62,8 @@ onUnmounted(() => {
             <h3>精小弘在线</h3>
           </div>
         </div>
-      </JHCard>
-      <JHCard type="large" :title="productsContent.wejh.title">
+      </JhCard>
+      <JhCard type="large" :title="productsContent.wejh.title">
         <div class="introduction">{{ productsContent.wejh.description }}</div>
         <NuxtImg
           id="wejh-code"
@@ -71,8 +71,8 @@ onUnmounted(() => {
           :alt="productsContent.wejh.title + ' 小程序二维码'"
         />
         <h3>微精弘小程序</h3>
-      </JHCard>
-      <JHCard type="large" :title="productsContent.visual.title">
+      </JhCard>
+      <JhCard type="large" :title="productsContent.visual.title">
         <div class="visual">
           <div class="introduction">
             {{ productsContent.visual.description }}
@@ -95,8 +95,8 @@ onUnmounted(() => {
             <h3>微信视频号</h3>
           </div>
         </div>
-      </JHCard>
-      <JHCard type="large" :title="productsContent.email.title">
+      </JhCard>
+      <JhCard type="large" :title="productsContent.email.title">
         <div class="introduction">{{ productsContent.email.description }}</div>
         <h3>
           邮箱系统网址：<a :href="productsContent.email.url">
@@ -104,31 +104,31 @@ onUnmounted(() => {
           </a>
         </h3>
         <NuxtImg id="email-img" :src="productsContent.email.icon" alt="" />
-      </JHCard>
+      </JhCard>
     </div>
 
     <!-- MARK: 窄屏 -->
     <div v-else>
-      <JHCard type="large">
+      <JhCard type="large">
         <div class="base" :class="pageStore.pageSize">
           <div class="product-item" @click="setDetail('wejh')">
             <NuxtImg :src="productsContent.wejh.icon" alt="" />
-            <JHButton type="middle"> 微信小程序 </JHButton>
+            <JhButton type="middle"> 微信小程序 </JhButton>
           </div>
           <div class="product-item" @click="setDetail('wechat')">
             <NuxtImg :src="productsContent.wechat.icon" alt="" />
-            <JHButton type="middle"> 微信服务号 </JHButton>
+            <JhButton type="middle"> 微信服务号 </JhButton>
           </div>
           <div class="product-item" @click="setDetail('visual')">
             <NuxtImg :src="productsContent.visual.icon" alt="" />
-            <JHButton type="middle"> 视觉影像 </JHButton>
+            <JhButton type="middle"> 视觉影像 </JhButton>
           </div>
           <div class="product-item" @click="setDetail('email')">
             <NuxtImg :src="productsContent.email.icon" alt="" />
-            <JHButton type="middle"> 学生邮箱 </JHButton>
+            <JhButton type="middle"> 学生邮箱 </JhButton>
           </div>
         </div>
-      </JHCard>
+      </JhCard>
 
       <!-- MARK: 窄屏详情 -->
       <Transition name="fade">

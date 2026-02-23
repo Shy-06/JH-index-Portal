@@ -10,9 +10,8 @@ export default {
       typeof to.meta.scrollToTop === "function"
         ? to.meta.scrollToTop(to, from)
         : to.meta.scrollToTop;
-    if (routeAllowsScrollToTop !== false) {
-      if (to.path.replace(/\/$/, "") === from.path.replace(/\/$/, "")) return { left: 0, top: 0 };
-    }
-    return false;
+    if (routeAllowsScrollToTop === false) return false;
+    if (to.path.replace(/\/$/, "") === from.path.replace(/\/$/, "")) return false;
+    return { left: 0, top: 0 };
   }
 } satisfies RouterConfig;

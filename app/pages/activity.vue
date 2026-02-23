@@ -8,21 +8,21 @@ const pageStore = usePageStore();
 
 <template>
   <div>
-    <JHLabel v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'" type="title">
+    <JhLabel v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'" type="title">
       我们的活动
-    </JHLabel>
-    <JHCard title="ACM新生赛" type="large">
+    </JhLabel>
+    <JhCard title="ACM新生赛" type="large">
       <div class="base" :class="pageStore.pageSize">
         <NuxtImg class="poster" :src="acmCompetitionInfo.posterImage" alt="海报" />
         <div class="detail-base" :class="pageStore.pageSize">
           <div class="introduce" :class="pageStore.pageSize">
-            <JHLabel type="nano">活动介绍</JHLabel>
+            <JhLabel type="nano">活动介绍</JhLabel>
             <div class="content">
               <pre style="white-space: pre-wrap; font-family: inherit">{{
                 acmCompetitionInfo.introduction
               }}</pre>
             </div>
-            <JHLabel type="nano">竞赛群号</JHLabel>
+            <JhLabel type="nano">竞赛群号</JhLabel>
             <div class="content">{{ acmCompetitionInfo.competitionGroup }}</div>
           </div>
           <div class="qr">
@@ -34,7 +34,7 @@ const pageStore = usePageStore();
           </div>
         </div>
       </div>
-    </JHCard>
+    </JhCard>
     <NextPage @click="navigateTo('/join')"> 加入我们 </NextPage>
   </div>
 </template>

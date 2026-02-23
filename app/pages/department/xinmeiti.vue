@@ -7,10 +7,10 @@ useSeoMeta({ title: "新媒体中心 | 我们的部门" });
 
 <template>
   <div>
-    <JHLabel type="big">新媒体中心</JHLabel>
-    <JHCard type="large" :title="departmentContent.visual.title">
+    <JhLabel type="big">新媒体中心</JhLabel>
+    <JhCard type="large" :title="departmentContent.visual.title">
       <CarouselPictures :imgs="visualImages" />
-      <JHLabel type="small">部门介绍</JHLabel>
+      <JhLabel type="small">部门介绍</JhLabel>
       <div
         v-for="(para, index) in departmentContent.visual.introduction"
         :key="index"
@@ -19,7 +19,7 @@ useSeoMeta({ title: "新媒体中心 | 我们的部门" });
         {{ para }}
       </div>
 
-      <JHLabel type="small">招新宣言</JHLabel>
+      <JhLabel type="small">招新宣言</JhLabel>
       <div
         v-for="(para, index) in departmentContent.visual.recruitment"
         :key="index"
@@ -27,11 +27,11 @@ useSeoMeta({ title: "新媒体中心 | 我们的部门" });
       >
         {{ para }}
       </div>
-    </JHCard>
+    </JhCard>
 
-    <JHCard type="large" :title="departmentContent.editorial.title">
+    <JhCard type="large" :title="departmentContent.editorial.title">
       <CarouselPictures :imgs="editorialImages" />
-      <JHLabel type="small">部门介绍</JHLabel>
+      <JhLabel type="small">部门介绍</JhLabel>
       <div
         v-for="(para, index) in departmentContent.editorial.introduction"
         :key="index"
@@ -40,7 +40,7 @@ useSeoMeta({ title: "新媒体中心 | 我们的部门" });
         {{ para }}
       </div>
 
-      <JHLabel type="small">招新宣言</JHLabel>
+      <JhLabel type="small">招新宣言</JhLabel>
       <div
         v-for="(para, index) in departmentContent.editorial.recruitment"
         :key="index"
@@ -48,7 +48,7 @@ useSeoMeta({ title: "新媒体中心 | 我们的部门" });
       >
         {{ para }}
       </div>
-    </JHCard>
+    </JhCard>
 
     <CloseButton />
   </div>
