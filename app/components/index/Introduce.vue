@@ -1,16 +1,12 @@
 <script setup lang="ts">
-import { introduceContent } from '~~/constants/index'
+import { introduceContent } from "~~/constants/index";
 
-const pageStore = usePageStore()
+const pageStore = usePageStore();
 </script>
 
 <template>
   <div class="base" :class="pageStore.pageSize">
-    <NuxtImg
-      v-if="!(pageStore.pageSize == 'mini')"
-      src="jingxiaohong/xiaohongLeft.webp"
-      alt=""
-    />
+    <NuxtImg v-if="!(pageStore.pageSize == 'mini')" src="jingxiaohong/xiaohongLeft.webp" alt="" />
     <div class="introduce">
       <div class="title">{{ introduceContent.title[pageStore.pageSize] }}</div>
       <div class="content" :class="pageStore.pageSize">
@@ -19,14 +15,10 @@ const pageStore = usePageStore()
         </p>
       </div>
     </div>
-    <NuxtImg
-      v-if="!(pageStore.pageSize == 'mini')"
-      src="jingxiaohong/xiaohongRight.webp"
-      alt=""
-    />
+    <NuxtImg v-if="!(pageStore.pageSize == 'mini')" src="jingxiaohong/xiaohongRight.webp" alt="" />
   </div>
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/components/Introduce.scss';
+@use "~/assets/css/components/Introduce.scss";
 </style>

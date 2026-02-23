@@ -26,9 +26,9 @@
     "yuren",
     "zjut",
     "zjuter",
+    "zjutjh",
     "ZoomlaYasong"
   ],
   "eslint.useFlatConfig": true,
-  "eslint.lintTask.enable": true,
-  "git.autofetch": true
+  "eslint.validate": ["vue", "typescript"]
 }

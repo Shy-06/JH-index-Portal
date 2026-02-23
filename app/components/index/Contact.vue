@@ -2,22 +2,13 @@
   <div class="contact-base" :class="pageStore.pageSize">
     <JHCard type="small">
       <div class="loading" :class="pageStore.pageSize">
-        <div
-          style="
-            color: var(--primary-color);
-            margin: 0;
-            font-size: 2em;
-            font-weight: bold;
-          "
-        >
+        <div style="color: var(--primary-color); margin: 0; font-size: 2em; font-weight: bold">
           {{ useRuntimeConfig().public.lastUpdateYear }}
         </div>
         <div class="loading-bar-border">
           <div class="loading-bar" :style="{ left: loadingWidth + '%' }" />
         </div>
-        <div style="color: var(--primary-color); font-size: 24px">
-          Loading...
-        </div>
+        <div style="color: var(--primary-color); font-size: 24px">Loading...</div>
       </div>
     </JHCard>
 
@@ -31,12 +22,7 @@
 
     <JHCard type="small">
       <div class="contact-us" :class="pageStore.pageSize">
-        <NuxtImg
-          class="platform"
-          src="ui/wechat.svg"
-          alt="微信公众号"
-          @mouseover="onMouseOver"
-        />
+        <NuxtImg class="platform" src="ui/wechat.svg" alt="微信公众号" @mouseover="onMouseOver" />
         <NuxtImg
           v-show="isHovering"
           provider="wechatOpen"
@@ -75,32 +61,32 @@
 </template>
 
 <script setup lang="ts">
-const pageStore = usePageStore()
-const loadingWidth = ref(0)
-const isHovering = ref(false)
+const pageStore = usePageStore();
+const loadingWidth = ref(0);
+const isHovering = ref(false);
 function onMouseOver() {
-  isHovering.value = true
+  isHovering.value = true;
 }
 function onMouseOut() {
-  isHovering.value = false
+  isHovering.value = false;
 }
 function toGithub() {
-  window.location.href = useRuntimeConfig().public.contact.github
+  window.location.href = useRuntimeConfig().public.contact.github;
 }
 
-let loadingBarTimer: number
+let loadingBarTimer: number;
 onMounted(() => {
   loadingBarTimer = window.setInterval(() => {
     if (loadingWidth.value >= 0) {
-      loadingWidth.value = -100
+      loadingWidth.value = -100;
     } else {
-      loadingWidth.value += 0.2
+      loadingWidth.value += 0.2;
     }
-  }, 10)
-})
+  }, 10);
+});
 onUnmounted(() => {
-  clearInterval(loadingBarTimer)
-})
+  clearInterval(loadingBarTimer);
+});
 </script>
 
 <style scoped lang="scss">

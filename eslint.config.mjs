@@ -1,16 +1,10 @@
-import { createConfigForNuxt } from '@nuxt/eslint-config'
-import eslintConfigPrettier from 'eslint-config-prettier/flat'
-import eslintPluginPrettier from 'eslint-plugin-prettier'
+// @ts-check
+import zjutjh from "@zjutjh/eslint-config";
 
-export default createConfigForNuxt({
-  features: { tooling: true },
-})
-  .append({
-    plugins: {
-      prettier: eslintPluginPrettier,
-    },
-    rules: {
-      'prettier/prettier': 'warn',
-    },
+import withNuxt from "./.nuxt/eslint.config.mjs";
+
+export default withNuxt(
+  zjutjh({
+    prettier: true
   })
-  .append(eslintConfigPrettier)
+);

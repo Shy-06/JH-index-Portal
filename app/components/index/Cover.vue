@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const pageStore = usePageStore()
+const pageStore = usePageStore();
 </script>
 
 <template>
@@ -21,27 +21,27 @@ const pageStore = usePageStore()
   &.normal {
     background:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('#{$cubeBaseURL}groupPhoto/2024.webp') no-repeat center;
+      url("#{$cubeBaseURL}groupPhoto/2024.webp") no-repeat center;
     background-size: cover;
   }
 
   &.middle {
     background:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('#{$cubeBaseURL}common/startPc.webp') no-repeat center;
+      url("#{$cubeBaseURL}common/startPc.webp") no-repeat center;
     background-size: cover;
   }
 
   &.mini {
     background:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('#{$cubeBaseURL}common/startMobile.webp') no-repeat center;
+      url("#{$cubeBaseURL}common/startMobile.webp") no-repeat center;
     background-size: cover;
   }
 
   .title {
     color: white;
-    font-family: 'ZLY-song';
+    font-family: "ZLY-song";
 
     &.normal,
     &.middle {

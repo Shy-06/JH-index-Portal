@@ -1,23 +1,24 @@
 <script setup lang="ts">
-import { historyEvents } from '~~/constants/index'
-import { useElementBounding } from '@vueuse/core'
+import { useElementBounding } from "@vueuse/core";
 
-const angle = (Math.atan(0.5) * 180) / Math.PI + 'deg'
-const angle2 = (-Math.atan(0.5) * 180) / Math.PI + 'deg'
-const scale = 1 / Math.cos(Math.atan(0.5))
+import { historyEvents } from "~~/constants/index";
+
+const angle = `${(Math.atan(0.5) * 180) / Math.PI}deg`;
+const angle2 = `${(-Math.atan(0.5) * 180) / Math.PI}deg`;
+const scale = 1 / Math.cos(Math.atan(0.5));
 const styleVal = (index: number) => {
   return {
-    '--angle': index % 2 === 0 ? angle : angle2,
-    '--scale': scale,
-    '--border': index % 2 === 0 ? 'dashed' : 'solid',
-    '--line_seen': index === historyEvents.length - 1 ? 'none' : 'block',
-  }
-}
-const historyLine = ref<HTMLElement | null>(null)
-const { top: historyLineTop } = useElementBounding(historyLine)
+    "--angle": index % 2 === 0 ? angle : angle2,
+    "--scale": scale,
+    "--border": index % 2 === 0 ? "dashed" : "solid",
+    "--line_seen": index === historyEvents.length - 1 ? "none" : "block"
+  };
+};
+const historyLine = ref<HTMLElement | null>(null);
+const { top: historyLineTop } = useElementBounding(historyLine);
 const hasMeasured = computed(
-  () => historyLine.value !== null && Number.isFinite(historyLineTop.value),
-)
+  () => historyLine.value !== null && Number.isFinite(historyLineTop.value)
+);
 </script>
 
 <template>
@@ -36,11 +37,10 @@ const hasMeasured = computed(
               index % 2 === 0 ? 'history-img1' : 'history-img2',
               hasMeasured && historyLineTop < 487 - (index - 2) * 80 - 60
                 ? 'history-img'
-                : 'history-img-hide',
+                : 'history-img-hide'
             ]"
             :style="{
-              'background-image':
-                'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')',
+              'background-image': 'url(' + useRuntimeConfig().public.cubeBaseURL + item.img + ')'
             }"
           >
             <div class="history-content">
@@ -67,7 +67,7 @@ const hasMeasured = computed(
   height: 5rem;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;

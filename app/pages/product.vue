@@ -1,44 +1,41 @@
 <script lang="ts" setup>
-import { productsContent } from '~~/constants/product'
+import { productsContent } from "~~/constants/product";
 
-definePageMeta({ pageNo: 2 })
-useSeoMeta({ title: '我们的产品' })
+definePageMeta({ pageNo: 2 });
+useSeoMeta({ title: "我们的产品" });
 
-const pageStore = usePageStore()
-const { lock: lockScroll, unlock: unlockScroll } = useScrollLock()
-type DetailPart = 'wejh' | 'wechat' | 'visual' | 'email'
-const currentDetail = ref<DetailPart | null>(null)
+const pageStore = usePageStore();
+const { lock: lockScroll, unlock: unlockScroll } = useScrollLock();
+type DetailPart = "wejh" | "wechat" | "visual" | "email";
+const currentDetail = ref<DetailPart | null>(null);
 
 function setDetail(part: DetailPart | null) {
   if (part) {
-    currentDetail.value = part
-    lockScroll()
+    currentDetail.value = part;
+    lockScroll();
   } else {
-    if (currentDetail.value) unlockScroll()
-    currentDetail.value = null
+    if (currentDetail.value) unlockScroll();
+    currentDetail.value = null;
   }
 }
 
 watch(
   () => pageStore.pageSize,
   (newSize) => {
-    if (newSize === 'normal') {
-      setDetail(null)
+    if (newSize === "normal") {
+      setDetail(null);
     }
-  },
-)
+  }
+);
 
 onUnmounted(() => {
-  if (currentDetail.value) setDetail(null)
-})
+  if (currentDetail.value) setDetail(null);
+});
 </script>
 
 <template>
   <div>
-    <JHLabel
-      v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'"
-      type="title"
-    >
+    <JHLabel v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'" type="title">
       我们的产品
     </JHLabel>
     <!-- MARK: 宽屏 -->
@@ -141,21 +138,12 @@ onUnmounted(() => {
         <div v-if="currentDetail" :key="currentDetail" class="detail">
           <div class="title">
             {{ productsContent[currentDetail].title }}
-            <NuxtImg
-              class="icon"
-              :src="productsContent[currentDetail].icon"
-              alt=""
-            />
+            <NuxtImg class="icon" :src="productsContent[currentDetail].icon" alt="" />
           </div>
           <div class="content">
             {{ productsContent[currentDetail].description }}
           </div>
-          <NuxtImg
-            src="ui/back.svg"
-            class="back"
-            alt="返回"
-            @click="setDetail(null)"
-          />
+          <NuxtImg src="ui/back.svg" class="back" alt="返回" @click="setDetail(null)" />
         </div>
       </Transition>
     </div>
@@ -165,5 +153,5 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/pages/product.scss';
+@use "~/assets/css/pages/product.scss";
 </style>

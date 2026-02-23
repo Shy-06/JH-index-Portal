@@ -1,34 +1,34 @@
 <script setup lang="ts">
-import { useWindowSize } from '@vueuse/core'
+import { useWindowSize } from "@vueuse/core";
 
-const pageStore = usePageStore()
-const { width } = useWindowSize()
+const pageStore = usePageStore();
+const { width } = useWindowSize();
 
 function handleResize() {
   try {
     if (width.value >= 1024) {
-      pageStore.pageSize = 'normal'
+      pageStore.pageSize = "normal";
     } else if (width.value >= 768) {
-      pageStore.pageSize = 'middle'
+      pageStore.pageSize = "middle";
     } else {
-      pageStore.pageSize = 'mini'
+      pageStore.pageSize = "mini";
     }
   } catch (error) {
-    console.error('[App] Error handling resize:', error)
+    console.error("[App] Error handling resize:", error);
   }
 }
 
 onMounted(() => {
   try {
-    watch(width, handleResize, { immediate: true })
+    watch(width, handleResize, { immediate: true });
   } catch (error) {
-    console.error('[App] Error setting up resize watcher:', error)
+    console.error("[App] Error setting up resize watcher:", error);
   }
-})
+});
 
 onErrorCaptured((error) => {
-  console.error('[App] Captured component error:', error)
-})
+  console.error("[App] Captured component error:", error);
+});
 </script>
 
 <template>

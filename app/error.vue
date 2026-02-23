@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import type { NuxtError } from '#app'
+import type { NuxtError } from "#app";
 
 defineProps<{
-  error: NuxtError
-}>()
+  error: NuxtError;
+}>();
 
 const handleClearError = () => {
   try {
-    clearError({ redirect: '/' })
+    clearError({ redirect: "/" });
   } catch (error) {
-    console.error('[Error Page] Failed to clear error:', error)
-    window.location.href = '/'
+    console.error("[Error Page] Failed to clear error:", error);
+    window.location.href = "/";
   }
-}
+};
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const handleClearError = () => {
     <JHCard title="页面出错了" type="large">
       <h1 class="error-code">{{ error.status || 500 }}</h1>
       <p class="error-message">
-        {{ error.message || '发生了一个错误' }}
+        {{ error.message || "发生了一个错误" }}
       </p>
 
       <DevOnly>
@@ -33,9 +33,7 @@ const handleClearError = () => {
 
       <div class="actions">
         <JHButton type="middle" @click="handleClearError">返回首页</JHButton>
-        <JHButton type="middle" @click="useRouter().back()">
-          返回上一页
-        </JHButton>
+        <JHButton type="middle" @click="useRouter().back()"> 返回上一页 </JHButton>
       </div>
     </JHCard>
     <PageFooter />

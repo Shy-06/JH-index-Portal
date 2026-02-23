@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import {
-  departmentContent,
-  visualImages,
-  editorialImages,
-} from '~~/constants/department'
+import { departmentContent, editorialImages, visualImages } from "~~/constants/department";
 
-definePageMeta({ pageNo: 3 })
-useSeoMeta({ title: '新媒体中心 | 我们的部门' })
+definePageMeta({ pageNo: 3 });
+useSeoMeta({ title: "新媒体中心 | 我们的部门" });
 </script>
 
 <template>
@@ -59,7 +55,7 @@ useSeoMeta({ title: '新媒体中心 | 我们的部门' })
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/pages/department-detail.scss';
+@use "~/assets/css/pages/department-detail.scss";
 
 img {
   width: 80%;

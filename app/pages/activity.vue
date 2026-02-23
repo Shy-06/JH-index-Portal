@@ -1,26 +1,19 @@
 <script lang="ts" setup>
-import { acmCompetitionInfo } from '~~/constants/activity'
+import { acmCompetitionInfo } from "~~/constants/activity";
 
-definePageMeta({ pageNo: 4 })
-useSeoMeta({ title: '我们的活动' })
-const pageStore = usePageStore()
+definePageMeta({ pageNo: 4 });
+useSeoMeta({ title: "我们的活动" });
+const pageStore = usePageStore();
 </script>
 
 <template>
   <div>
-    <JHLabel
-      v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'"
-      type="title"
-    >
+    <JHLabel v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'" type="title">
       我们的活动
     </JHLabel>
     <JHCard title="ACM新生赛" type="large">
       <div class="base" :class="pageStore.pageSize">
-        <NuxtImg
-          class="poster"
-          :src="acmCompetitionInfo.posterImage"
-          alt="海报"
-        />
+        <NuxtImg class="poster" :src="acmCompetitionInfo.posterImage" alt="海报" />
         <div class="detail-base" :class="pageStore.pageSize">
           <div class="introduce" :class="pageStore.pageSize">
             <JHLabel type="nano">活动介绍</JHLabel>
@@ -35,10 +28,7 @@ const pageStore = usePageStore()
           <div class="qr">
             <div class="qr-base" :class="pageStore.pageSize">
               <div class="qr-code">
-                <NuxtImg
-                  :src="acmCompetitionInfo.groupQrCode"
-                  alt="竞赛群二维码"
-                />
+                <NuxtImg :src="acmCompetitionInfo.groupQrCode" alt="竞赛群二维码" />
               </div>
             </div>
           </div>
@@ -50,5 +40,5 @@ const pageStore = usePageStore()
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/pages/activity.scss';
+@use "~/assets/css/pages/activity.scss";
 </style>

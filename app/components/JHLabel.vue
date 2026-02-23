@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{ type: 'title' | 'big' | 'small' | 'nano' }>()
+const props = defineProps<{ type: "title" | "big" | "small" | "nano" }>();
 </script>
 
 <template>
@@ -11,7 +11,7 @@ const props = defineProps<{ type: 'title' | 'big' | 'small' | 'nano' }>()
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/mixins' as *;
+@use "~/assets/css/mixins" as *;
 
 .title {
   @include primary-styled;
@@ -19,7 +19,7 @@ const props = defineProps<{ type: 'title' | 'big' | 'small' | 'nano' }>()
   padding: 10px;
   padding-inline: 80px;
   align-items: center;
-  font-family: 'AliSans-EN';
+  font-family: "AliSans-EN";
   margin: 0 7.5% 3%;
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-lg);

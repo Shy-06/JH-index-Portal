@@ -50,17 +50,17 @@ html {
 }
 
 @font-face {
-  font-family: 'AliSans-EN';
+  font-family: "AliSans-EN";
   src:
-    local('Alibaba Sans'),
-    url('#{$cubeBaseURL}fonts/AlibabaSans-Regular.woff2') format('woff2');
+    local("Alibaba Sans"),
+    url("#{$cubeBaseURL}fonts/AlibabaSans-Regular.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: 'ZLY-song';
+  font-family: "ZLY-song";
   src:
-    local('A19'),
-    url('#{$cubeBaseURL}fonts/subset-ZoomlaYasong.woff2') format('woff2');
+    local("A19"),
+    url("#{$cubeBaseURL}fonts/subset-ZoomlaYasong.woff2") format("woff2");
 }
 
 * {
@@ -75,7 +75,7 @@ a {
 
 #__nuxt {
   width: 100%;
-  font-family: 'AliSans-EN';
+  font-family: "AliSans-EN";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

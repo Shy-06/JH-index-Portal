@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const props = defineProps<{
-  title?: string
-  type: 'large' | 'small'
-}>()
+  title?: string;
+  type: "large" | "small";
+}>();
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const props = defineProps<{
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/mixins' as *;
+@use "~/assets/css/mixins" as *;
 
 .jh-card {
   @include card-base;

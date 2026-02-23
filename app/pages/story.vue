@@ -1,25 +1,22 @@
 <script lang="ts" setup>
 import {
-  yixingImages,
-  yurenImages,
-  persons,
   missionContent,
-  yixingContent,
-  yurenContent,
+  persons,
   socialLifeContent,
-} from '~~/constants/story'
+  yixingContent,
+  yixingImages,
+  yurenContent,
+  yurenImages
+} from "~~/constants/story";
 
-definePageMeta({ pageNo: 1 })
-useSeoMeta({ title: '我们的故事' })
-const pageStore = usePageStore()
+definePageMeta({ pageNo: 1 });
+useSeoMeta({ title: "我们的故事" });
+const pageStore = usePageStore();
 </script>
 
 <template>
   <div>
-    <JHLabel
-      v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'"
-      type="title"
-    >
+    <JHLabel v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'" type="title">
       我们的故事
     </JHLabel>
     <JHCard type="large" title="我们的使命">
@@ -61,38 +58,18 @@ const pageStore = usePageStore()
     </JHCard>
     <JHCard type="large" title="生活社交">
       <div class="shenghuo" :class="pageStore.pageSize">
-        <NuxtImg
-          id="img1"
-          src="groupPhoto/shenghuo0.webp"
-          alt="生活社交照片 1"
-        />
+        <NuxtImg id="img1" src="groupPhoto/shenghuo0.webp" alt="生活社交照片 1" />
         <div class="content">
           {{ socialLifeContent[0] }}
         </div>
-        <NuxtImg
-          id="img2"
-          src="groupPhoto/shenghuo1.webp"
-          alt="生活社交照片 2"
-        />
+        <NuxtImg id="img2" src="groupPhoto/shenghuo1.webp" alt="生活社交照片 2" />
         <div class="content">
           {{ socialLifeContent[1] }}
         </div>
-        <NuxtImg
-          id="img3"
-          src="groupPhoto/shenghuo2.webp"
-          alt="生活社交照片 3"
-        />
+        <NuxtImg id="img3" src="groupPhoto/shenghuo2.webp" alt="生活社交照片 3" />
         <div class="shenghuo-imgs">
-          <NuxtImg
-            id="img4"
-            src="groupPhoto/shenghuo3.webp"
-            alt="生活社交照片 4"
-          />
-          <NuxtImg
-            id="img5"
-            src="groupPhoto/shenghuo4.webp"
-            alt="生活社交照片 5"
-          />
+          <NuxtImg id="img4" src="groupPhoto/shenghuo3.webp" alt="生活社交照片 4" />
+          <NuxtImg id="img5" src="groupPhoto/shenghuo4.webp" alt="生活社交照片 5" />
         </div>
         <div class="content">
           {{ socialLifeContent[2] }}
@@ -110,5 +87,5 @@ const pageStore = usePageStore()
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/pages/story.scss';
+@use "~/assets/css/pages/story.scss";
 </style>

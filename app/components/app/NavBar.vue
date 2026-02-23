@@ -1,69 +1,67 @@
 <script lang="ts" setup>
-import { useScroll, watchThrottled } from '@vueuse/core'
+import { useScroll, watchThrottled } from "@vueuse/core";
 
-const route = useRoute()
-const pageStore = usePageStore()
-const { lock: lockScroll, unlock: unlockScroll } = useScrollLock()
-const hide = ref(false)
-const mobileColumnMenuDisplay = ref(false)
-const previousScrollPosition = ref(0)
+const route = useRoute();
+const pageStore = usePageStore();
+const { lock: lockScroll, unlock: unlockScroll } = useScrollLock();
+const hide = ref(false);
+const mobileColumnMenuDisplay = ref(false);
+const previousScrollPosition = ref(0);
 
 // MARK: 滚动相关参数
-const pageTopBufferSize = 300
-const scrollReactThreshold = 25
+const pageTopBufferSize = 300;
+const scrollReactThreshold = 25;
 
-const { y: scrollY } = useScroll(window)
-const isAtTop = computed(() => Math.max(0, scrollY.value) < pageTopBufferSize)
+const { y: scrollY } = useScroll(window);
+const isAtTop = computed(() => Math.max(0, scrollY.value) < pageTopBufferSize);
 
 watch(
   () => route.meta.pageNo,
   () => {
-    if (mobileColumnMenuDisplay.value) listBtnClicked()
-  },
-)
+    if (mobileColumnMenuDisplay.value) listBtnClicked();
+  }
+);
 
 watch(
   () => pageStore.pageSize,
   (newSize) => {
-    if (mobileColumnMenuDisplay.value && newSize === 'normal') listBtnClicked()
-  },
-)
+    if (mobileColumnMenuDisplay.value && newSize === "normal") listBtnClicked();
+  }
+);
 
 onUnmounted(() => {
-  if (mobileColumnMenuDisplay.value) listBtnClicked()
-})
+  if (mobileColumnMenuDisplay.value) listBtnClicked();
+});
 
 // MARK: 页面滚动处理
 watchThrottled(
   scrollY,
   () => {
-    const currentScrollPosition = Math.max(0, scrollY.value)
-    const scrollDiff = Math.abs(
-      currentScrollPosition - previousScrollPosition.value,
-    )
+    const currentScrollPosition = Math.max(0, scrollY.value);
+    const scrollDiff = Math.abs(currentScrollPosition - previousScrollPosition.value);
     if (scrollDiff > scrollReactThreshold) {
-      hide.value = currentScrollPosition > previousScrollPosition.value
+      hide.value = currentScrollPosition > previousScrollPosition.value;
     }
-    previousScrollPosition.value = currentScrollPosition
+    previousScrollPosition.value = currentScrollPosition;
   },
-  { throttle: 100 },
-)
+  { throttle: 100 }
+);
 
 function listBtnClicked() {
-  mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value
-  if (mobileColumnMenuDisplay.value) lockScroll()
-  else unlockScroll()
+  mobileColumnMenuDisplay.value = !mobileColumnMenuDisplay.value;
+  if (mobileColumnMenuDisplay.value) lockScroll();
+  else unlockScroll();
 }
 
 // MARK: 栏目配置项
 const menuColumns = [
-  { name: '首页', link: '/' },
-  { name: '我们的故事', link: '/story' },
-  { name: '我们的产品', link: '/product' },
-  { name: '我们的部门', link: '/department' },
-  { name: '我们的活动', link: '/activity' },
-  { name: '加入我们', link: '/join' },
-]
+  { name: "首页", link: "/" },
+  { name: "我们的故事", link: "/story" },
+  { name: "我们的产品", link: "/product" },
+  { name: "我们的部门", link: "/department" },
+  { name: "我们的活动", link: "/activity" },
+  { name: "加入我们", link: "/join" }
+];
 </script>
 
 <template>
@@ -71,19 +69,13 @@ const menuColumns = [
     role="navigation"
     :class="[
       pageStore.pageSize,
-      !mobileColumnMenuDisplay && isAtTop && route.meta.pageNo === 0
-        ? 'atCover'
-        : 'notAtCover',
-      !mobileColumnMenuDisplay && !isAtTop && hide ? 'hide' : '',
+      !mobileColumnMenuDisplay && isAtTop && route.meta.pageNo === 0 ? 'atCover' : 'notAtCover',
+      !mobileColumnMenuDisplay && !isAtTop && hide ? 'hide' : ''
     ]"
     @touchmove.prevent
   >
     <router-link to="/" class="logo" :class="pageStore.pageSize">
-      <NuxtImg
-        src="common/logo.webp"
-        alt="Logo"
-        style="width: 100%; object-fit: contain"
-      />
+      <NuxtImg src="common/logo.webp" alt="Logo" style="width: 100%; object-fit: contain" />
     </router-link>
 
     <template v-if="pageStore.pageSize === 'normal'">
@@ -99,22 +91,14 @@ const menuColumns = [
     <template v-else>
       <div
         class="listButton"
-        :class="
-          mobileColumnMenuDisplay
-            ? 'mobileColumnMenuDisplay'
-            : 'mobileColumnMenuHidden'
-        "
+        :class="mobileColumnMenuDisplay ? 'mobileColumnMenuDisplay' : 'mobileColumnMenuHidden'"
         @click="listBtnClicked"
       />
 
       <!-- MARK: 移动设备下拉菜单 -->
       <Teleport to="#__nuxt">
         <Transition name="slide">
-          <div
-            v-show="mobileColumnMenuDisplay"
-            class="list"
-            :class="pageStore.pageSize"
-          >
+          <div v-show="mobileColumnMenuDisplay" class="list" :class="pageStore.pageSize">
             <div
               v-for="(l, index) in menuColumns"
               :key="l.link"
@@ -167,7 +151,7 @@ const menuColumns = [
 
 // MARK: 全局样式
 * {
-  font-family: 'ZLY-song', sans-serif;
+  font-family: "ZLY-song", sans-serif;
 }
 
 a {
@@ -201,7 +185,7 @@ nav {
 
   &.normal {
     height: 90px;
-    grid-template-columns: 30% repeat(v-bind('menuColumns.length'), 1fr);
+    grid-template-columns: 30% repeat(v-bind("menuColumns.length"), 1fr);
   }
 
   &.middle {
@@ -248,7 +232,7 @@ nav {
 
     &::after {
       display: block;
-      content: '';
+      content: "";
       width: 100%;
       position: relative;
       top: 20px;
@@ -267,11 +251,11 @@ nav {
   height: 40px;
 
   &.mobileColumnMenuDisplay {
-    background: url('#{$cubeBaseURL}ui/close.svg') no-repeat center;
+    background: url("#{$cubeBaseURL}ui/close.svg") no-repeat center;
   }
 
   &.mobileColumnMenuHidden {
-    background: url('#{$cubeBaseURL}ui/list.svg') no-repeat center;
+    background: url("#{$cubeBaseURL}ui/list.svg") no-repeat center;
   }
 }
 

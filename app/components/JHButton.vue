@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{ type: 'mini' | 'small' | 'middle' }>()
+const props = defineProps<{ type: "mini" | "small" | "middle" }>();
 </script>
 
 <template>
@@ -9,7 +9,7 @@ const props = defineProps<{ type: 'mini' | 'small' | 'middle' }>()
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/mixins' as *;
+@use "~/assets/css/mixins" as *;
 
 .jh-button {
   @include button-base;

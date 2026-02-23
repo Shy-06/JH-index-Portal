@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { recruitmentInfo, posterImage } from '~~/constants/recruitment'
+import { posterImage, recruitmentInfo } from "~~/constants/recruitment";
 
-definePageMeta({ pageNo: 5 })
-useSeoMeta({ title: '加入我们' })
-const pageStore = usePageStore()
+definePageMeta({ pageNo: 5 });
+useSeoMeta({ title: "加入我们" });
+const pageStore = usePageStore();
 
 function toRecruit() {
-  window.open(recruitmentInfo.registrationUrl)
+  window.open(recruitmentInfo.registrationUrl);
 }
 </script>
 
@@ -16,19 +16,14 @@ function toRecruit() {
       <NuxtImg class="poster" :src="posterImage" alt="招新海报" />
       <div class="detail-base" :class="pageStore.pageSize">
         <div class="introduce" :class="pageStore.pageSize">
-          <JHButton
-            type="middle"
-            style="position: relative; margin-bottom: 20px"
-            @click="toRecruit"
+          <JHButton type="middle" style="position: relative; margin-bottom: 20px" @click="toRecruit"
             >点我报名
           </JHButton>
           <JHLabel type="nano">线下摆摊</JHLabel>
           <div class="content">
             <div>朝晖: {{ recruitmentInfo.offline.chaohuiDate }}</div>
             <div>地址：{{ recruitmentInfo.offline.chaohuiLocation }}</div>
-            <div style="margin-top: 20px">
-              屏峰: {{ recruitmentInfo.offline.pingfengDate }}
-            </div>
+            <div style="margin-top: 20px">屏峰: {{ recruitmentInfo.offline.pingfengDate }}</div>
             <div>地址：{{ recruitmentInfo.offline.pingfengLocation }}</div>
           </div>
 
@@ -39,11 +34,7 @@ function toRecruit() {
           </div>
           <JHLabel type="nano">招新群号</JHLabel>
           <div class="content">
-            <div
-              v-for="group in recruitmentInfo.recruitmentGroups"
-              :key="group.number"
-              class="row"
-            >
+            <div v-for="group in recruitmentInfo.recruitmentGroups" :key="group.number" class="row">
               <span>{{ group.name }}</span
               ><span>{{ group.number }}</span>
             </div>
@@ -76,5 +67,5 @@ function toRecruit() {
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/pages/join.scss';
+@use "~/assets/css/pages/join.scss";
 </style>

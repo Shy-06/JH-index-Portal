@@ -1,38 +1,25 @@
 <script lang="ts" setup>
-definePageMeta({ pageNo: 3 })
-useSeoMeta({ title: '我们的部门' })
-const pageStore = usePageStore()
-const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL
+definePageMeta({ pageNo: 3 });
+useSeoMeta({ title: "我们的部门" });
+const pageStore = usePageStore();
+const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;
 </script>
 
 <template>
   <div>
-    <JHLabel
-      v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'"
-      type="title"
-    >
+    <JHLabel v-if="pageStore.pageSize == 'mini' || pageStore.pageSize == 'middle'" type="title">
       我们的部门
     </JHLabel>
     <JHCard title="部门结构" type="large">
-      <NuxtImg
-        src="common/structPc.webp"
-        style="width: 100%"
-        alt="部门结构图"
-      />
+      <NuxtImg src="common/structPc.webp" style="width: 100%" alt="部门结构图" />
     </JHCard>
     <div class="base" :class="pageStore.pageSize">
       <div class="item" @click="navigateTo('/department/ganshi')">
-        <div
-          class="img"
-          :style="{ backgroundImage: `url(${assetsBaseURL}ui/ganshi.svg)` }"
-        />
+        <div class="img" :style="{ backgroundImage: `url(${assetsBaseURL}ui/ganshi.svg)` }" />
         <JHButton type="small" class="text">干事培训中心</JHButton>
       </div>
       <div class="item" @click="navigateTo('/department/jishu')">
-        <div
-          class="img"
-          :style="{ backgroundImage: `url(${assetsBaseURL}ui/jishu.svg)` }"
-        />
+        <div class="img" :style="{ backgroundImage: `url(${assetsBaseURL}ui/jishu.svg)` }" />
         <JHButton type="small" class="text">技术研发中心</JHButton>
       </div>
       <div class="item" @click="navigateTo('/department/sheji')">
@@ -57,5 +44,5 @@ const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/pages/department-index.scss';
+@use "~/assets/css/pages/department-index.scss";
 </style>

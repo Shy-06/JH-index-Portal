@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { departmentContent, technologyImages } from '~~/constants/department'
+import { departmentContent, technologyImages } from "~~/constants/department";
 
-definePageMeta({ pageNo: 3 })
-useSeoMeta({ title: '技术研发中心 | 我们的部门' })
+definePageMeta({ pageNo: 3 });
+useSeoMeta({ title: "技术研发中心 | 我们的部门" });
 </script>
 
 <template>
@@ -43,5 +43,5 @@ useSeoMeta({ title: '技术研发中心 | 我们的部门' })
 </template>
 
 <style scoped lang="scss">
-@use '~/assets/css/pages/department-detail.scss';
+@use "~/assets/css/pages/department-detail.scss";
 </style>
