@@ -20,5 +20,5 @@ const pageStore = usePageStore();
 </template>
 
 <style scoped lang="scss">
-@use "~/assets/css/components/Introduce.scss";
+@use "style.scss";
 </style>

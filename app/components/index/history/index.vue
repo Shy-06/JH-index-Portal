@@ -2,7 +2,8 @@
 import { historyEvents } from "~~/constants/index";
 
 const eventNow = ref<number>(0);
-const currentEvent = computed(() => historyEvents[eventNow.value]);
+type HistoryEvent = NonNullable<(typeof historyEvents)[number]>;
+const currentEvent = computed(() => historyEvents[eventNow.value] as HistoryEvent);
 </script>
 
 <template>
@@ -35,7 +36,7 @@ const currentEvent = computed(() => historyEvents[eventNow.value]);
 </template>
 
 <style scoped lang="scss">
-@use "~/assets/css/components/History.scss";
+@use "style.scss";
 
 .choices {
   grid-template-columns: repeat(v-bind("historyEvents.length"), minmax(75px, 90px));
