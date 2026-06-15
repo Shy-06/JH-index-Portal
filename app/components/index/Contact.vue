@@ -37,7 +37,7 @@
             <h2>联系我们</h2>
             <h2>关注我们</h2>
           </template>
-          <a href="mailto:jhwl@zjut.edu.cn">jhwl@zjut.edu.cn</a>
+          <a href="mailto:jhwl2002@zjut.edu.cn">jhwl2002@zjut.edu.cn</a>
         </div>
         <NuxtImg
           class="platform"

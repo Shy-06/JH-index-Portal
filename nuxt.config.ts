@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       cubeBaseURL,
       lastUpdateYear: 2026,
       contact: {
-        email: "jhwl@zjut.edu.cn",
+        email: "jhwl2002@zjut.edu.cn",
         github: "https://github.com/zjutjh",
         wechat: {
           jxhzx: "gh_30765353fa78",
