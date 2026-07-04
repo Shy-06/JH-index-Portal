@@ -1,8 +1,8 @@
 ignoredBuiltDependencies:
-  - '@zjutjh/eslint-config'
+  - "@zjutjh/eslint-config"
 
 onlyBuiltDependencies:
-  - '@parcel/watcher'
+  - "@parcel/watcher"
   - esbuild
   - sharp
   - unrs-resolver
