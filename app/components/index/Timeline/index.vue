@@ -56,9 +56,9 @@ const hasMeasured = computed(
 
 <style scoped lang="scss">
 .history-line {
+  margin: auto;
   padding: 4rem 0 1rem;
   width: 10rem;
-  margin: auto;
 }
 
 .history-item {
@@ -67,61 +67,61 @@ const hasMeasured = computed(
   height: 5rem;
 
   &::before {
-    content: "";
+    display: var(--line_seen);
     position: absolute;
-    left: 0;
     top: 0;
-    width: 100%;
-    height: 2.5rem;
+    left: 0;
+    transform: rotateZ(var(--angle)) scale(var(--scale));
+    transform-origin: bottom center;
+    z-index: 1;
     box-sizing: border-box;
     border-bottom: 1px var(--border) black;
-    transform-origin: bottom center;
-    transform: rotateZ(var(--angle)) scale(var(--scale));
-    display: var(--line_seen);
-    z-index: 1;
+    width: 100%;
+    height: 2.5rem;
+    content: "";
   }
 }
 
 .history-img {
   position: relative;
   top: -2.2rem;
+  opacity: 1;
+  z-index: 3;
+  transition: opacity 2s;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: white;
   width: 4.4rem;
   height: 4.4rem;
-  background-color: white;
-  border-radius: 50%;
-  z-index: 3;
-  opacity: 1;
-  transition: opacity 2s;
-  background-size: cover;
 
   &-hide {
     position: relative;
     top: -2.2rem;
+    opacity: 0;
+    z-index: 3;
+    transition: opacity 2s;
+    border-radius: 50%;
+    background-size: cover;
     width: 4.4rem;
     height: 4.4rem;
-    border-radius: 50%;
-    z-index: 3;
-    opacity: 0;
-    transition: opacity 2s;
-    background-size: cover;
   }
 
   &1 {
-    float: left;
     left: -2.2rem;
+    float: left;
   }
 
   &2 {
-    float: right;
     right: -2.2rem;
+    float: right;
   }
 }
 
 .history-content {
-  width: 200%;
   position: relative;
   top: 100%;
   left: -50%;
+  width: 200%;
 
   &1 {
     font-size: xx-small;

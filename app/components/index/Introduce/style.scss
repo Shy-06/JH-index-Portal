@@ -1,6 +1,6 @@
 .base {
-  margin: 30px auto;
   align-items: center;
+  margin: 30px auto;
   max-width: 1024px;
 
   &.normal,
@@ -21,38 +21,38 @@
 .introduce {
   display: grid;
   grid-template-rows: 30% 70%;
-  max-width: 500px;
-  margin: auto;
   align-items: center;
+  margin: auto;
+  max-width: 500px;
 
   .title {
-    background-color: var(--card-bg-secondary);
     border-radius: var(--radius-md) var(--radius-md) 0 0;
-    font-size: xx-large;
-    white-space: pre-line;
+    background-color: var(--card-bg-secondary);
     padding: 20px 30px;
     font-weight: 600;
+    font-size: xx-large;
+    white-space: pre-line;
   }
 
   .content {
-    background-color: var(--card-bg);
-    border-radius: 0 0 var(--radius-md) var(--radius-md);
-    box-shadow: var(--shadow-lg);
-    font-size: 20px;
-    line-height: 1.8;
     justify-content: start;
-    text-align: left;
+    box-shadow: var(--shadow-lg);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    background-color: var(--card-bg);
     padding: 30px;
     height: fit-content;
     color: var(--text-content);
+    font-size: 20px;
+    line-height: 1.8;
+    text-align: left;
 
     p {
       margin: 0;
     }
 
     &.mini {
-      font-size: 16px;
       padding: 30px 20px;
+      font-size: 16px;
       line-height: 1.6;
     }
   }

@@ -11,7 +11,7 @@
 }
 
 .right-arrow {
-  width: 20px;
   margin-left: 10px;
+  width: 20px;
 }
 </style>

@@ -21,24 +21,24 @@ const props = defineProps<{
   @include card-base;
 
   &.large {
-    width: 80%;
     margin: 20px auto;
     padding: 20px;
+    width: 80%;
   }
 
   &.small {
-    width: 100%;
     margin: 10px auto;
     padding-block: 20px;
+    width: 100%;
   }
 
   .title {
     @include title-styled;
-    width: fit-content;
+    left: -6vw;
     padding: 10px;
     padding-inline: 80px;
+    width: fit-content;
     height: 50px;
-    left: -6vw;
   }
 }
 </style>

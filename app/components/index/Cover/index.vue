@@ -11,12 +11,12 @@ const pageStore = usePageStore();
 
 <style lang="scss" scoped>
 .start {
-  max-width: 100%;
-  max-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
   height: 100vh;
+  max-height: 100%;
 
   &.normal {
     background:

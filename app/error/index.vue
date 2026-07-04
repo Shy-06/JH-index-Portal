@@ -42,15 +42,15 @@ const handleClearError = () => {
 
 <style scoped lang="scss">
 .error-code {
-  font-size: 5rem;
-  color: var(--primary-color);
   margin: 1rem 0;
+  color: var(--primary-color);
+  font-size: 5rem;
 }
 
 .error-message {
-  font-size: 1.25rem;
-  color: var(--text-content);
   margin: 1rem 0 2rem;
+  color: var(--text-content);
+  font-size: 1.25rem;
 }
 
 .error-stack {
@@ -59,8 +59,8 @@ const handleClearError = () => {
 
   summary {
     cursor: pointer;
-    color: var(--accent-color);
     padding: 0.5rem;
+    color: var(--accent-color);
 
     &:hover {
       color: var(--primary-color);
@@ -68,21 +68,21 @@ const handleClearError = () => {
   }
 
   pre {
+    margin-top: 0.5rem;
+    border-radius: var(--radius-md);
     background: var(--card-bg-secondary);
     padding: 1rem;
-    border-radius: var(--radius-md);
     overflow-x: auto;
-    font-size: 0.875rem;
     color: var(--muted);
-    margin-top: 0.5rem;
+    font-size: 0.875rem;
   }
 }
 
 .actions {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
   margin-top: 2rem;
 }
 </style>

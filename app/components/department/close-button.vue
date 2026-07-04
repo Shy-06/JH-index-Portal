@@ -9,9 +9,9 @@
 
 <style scoped>
 .fork-button {
+  cursor: pointer;
+  margin-top: 50px;
   width: 80px;
   height: 80px;
-  margin-top: 50px;
-  cursor: pointer;
 }
 </style>

@@ -4,14 +4,14 @@ img {
 }
 
 .content {
-  font-size: 18px;
-  line-height: 1.8;
-  width: 85%;
   margin: auto;
   margin-bottom: 16px;
+  width: 85%;
+  color: var(--text-content);
+  font-size: 18px;
+  line-height: 1.8;
   text-align: start;
   text-indent: 2em;
-  color: var(--text-content);
 
   &:last-of-type {
     margin-bottom: 24px;

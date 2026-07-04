@@ -75,10 +75,10 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .carousel {
-  touch-action: pan-y;
   position: relative;
-  width: 90%;
   margin: 30px auto;
+  width: 90%;
+  touch-action: pan-y;
 
   &.normal,
   &.middle {
@@ -90,10 +90,10 @@ onMounted(() => {
   }
 
   ul {
-    padding-inline-start: 0;
     position: relative;
-    height: 100%;
     margin: auto;
+    padding-inline-start: 0;
+    height: 100%;
     list-style: none;
 
     &.normal {
@@ -106,15 +106,15 @@ onMounted(() => {
     }
 
     li {
+      display: flex;
       position: absolute;
+      flex-direction: column;
+      box-shadow: var(--shadow-xl);
+      border-radius: var(--radius-xl);
+      background-color: var(--card-bg);
       width: 100%;
       height: 100%;
-      background-color: var(--card-bg);
       overflow: hidden;
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-xl);
-      display: flex;
-      flex-direction: column;
 
       @media (hover: hover) {
         transition: box-shadow 0.3s ease;
@@ -129,10 +129,10 @@ onMounted(() => {
       }
 
       .img {
+        flex-shrink: 0;
+        background: center/cover no-repeat;
         width: 100%;
         height: 30%;
-        background: center/cover no-repeat;
-        flex-shrink: 0;
 
         @media (hover: hover) {
           transition: transform 0.3s ease;
@@ -140,28 +140,28 @@ onMounted(() => {
       }
 
       .introduction {
-        width: 90%;
+        flex-shrink: 0;
         margin: 20px;
-        font-size: 18px;
+        width: 90%;
         color: var(--primary-color);
+        font-size: 18px;
         text-align: left;
         white-space: pre-line;
-        flex-shrink: 0;
 
         &::first-line {
-          font-size: 28px;
-          font-weight: 700;
           color: var(--text-title);
+          font-weight: 700;
+          font-size: 28px;
         }
       }
 
       .content {
         margin: 0 20px 20px;
+        overflow: auto;
         font-size: 16px;
         text-align: left;
         text-indent: 2em;
         white-space: pre-wrap;
-        overflow: auto;
         -webkit-overflow-scrolling: touch;
         flex-grow: 1;
       }
@@ -169,8 +169,8 @@ onMounted(() => {
 
     .left,
     .right {
-      z-index: 0;
       opacity: 0.7;
+      z-index: 0;
       transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -179,19 +179,19 @@ onMounted(() => {
 
       &.mini,
       &.middle {
-        left: 0;
         top: 0;
         bottom: 10%;
-        z-index: 1;
+        left: 0;
         opacity: 1;
+        z-index: 1;
         transition: none;
       }
     }
 
     .center {
-      left: 0;
       top: 0;
       bottom: 10%;
+      left: 0;
       z-index: 1;
       transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -211,22 +211,22 @@ onMounted(() => {
     }
 
     .after {
-      left: 0;
       top: 0;
-      z-index: -1;
+      left: 0;
+      transform: scale(0);
       visibility: hidden;
       opacity: 0;
-      transform: scale(0);
+      z-index: -1;
     }
   }
 
   .btn {
     position: absolute;
     top: 50%;
+    cursor: pointer;
+    background: center/cover no-repeat url("#{$cubeBaseURL}ui/rightArrow_red.svg");
     width: 50px;
     height: 50px;
-    background: center/cover no-repeat url("#{$cubeBaseURL}ui/rightArrow_red.svg");
-    cursor: pointer;
 
     @media (hover: hover) {
       transition:

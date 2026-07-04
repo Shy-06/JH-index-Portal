@@ -17,7 +17,8 @@
   --shadow-lg: 0 8px 16px var(--shadow-color), 0 4px 8px var(--shadow-color);
   --shadow-xl: 0 8px 24px var(--shadow-color), 0 2px 8px var(--shadow-color);
   --shadow-2xl: 0 12px 32px var(--shadow-color), 0 4px 12px var(--shadow-color);
-  --shadow-accent-lg: 0 8px 24px var(--shadow-accent), 0 4px 8px var(--shadow-accent);
+  --shadow-accent-lg:
+    0 8px 24px var(--shadow-accent), 0 4px 8px var(--shadow-accent);
 
   /* Border radius levels */
   --radius-xs: 3px;
@@ -49,17 +50,17 @@ html {
 }
 
 @font-face {
-  font-family: "AliSans-EN";
   src:
     local("Alibaba Sans"),
     url("#{$cubeBaseURL}fonts/AlibabaSans-Regular.woff2") format("woff2");
+  font-family: "AliSans-EN";
 }
 
 @font-face {
-  font-family: "ZLY-song";
   src:
     local("A19"),
     url("#{$cubeBaseURL}fonts/subset-ZoomlaYasong.woff2") format("woff2");
+  font-family: "ZLY-song";
 }
 
 * {
@@ -77,8 +78,8 @@ a {
   font-family: "AliSans-EN";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: var(--text-title);
+  text-align: center;
 }
 
 ::-webkit-scrollbar {
@@ -91,8 +92,8 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-color);
   border-radius: var(--radius-xs);
+  background: var(--accent-color);
 
   &:hover {
     background: var(--primary-color);

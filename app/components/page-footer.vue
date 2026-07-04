@@ -7,10 +7,10 @@
 <style scoped>
 footer {
   margin-top: 5%;
-  width: 100%;
-  color: var(--muted);
-  height: 2.2rem;
-  line-height: 39px;
   border-radius: 0;
+  width: 100%;
+  height: 2.2rem;
+  color: var(--muted);
+  line-height: 39px;
 }
 </style>

@@ -15,23 +15,23 @@ const props = defineProps<{ type: "title" | "big" | "small" | "nano" }>();
 
 .title {
   @include primary-styled;
-  width: fit-content;
-  padding: 10px;
-  padding-inline: 80px;
   align-items: center;
-  font-family: "AliSans-EN";
   margin: 0 7.5% 3%;
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-lg);
+  padding: 10px;
+  padding-inline: 80px;
+  width: fit-content;
+  font-family: "AliSans-EN";
 
   .h {
     display: block;
-    font-size: x-large;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
     font-weight: bold;
+    font-size: x-large;
   }
 
   &.middle,
@@ -42,35 +42,35 @@ const props = defineProps<{ type: "title" | "big" | "small" | "nano" }>();
 
 .big {
   @include primary-styled;
-  width: 15rem;
-  height: 5rem;
-  border-radius: var(--radius-pill);
-  font-size: 30px;
-  line-height: 5rem;
   margin: 0 auto 3vw auto;
   box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-pill);
+  width: 15rem;
+  height: 5rem;
+  font-size: 30px;
+  line-height: 5rem;
 }
 
 .small {
   @include primary-styled;
   @include flex-center;
-  min-width: 10vw;
-  width: fit-content;
-  height: 5vh;
-  padding: 10px;
   margin: 15px auto;
   border-radius: var(--radius-xl);
+  padding: 10px;
+  width: fit-content;
+  min-width: 10vw;
+  height: 5vh;
   font-size: 20px;
   line-height: 30px;
 }
 
 .nano {
   @include primary-styled;
-  width: fit-content;
-  border-radius: var(--radius-sm);
   align-items: center;
+  border-radius: var(--radius-sm);
   padding: 5px;
   padding-inline: 20px;
+  width: fit-content;
 
   .h {
     display: block;

@@ -104,39 +104,39 @@ onUnmounted(() => {
 }
 
 .carousel {
-  touch-action: pan-y;
   margin: 1.5rem auto;
-  width: 100%;
   border-radius: 0;
+  width: 100%;
   overflow: hidden;
+  touch-action: pan-y;
 
   &::after {
     display: block;
-    content: "";
-    width: 90%;
     margin: 0 auto;
     border-bottom: 0.2rem solid #efefef;
     padding-bottom: 2rem;
+    width: 90%;
+    content: "";
   }
 
   .whole {
+    margin: 0 auto;
     width: 60%;
     height: 30vw;
     max-height: 600px;
-    margin: 0 auto;
 
     .roll-img {
-      width: 100%;
-      height: 100%;
       position: relative;
       transform-style: preserve-3d;
+      width: 100%;
+      height: 100%;
     }
   }
 
   img {
+    margin: auto;
     width: 100%;
     height: 100%;
-    margin: auto;
     object-fit: cover;
   }
 }
@@ -147,9 +147,9 @@ ul {
 
   li {
     position: absolute;
+    cursor: pointer;
     width: 100%;
     height: 100%;
-    cursor: pointer;
   }
 }
 
@@ -157,15 +157,15 @@ ul {
   left: -55vw;
   transform: scale(0.8);
   z-index: -1;
-  background: rgb(0, 0, 0);
   transition: all 0.5s ease;
+  background: rgb(0, 0, 0);
 }
 
 .center {
-  z-index: 1;
-  left: 0;
   top: 0;
   bottom: 10%;
+  left: 0;
+  z-index: 1;
   transition: all 0.5s ease;
 }
 
@@ -173,27 +173,27 @@ ul {
   left: 55vw;
   transform: scale(0.8);
   z-index: -1;
-  background: rgb(0, 0, 0);
   transition: all 0.5s ease;
+  background: rgb(0, 0, 0);
 }
 
 .after {
-  left: 0;
   top: 0;
-  visibility: hidden;
+  left: 0;
   transform: scale(0);
+  visibility: hidden;
   z-index: -3;
 }
 
 .left div,
 .right div {
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 5;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  left: 0;
-  top: 0;
-  transition: all 0.3s ease;
 }
 </style>

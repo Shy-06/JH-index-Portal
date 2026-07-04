@@ -7,9 +7,9 @@
  * 应用主题色背景、白色文字和无边框
  */
 @mixin primary-styled {
+  border: none;
   background-color: var(--primary-color);
   color: white;
-  border: none;
 }
 
 /**
@@ -27,18 +27,18 @@
 @mixin button-base {
   @include primary-styled;
   @include flex-center;
-  width: fit-content;
-  margin: auto;
   cursor: pointer;
+  margin: auto;
+  width: fit-content;
 }
 
 /**
  * 卡片基础样式
  */
 @mixin card-base {
-  background-color: var(--card-bg);
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-md);
+  background-color: var(--card-bg);
 }
 
 /**
@@ -47,7 +47,7 @@
 @mixin title-styled {
   @include primary-styled;
   @include flex-center;
-  border-radius: 0;
   position: relative;
+  border-radius: 0;
   font-weight: bolder;
 }

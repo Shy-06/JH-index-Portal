@@ -155,9 +155,9 @@ const menuColumns = [
 }
 
 a {
-  text-decoration: none;
   color: white;
   font-size: large;
+  text-decoration: none;
 }
 
 // MARK: 背景状态
@@ -166,36 +166,36 @@ a {
 }
 
 .notAtCover {
-  background-color: var(--primary-color);
   box-shadow: var(--shadow-sm);
+  background-color: var(--primary-color);
 }
 
 // MARK: 导航栏基础样式
 nav {
-  z-index: 4;
   display: grid;
-  width: 100%;
-  color: white;
   position: fixed;
+  top: 0;
   align-items: center;
+  z-index: 4;
   transition:
     top linear 0.4s,
     background linear 0.2s;
-  top: 0;
+  width: 100%;
+  color: white;
 
   &.normal {
-    height: 90px;
     grid-template-columns: 30% repeat(v-bind("menuColumns.length"), 1fr);
+    height: 90px;
   }
 
   &.middle {
-    height: 90px;
     grid-template-columns: 1fr 60px;
+    height: 90px;
   }
 
   &.mini {
-    height: 50px;
     grid-template-columns: 1fr 60px;
+    height: 50px;
   }
 
   // 隐藏状态
@@ -208,23 +208,23 @@ nav {
 .logo {
   &.normal,
   &.middle {
-    width: 200px;
     transform: scale(0.8);
+    width: 200px;
   }
 
   &.mini {
-    width: 120px;
     transform: scale(0.8);
+    width: 120px;
   }
 }
 
 // MARK: 导航链接
 .link {
   &.select {
-    background-color: white;
-    border-radius: var(--radius-xl);
-    padding: 5px;
     transition: background-color 0.5s;
+    border-radius: var(--radius-xl);
+    background-color: white;
+    padding: 5px;
 
     a {
       color: var(--primary-color);
@@ -232,11 +232,11 @@ nav {
 
     &::after {
       display: block;
-      content: "";
-      width: 100%;
       position: relative;
       top: 20px;
       border-bottom: 3px solid white;
+      width: 100%;
+      content: "";
     }
   }
 
@@ -261,13 +261,13 @@ nav {
 
 // MARK: 下拉列表
 .list {
-  width: 100%;
-  height: 100vh;
-  z-index: 3;
   position: fixed;
-  background-color: var(--card-bg);
   align-items: center;
   justify-items: center;
+  z-index: 3;
+  background-color: var(--card-bg);
+  width: 100%;
+  height: 100vh;
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
@@ -283,13 +283,13 @@ nav {
   }
 
   .listItem {
-    width: 40%;
     margin: auto;
     margin-top: 20px;
-    padding: 5px;
     border: 2px solid;
-    border-radius: var(--radius-lg);
     border-color: var(--primary-color);
+    border-radius: var(--radius-lg);
+    padding: 5px;
+    width: 40%;
 
     &.select {
       background-color: var(--primary-color);
