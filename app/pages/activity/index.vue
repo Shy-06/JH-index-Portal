@@ -40,5 +40,5 @@ const pageStore = usePageStore();
 </template>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/activity.scss";
+@use "./activity.scss";
 </style>

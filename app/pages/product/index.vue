@@ -153,5 +153,5 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/product.scss";
+@use "./product.scss";
 </style>

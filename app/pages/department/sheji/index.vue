@@ -33,7 +33,7 @@ useSeoMeta({ title: "设计服务中心 | 我们的部门" });
 </template>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/department-detail.scss";
+@use "../detail.scss";
 
 img {
   width: 80%;

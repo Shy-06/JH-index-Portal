@@ -33,5 +33,5 @@ useSeoMeta({ title: "干事培训中心 | 我们的部门" });
 </template>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/department-detail.scss";
+@use "../detail.scss";
 </style>

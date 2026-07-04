@@ -44,5 +44,5 @@ const assetsBaseURL = useRuntimeConfig().public.cubeBaseURL;
 </template>
 
 <style scoped lang="scss">
-@use "~/assets/css/pages/department-index.scss";
+@use "./index.scss";
 </style>
