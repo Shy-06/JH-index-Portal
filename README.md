@@ -5,7 +5,7 @@
 [**浙江工业大学精弘网络主页代码仓库**](https://github.com/zjutjh/JingHong-Home-Vue)
 
 [![Version](https://img.shields.io/github/package-json/v/zjutjh/JingHong-Home-Vue.svg)](package.json)
-[![Nuxt](https://img.shields.io/badge/Nuxt-4.3.1-00DC82.svg)](https://nuxt.com)
+[![Nuxt](https://img.shields.io/badge/Nuxt-4.4.8-00DC82.svg)](https://nuxt.com)
 [![Vue](https://img.shields.io/badge/Vue-3.5-4FC08D.svg)](https://vuejs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6.svg)](https://www.typescriptlang.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -27,31 +27,16 @@
 
 ## 📁 项目结构
 
-```
+```text
 jh-homepage/
 ├── app/                          # 应用源代码
 │   ├── app.vue                   # 应用入口组件
 │   ├── router.options.ts         # 路由配置
 │   ├── assets/                   # 样式资源
-│   │   └── css/                  # 全局和组件样式
-│   │       ├── components/       # 组件样式
-│   │       ├── pages/            # 页面样式
-│   │       └── main.scss         # 全局样式
-│   ├── components/               # 可复用组件库
-│   │   ├── app/                  # 应用级组件
-│   │   ├── index/                # 首页组件
-│   │   ├── story/                # 故事页面组件
-│   │   ├── department/           # 部门页面组件
-│   │   └── *.vue                 # 通用组件
+│   │   └── css/                  # 全局样式
+│   ├── components/               # 组件库
 │   ├── layouts/                  # 页面布局
-│   │   └── default.vue           # 默认布局
 │   ├── pages/                    # 页面路由
-│   │   ├── index.vue             # 首页
-│   │   ├── activity.vue          # 活动展示
-│   │   ├── product.vue           # 产品介绍
-│   │   ├── story.vue             # 团队故事
-│   │   ├── join.vue              # 招新页面
-│   │   └── department/           # 部门介绍子页面
 │   ├── stores/                   # Pinia 状态管理
 │   ├── plugins/                  # Nuxt 插件
 │   └── providers/                # 服务提供者
@@ -83,7 +68,7 @@ pnpm install
 pnpm dev
 ```
 
-启动后访问 http://localhost:3000
+启动后访问 <http://localhost:3000>
 
 ## ⚙️ 配置说明
 
