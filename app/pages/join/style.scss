@@ -6,11 +6,6 @@
     justify-content: center;
     grid-gap: 20px;
   }
-
-  &.middle {
-    grid-template-rows: 1100px 700px 100px;
-    height: 2000px;
-  }
 }
 
 .poster {
@@ -81,23 +76,20 @@
 .qr {
   .qr-base {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 20px;
+    grid-template-columns: auto auto;
+    margin-top: 10px;
     width: auto;
     max-width: 300px;
 
     img {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
     }
   }
 
   .qr-code {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    text-align: center;
+    grid-template-rows: auto auto;
+    place-items: center;
   }
 }

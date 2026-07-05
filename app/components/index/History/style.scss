@@ -98,7 +98,7 @@ img {
 .choices-container {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 20px;
+  padding: 0 10px 24px;
   touch-action: pan-x;
 
   .choices {
