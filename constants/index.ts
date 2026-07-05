@@ -1,7 +1,7 @@
 // 首页
 export const introduceContent = {
   title: {
-    normal: "精弘网络⼁Jinghong Union",
+    normal: "精弘网络 | Jinghong Union",
     middle: "精弘网络\nJinghong Union",
     mini: "精弘网络\nJinghong Union"
   },
@@ -10,8 +10,7 @@ export const introduceContent = {
     "精弘的名字取自工大学风“取精用弘”，",
     "是浙江工业大学的学术网络组织。",
     "精弘网络秉承着自由、共享、团结、创新的精神，",
-    "全心全意为在校师生提供优质的服务",
-    "和交流平台，收到了广泛好评。"
+    "全心全意为在校师生提供优质的服务和交流平台，收到了广泛好评。"
   ]
 };
 
@@ -57,21 +56,21 @@ export const historyEvents = [
     id: 5,
     img: "common/best_website.webp",
     time: "2012年12月",
-    content: '荣获第五届\n"全国高校百佳网站"\n荣誉称号',
+    content: "荣获第五届\n“全国高校百佳网站”\n荣誉称号",
     name: "百佳网站"
   },
   {
     id: 6,
     img: "common/wlaqxcy_xysz.webp",
     time: "2015年12月",
-    content: '承办浙江工业大学首届\n"网络安全宣传月"活动',
+    content: "承办浙江工业大学首届\n“网络安全宣传月”活动",
     name: "网络安全宣传"
   },
   {
     id: 7,
     img: "common/visual.webp",
     time: "2016年8月",
-    content: '精弘网络微信服务号获\n"全国高校东部地区榜亚军"',
+    content: "精弘网络微信服务号获\n“全国高校东部地区榜亚军”",
     name: "微信服务号"
   },
   {

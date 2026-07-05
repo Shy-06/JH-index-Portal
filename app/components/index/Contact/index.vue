@@ -119,13 +119,17 @@ onUnmounted(() => {
 
     img {
       margin: auto;
+    }
 
-      &.qrcode {
-        position: absolute;
-        z-index: 1;
-        width: auto;
-        height: 20%;
-      }
+    img.qrcode {
+      position: absolute;
+      width: auto;
+      height: 20dvh;
+    }
+
+    &.middle img.qrcode {
+      width: 15dvw;
+      height: auto;
     }
 
     &.normal .platform {
