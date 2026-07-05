@@ -35,11 +35,7 @@
 
     <JhCard type="small" class="join">
       <h2 class="join-content">精弘诚聘</h2>
-      <JhButton
-        :type="pageStore.pageSize == 'mini' ? 'mini' : 'middle'"
-        @click="() => navigateTo('/join')"
-        >加入我们
-      </JhButton>
+      <JhButton type="middle" @click="() => navigateTo('/join')">加入我们 </JhButton>
     </JhCard>
 
     <JhCard type="small" class="loading" :class="pageStore.pageSize">
@@ -92,15 +88,17 @@ onUnmounted(() => {
     width: 90%;
   }
 
-  &.middle,
-  &.mini {
+  &.middle {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: auto auto;
     margin: auto;
-    width: 85%;
-    grid-column-gap: 10px;
-    align-items: center;
+    width: calc(80% + 40px);
+    grid-column-gap: 20px;
+  }
+
+  &.mini {
+    margin: auto;
+    width: 90%;
   }
 
   .contact-us {
@@ -137,8 +135,8 @@ onUnmounted(() => {
 
     &.middle .platform,
     &.mini .platform {
-      width: 30px;
-      height: 30px;
+      width: 50px;
+      height: 50px;
     }
   }
 
