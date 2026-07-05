@@ -12,7 +12,7 @@
           provider="wechatOpen"
           :src="useRuntimeConfig().public.contact.wechat.jxhzx"
           class="qrcode"
-          alt="精小弘在线 微信二维码"
+          alt="浙工大精小弘在线 微信二维码"
           @mouseout="onMouseOut"
         />
         <NuxtImg

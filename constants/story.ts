@@ -12,7 +12,7 @@ export const yurenImages = Array.from({ length: 5 }, (_, i) => `groupPhoto/yuren
 export const missionContent = {
   title: "相关平台 | Related Platform",
   description:
-    "精弘网络采用朝晖、屏峰、莫干山三个校区共同建制\n目前运营和维护的平台包括但不限于\n浙江工业大学精弘网络微信服务号、\n精小弘在线微信服务号、微精弘微信小程序、\n邮件系统(https://mail.zjut.edu.cn/)、\n浙工大精弘网络b站账号、精弘直播等。"
+    "精弘网络采用朝晖、屏峰、莫干山三个校区共同建制\n目前运营和维护的平台包括但不限于\n浙江工业大学精弘网络微信服务号、\n浙工大精小弘在线微信服务号、微精弘微信小程序、\n邮件系统(https://mail.zjut.edu.cn/)、\n浙工大精弘网络b站账号、精弘直播等。"
 };
 
 export const yixingContent = [

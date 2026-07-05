@@ -57,9 +57,9 @@ onUnmounted(() => {
             <NuxtImg
               provider="wechatOpen"
               :src="useRuntimeConfig().public.contact.wechat.jxhzx"
-              alt="精小弘在线 微信二维码"
+              alt="浙工大精小弘在线 微信二维码"
             />
-            <h3>精小弘在线</h3>
+            <h3>浙工大精小弘在线</h3>
           </div>
         </div>
       </JhCard>

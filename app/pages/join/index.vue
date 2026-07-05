@@ -55,9 +55,9 @@ function toRecruit() {
               <NuxtImg
                 provider="wechatOpen"
                 :src="useRuntimeConfig().public.contact.wechat.jxhzx"
-                alt="精小弘在线 微信二维码"
+                alt="浙工大精小弘在线 微信二维码"
               />
-              精小弘在线
+              浙工大精小弘在线
             </div>
           </div>
         </div>
