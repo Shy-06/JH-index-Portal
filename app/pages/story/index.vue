@@ -87,5 +87,5 @@ const pageStore = usePageStore();
 </template>
 
 <style scoped lang="scss">
-@use "./story.scss";
+@use "./style.scss";
 </style>

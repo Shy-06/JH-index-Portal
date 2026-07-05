@@ -67,5 +67,5 @@ function toRecruit() {
 </template>
 
 <style scoped lang="scss">
-@use "./join.scss";
+@use "./style.scss";
 </style>
